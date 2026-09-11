@@ -1,3 +1,30 @@
 uploads = []
 generated = []
-outputs = []
+
+[[outputs]]
+id = "7AqNXUOE7w6p6BhBxZAMy"
+uri = "file://documents/talmud-footnotes-analysis.html"
+type = "text"
+title = "Longest Talmud footnotes: analysis"
+description = "Full-corpus methodology, distribution, top-20 ranking, before/after section counts, and the three longest notes."
+logical_id = "c9da23b3-6c76-4bc9-bdb2-b91e33c20c8f"
+content_hash = "sha256:5fa32593c980f49e6323e3b36eb98a42eeecc35bf9d25d178c5e49aafaa07114"
+size = 20825
+mtime_ms = 1789112813699
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c9da23b3-6c76-4bc9-bdb2-b91e33c20c8f/1374c1fb-342e-42eb-b080-26945c93595c"
+storage_version_token = "1789112815555306"
+content_type = "text/html"
+
+[[outputs]]
+id = "lNFDZxPpQZWrwmbcKz4eu"
+uri = "file://documents/talmud-commentary-footnotes-blog.html"
+type = "text"
+title = "Read the Talmud, Keep the Commentary"
+description = "Three-page, approximately 1,400-word blog draft using verified Yevamot, Rosh Hashanah, and Ketubot examples."
+logical_id = "569d676e-b231-4aa4-bc5a-03f762b12fbf"
+content_hash = "sha256:f7744df27235f80e8b7c3906f8f90d268acc05afd1f265fcc8770667cb14096d"
+size = 11016
+mtime_ms = 1789112743564
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/569d676e-b231-4aa4-bc5a-03f762b12fbf/c0365fc5-70b3-4d68-bb8e-7316c53e5cd0"
+storage_version_token = "1789112817011720"
+content_type = "text/html"
