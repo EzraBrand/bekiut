@@ -12,7 +12,7 @@ body{margin:0;background:#f2f3f4;color:#20252b;font:16px/1.55 Georgia,serif}.pag
 <p>Bekiut’s new <strong>Move Talmud Commentary to Footnotes</strong> feature separates those reading tasks. Eligible explanatory passages now appear in numbered, initially collapsed notes. Click a superscript to expand the explanation and move to it; a return link takes you back to the text.</p>
 <p>This is not an AI summary or a shorter replacement translation. The feature reorganizes the edition’s text after Bekiut’s existing text processing. It does not write substitute explanations.</p>
 <h2>The longest note: explaining Yevamot’s opening rule</h2>
-<p>The opening of <a href="https://bekiut.com/talmud/Yevamot/2a?section=1">Yevamot 2a, section 1</a> is a particularly revealing example. Its subject is levirate marriage: what happens when a man dies childless and leaves a widow who might marry his surviving brother.</p>
+<p>The opening of <a href="https://bekiut.com/talmud/Yevamot/2a#1">Yevamot 2a, section 1</a> is a particularly revealing example. Its subject is levirate marriage: what happens when a man dies childless and leaves a widow who might marry his surviving brother.</p>
 <p>The Mishnah’s opening rule concerns fifteen categories of forbidden relatives and the exemption of their co-wives. Understanding the full rule requires following a chain of relationships. If one widow is exempt, what happens to her co-wife? What if that co-wife subsequently marries another brother, who also dies?</p>
 <p>The explanation makes the first step concrete:</p>
 <blockquote><p>“In other words, if the deceased brother had two wives, each a so-called rival of the other, and only one wife is a relative of the surviving brother, then the rival wife is also exempt from both levirate marriage and ḥalitza.”</p></blockquote>
@@ -23,7 +23,7 @@ body{margin:0;background:#f2f3f4;color:#20252b;font:16px/1.55 Georgia,serif}.pag
 <section class="page">
 <div class="eyebrow">Bekiut · Blog draft · Page 2 of 3</div>
 <h2>Rosh Hashanah: sixteen words, two hundred words of explanation</h2>
-<p>In <a href="https://bekiut.com/talmud/Rosh_Hashanah/20b?section=12">Rosh Hashanah 20b, section 12</a>, the main text is exceptionally short:</p>
+<p>In <a href="https://bekiut.com/talmud/Rosh_Hashanah/20b#12">Rosh Hashanah 20b, section 12</a>, the main text is exceptionally short:</p>
 <blockquote><p>“Rava said: There is a practical difference between them with regard to the hours before midnight.”</p></blockquote>
 <p>The statement identifies where two opinions differ. But the explanation of that difference takes <strong>201 words</strong>. It compares the scriptural derivations used by R’ Yoḥanan and Reish Lakish, explains the relevance of nightfall and midnight, and connects the discussion to the obligation to eat unleavened bread on Passover.</p>
 <p>There is nothing extraneous about this material. Without it, a reader unfamiliar with the argument may not understand why midnight matters. Yet placing the whole explanation inline makes Rava’s concise answer look like a much longer contribution.</p>
@@ -31,7 +31,7 @@ body{margin:0;background:#f2f3f4;color:#20252b;font:16px/1.55 Georgia,serif}.pag
 <p>The section’s 217 processed words become <strong>16 main-text words plus a 201-word note</strong>. That is a change in presentation, not a claim that sixteen words contain everything a learner needs.</p>
 <p>It also helps when reviewing. Someone returning to the passage can identify Rava’s answer immediately, rather than searching through the explanatory paragraph for the statement being explained.</p>
 <h2>Ketubot: keeping a technical explanation close, but separate</h2>
-<p>A similar effect appears in <a href="https://bekiut.com/talmud/Ketubot/55b?section=1">Ketubot 55b, section 1</a>. The main line reads:</p>
+<p>A similar effect appears in <a href="https://bekiut.com/talmud/Ketubot/55b#1">Ketubot 55b, section 1</a>. The main line reads:</p>
 <blockquote><p>“And the halakha is also in accordance with his opinion with regard to the teruma of the tithe from doubtfully tithed produce [demai].”</p></blockquote>
 <p>This is a 23-word statement attached to a <strong>171-word explanation</strong>. The note defines the uncertainty surrounding demai, introduces a case in which the separated portion becomes mixed back into the produce, and explains why asking the seller about the tithes can matter.</p>
 <p>It also spells out the financial stakes: treating everything as actual teruma would restrict who could use it and affect its sale. That background makes an otherwise obscure ruling intelligible.</p>
@@ -41,11 +41,11 @@ body{margin:0;background:#f2f3f4;color:#20252b;font:16px/1.55 Georgia,serif}.pag
 </section>
 <section class="page">
 <div class="eyebrow">Bekiut · Blog draft · Page 3 of 3</div>
-<h2>The long examples are unusual—and useful</h2>
-<p>To understand the feature’s effect, we ran Bekiut’s actual text-processing and footnote-extraction functions over the available English exports: <strong>78,826 nonempty sections across 36 tractates</strong>.</p>
-<p>The scan produced 28,817 notes. The median note was 24 words; 210 reached at least 100 words, and only three reached 200. Most notes are therefore much shorter than the examples above.</p>
-<p>Those exceptional cases reveal the design problem especially clearly. A note can be several times longer than the statement it explains. When both appear inline, length alone can make it difficult to distinguish the Talmud’s immediate move from the edition’s account of what that move means.</p>
-<p>Footnotes give those two kinds of reading separate places without separating them into different books or tools.</p>
+<h2>A useful bonus: finding complex passages</h2>
+<p>We ran Bekiut’s actual extraction pipeline over <strong>78,826 nonempty sections across 36 tractates</strong>. It produced 28,817 notes, with a median length of 24 words. Only 210 reached 100 words, and just three reached 200.</p>
+<p>This gives us something beyond a cleaner reading interface: <strong>long footnotes are a reasonable heuristic for complex Talmud passages</strong>. An unusually long explanation often points to several relationships, legal assumptions, or argumentative steps that a short formulation leaves unstated. Ranking the notes can help readers and teachers find passages worth unpacking carefully.</p>
+<p>For example, <a href="https://bekiut.com/talmud/Yevamot/31b#6">Yevamot 31b, section 6</a> has a 170-word note explaining why dates on divorce and betrothal documents matter. The explanation reconstructs a hypothetical sequence of events and its legal consequences—complexity that is not obvious from the brief main text alone.</p>
+<p>It is a clue, not a difficulty score. Length also reflects editorial choices and assumed background knowledge, while difficult passages can have short notes. Still, the ranking provides a useful starting list of potentially demanding passages, as well as illustrations of why separating commentary helps.</p>
 <h2>Not every unbolded word belongs in a footnote</h2>
 <p>The edition’s distinction between bold translation and unbolded explanation is the starting point, not an instruction to move every unbolded fragment.</p>
 <p>English often needs connecting words and explanations within a sentence. Moving those mechanically could leave broken syntax or remove wording necessary to follow a quotation. Bekiut’s rules therefore retain mixed translation-and-commentary passages and protect continuations that belong with the main text.</p>
