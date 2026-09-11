@@ -58,13 +58,38 @@ const sitemapDevProxy = () => ({
   },
 });
 
-// Dev-only legacy path redirects (/contents, /contents/:tractate,
-// /dictionary). In production the express server (src/server/index.ts) issues
-// these 301s; this middleware mirrors that behavior in the Vite dev server,
-// preserving query strings.
+// Dev-only Talmud alias redirects. In production the express server
+// (src/server/index.ts) issues these 301s; this middleware mirrors that
+// behavior in the Vite dev server, preserving query strings. The shared
+// canonicalizer only returns valid, in-range Talmud pages, so invalid routes
+// remain available for normal 404 handling.
 // The shared mapping lives in TypeScript with extensionless imports, which
 // plain Node ESM (used to load this config) cannot resolve — so it is loaded
 // lazily through Vite's own module pipeline (ssrLoadModule).
+const talmudRedirectDev = () => ({
+  name: "talmud-redirect-dev",
+  configureServer(server: import("vite").ViteDevServer) {
+    server.middlewares.use(async (req, res, next) => {
+      const url = req.url || "";
+      const queryIndex = url.indexOf("?");
+      const pathname = queryIndex === -1 ? url : url.slice(0, queryIndex);
+      const query = queryIndex === -1 ? "" : url.slice(queryIndex);
+      try {
+        const { getTalmudPathCanonicalization } = (await server.ssrLoadModule(
+          "@workspace/shared-data/talmud-canonical",
+        )) as typeof import("@workspace/shared-data/talmud-canonical");
+        const canonicalization = getTalmudPathCanonicalization(pathname);
+        if (!canonicalization || canonicalization.isCanonical) return next();
+        res.statusCode = 301;
+        res.setHeader("Location", `${canonicalization.canonicalPath}${query}`);
+        res.end();
+      } catch {
+        next();
+      }
+    });
+  },
+});
+
 const legacyRedirectDev = () => ({
   name: "legacy-redirect-dev",
   configureServer(server: import("vite").ViteDevServer) {
@@ -93,6 +118,7 @@ export default defineConfig({
   base: basePath,
   plugins: [
     react(),
+    talmudRedirectDev(),
     legacyRedirectDev(),
     sitemapDevProxy(),
     runtimeErrorOverlay(),

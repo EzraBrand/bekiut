@@ -5,6 +5,7 @@ import { getRambamHilchotInfo } from "./rambam-data";
 import { getBookBySlug } from "./bible-books";
 import { isValidScholarshipWork } from "./data/scholarship-works";
 import type { SEOResult } from "./seo-data";
+import { getTalmudPathCanonicalization } from "./talmud-canonical";
 
 // ── Known application routes ─────────────────────────────────────────────────
 // Shared by the api-server crawler path and the chavrutai production web server
@@ -88,14 +89,22 @@ export function isKnownAppPath(rawPathname: string): boolean {
   // Talmud folio: /talmud/:tractate/:folio (also legacy /tractate/... redirect)
   let m = pathname.match(/^\/(?:talmud|tractate)\/([^/]+)\/(\d+)([ab])$/i);
   if (m) {
-    return isValidPage(m[1], parseInt(m[2], 10), m[3].toLowerCase() as "a" | "b");
+    return (
+      getTalmudPathCanonicalization(rawPathname) !== null &&
+      isValidPage(m[1], parseInt(m[2], 10), m[3].toLowerCase() as "a" | "b")
+    );
   }
   // Any other /talmud/:tractate/:rest shape is invalid
   if (/^\/(?:talmud|tractate)\/[^/]+\/.+$/.test(pathname)) return false;
 
   // Talmud tractate: /talmud/:tractate ; legacy /contents/:tractate redirect
   m = pathname.match(/^\/(?:talmud|contents)\/([^/]+)$/i);
-  if (m) return isValidTractate(m[1]);
+  if (m) {
+    if (pathname.toLowerCase().startsWith("/talmud/")) {
+      return getTalmudPathCanonicalization(rawPathname) !== null;
+    }
+    return isValidTractate(m[1]);
+  }
 
   // Chapter outline: /outline/:tractate/:chapter — only chapters with an
   // actual outline dataset are valid (see AVAILABLE_OUTLINES).

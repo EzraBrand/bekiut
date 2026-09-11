@@ -9,7 +9,7 @@ import { PageLoading } from "@/components/page-loading";
 import { initAnalytics, isOptedOut } from "@/lib/analytics";
 import { useAnalytics } from "@/hooks/use-analytics";
 import { preloadChapterData } from "@/lib/chapter-data";
-import { getTractateSlug, isValidTractate } from "@workspace/shared-data/tractates";
+import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
 import { getBookBySlug } from "@workspace/shared-data/bible-books";
 
 const Contents = lazy(() => import("@/pages/contents"));
@@ -57,24 +57,35 @@ const ScholarshipToc = lazy(() => import("@/pages/scholarship-toc"));
 const ScholarshipSection = lazy(() => import("@/pages/scholarship-section"));
 
 function TractateRedirect() {
-  const { tractate, folio } = useParams<{ tractate: string; folio: string }>();
-  return <Redirect to={`/talmud/${tractate}/${folio}${window.location.hash}`} />;
+  const canonicalPath = getCanonicalTalmudPath(window.location.pathname);
+  if (!canonicalPath) return <NotFound />;
+  return (
+    <Redirect
+      to={`${canonicalPath}${window.location.search}${window.location.hash}`}
+    />
+  );
 }
 
 function TractateContentsRoute() {
-  const { tractate } = useParams<{ tractate: string }>();
-  const canonical = getTractateSlug(tractate || '');
-  if (tractate && tractate !== canonical && isValidTractate(tractate)) {
-    return <Redirect to={`/talmud/${canonical}`} />;
+  const canonicalPath = getCanonicalTalmudPath(window.location.pathname);
+  if (canonicalPath && canonicalPath !== window.location.pathname) {
+    return (
+      <Redirect
+        to={`${canonicalPath}${window.location.search}${window.location.hash}`}
+      />
+    );
   }
   return <TractateContents />;
 }
 
 function TractateViewRoute() {
-  const { tractate, folio } = useParams<{ tractate: string; folio: string }>();
-  const canonical = getTractateSlug(tractate || '');
-  if (tractate && tractate !== canonical && isValidTractate(tractate)) {
-    return <Redirect to={`/talmud/${canonical}/${folio}${window.location.hash}`} />;
+  const canonicalPath = getCanonicalTalmudPath(window.location.pathname);
+  if (canonicalPath && canonicalPath !== window.location.pathname) {
+    return (
+      <Redirect
+        to={`${canonicalPath}${window.location.search}${window.location.hash}`}
+      />
+    );
   }
   return <TractateView />;
 }

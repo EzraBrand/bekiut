@@ -18,6 +18,7 @@ import { getRambamHilchotInfo, RAMBAM_BOOKS } from "@workspace/shared-data/ramba
 import { getBookBySlug } from "@workspace/shared-data/bible-books";
 import { getPageSEO } from "@workspace/shared-data/seo-data";
 import { isKnownAppPath, getNotFoundSEO } from "@workspace/shared-data/route-validation";
+import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
 
 function escapeHtmlAttr(str: string): string {
   return str
@@ -35,6 +36,7 @@ const CHAVRUTAI_SAME_AS = [
 ];
 
 function generateServerSideStructuredData(url: string, baseUrl: string): object | null {
+  url = getCanonicalTalmudPath(url) ?? url;
   const origin = baseUrl;
 
   const organizationNode = {
@@ -641,6 +643,7 @@ async function generateCrawlerBodyContent(
   urlPath: string,
   seoData: { title: string; description: string },
 ): Promise<{ bodyContent: string; complete: boolean; shareDescription: string | null }> {
+  urlPath = getCanonicalTalmudPath(urlPath) ?? urlPath;
   const baseUrl = process.env.NODE_ENV === 'production' ? CANONICAL_BASE_URL : 'http://localhost:5000';
 
   function safeSlug(slug: string): string {
@@ -1290,9 +1293,11 @@ export async function renderSeoEnhancement(
       ? CANONICAL_BASE_URL
       : "http://localhost:5000";
   const urlObj = new URL(originalUrl, baseUrl);
-  const seoData = generateServerSideMetaTags(originalUrl);
-  const structuredData = generateServerSideStructuredData(urlObj.pathname, baseUrl);
-  const { bodyContent, complete, shareDescription } = await generateCrawlerBodyContent(urlObj.pathname, seoData);
+  const canonicalPath = getCanonicalTalmudPath(urlObj.pathname) ?? urlObj.pathname;
+  const normalizedUrl = `${canonicalPath}${urlObj.search}`;
+  const seoData = generateServerSideMetaTags(normalizedUrl);
+  const structuredData = generateServerSideStructuredData(canonicalPath, baseUrl);
+  const { bodyContent, complete, shareDescription } = await generateCrawlerBodyContent(canonicalPath, seoData);
   return { structuredData, bodyContent, complete, shareDescription };
 }
 

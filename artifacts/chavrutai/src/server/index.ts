@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { getPageSEO } from "@workspace/shared-data/seo-data";
 import { isKnownAppPath, getNotFoundSEO } from "@workspace/shared-data/route-validation";
 import { resolveLegacyRedirect } from "@workspace/shared-data/legacy-redirects";
+import { getTalmudPathCanonicalization } from "@workspace/shared-data/talmud-canonical";
 import {
   RequestTelemetryAggregator,
   classifyTraffic,
@@ -308,6 +309,16 @@ app.use((req, res, next) => {
 // Legacy path redirects (/contents, /contents/:tractate, /dictionary): 301 to
 // the current URL scheme, preserving query strings. Shares one mapping with
 // the api-server (external sites still link to the historical paths).
+app.use((req, res, next) => {
+  const talmudCanonicalization = getTalmudPathCanonicalization(req.path);
+  if (talmudCanonicalization && !talmudCanonicalization.isCanonical) {
+    const queryIndex = req.originalUrl.indexOf("?");
+    const query = queryIndex === -1 ? "" : req.originalUrl.slice(queryIndex);
+    return res.redirect(301, `${talmudCanonicalization.canonicalPath}${query}`);
+  }
+  next();
+});
+
 app.use((req, res, next) => {
   const target = resolveLegacyRedirect(req.path);
   if (target) {

@@ -1,4 +1,12 @@
-import { normalizeDisplayTractateName, getMishnahTractateInfo } from "./tractates";
+import {
+  normalizeDisplayTractateName,
+  getMishnahTractateInfo,
+  getTractateSlug,
+} from "./tractates";
+import {
+  getCanonicalTalmudPath,
+  normalizeTalmudFolio,
+} from "./talmud-canonical";
 import { getYerushalmiTractateInfo } from "./yerushalmi-data";
 import { isYerushalmiHalakhahMissing } from "./yerushalmi-missing";
 import { getRambamHilchotInfo } from "./rambam-data";
@@ -259,13 +267,14 @@ export function getTalmudTractateSEO(
   tractate: string,
   baseUrl: string,
 ): SEOResult {
-  const tractateTitle = normalizeDisplayTractateName(tractate);
+  const tractateSlug = getTractateSlug(tractate);
+  const tractateTitle = normalizeDisplayTractateName(tractateSlug);
   return {
     title: `${tractateTitle} Talmud - Complete Chapter Guide | Bekiut`,
     description: `Study ${tractateTitle} tractate chapter by chapter with Hebrew-English text, detailed folio navigation, and traditional commentary access. Free online Talmud learning.`,
     ogTitle: `${tractateTitle} Talmud - Complete Study Guide`,
     ogDescription: `Study ${tractateTitle} tractate chapter by chapter with Hebrew-English text, detailed folio navigation, and traditional commentary access.`,
-    canonical: `${baseUrl}/talmud/${tractate}`,
+    canonical: `${baseUrl}/talmud/${tractateSlug}`,
     robots: "index, follow",
   };
 }
@@ -275,14 +284,16 @@ export function getTalmudFolioSEO(
   folio: string,
   baseUrl: string,
 ): SEOResult {
-  const tractateTitle = normalizeDisplayTractateName(tractate);
-  const folioUpper = folio.toUpperCase();
+  const tractateSlug = getTractateSlug(tractate);
+  const tractateTitle = normalizeDisplayTractateName(tractateSlug);
+  const canonicalFolio = normalizeTalmudFolio(folio) ?? folio;
+  const folioUpper = canonicalFolio.toUpperCase();
   return {
     title: `${tractateTitle} ${folioUpper} \u2013 Hebrew & English Talmud | Bekiut`,
     description: `Study ${tractateTitle} folio ${folioUpper} with parallel Hebrew-English text, traditional commentary, and modern study tools. Free access to Babylonian Talmud online.`,
     ogTitle: `${tractateTitle} ${folioUpper} \u2013 Talmud Study Page`,
     ogDescription: `Study ${tractateTitle} folio ${folioUpper} with parallel Hebrew-English text, traditional commentary, and modern study tools.`,
-    canonical: `${baseUrl}/talmud/${tractate}/${folio}`,
+    canonical: `${baseUrl}/talmud/${tractateSlug}/${canonicalFolio}`,
     robots: "index, follow",
   };
 }
@@ -582,6 +593,12 @@ export function getPageSEO(
   searchParams: URLSearchParams,
   baseUrl: string,
 ): SEOResult {
+  // Core metadata must agree with redirect targets even when a caller invokes
+  // this shared helper directly for a recognized alternate Talmud URL.
+  // Invalid/out-of-range paths return null from the canonicalizer and are
+  // left for the route validator's 404 handling.
+  pathname = getCanonicalTalmudPath(pathname) ?? pathname;
+
   // Param-dependent pages must be checked before the static lookup
   if (pathname === "/search") {
     return getSearchSEO(

@@ -42,6 +42,14 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Talmud: Canonical Alternate URLs (September 11)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Recognized lowercase, hyphenated, encoded, and safely double-encoded Talmud aliases now permanently redirect to the exact current tractate and folio URL.</li>
+                <li>Valid canonical pages retain their bilingual opening excerpts and self-canonical metadata, while unknown and out-of-range references remain real 404s.</li>
+              </ul>
+            </div>
+
+            <div>
               <h3 className="font-medium text-foreground mb-2">Talmud: Cleaner Hebrew Punctuation (September 9)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Removed redundant standalone dashes after Hebrew questions, exclamations, and combined <strong>?!</strong> punctuation.</li>

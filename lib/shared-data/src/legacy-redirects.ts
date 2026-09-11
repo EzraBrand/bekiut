@@ -1,4 +1,4 @@
-import { getTractateSlug } from "./tractates";
+import { getTractateSlug, isValidTractate } from "./tractates";
 
 // ── Legacy path redirects ────────────────────────────────────────────────────
 // Single source of truth for the historical URL scheme, shared by:
@@ -29,6 +29,10 @@ export function resolveLegacyRedirect(rawPathname: string): string | null {
 
   const contentsTractate = pathname.match(/^\/contents\/([^/]+)$/i);
   if (contentsTractate) {
+    // Do not turn an unknown legacy reference into a redirect to a fabricated
+    // Talmud page. Unknown content paths must remain available for 404
+    // handling by the route validator.
+    if (!isValidTractate(contentsTractate[1])) return null;
     return `/talmud/${getTractateSlug(contentsTractate[1])}`;
   }
 

@@ -4,6 +4,11 @@ import {
   getNotFoundSEO,
 } from "@workspace/shared-data/route-validation";
 import { resolveLegacyRedirect } from "@workspace/shared-data/legacy-redirects";
+import {
+  getCanonicalTalmudPath,
+  getTalmudPathCanonicalization,
+} from "@workspace/shared-data/talmud-canonical";
+import { getPageSEO } from "@workspace/shared-data/seo-data";
 
 describe("isKnownAppPath — valid URLs", () => {
   it("accepts static pages", () => {
@@ -45,6 +50,8 @@ describe("isKnownAppPath — valid URLs", () => {
     expect(isKnownAppPath("/talmud/Berakhot/64a")).toBe(true);
     expect(isKnownAppPath("/talmud/Shabbat/157b")).toBe(true);
     expect(isKnownAppPath("/talmud/Bava_Metzia/119a")).toBe(true);
+    expect(isKnownAppPath("/talmud/bava%2520metzia/13b")).toBe(true);
+    expect(isKnownAppPath("/talmud/bava%252520metzia/13b")).toBe(false);
   });
 
   it("accepts valid Bible books and chapters", () => {
@@ -161,6 +168,10 @@ describe("resolveLegacyRedirect", () => {
     expect(resolveLegacyRedirect("/contents/Berakhot/")).toBe("/talmud/Berakhot");
   });
 
+  it("does not redirect unknown legacy tractates", () => {
+    expect(resolveLegacyRedirect("/contents/fakename")).toBe(null);
+  });
+
   it("returns null for non-legacy paths", () => {
     for (const p of [
       "/",
@@ -171,6 +182,64 @@ describe("resolveLegacyRedirect", () => {
     ]) {
       expect(resolveLegacyRedirect(p), p).toBe(null);
     }
+  });
+});
+
+describe("Talmud alternate URL canonicalization", () => {
+  it("maps recognized aliases to the exact current slug and folio spelling", () => {
+    expect(getCanonicalTalmudPath("/talmud/berakhot/10A")).toBe(
+      "/talmud/Berakhot/10a",
+    );
+    expect(getCanonicalTalmudPath("/talmud/bava-metzia/13b")).toBe(
+      "/talmud/Bava_Metzia/13b",
+    );
+    expect(getCanonicalTalmudPath("/talmud/rosh%20hashanah/11a")).toBe(
+      "/talmud/Rosh_Hashanah/11a",
+    );
+  });
+
+  it("accepts one double-encoded alias but never decodes without a bound", () => {
+    expect(
+      getCanonicalTalmudPath("/talmud/bava%2520metzia/13b"),
+    ).toBe("/talmud/Bava_Metzia/13b");
+    expect(
+      getCanonicalTalmudPath("/talmud/bava%252520metzia/13b"),
+    ).toBe(null);
+    expect(getCanonicalTalmudPath("/talmud/bava%ZZmetzia/13b")).toBe(null);
+  });
+
+  it("leaves unknown and out-of-range references for 404 handling", () => {
+    expect(getCanonicalTalmudPath("/talmud/fakename/10a")).toBe(null);
+    expect(getCanonicalTalmudPath("/talmud/berakhot/999a")).toBe(null);
+    expect(getCanonicalTalmudPath("/talmud/berakhot/64b")).toBe(null);
+    expect(
+      getTalmudPathCanonicalization("/talmud/Berakhot/10a"),
+    ).toEqual({
+      canonicalPath: "/talmud/Berakhot/10a",
+      isCanonical: true,
+    });
+    expect(
+      getTalmudPathCanonicalization("/talmud/Berakhot/10a/"),
+    ).toEqual({
+      canonicalPath: "/talmud/Berakhot/10a",
+      isCanonical: false,
+    });
+  });
+
+  it("uses the same canonical metadata for direct alias SEO calls", () => {
+    const alias = getPageSEO(
+      "/talmud/bava-metzia/13B",
+      new URLSearchParams("utm_source=test"),
+      "https://bekiut.com",
+    );
+    const canonical = getPageSEO(
+      "/talmud/Bava_Metzia/13b",
+      new URLSearchParams(),
+      "https://bekiut.com",
+    );
+    expect(alias.title).toBe(canonical.title);
+    expect(alias.description).toBe(canonical.description);
+    expect(alias.canonical).toBe("https://bekiut.com/talmud/Bava_Metzia/13b");
   });
 });
 

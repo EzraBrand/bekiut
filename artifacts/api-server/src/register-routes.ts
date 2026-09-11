@@ -2,6 +2,10 @@ import express, { type Express, type Request, type Response } from "express";
 import { createServer, type Server } from "http";
 import path from "path";
 import { getTractateSlug } from "@workspace/shared-data/tractates";
+import {
+  getTalmudPathCanonicalization,
+  getCanonicalTalmudPath,
+} from "@workspace/shared-data/talmud-canonical";
 import { resolveLegacyRedirect } from "@workspace/shared-data/legacy-redirects";
 import { findFirstValidHalakhahInChapter } from "@workspace/shared-data/yerushalmi-missing";
 import { getYerushalmiTractateInfo } from "@workspace/shared-data/yerushalmi-data";
@@ -28,46 +32,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const url = req.path;
     let canonicalUrl = url;
     let needsRedirect = false;
-    
-    if (url.length > 1 && url.endsWith('/')) {
+
+    // Only redirect recognized Talmud aliases. In particular, do not turn an
+    // unknown tractate or out-of-range folio into a redirect to a made-up
+    // page. The shared helper also handles encoded and once-double-encoded
+    // aliases and normalizes the folio side.
+    const talmudCanonicalization = getTalmudPathCanonicalization(url);
+    const isTalmudParamPath = /^\/(?:talmud|tractate)\/[^/]+/i.test(url);
+    if (
+      talmudCanonicalization &&
+      !talmudCanonicalization.isCanonical
+    ) {
+      canonicalUrl = talmudCanonicalization.canonicalPath;
+      needsRedirect = true;
+    } else if (!isTalmudParamPath && url.length > 1 && url.endsWith('/')) {
       canonicalUrl = canonicalUrl.slice(0, -1);
       needsRedirect = true;
     }
-    
-    const talmudFolioMatch = canonicalUrl.match(/^\/talmud\/([^/]+)\/(\d+)([ab])$/i);
-    if (talmudFolioMatch) {
-      const [, tractate, folio, side] = talmudFolioMatch;
-      const normalizedTractate = getTractateSlug(tractate);
-      const normalizedFolio = folio + side.toLowerCase();
-      const normalizedUrl = `/talmud/${normalizedTractate}/${normalizedFolio}`;
-      
-      if (canonicalUrl !== normalizedUrl) {
-        canonicalUrl = normalizedUrl;
-        needsRedirect = true;
-      }
-    }
-    
-    const oldTractateMatch = canonicalUrl.match(/^\/tractate\/([^/]+)\/(\d+)([ab])$/i);
-    if (oldTractateMatch) {
-      const [, tractate, folio, side] = oldTractateMatch;
-      const normalizedTractate = getTractateSlug(tractate);
-      const normalizedFolio = folio + side.toLowerCase();
-      canonicalUrl = `/talmud/${normalizedTractate}/${normalizedFolio}`;
-      needsRedirect = true;
-    }
-    
-    const talmudPageMatch = canonicalUrl.match(/^\/talmud\/([^/]+)$/i);
-    if (talmudPageMatch) {
-      const [, tractate] = talmudPageMatch;
-      const normalizedTractate = getTractateSlug(tractate);
-      const normalizedUrl = `/talmud/${normalizedTractate}`;
-      
-      if (canonicalUrl !== normalizedUrl) {
-        canonicalUrl = normalizedUrl;
-        needsRedirect = true;
-      }
-    }
-    
+
     const yerushalmiOldChapterMatch = canonicalUrl.match(/^\/yerushalmi\/([^/]+)\/(\d+)$/);
     if (yerushalmiOldChapterMatch) {
       const [, tractate, chapter] = yerushalmiOldChapterMatch;
@@ -171,7 +153,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const rawPath = typeof req.query["path"] === "string" ? req.query["path"] : "/";
       const safePath = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
-      const { structuredData, bodyContent, complete, shareDescription } = await renderSeoEnhancement(safePath);
+      const parsedPath = new URL(safePath, "http://seo-enhancement.local");
+      const canonicalPath =
+        getCanonicalTalmudPath(parsedPath.pathname) ?? parsedPath.pathname;
+      const normalizedPath = `${canonicalPath}${parsedPath.search}`;
+      const { structuredData, bodyContent, complete, shareDescription } =
+        await renderSeoEnhancement(normalizedPath);
       res.set("Cache-Control", complete ? "private, max-age=300" : "no-store");
       res.json({ structuredData, bodyContent, complete, shareDescription });
     } catch (error) {

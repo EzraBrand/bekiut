@@ -277,10 +277,34 @@ export const URL_TO_SEFARIA_TRACTATE_MAP: Record<string, string> = {
   "niddah": "Niddah"
 };
 
+/**
+ * Decode URL input with a bounded number of passes.
+ *
+ * Tractate aliases have historically arrived both normally encoded and once
+ * double-encoded. Keep that compatibility without recursively decoding
+ * attacker-controlled input or throwing on malformed percent escapes.
+ */
+export function decodeURIComponentBounded(
+  value: string,
+  maxPasses = 2,
+): string | null {
+  let decoded = value;
+  for (let pass = 0; pass < maxPasses; pass += 1) {
+    try {
+      const next = decodeURIComponent(decoded);
+      if (next === decoded) return decoded;
+      decoded = next;
+    } catch {
+      return null;
+    }
+  }
+  return decoded;
+}
+
 // Internal helper: normalize any tractate URL input to the lowercase-hyphen key used in URL_TO_SEFARIA_TRACTATE_MAP
 // Accepts old format (berakhot, rosh-hashanah) and new format (Berakhot, Rosh_Hashanah)
 function normalizeTractateKey(urlTractate: string): string {
-  return decodeURIComponent(urlTractate)
+  return (decodeURIComponentBounded(urlTractate) ?? urlTractate)
     .toLowerCase()
     .replace(/['\u2019]/g, '')
     .replace(/[\s_-]+/g, '-')
@@ -440,5 +464,5 @@ export function getTractateSlug(tractate: string): string {
     return sefariaName.replace(/\s+/g, '_');
   }
   // Fallback: return decoded input unchanged
-  return decodeURIComponent(tractate);
+  return decodeURIComponentBounded(tractate) ?? tractate;
 }
