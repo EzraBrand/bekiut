@@ -59,6 +59,11 @@
         "whereby": "by which",
         "dwelling": "residence",
         "maiden": "young woman",
+        "maidens": "young women",
+        "harlot": "prostitute",
+        "harlots": "prostitutes",
+        "a beast": "an animal",
+        "beasts": "animals",
         "begot": "fathered",
         "dwelt": "resided",
         "smote": "struck",
@@ -296,6 +301,10 @@
     "sexual_base": {
       "description": "Base sexual relation terms",
       "terms": {
+        "cohabit": "have sex",
+        "cohabits": "has sex",
+        "cohabiting": "having sex",
+        "cohabited": "had sex",
         "sexual intercourse": "sex",
         "intercourse": "sex",
         "conjugal relations": "sex",
@@ -306,7 +315,7 @@
     },
     "sexual_conjugations": {
       "description": "Conjugated sexual relation phrases (generated from base terms)",
-      "baseTerms": ["intercourse", "sexual intercourse", "sexual relations", "intimacy"],
+      "baseTerms": ["intercourse", "sexual intercourse", "sexual relations", "relations", "intimacy"],
       "conjugations": [
         { "prefix": "engage in", "replacement": "have sex" },
         { "prefix": "engages in", "replacement": "has sex" },
@@ -439,6 +448,8 @@
         "one ninth": "1/9th",
         "one-tenth": "1/10th",
         "one tenth": "1/10th",
+        "two-tenths": "2/10ths",
+        "two tenths": "2/10ths",
         "one-twelfth": "1/12th",
         "one twelfth": "1/12th",
         "one-sixteenth": "1/16th",

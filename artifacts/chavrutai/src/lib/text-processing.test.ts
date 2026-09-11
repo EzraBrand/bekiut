@@ -595,6 +595,11 @@ describe('Term Replacement', () => {
         ['whereby', 'by which'],
         ['abode', 'residence'],
         ['maiden', 'young woman'],
+        ['maidens', 'young women'],
+        ['harlot', 'prostitute'],
+        ['harlots', 'prostitutes'],
+        ['a beast', 'an animal'],
+        ['beasts', 'animals'],
         ['begot', 'fathered'],
         ['dwelt', 'resided'],
         ['smote', 'struck'],
@@ -625,13 +630,23 @@ describe('Term Replacement', () => {
     });
 
     it('should preserve words that merely contain an archaic term', () => {
-      expect(replaceTerms('shadow shallot dwellingplace')).toBe(
-        'shadow shallot dwellingplace',
+      expect(replaceTerms('shadow shallot dwellingplace maidenhair beastskin harlotry')).toBe(
+        'shadow shallot dwellingplace maidenhair beastskin harlotry',
       );
     });
   });
 
   describe('Ordinal Number Replacements', () => {
+    it('should convert two-tenths before cardinal processing, including Eruvin 50a wording', () => {
+      expect(replaceTerms('he tithes two-tenths instead of one-tenth')).toBe(
+        'he tithes 2/10ths instead of 1/10th',
+      );
+      expect(replaceTerms('two tenths')).toBe('2/10ths');
+      expect(replaceTerms('<b>two-tenths</b>')).toBe('<b>2/10ths</b>');
+      expect(replaceTerms('<b>two</b>-<b>tenths</b>')).toBe('<b>2/10ths</b>');
+      expect(processEnglishText('Since it is unclear which of the two-tenths is the actual tithe')).toContain('2/10ths');
+    });
+
     it('should replace third with 3rd', () => {
       expect(replaceTerms('the third day')).toContain('3rd');
     });
@@ -665,6 +680,28 @@ describe('Term Replacement', () => {
   });
 
   describe('Sexual Term Replacements', () => {
+    it.each([
+      ['cohabit', 'have sex'],
+      ['cohabits', 'has sex'],
+      ['cohabiting', 'having sex'],
+      ['cohabited', 'had sex'],
+      ['engage in relations', 'have sex'],
+      ['engages in relations', 'has sex'],
+      ['engaging in relations', 'having sex'],
+      ['engaged in relations', 'had sex'],
+      ['have relations', 'have sex'],
+      ['has relations', 'has sex'],
+      ['having relations', 'having sex'],
+      ['had relations', 'had sex'],
+    ])('should replace %s with %s', (source, expected) => {
+      expect(replaceTerms(`${source} with her`)).toBe(`${expected} with her`);
+      expect(replaceTerms(`<b>${source}</b>`)).toBe(`<b>${expected}</b>`);
+    });
+
+    it('should not replace cohabit within longer words', () => {
+      expect(replaceTerms('cohabitation cohabitant')).toBe('cohabitation cohabitant');
+    });
+
     it('should replace engage in intercourse with have sex', () => {
       expect(replaceTerms('they engage in intercourse')).toContain('have sex');
     });
