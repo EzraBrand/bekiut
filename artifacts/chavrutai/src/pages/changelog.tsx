@@ -42,6 +42,16 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Talmud: Commentary in Section Notes (September 11)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Complete standalone English commentary blocks now appear in collapsible notes below their section, including questions and linked clauses that finish with a full stop, question mark, or exclamation mark. Incomplete blocks and continuations of translation stay inline. Consecutive eligible commentary paragraphs stay together in one note.</li>
+                <li>Each commentary block must contain at least 13 words in total; shorter paragraphs can join adjacent commentary in the same note. Section-opening paragraphs, blocks below the minimum, bold translation, and paragraphs mixing translation with commentary remain in the main text. Notes preserve paragraph breaks, formatting, and links.</li>
+                <li>Prominent superscript references open the relevant note and scroll only as far as needed to bring it into view. Click the number in a note to return to its reference in the main text.</li>
+                <li>Try it in <Link href="/talmud/Berakhot/2a#1" className="text-primary underline">Berakhot 2a, section 1</Link>.</li>
+              </ul>
+            </div>
+
+            <div>
               <h3 className="font-medium text-foreground mb-2">Talmud: Canonical Alternate URLs (September 11)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Recognized lowercase, hyphenated, encoded, and safely double-encoded Talmud aliases now permanently redirect to the exact current tractate and folio URL.</li>

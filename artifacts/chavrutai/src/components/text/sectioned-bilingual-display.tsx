@@ -9,6 +9,8 @@ import { useChapterData, type ChapterInfo } from "@/lib/chapter-data";
 import { getMishnahSection, getMishnahReferenceForSection, type MishnahReference } from "@shared/mishnah-map";
 import type { TalmudText } from "@/types/talmud";
 import { trackPublishingEvent } from "@/lib/publishing-analytics";
+import { extractTalmudCommentary } from "@/lib/talmud-commentary";
+import { TalmudSectionNotes, noteReferenceClass } from "./talmud-section-notes";
 
 interface SectionedBilingualDisplayProps {
   text: TalmudText;
@@ -103,7 +105,7 @@ export function SectionedBilingualDisplay({
 
       const mishnahRef = mishnahRefMap[index + 1] || null;
 
-      let englishHtml = '';
+      let english = extractTalmudCommentary('');
       if (englishSection.trim()) {
         let rawProcessed = processEnglishText(englishSection);
         const mishnahMarkerRe = /<strong[^>]*>\s*(?:MISHNA|Mishnah|mishna):\s*<\/strong>/i;
@@ -125,7 +127,12 @@ export function SectionedBilingualDisplay({
           /<strong[^>]*>\s*(?:GEMARA|Talmud|Gemara):\s*<\/strong>/i,
           `<span class="section-marker">Talmud</span>\n`
         );
-        englishHtml = applyHighlighting(linkBibleCitations(formatEnglishText(rawProcessed)));
+        const extracted = extractTalmudCommentary(rawProcessed);
+        const decorate = (html: string) => applyHighlighting(linkBibleCitations(html));
+        english = {
+          paragraphs: extracted.paragraphs.map(paragraph => ({ ...paragraph, html: decorate(paragraph.html) })),
+          notes: extracted.notes.map(note => ({ ...note, paragraphs: note.paragraphs.map(decorate) })),
+        };
       }
 
       const hebrewLines = hebrewSection.trim()
@@ -141,7 +148,7 @@ export function SectionedBilingualDisplay({
           })
         : [];
 
-      return { englishHtml, hebrewLines };
+      return { english, hebrewLines };
     });
   }, [maxSections, hebrewSections, englishSections, applyHighlighting, mishnahRefMap]);
 
@@ -622,14 +629,33 @@ export function SectionedBilingualDisplay({
                 );
               })()}
               
+              <TalmudSectionNotes
+                key={`${text.tractate}-${text.folio}${text.side}-${index}`}
+                id={`bavli-${text.tractate.replace(/\s/g, '-')}-${text.folio}${text.side}-${index + 1}`}
+                notes={section.english.notes}
+              >
               <div className="text-display flex flex-col lg:flex-row gap-6">
                 {/* English Section (First on Mobile, Left Side on Desktop) */}
                 <div className="text-column space-y-3 lg:order-1">
-                  {section.englishHtml && (
+                  {section.english.paragraphs.length > 0 && (
                     <div className="english-text text-foreground">
-                      <div 
-                        dangerouslySetInnerHTML={{ __html: section.englishHtml }}
-                      />
+                      {section.english.paragraphs.map((paragraph, paragraphIndex) => (
+                        <p key={paragraphIndex} className="mb-3 leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: paragraph.html }} />
+                          {paragraph.noteNumber !== undefined && (
+                            <sup className="ml-1">
+                              <button type="button" data-talmud-note={paragraph.noteNumber}
+                                id={`bavli-${text.tractate.replace(/\s/g, '-')}-${text.folio}${text.side}-${index + 1}-ref-${paragraph.noteNumber}`}
+                                aria-label={`Jump to note ${paragraph.noteNumber} in section ${index + 1}`}
+                                aria-controls={`bavli-${text.tractate.replace(/\s/g, '-')}-${text.folio}${text.side}-${index + 1}-notes`}
+                                title={`Jump to note ${paragraph.noteNumber}`}
+                                className={noteReferenceClass}>
+                                {paragraph.noteNumber}
+                              </button>
+                            </sup>
+                          )}
+                        </p>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -649,6 +675,7 @@ export function SectionedBilingualDisplay({
                   )}
                 </div>
               </div>
+              </TalmudSectionNotes>
             </div>
           );
         })}
