@@ -28,3 +28,17 @@ mtime_ms = 1789114829567
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/569d676e-b231-4aa4-bc5a-03f762b12fbf/632f8256-154b-4ba5-a05c-265cba13e13e"
 storage_version_token = "1789114831804317"
 content_type = "text/html"
+
+[[outputs]]
+id = "_Dncva6WcHJmPWAnBjY5Q"
+uri = "file://documents/talmud-commentary-footnotes-blog.md"
+type = "text"
+title = "Expanded blog post — Markdown"
+description = "Includes the full tractate, chapter, and sugya complexity analysis, methodological caveats, and the longest-footnotes appendix with all 20 rows."
+logical_id = "dc9e4c27-f0eb-4cbf-9022-fbacafa932fe"
+content_hash = "sha256:203a829386e40a2c5a04d86ce2d45b8cd866ef11f1a8b2f6140bb12b7d561d38"
+size = 18633
+mtime_ms = 1789116006428
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/dc9e4c27-f0eb-4cbf-9022-fbacafa932fe/52e87453-2af4-431c-892d-c314a52cc5c6"
+storage_version_token = "1789116035554741"
+content_type = "text/markdown"
