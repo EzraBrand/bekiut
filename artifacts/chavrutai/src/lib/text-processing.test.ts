@@ -637,6 +637,13 @@ describe('Term Replacement', () => {
   });
 
   describe('Ordinal Number Replacements', () => {
+    it('should convert a tenth of an ephah to a numeric fraction', () => {
+      expect(replaceTerms('a tenth of an ephah')).toBe('1/10th of an ephah');
+      expect(replaceTerms('A tenth of an ephah')).toBe('1/10th of an ephah');
+      expect(replaceTerms('<b>a tenth of an ephah</b>')).toBe('<b>1/10th of an ephah</b>');
+      expect(processEnglishText('He brings a tenth of an ephah')).toContain('1/10th of an ephah');
+    });
+
     it('should convert two-tenths before cardinal processing, including Eruvin 50a wording', () => {
       expect(replaceTerms('he tithes two-tenths instead of one-tenth')).toBe(
         'he tithes 2/10ths instead of 1/10th',
