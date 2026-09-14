@@ -81,8 +81,10 @@ const CONNECTOR = `(?:\\s+(?:and\\s+)?|-)`;
 //   optional leading "a" / "an" (only meaningful before a magnitude word)
 //   + first number word
 //   + zero or more (connector + number word) pairs
+// Keep articles outside other numbers: "a twenty-four-hour" must match only
+// "twenty-four", otherwise the parser rejects the entire article-led phrase.
 export const NUMBER_SEQUENCE_PATTERN = new RegExp(
-  `\\b(?:(?:a|an)\\s+)?(?:${CARDINAL_ALT})(?:${CONNECTOR}(?:${CARDINAL_ALT}))*\\b`,
+  `\\b(?:(?:a|an)\\s+(?=(?:${[...VALID_A_TARGETS].join('|')})\\b))?(?:${CARDINAL_ALT})(?:${CONNECTOR}(?:${CARDINAL_ALT}))*\\b`,
   'gi'
 );
 

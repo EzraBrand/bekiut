@@ -652,6 +652,27 @@ describe('Term Replacement', () => {
   });
 
   describe('Ordinal Number Replacements', () => {
+    it.each([
+      ['twenty-four-hour', '24-hour'],
+      ['A twenty-four-hour period', 'A 24-hour period'],
+      ['a twenty-four-hour <b>period.</b>', 'a 24-hour <b>period.</b>'],
+      ['the twenty-four-hour period', 'the 24-hour period'],
+      ['twenty-four hours earlier', '24 hours earlier'],
+      ['a thirty-six-hour period', 'a 36-hour period'],
+      ['an eight-day period', 'an 8-day period'],
+      ['a hundred and twenty three', '123'],
+      ['a thousand', '1,000'],
+      ['one or two', 'one or two'],
+    ])('should convert cardinal numbers without absorbing unrelated articles: %s', (source, expected) => {
+      expect(replaceTerms(source)).toBe(expected);
+    });
+
+    it('should convert the article-led phrase from Niddah 2a:2 in the full pipeline', () => {
+      expect(processEnglishText('the principle is: A twenty-four-hour <b>period reduces</b> the time')).toContain(
+        'A 24-hour <b>period reduces</b>',
+      );
+    });
+
     it('should convert a tenth of an ephah to a numeric fraction', () => {
       expect(replaceTerms('a tenth of an ephah')).toBe('1/10th of an ephah');
       expect(replaceTerms('A tenth of an ephah')).toBe('1/10th of an ephah');
