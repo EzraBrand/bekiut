@@ -496,6 +496,11 @@ describe('Hebrew Text Processing', () => {
       ['ששה? — תלמוד לומר:', 'ששה?\nתלמוד לומר:'],
       ['והסריקין?\u2060— תלמוד', 'והסריקין?\nתלמוד'],
       ['היא?\u00A0\u2060— דתני', 'היא?\nדתני'],
+      ['קרא, — הרי', 'קרא,\nהרי'],
+      ['קרא, – הרי', 'קרא,\nהרי'],
+      ['קרא,—הרי', 'קרא,\nהרי'],
+      ['קרא,\n\u2060—\nהרי', 'קרא,\nהרי'],
+      ['קרא,\n\u00A0\u2060—\nהרי', 'קרא,\nהרי'],
     ])('should remove a redundant dash after terminal punctuation: %s', (input, expected) => {
       expect(splitHebrewText(input)).toBe(expected);
     });
@@ -503,6 +508,16 @@ describe('Hebrew Text Processing', () => {
     it('should remove the dash idempotently after server and client processing', () => {
       const apiProcessed = processHebrewText('מיבעיא?! — שאני');
       expect(processHebrewText(apiProcessed)).toBe('מיבעיא?!\nשאני');
+    });
+
+    it('should clean the comma-dash in Yoma 74b:10 before and after processing', () => {
+      const source = 'בַּעֲרָיוֹת קָא מִישְׁתַּעֵי קְרָא, — הֲרֵי הוּא אוֹמֵר:';
+      const expected = 'בעריות קא מישתעי קרא,\nהרי הוא אומר:';
+      expect(processHebrewText(source)).toBe(expected);
+      expect(processHebrewText(processHebrewText(source))).toBe(expected);
+      expect(processHebrewText('<strong>קרא, — הרי</strong>')).toBe(
+        '<strong>קרא,\nהרי</strong>',
+      );
     });
   });
 

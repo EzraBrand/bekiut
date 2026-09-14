@@ -188,13 +188,13 @@ export function splitHebrewText(text: string): string {
   
   let processedText = text;
 
-  // A question mark, exclamation mark, combined ?!, or colon already supplies
+  // A question mark, exclamation mark, combined ?!, colon, or comma already supplies
   // the paragraph boundary. Remove a following en/em dash before the generic
   // spaced-dash protection adds NBSP/word-joiner characters around it. Accept
   // those characters too so processing remains idempotent for text that has
   // already passed through an older server/client pipeline.
   processedText = processedText.replace(
-    /(\?!|[?!:])[\s\u00A0\u2060]*[–—]/g,
+    /(\?!|[?!:,])[\s\u00A0\u2060]*[–—]/g,
     '$1',
   );
   
