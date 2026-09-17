@@ -42,6 +42,13 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Mishneh Torah: Paragraph Breaks (September 17)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>English paragraphs and list items now retain the translation’s original line breaks, including in Hilchot Repentance, without extra blank lines.</li>
+              </ul>
+            </div>
+
+            <div>
               <h3 className="font-medium text-foreground mb-2">Talmud: Commentary in Section Notes (September 11)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Complete standalone English commentary blocks now appear in collapsible notes below their section, including questions and linked clauses that finish with a full stop, question mark, or exclamation mark. Incomplete blocks and continuations of translation stay inline. Consecutive eligible commentary paragraphs stay together in one note.</li>

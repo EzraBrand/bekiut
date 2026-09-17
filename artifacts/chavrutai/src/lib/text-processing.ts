@@ -337,20 +337,29 @@ export function processRambamHebrewText(text: string): string {
 export function processRambamEnglishText(text: string): string {
   if (!text) return '';
 
+  // Preserve source boundaries before stripping tags or protecting italic content.
+  let processed = text
+    .replace(/\r\n?/g, '\n')
+    .replace(/<\/?(?:br|hr|p|div|li|ul|ol|blockquote|h[1-6]|section|article|header|footer|pre)(?=[\s/>])[^>]*>/gi, '\n');
+
   // Step 1: Protect <sup data-note-ref> elements — restored AFTER sentence splitting
   // so splitting patterns can see the period that precedes each footnote marker.
   const protectedSups: string[] = [];
-  let processed = text.replace(/<sup[^>]*data-note-ref[^>]*>[\s\S]*?<\/sup>/g, (match) => {
+  processed = processed.replace(/<sup[^>]*data-note-ref[^>]*>[\s\S]*?<\/sup>/g, (match) => {
     protectedSups.push(match);
     return `\x00RAMBAM_NOTE_${protectedSups.length - 1}\x00`;
   });
 
   // Step 2: Protect <em>/<i> italic content — normalize both to <em> so italics display.
-  // Restored AFTER all splitting/cleanup so HTML doesn't interfere with text patterns.
+  // Each source line needs its own balanced wrapper: the reader renders lines separately.
   const protectedItalics: string[] = [];
-  processed = processed.replace(/<(?:em|i)>([\s\S]*?)<\/(?:em|i)>/gi, (_, content) => {
-    protectedItalics.push(`<em>${content}</em>`);
-    return `\x00RAMBAM_ITALIC_${protectedItalics.length - 1}\x00`;
+  processed = processed.replace(/<(em|i)(?:\s[^>]*)?>([\s\S]*?)<\/\1>/gi, (_, _tag, content: string) => {
+    return content.split('\n').map((line) => {
+      const part = content.includes('\n') ? line.trim() : line;
+      if (!part.trim()) return part;
+      protectedItalics.push(`<em>${part}</em>`);
+      return `\x00RAMBAM_ITALIC_${protectedItalics.length - 1}\x00`;
+    }).join('\n');
   });
 
   // Step 3: Strip remaining HTML (other tags like <b>, <span>, etc.), normalize whitespace
@@ -362,11 +371,11 @@ export function processRambamEnglishText(text: string): string {
 
   // Step 4: Protect abbreviations so their periods don't trigger sentence splits
   processed = processed
-    .replace(/\bR\.\s/g, "R' ")
+    .replace(/\bR\.(?=\s)/g, "R'")
     .replace(/\bi\.e\./g, 'i\x00e\x00')
     .replace(/\be\.g\./g, 'e\x00g\x00')
     .replace(/\bibid\./g, 'ibid\x00')
-    .replace(/\bb\.\s/g, 'b\x00 ')
+    .replace(/\bb\.(?=\s)/g, 'b\x00')
     .replace(/R'/g, 'R\x00');
 
   // Step 5: Sentence splitting — must run BEFORE sup/italic restoration.
@@ -390,17 +399,17 @@ export function processRambamEnglishText(text: string): string {
     .replace(/ibid\x00/g, 'ibid.')
     .replace(/b\x00/g, 'b.');
 
-  // Step 7: Restore footnote sups — land after the newline that split their sentence
-  processed = processed.replace(/\x00RAMBAM_NOTE_(\d+)\x00/g, (_, i) => protectedSups[parseInt(i)]);
-
-  // Step 8: Restore italic placeholders
+  // Step 7: Restore italics first, since they may contain protected note markers.
   processed = processed.replace(/\x00RAMBAM_ITALIC_(\d+)\x00/g, (_, i) => protectedItalics[parseInt(i)]);
+
+  // Step 8: Restore footnote sups, including those inside italics.
+  processed = processed.replace(/\x00RAMBAM_NOTE_(\d+)\x00/g, (_, i) => protectedSups[parseInt(i)]);
 
   // Step 9: Final cleanup
   processed = processed
-    .replace(/\n{3,}/g, '\n')
     .replace(/\n[ \t]+/g, '\n')
     .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{2,}/g, '\n')
     .replace(/:$/, '.')
     .trim();
 

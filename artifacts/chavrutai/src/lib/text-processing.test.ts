@@ -12,10 +12,25 @@ import {
   removeNikud,
   processHebrewText,
   processEnglishText,
+  processRambamEnglishText,
+  linkBibleCitations,
   replaceTerms,
   containsHebrew,
   normalizeApiText
 } from './text-processing';
+
+// Contiguous excerpts from Sefaria's Mishneh Torah, trans. by Eliyahu Touger
+// (Jerusalem, Moznaim Pub. c1986-c2007), Repentance 1:1, 1:4, and 2:4.
+// Retrieved 2026-09-17 from /api/texts/Mishneh_Torah,_Repentance.{1,2}.
+// Keep source HTML intact: these regressions depend on its actual boundaries.
+const RAMBAM_1_1_SOURCE =
+  'If a person transgresses any of the mitzvot of the Torah, whether a positive command or a negative command - whether willingly or inadvertently - when he repents, and returns from his sin, he must confess before God, blessed be He, as [Numbers 5:6-7] states: "If a man or a woman commit any of the sins of man... they must confess the sin that they committed."<br>This refers to a verbal confession. This confession is a positive command.<br>How does one confess: He states: "I implore You, God, I sinned, I transgressed, I committed iniquity before You by doing the following. Behold, I regret and am embarrassed for my deeds. I promise never to repeat this act again."';
+
+const RAMBAM_1_4_SOURCE =
+  'If a person violates a prohibition that is not punishable by <i>karet</i> or execution by the court and repents, Teshuvah has a tentative effect and Yom Kippur brings atonement as [Leviticus, <i>loc. cit.</i> states "This day will atone for you."<br>If a person violates [sins punishable by] <i>karet</i> or execution by the court and repents, Teshuvah and Yom Kippur have a tentative effect and the sufferings which come upon him complete the atonement.';
+
+const RAMBAM_2_4_SOURCE =
+  'Among the paths of repentance is for the penitent to<br>a) constantly call out before God, crying and entreating;<br>b) to perform charity according to his potential;<br>c) to separate himself far from the object of his sin;<br>d) to change his name, as if to say "I am a different person and not the same one who sinned;"<br>e) to change his behavior in its entirety to the good and the path of righteousness; and f) to travel in exile from his home. Exile atones for sin because it causes a person to be submissive, humble, and meek of spirit.';
 
 describe('English Text Processing', () => {
   describe('Period + Quote Patterns', () => {
@@ -895,5 +910,150 @@ describe('Regression Tests - Known Issues', () => {
     const input = "he said.' After";
     const result = splitEnglishText(input);
     expect(result).toBe("he said.'\nAfter");
+  });
+});
+
+describe('Rambam English structural line processing', () => {
+  it.each([
+    '<br>',
+    '<br/>',
+    '<br />',
+    '<BR>',
+    '<BR/>',
+    '<br class="paragraph-break" data-kind="source">',
+  ])('normalizes %s to a line break without requiring punctuation', (breakTag) => {
+    expect(processRambamEnglishText(`first line${breakTag}second line`)).toBe(
+      'first line\nsecond line',
+    );
+  });
+
+  it('uses paragraph, div, and list-item boundaries as line breaks', () => {
+    const source = '<p>First paragraph</p><p>Second paragraph</p><div>Third block</div><ul><li>Fourth item</li><li>Fifth item</li></ul>';
+
+    expect(processRambamEnglishText(source)).toBe(
+      'First paragraph\nSecond paragraph\nThird block\nFourth item\nFifth item',
+    );
+  });
+
+  it('collapses repeated structural breaks and normalizes CRLF, CR, and LF', () => {
+    const source = '<br>First<br> \t<br />\r\nSecond\rThird\nFourth<br>';
+
+    expect(processRambamEnglishText(source)).toBe('First\nSecond\nThird\nFourth');
+  });
+
+  it('does not invent breaks for inline markup', () => {
+    expect(processRambamEnglishText('Keep <span>inline</span> and <strong>formatted</strong> text')).toBe(
+      'Keep inline and formatted text',
+    );
+  });
+
+  it('keeps the live 1:1 excerpt lines at the source break before “This refers”', () => {
+    const result = processRambamEnglishText(RAMBAM_1_1_SOURCE);
+
+    expect(result).toContain(
+      'they must confess the sin that they committed."\nThis refers to a verbal confession.',
+    );
+    expect(result).toContain(
+      'This confession is a positive command.\nHow does one confess:',
+    );
+    expect(result).not.toContain('<br>');
+  });
+
+  it('keeps the live 1:4 excerpt citation and source-separated sentence lines', () => {
+    const result = processRambamEnglishText(RAMBAM_1_4_SOURCE);
+
+    expect(result).toContain('This day will atone for you."\nIf a person violates [sins punishable by]');
+    expect(result).toContain('<em>karet</em>');
+    expect(result).toContain('<em>loc. cit.</em>');
+    expect(result).not.toContain('<i>');
+    expect(result).not.toContain('<br>');
+  });
+
+  it('preserves each source-separated item in the live 2:4 list', () => {
+    const result = processRambamEnglishText(RAMBAM_2_4_SOURCE);
+
+    expect(result).toContain(
+      'the penitent to\na) constantly call out before God, crying and entreating;',
+    );
+    expect(result).toContain(
+      'entreating;\nb) to perform charity according to his potential;',
+    );
+    expect(result).toContain(
+      'potential;\nc) to separate himself far from the object of his sin;',
+    );
+    expect(result).toContain(
+      'sin;\nd) to change his name, as if to say "I am a different person and not the same one who sinned;"',
+    );
+    expect(result).toContain(
+      'sinned;"\ne) to change his behavior in its entirety to the good and the path of righteousness;',
+    );
+    expect(result).not.toContain('<br>');
+  });
+
+  it('balances em independently around structural and literal line breaks', () => {
+    const source = '<em>first<br>second\r\nthird\rfourth</em>';
+
+    expect(processRambamEnglishText(source).split('\n')).toEqual([
+      '<em>first</em>',
+      '<em>second</em>',
+      '<em>third</em>',
+      '<em>fourth</em>',
+    ]);
+  });
+
+  it('does not create empty rows for empty italic elements or repeated breaks', () => {
+    const source = '<em></em><em><br><br /></em><br>Visible line';
+
+    expect(processRambamEnglishText(source)).toBe('Visible line');
+    expect(processRambamEnglishText('first<em> </em>second')).toBe('first second');
+  });
+
+  it('preserves paragraph boundaries inside attributed italics without blank rows', () => {
+    expect(processRambamEnglishText('<I class="term"><p>first</p><p>second</p></I>')).toBe(
+      '<em>first</em>\n<em>second</em>',
+    );
+  });
+
+  it('does not consume source breaks after abbreviations', () => {
+    expect(processRambamEnglishText('R.<br>Akiva\nb.<br>Judah i.e.<br>this')).toBe(
+      "R'\nAkiva\nb.\nJudah i.e.\nthis",
+    );
+  });
+
+  it('keeps inline italics protected and existing punctuation splits unchanged', () => {
+    expect(processRambamEnglishText('An <i>italic term, i.e. this one.</i> stays inline. Next; then: Why? Yes!')).toBe(
+      'An <em>italic term, i.e. this one.</em> stays inline.\nNext;\nthen:\nWhy?\nYes!',
+    );
+  });
+
+  it('preserves Rambam abbreviations while retaining the existing sentence split', () => {
+    const source = 'R. Akiva said i.e. this and e.g. that. ibid. b. Next sentence.';
+
+    expect(processRambamEnglishText(source)).toBe(
+      "R' Akiva said i.e. this and e.g. that.\nibid. b. Next sentence.",
+    );
+  });
+
+  it('restores a note reference beside a break and inside balanced italics', () => {
+    const note = '<sup class="text-blue-500 cursor-pointer" title="Jump to note 12" data-note-ref="12">12</sup>';
+
+    expect(processRambamEnglishText(`Before.${note}<br>After.`)).toBe(
+      `Before.${note}\nAfter.`,
+    );
+    expect(processRambamEnglishText(`<em>Before${note}<br>After</em>`)).toBe(
+      `<em>Before${note}</em>\n<em>After</em>`,
+    );
+  });
+
+  it('links Bible citations after processing each Rambam line', () => {
+    const processedLines = processRambamEnglishText(RAMBAM_1_1_SOURCE)
+      .split('\n')
+      .map((line) => linkBibleCitations(line));
+
+    expect(processedLines.some((line) =>
+      line.includes(
+        '<a href="/bible/Numbers/5#6" class="bible-citation-link">Numbers 5:6-7</a>',
+      ),
+    )).toBe(true);
   });
 });
