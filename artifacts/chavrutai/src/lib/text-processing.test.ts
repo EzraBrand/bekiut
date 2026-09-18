@@ -739,6 +739,43 @@ describe('Term Replacement', () => {
 
   describe('Sexual Term Replacements', () => {
     it.each([
+      ['marital relations', 'having sex'],
+      ['conjugal relations', 'having sex'],
+      ['relations', 'having sex'],
+      ['intercourse', 'having sex'],
+    ])('should convert the standalone phrase %s', (source, expected) => {
+      expect(replaceTerms(source)).toBe(expected);
+      expect(replaceTerms(`<b>${source}</b>`)).toBe(`<b>${expected}</b>`);
+    });
+
+    it.each(['marital relations', 'conjugal relations', 'relations', 'intercourse'])(
+      'should match conjugated %s before the shorter base phrase',
+      (base) => {
+        for (const [prefix, expected] of [
+          ['engage in', 'have sex'],
+          ['engages in', 'has sex'],
+          ['engaged in', 'had sex'],
+          ['engaging in', 'having sex'],
+          ['have', 'have sex'],
+          ['has', 'has sex'],
+          ['had', 'had sex'],
+          ['having', 'having sex'],
+        ]) {
+          expect(replaceTerms(`${prefix} ${base}`)).toBe(expected);
+          expect(replaceTerms(`<b>${prefix} ${base}</b>`)).toBe(`<b>${expected}</b>`);
+        }
+      },
+    );
+
+    it('should preserve longest-first replacements through the complete pipeline and repeated processing', () => {
+      const source = 'engage in marital relations; engaged in marital relations; engaging in marital relations; marital relations; conjugal relations; relations; intercourse';
+      const expected = 'have sex;\nhad sex;\nhaving sex;\nhaving sex;\nhaving sex;\nhaving sex;\nhaving sex';
+      expect(processEnglishText(source)).toBe(expected);
+      expect(processEnglishText(processEnglishText(source))).toBe(expected);
+      expect(replaceTerms('sexual intercourse; sexual relations')).toBe('sex; sex');
+    });
+
+    it.each([
       ['cohabit', 'have sex'],
       ['cohabits', 'has sex'],
       ['cohabiting', 'having sex'],

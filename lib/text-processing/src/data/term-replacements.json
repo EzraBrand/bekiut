@@ -310,16 +310,17 @@
         "copulating": "having sex",
         "copulated": "had sex",
         "sexual intercourse": "sex",
-        "intercourse": "sex",
-        "conjugal relations": "sex",
-        "relations": "sex",
+        "intercourse": "having sex",
+        "marital relations": "having sex",
+        "conjugal relations": "having sex",
+        "relations": "having sex",
         "sexual relations": "sex",
         "sexual sex": "sex"
       }
     },
     "sexual_conjugations": {
       "description": "Conjugated sexual relation phrases (generated from base terms)",
-      "baseTerms": ["intercourse", "sexual intercourse", "sexual relations", "relations", "intimacy"],
+      "baseTerms": ["intercourse", "sexual intercourse", "sexual relations", "marital relations", "conjugal relations", "relations", "intimacy"],
       "conjugations": [
         { "prefix": "engage in", "replacement": "have sex" },
         { "prefix": "engages in", "replacement": "has sex" },
