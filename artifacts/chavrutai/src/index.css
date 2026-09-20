@@ -156,6 +156,17 @@
   .text-size-extra-large .hebrew-text { font-size: 1.4em; }
   .text-size-extra-large .english-text { font-size: 1.35em; }
 
+  /* Shared note typography: never compound reader scaling with a text-sm base.
+     Small reader settings retain a legible floor; larger settings enlarge notes. */
+  .reader-footnotes { font-size: 1rem; line-height: 1.7; }
+  .text-size-large .reader-footnotes { font-size: 1.125rem; }
+  .text-size-extra-large .reader-footnotes { font-size: 1.25rem; }
+  .reader-footnotes .reader-note-body {
+    font-size: inherit;
+    line-height: inherit;
+    overflow-wrap: anywhere;
+  }
+
   /* Hebrew Font Classes */
   .hebrew-font-calibri .hebrew-text {
     font-family: 'Calibri', 'Segoe UI', sans-serif;

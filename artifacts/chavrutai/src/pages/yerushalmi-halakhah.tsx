@@ -706,7 +706,7 @@ export default function YerushalmiHalakhah() {
                           <div className="mt-4 pt-3 border-t border-border/40">
                             <button
                               onClick={() => toggleNotes(index)}
-                              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                             >
                               <span>{expandedNotes.has(index) ? '▼' : '▶'}</span>
                               {expandedNotes.has(index)
@@ -714,11 +714,11 @@ export default function YerushalmiHalakhah() {
                                 : `Notes (${section.sectionFootnotes.length})`}
                             </button>
                             {expandedNotes.has(index) && (
-                              <div className="mt-3 space-y-2 text-sm text-muted-foreground max-w-prose">
+                              <div className="reader-footnotes mt-3 space-y-2 text-muted-foreground max-w-prose">
                                 {section.sectionFootnotes.map((fn, fnIdx) => (
                                   <div key={fnIdx} id={`note-${index}-${fn.num}`} className="flex gap-2 scroll-mt-24">
                                     <sup className="text-[10px] leading-5 flex-shrink-0 font-medium">{fn.num}</sup>
-                                    <span dangerouslySetInnerHTML={{ __html: fn.noteHtml }} />
+                                    <span className="reader-note-body english-text min-w-0" dangerouslySetInnerHTML={{ __html: fn.noteHtml }} />
                                   </div>
                                 ))}
                               </div>

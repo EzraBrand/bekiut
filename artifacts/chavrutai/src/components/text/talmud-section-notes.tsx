@@ -39,12 +39,12 @@ export function TalmudSectionNotes({ id, notes, children }: {
             aria-expanded={expanded}
             aria-controls={`${id}-notes`}
             onClick={() => setExpanded(value => !value)}
-            className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <span aria-hidden="true">{expanded ? "▼" : "▶"}</span>
             {expanded ? "Hide notes" : `Notes (${notes.length})`}
           </button>
-          <div id={`${id}-notes`} role="region" aria-labelledby={`${id}-notes-toggle`} hidden={!expanded} className="mt-3 space-y-2 text-sm text-muted-foreground max-w-prose">
+          <div id={`${id}-notes`} role="region" aria-labelledby={`${id}-notes-toggle`} hidden={!expanded} className="reader-footnotes mt-3 space-y-2 text-muted-foreground max-w-prose">
             {notes.map(note => (
               <div key={note.number} id={`${id}-note-${note.number}`} tabIndex={-1} className="flex gap-2 scroll-mt-24">
                 <sup className="leading-5 flex-shrink-0">
@@ -63,9 +63,9 @@ export function TalmudSectionNotes({ id, notes, children }: {
                     {note.number}
                   </a>
                 </sup>
-                <div className="english-text min-w-0">
+                <div className="reader-note-body english-text min-w-0">
                   {note.paragraphs.map((html, index) => (
-                    <p key={index} className="mb-3 leading-relaxed" dangerouslySetInnerHTML={{ __html: html }} />
+                    <p key={index} className="mb-3 last:mb-0" dangerouslySetInnerHTML={{ __html: html }} />
                   ))}
                 </div>
               </div>
