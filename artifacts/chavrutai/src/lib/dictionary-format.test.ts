@@ -7,6 +7,14 @@ const mappings = bdbData.mappings;
 const jastrowMappings = jastrowData.mappings;
 
 describe("BDB abbreviation expansion", () => {
+  it("leaves standalone m. unchanged while retaining specific grammatical mappings", () => {
+    expect(expandAbbreviations("m.", mappings)).toBe("m.");
+    expect(expandAbbreviations("2 m. s.", mappings))
+      .toBe('<span class="dict-expanded">2nd-person masculine singular</span>');
+    expect(expandAbbreviations("n.m.", mappings))
+      .toBe('<span class="dict-expanded">noun masculine</span>');
+  });
+
   it.each([
     ["geneal.", "genealogical"],
     ["post-ex.", "post-exilic"],
