@@ -274,7 +274,6 @@ export function processMishnahEnglishText(text: string): string {
     .replace(/(R'|Rav) Eleazar\b/g, "$1 Elazar")
     .replace(/(R'|Rav) Ishmael\b/g, "$1 Yishmael")
     // Non-biblical names: normalize globally
-    .replace(/\bSimon\b/g, 'Shimon')
     .replace(/\bLaqish\b/g, 'Lakish')
     .replace(/\bQappara\b/g, 'Kappara')
     .replace(/\bBeth Hillel\b/g, 'Beit Hillel')

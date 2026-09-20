@@ -33,6 +33,13 @@ const RAMBAM_2_4_SOURCE =
   'Among the paths of repentance is for the penitent to<br>a) constantly call out before God, crying and entreating;<br>b) to perform charity according to his potential;<br>c) to separate himself far from the object of his sin;<br>d) to change his name, as if to say "I am a different person and not the same one who sinned;"<br>e) to change his behavior in its entirety to the good and the path of righteousness; and f) to travel in exile from his home. Exile atones for sin because it causes a person to be submissive, humble, and meek of spirit.';
 
 describe('English Text Processing', () => {
+  it('preserves Simon without converting it to Shimon', () => {
+    for (const source of ['Simon', '<b>Simon</b>', "R' Simon", 'Rav Simon']) {
+      expect(processEnglishText(source)).toBe(source);
+      expect(processRambamEnglishText(source)).toBe(source.replace(/<\/?b>/g, ''));
+    }
+  });
+
   describe('Period + Quote Patterns', () => {
     it('should handle period + straight double quote', () => {
       const input = 'from Hodu to Cush." Rav';
