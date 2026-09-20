@@ -14,3 +14,4 @@
 - [Sefaria bulk-export fidelity](sefaria-export-fidelity.md) — use edition-specific GCS exports, not merged files, for reader-matching snapshots; preserve licenses and validate segment alignment.
 - [Superscript hit areas](superscript-hit-areas.md) — superscript buttons can look visible yet have zero-height click targets; verify pointer activation, not only keyboard.
 - [Commentary block boundaries](commentary-block-boundaries.md) — clause-linked blocks must distinguish translation continuations from adjacent independent explanations.
+- [Chapter metadata loading](chapter-metadata-loading.md) — keep small TOC metadata synchronous; lazy downloads previously displayed and cached false zero-chapter states.

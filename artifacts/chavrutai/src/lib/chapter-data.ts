@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { getTractateSlug } from "@workspace/shared-data/tractates";
 import { getMishnahSection } from "@shared/mishnah-map";
 
@@ -54,84 +53,38 @@ const TRACTATE_FILE_MAP: Record<string, string> = {
   'zevachim': 'zevachim',
 };
 
-const chapterCache = new Map<string, ChapterInfo[]>();
-const loadingPromises = new Map<string, Promise<ChapterInfo[]>>();
-const subscribers = new Set<() => void>();
+// Small, fixed metadata belongs in the bundle: TOCs must not depend on a
+// second chunk download or report an unloaded/failed request as zero chapters.
+const chapterFiles = import.meta.glob<ChapterInfo[]>(
+  '../../../../talmud-data/chapters/*.json',
+  { eager: true, import: 'default' },
+);
 
-function notifySubscribers() {
-  subscribers.forEach(cb => cb());
+for (const fileName of new Set(Object.values(TRACTATE_FILE_MAP))) {
+  if (!chapterFiles[`../../../../talmud-data/chapters/${fileName}.json`]?.length) {
+    throw new Error(`Missing chapter metadata for ${fileName}`);
+  }
 }
 
 function normalizeTractateKey(tractate: string): string {
   return decodeURIComponent(tractate).toLowerCase().replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-async function loadChapterData(tractateKey: string): Promise<ChapterInfo[]> {
-  if (chapterCache.has(tractateKey)) {
-    return chapterCache.get(tractateKey)!;
-  }
-
+function getChapterDataSync(tractate: string): ChapterInfo[] {
+  const tractateKey = normalizeTractateKey(tractate);
   const fileName = TRACTATE_FILE_MAP[tractateKey];
   if (!fileName) return [];
-
-  if (loadingPromises.has(fileName)) {
-    return loadingPromises.get(fileName)!;
-  }
-
-  const promise = import(`../../../../talmud-data/chapters/${fileName}.json`)
-    .then((mod) => {
-      const data = (mod.default || mod) as ChapterInfo[];
-      chapterCache.set(tractateKey, data);
-      for (const [key, file] of Object.entries(TRACTATE_FILE_MAP)) {
-        if (file === fileName && key !== tractateKey) {
-          chapterCache.set(key, data);
-        }
-      }
-      loadingPromises.delete(fileName);
-      notifySubscribers();
-      return data;
-    })
-    .catch(() => {
-      loadingPromises.delete(fileName);
-      const empty: ChapterInfo[] = [];
-      chapterCache.set(tractateKey, empty);
-      notifySubscribers();
-      return empty;
-    });
-
-  loadingPromises.set(fileName, promise);
-  return promise;
-}
-
-function getChapterDataSync(tractate: string): ChapterInfo[] | null {
-  const tractateKey = normalizeTractateKey(tractate);
-  const cached = chapterCache.get(tractateKey);
-  if (cached) return cached;
-
-  loadChapterData(tractateKey);
-  return null;
+  return chapterFiles[`../../../../talmud-data/chapters/${fileName}.json`];
 }
 
 export async function preloadChapterData(tractate?: string) {
   if (tractate) {
-    await loadChapterData(normalizeTractateKey(tractate));
+    getChapterDataSync(tractate);
   }
 }
 
 export function useChapterData(tractate: string): ChapterInfo[] {
-  const [, forceUpdate] = useState(0);
-
-  useEffect(() => {
-    const cb = () => forceUpdate(n => n + 1);
-    subscribers.add(cb);
-    const key = normalizeTractateKey(tractate);
-    if (!chapterCache.has(key)) {
-      loadChapterData(key);
-    }
-    return () => { subscribers.delete(cb); };
-  }, [tractate]);
-
-  return getChapterDataSync(tractate) || [];
+  return getChapterDataSync(tractate);
 }
 
 export function useFindChapterForFolio(
@@ -165,13 +118,8 @@ export function useFindChapterForFolio(
 }
 
 export function useChapterDataVersion(): number {
-  const [version, setVersion] = useState(0);
-  useEffect(() => {
-    const cb = () => setVersion(n => n + 1);
-    subscribers.add(cb);
-    return () => { subscribers.delete(cb); };
-  }, []);
-  return version;
+  // Bundled metadata is immutable and ready before any consumer renders.
+  return 0;
 }
 
 export function useMishnahChapterData(tractate: string): ChapterInfo[] {
