@@ -1,0 +1,105 @@
+import { describe, expect, it } from "vitest";
+import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
+import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
+
+const additions = {
+  "Tel Am.": "Tell el-Amarna",
+  "BM": "British Museum",
+  "Hartm": "Hartmann",
+  "Plurilit.-bildungen": "Pluriliteralbildungen",
+  "Am": "Amos",
+  "Dan.": "Daniel",
+  "H D": "Holiness Code ; Deuteronomy",
+  "Hab.": "Habakkuk",
+  "Lgb": "Lehrgebäude",
+  "interp.": "interpretation",
+  "dagh.": "dagesh",
+  "Nebuchadn.": "Nebuchadnezzar",
+  "Nebuch.": "Nebuchadnezzar",
+  "Gesch": "Geschichte",
+  "Calwer BL": "Calwer Bibellexikon",
+  "Mas. Magna": "Masorah Magna",
+  "Cod. Nasar.": "Codex Nasaraeus",
+  "trad.": "tradition(al)",
+  "Nab": "Nabataean",
+  "Pliny (NH": "Pliny (Natural History",
+  "contumely": "insulting language",
+  "Hb": "Habakkuk",
+  "indeterm.": "indeterminate",
+  "recipr.": "reciprocal",
+  "appellat.": "appellatively",
+  "Ne (Margin": "Nestle, Marginalien",
+  "Hithpoʿl": "Hithpo'el",
+  "format.": "formation",
+  "cerem.": "ceremonial",
+  "predict.": "prediction",
+  "Enc Bi": "Encyclopedia Biblica",
+  "Euphr.": "Euphrates",
+  "Monatsschr.": "Monatsschrift",
+  "oftener": "more often",
+  "whence": "from which",
+  "alternat.": "alternative",
+  "Nithp.": "Nithpa'el",
+  "Naz.": "Nazirite",
+  "JThS": "Journal of Theological Studies",
+  "Zeitschr.": "Zeitschrift",
+  "h. p.": "High Priest",
+  "Arab. Des.": "Arabia Deserta",
+  "untransl.": "untranslated",
+  "hyperb.": "hyperbolically",
+  "n. unit.": "unit noun",
+  "Fév.-Mars.": "February-March",
+  "Pilp.": "Pilpel",
+  "mythol.": "mythological",
+  "supernat.": "supernatural",
+  "Völkerpsychol.": "Völkerpsychologie",
+  "Wellhausen (de Gent.": "Wellhausen (De Gentibus",
+  "odorif.": "odoriferous",
+  "Ḳam": "al-Qāmūs",
+  "Frey": "Freytag",
+  "2 K": "2 Kings",
+  "attrib.": "attributive",
+  "Mo (Phoen.": "Movers, Die Phönizier",
+  "Sinait.": "Sinaitic",
+  "Ezek": "Ezekiel",
+  "theoph.": "theophany",
+  "prohib.": "prohibition",
+  "abbr.": "abbreviated",
+  "Sam": "Samuel",
+  "Philist.": "Philistia",
+  "Sém.": "Sémitique",
+  "distrib.": "distributive",
+  "Verba. denom.": "Verba denominativa",
+  "Chr-Pal.-Aramaic": "Christian Palestinian Aramaic",
+  "Chr Pal. Aramaic": "Christian Palestinian Aramaic",
+  "Nov. Psalt. Spec.": "Novae Psalterii Graeci",
+  "Ne": "Nehemiah",
+  "Vergl. Sem. Gram.": "Vergleichende semitische Grammatik",
+  "aphaer.": "aphaeresis",
+};
+
+describe("BDB September 20 mappings", () => {
+  it.each(Object.entries(additions))("expands %s exactly", (key, value) => {
+    expect(expandAbbreviations(key, bdbData.mappings))
+      .toBe(`<span class="dict-expanded">${value}</span>`);
+  });
+
+  it("prioritizes contextual phrases over shorter abbreviations", () => {
+    const result = expandAbbreviations("Tel Am.; Am; Ne (Margin; Ne; 2 K", bdbData.mappings);
+    for (const value of ["Tell el-Amarna", "Amos", "Nestle, Marginalien", "Nehemiah", "2 Kings"]) {
+      expect(result).toContain(`>${value}</span>`);
+    }
+  });
+
+  it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Ne <sup>Margin</sup>"), bdbData.mappings))
+      .toContain(">Nestle, Marginalien</span>");
+    expect(expandAbbreviations(convertSupTagsToParens("Pliny<sup>NH</sup>"), bdbData.mappings))
+      .toContain(">Pliny (Natural History</span>");
+  });
+
+  it("does not replace short keys inside longer words", () => {
+    const text = "America Neapolis Samuel Ezekiel Hartmann Freytag";
+    expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+  });
+});

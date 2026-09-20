@@ -42,6 +42,14 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation Expansions (September 20)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added Bible-book and place-name expansions, including Amos, Habakkuk, Nehemiah, Tell el-Amarna, and Euphrates.</li>
+                <li>Expanded grammatical terms, scholarly references, and publication titles, including British Museum, Encyclopedia Biblica, and Journal of Theological Studies; corrected Frey to Freytag.</li>
+                <li>Clarified vocabulary such as “contumely” (insulting language), “oftener” (more often), and “whence” (from which).</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">Mishneh Torah: Paragraph Breaks (September 17)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>English paragraphs and list items now retain the translation’s original line breaks, including in Hilchot Repentance, without extra blank lines.</li>
