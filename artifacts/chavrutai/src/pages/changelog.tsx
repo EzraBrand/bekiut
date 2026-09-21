@@ -45,7 +45,7 @@ export default function Changelog() {
               <h3 className="font-medium text-foreground mb-2">BDB: Compact Abbreviation Table (September 21)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Kept abbreviations and expansions visible together on mobile with wrapping text, tighter spacing, and a narrow row-number column.</li>
-                <li>Separated row numbers from abbreviations with a lightly shaded column and vertical divider.</li>
+                <li>Separated row numbers from abbreviations with a shaded column and a thicker, higher-contrast vertical divider.</li>
               </ul>
             </div>
             <div>
