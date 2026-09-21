@@ -3,6 +3,37 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Alttest. Untersuch.": "Alttestamentliche Untersuchungen",
+  "postex.": "post-exilic",
+  "post-exil.": "post-exilic",
+  "Primit.": "Primitive",
+  "Août-Sept.": "August–September",
+  "Pleon.": "Pleonastic",
+  "KlPr": "Kleine Propheten",
+  "Conc.": "Concordance",
+  "Tob": "Tobit",
+  "Urschr.": "Urschrift",
+  "Univ. Pa. Exp.": "University of Pennsylvania Expedition",
+  "hippop.": "hippopotamus",
+  "De aleph prosthetico in ling. aeg.": "De Aleph Prosthetico in Lingua Aegyptiaca",
+  "J.Aram": "Jewish Aramaic",
+  "Liḥy.": "Liḥyanite",
+  "compar.": "comparison",
+  "extraord.": "extraordinary",
+  "Kuenen (Ond.": "Kuenen (Onderzoek",
+  "voc.": "vocative",
+  "ZWTh": "Zeitschrift für wissenschaftliche Theologie",
+  "n.[m.]": "noun[masculine]",
+  "n.[f.]": "noun[feminine]",
+  "Herod.": "Herodotus",
+  "Nos.": "Numbers",
+  "Bib. Sac.": "Bibliotheca Sacra",
+  "predom.": "predominates",
+  "Lexx": "Lexicons",
+  "Gi": "Giesebrecht",
+  "Vogelst": "Vogelstein",
+  "Gesch. Alt.": "Geschichte des Altertums",
+  "Hommel (A. u. A.": "Hommel (Aufsätze und Abhandlungen",
   "Tel Am.": "Tell el-Amarna",
   "BM": "British Museum",
   "Hartm": "Hartmann",
@@ -92,6 +123,10 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Hommel <sup>A. u. A.</sup>"), bdbData.mappings))
+      .toContain(">Hommel (Aufsätze und Abhandlungen</span>");
+    expect(expandAbbreviations(convertSupTagsToParens("Kuenen<sup>Ond.</sup>"), bdbData.mappings))
+      .toContain(">Kuenen (Onderzoek</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Ne <sup>Margin</sup>"), bdbData.mappings))
       .toContain(">Nestle, Marginalien</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Pliny<sup>NH</sup>"), bdbData.mappings))

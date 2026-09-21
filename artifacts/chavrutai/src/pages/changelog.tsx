@@ -47,6 +47,7 @@ export default function Changelog() {
                 <li>Added Bible-book and place-name expansions, including Amos, Habakkuk, Nehemiah, Tell el-Amarna, and Euphrates.</li>
                 <li>Expanded grammatical terms, scholarly references, and publication titles, including British Museum, Encyclopedia Biblica, and Journal of Theological Studies; corrected Frey to Freytag.</li>
                 <li>Clarified vocabulary such as “contumely” (insulting language), “oftener” (more often), and “whence” (from which).</li>
+                <li>Added further grammatical and bibliographic expansions, including Jewish Aramaic, Bibliotheca Sacra, Kleine Propheten, and contextual references to Kuenen and Hommel. Bracketed noun genders retain their brackets; standalone “m.” is no longer expanded.</li>
               </ul>
             </div>
             <div>
