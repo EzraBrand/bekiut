@@ -3,6 +3,18 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Nöldeke (Mand": "Nöldeke (Mandäische grammatik",
+  "Art thou": "Are you",
+  "art thou": "are you",
+  "Böttcher (Ä": "Böttcher (Ährenlese",
+  "var. adj. and pts.": "various adjectives and participles",
+  "only P": "Priestly source",
+  "(all J)": "(all Yahwist source)",
+  "𝔊B": "LXX (Septuagint), Codex Vaticanus",
+  "𝔊A": "LXX (Septuagint), Codex Alexandrinus",
+  "harlot": "prostitute",
+  "gen.": "general(ly)",
+  "specif.": "specific(ally)",
   "Messian.": "Messianic",
   "festal": "celebratory",
   "Wellhausen (Comp.": "Wellhausen (Composition des Hexateuchs",
@@ -133,6 +145,10 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Nöldeke<sup>Mand</sup>"), bdbData.mappings))
+      .toContain(">Nöldeke (Mandäische grammatik</span>");
+    expect(expandAbbreviations(convertSupTagsToParens("Böttcher <sup>Ä</sup>"), bdbData.mappings))
+      .toContain(">Böttcher (Ährenlese</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Wellhausen <sup>Comp.</sup>"), bdbData.mappings))
       .toContain(">Wellhausen (Composition des Hexateuchs</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Müller<sup>Sendsch.</sup>"), bdbData.mappings))
