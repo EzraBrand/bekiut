@@ -3,6 +3,15 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Messian.": "Messianic",
+  "festal": "celebratory",
+  "Wellhausen (Comp.": "Wellhausen (Composition des Hexateuchs",
+  "prop.": "proposes",
+  "crit. n.": "critical note(s)",
+  "insignif.": "insignificant",
+  "§": "section",
+  "(f.)": "(feminine)",
+  "Müller (Sendsch.": "Müller (Inschriften von Sendschirli",
   "Bericht d. sächs. G. d. W.": "Berichte der Sächsischen Gesellschaft der Wissenschaften",
   "Alttest. Untersuch.": "Alttestamentliche Untersuchungen",
   "postex.": "post-exilic",
@@ -124,6 +133,10 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Wellhausen <sup>Comp.</sup>"), bdbData.mappings))
+      .toContain(">Wellhausen (Composition des Hexateuchs</span>");
+    expect(expandAbbreviations(convertSupTagsToParens("Müller<sup>Sendsch.</sup>"), bdbData.mappings))
+      .toContain(">Müller (Inschriften von Sendschirli</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Hommel <sup>A. u. A.</sup>"), bdbData.mappings))
       .toContain(">Hommel (Aufsätze und Abhandlungen</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Kuenen<sup>Ond.</sup>"), bdbData.mappings))
