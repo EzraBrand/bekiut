@@ -50,6 +50,7 @@ export default function Changelog() {
                 <li>Added further grammatical and bibliographic expansions, including Jewish Aramaic, Bibliotheca Sacra, Kleine Propheten, and contextual references to Kuenen, Hommel, Nöldeke, and Böttcher. Bracketed noun genders retain their brackets; standalone “m.” is no longer expanded.</li>
                 <li>Expanded Septuagint manuscript sigla and source labels, modernized “Art thou,” “harlot,” and “harlotry,” and revised “gen.” and “specif.” to “general(ly)” and “specific(ally).” Added “transpos.” and “S.E.” and preserved “only” in “only P.”</li>
                 <li>Fixed bracketed noun-gender labels split across bold tags, including “n.[m.]” in זֵק³.</li>
+                <li>Added “E. of,” “indir.,” “Lg,” “Haupt (Hbr,” “Matt,” “Lbg,” “(all P),” “intern.,” and “conjj.”; revised “Talm” to “Talmud(ic).”</li>
               </ul>
             </div>
             <div>

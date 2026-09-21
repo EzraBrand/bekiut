@@ -3,6 +3,16 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "E. of": "East of",
+  "indir.": "indirect",
+  "Lg": "Lagarde",
+  "Haupt (Hbr": "Haupt (Hebraica",
+  "Matt": "Matthew",
+  "Lbg": "Lehrgebäude",
+  "(all P)": "(all Priestly source)",
+  "intern.": "internal",
+  "conjj.": "conjugations",
+  "Talm": "Talmud(ic)",
   "Nöldeke (Mand": "Nöldeke (Mandäische grammatik",
   "Art thou": "Are you",
   "art thou": "are you",
@@ -148,6 +158,8 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Haupt <sup>Hbr</sup>"), bdbData.mappings))
+      .toContain(">Haupt (Hebraica</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Nöldeke<sup>Mand</sup>"), bdbData.mappings))
       .toContain(">Nöldeke (Mandäische grammatik</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Böttcher <sup>Ä</sup>"), bdbData.mappings))
