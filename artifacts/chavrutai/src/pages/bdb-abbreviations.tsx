@@ -111,7 +111,7 @@ export default function BdbAbbreviations() {
             </colgroup>
             <thead className="text-left">
               <tr>
-                <th scope="col" className="px-1 py-2 text-right font-medium text-muted-foreground">
+                <th scope="col" className="px-1 py-2 text-center font-medium text-muted-foreground bg-muted/50 border-r border-border">
                   <span aria-label="Row number">#</span>
                 </th>
                 <th scope="col" className="px-2 py-2 font-medium">
@@ -143,7 +143,7 @@ export default function BdbAbbreviations() {
                   className="border-t border-border hover:bg-secondary"
                   data-testid={`row-${i}`}
                 >
-                  <td className="px-1 py-1.5 text-right text-xs tabular-nums text-muted-foreground align-top">
+                  <td className="px-1 py-1.5 text-center text-xs tabular-nums text-muted-foreground align-top bg-muted/50 border-r border-border">
                     {i + 1}
                   </td>
                   <td className="px-2 py-1.5 font-mono align-top whitespace-pre-wrap [overflow-wrap:anywhere]">
