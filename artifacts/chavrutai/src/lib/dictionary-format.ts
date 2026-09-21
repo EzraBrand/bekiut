@@ -586,11 +586,10 @@ export function prependBdbCircaMarker(html: string): string {
 // expansions (e.g. "We Nö" → "Wellhausen Nöldeke") render as visually
 // distinct monospace pills rather than blending into a phrase.
 //
-// Implementation note: we replace into sentinel-bracketed text first
-// (\x01…\x02), then convert sentinels to <span> tags in a single final pass.
-// This prevents later iterations from matching inside the class attribute of
-// a span we just inserted, and keeps the existing `(?![^<]*>)` "skip inside
-// HTML tags" guard sound (sentinels aren't HTML brackets).
+// Match against the original text, then emit non-overlapping matches from left
+// to right, preferring the longest key at the same start. A globally longer key
+// must not steal the suffix of an earlier abbreviation ("E. of" in "S.E. of").
+// Emitting only after selection also prevents expansions from being re-matched.
 export function expandAbbreviations(text: string, mappings: Record<string, string>) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
@@ -605,8 +604,6 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
     },
   );
   const sortedMappings = Object.entries(mappings).sort(([a], [b]) => b.length - a.length);
-  const OPEN = '\x01';
-  const CLOSE = '\x02';
 
   // Split into alternating text segments (even indices) and HTML tag segments
   // (odd indices). This isolates abbreviation matching from HTML markup so
@@ -627,8 +624,9 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
   const parts = text.split(/(<\/?[a-zA-Z][^>]*>)/);
 
   for (let i = 0; i < parts.length; i += 2) {
-    let segment = parts[i];
+    const segment = parts[i];
     if (!segment) continue;
+    const candidates: { start: number; end: number; expansion: string }[] = [];
 
     // BDB uses `<strong>c.</strong>` as a section label (the lettered sub-sense
     // "c."). Skip bare `c.` -> "with" expansion when this text segment sits
@@ -637,6 +635,7 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
     const insideStrong = /^<strong\b[^>]*>$/.test(prevTag);
 
     for (const [abbreviation, expansion] of sortedMappings) {
+      if (!abbreviation) continue;
       if (abbreviation === 'c.' && insideStrong) continue;
 
       let pattern: RegExp;
@@ -667,40 +666,44 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
         pattern = new RegExp(`${leftAnchor}${escaped}${rightAnchor}`, 'gu');
       }
 
-      segment = segment.replace(pattern, (match, offset: number) => {
-        // Skip if this match falls inside an already-wrapped sentinel region.
-        const before = segment.lastIndexOf(OPEN, offset);
-        if (before !== -1) {
-          const close = segment.indexOf(CLOSE, before);
-          if (close === -1 || close > offset) return match;
-        }
+      for (const match of segment.matchAll(pattern)) {
+        const offset = match.index!;
         // BDB uses "c." for two different things: the Latin `cum` ("with",
         // e.g. "c. preposition") and the "circa" frequency marker that
         // precedes the leading occurrence count (e.g. "c. 6823 i.e."). The
         // frequency marker is always followed by whitespace + a digit, so
         // skip the `c.` -> "with" expansion in that context.
         if (abbreviation === 'c.') {
-          const after = segment.slice(offset + match.length);
-          if (/^\s+\d/.test(after)) return match;
+          const after = segment.slice(offset + match[0].length);
+          if (/^\s+\d/.test(after)) continue;
         }
         // BDB uses the Greek letter ψ both as the Psalms siglum (always a
         // citation: "ψ 23", "ψ 119:105") and as an ordinary letter inside Greek
         // words (e.g. ψυχή). Only expand ψ -> "Psalms" when it heads a citation
         // (optional space + digit); otherwise leave the Greek word intact.
         if (abbreviation === 'ψ') {
-          const after = segment.slice(offset + match.length);
-          if (!/^\s*\d/.test(after)) return match;
+          const after = segment.slice(offset + match[0].length);
+          if (!/^\s*\d/.test(after)) continue;
         }
-        return `${OPEN}${expansion}${CLOSE}`;
-      });
+        candidates.push({ start: offset, end: offset + match[0].length, expansion });
+      }
     }
-    parts[i] = segment;
+    candidates.sort((a, b) => a.start - b.start || b.end - a.end);
+    let cursor = 0;
+    const output: string[] = [];
+    for (const candidate of candidates) {
+      if (candidate.start < cursor) continue;
+      output.push(
+        segment.slice(cursor, candidate.start),
+        `<span class="dict-expanded">${candidate.expansion}</span>`,
+      );
+      cursor = candidate.end;
+    }
+    output.push(segment.slice(cursor));
+    parts[i] = output.join('');
   }
 
-  // Convert sentinels to span pills in one final pass.
-  return parts.join('')
-    .replace(new RegExp(`${OPEN}([^${CLOSE}]*)${CLOSE}`, 'g'),
-             '<span class="dict-expanded">$1</span>');
+  return parts.join('');
 }
 
 // Copy-paste handler that preserves formatting (bold, italic, RTL) and rewrites

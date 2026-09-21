@@ -7,6 +7,39 @@ const mappings = bdbData.mappings;
 const jastrowMappings = jastrowData.mappings;
 
 describe("BDB abbreviation expansion", () => {
+  it("resolves overlaps leftmost first, then longest at the same position", () => {
+    // Deliberately put the longer, later-starting key first.
+    const overlapping = { "E. of": "East of", "S.E.": "south-east", "S.": "south" };
+    expect(expandAbbreviations("S.E. of; E. of; S.E.", overlapping)).toBe(
+      '<span class="dict-expanded">south-east</span> of; <span class="dict-expanded">East of</span>; <span class="dict-expanded">south-east</span>',
+    );
+    expect(expandAbbreviations("S.E. of", Object.fromEntries(Object.entries(overlapping).reverse())))
+      .toBe('<span class="dict-expanded">south-east</span> of');
+  });
+
+  it("keeps contextual scholar citations and neighboring keys separate", () => {
+    const overlapping = {
+      "Lag": "Lagarde", "Lag (M.": "Lagarde (Mittheilungen",
+      "M.": "other", "S.E.": "south-east", "E. of": "East of",
+    };
+    expect(expandAbbreviations("Lag (M. i. 255); S.E. of; E. of", overlapping)).toBe(
+      '<span class="dict-expanded">Lagarde (Mittheilungen</span> i. 255); <span class="dict-expanded">south-east</span> of; <span class="dict-expanded">East of</span>',
+    );
+  });
+
+  it("checks original Unicode boundaries rather than newly inserted markup", () => {
+    const text = "αE. of; אE. of; e\u0301E. of; E. ofא; E. of\u0301";
+    expect(expandAbbreviations(text, { "E. of": "East of" })).toBe(text);
+    expect(expandAbbreviations("+word", { "+": "plus", word: "WORD" }))
+      .toBe('<span class="dict-expanded">plus</span><span class="dict-expanded">WORD</span>');
+  });
+
+  it("isolates HTML attributes and never matches phrases across tags", () => {
+    expect(expandAbbreviations('<a title="S.E. of">S.E. of</a> E.<em> of</em>', {
+      "S.E.": "south-east", "E. of": "East of",
+    })).toBe('<a title="S.E. of"><span class="dict-expanded">south-east</span> of</a> E.<em> of</em>');
+  });
+
   it("expands the split bold noun label from BDB זֵק³", () => {
     const source = '<big>[<span dir="rtl">זֵק</span>]</big>  <strong>n.</strong>[<strong>m.</strong>] <strong>fetter</strong>';
     expect(expandAbbreviations(source, mappings)).toBe(

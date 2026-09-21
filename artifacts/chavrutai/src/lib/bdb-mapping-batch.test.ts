@@ -150,6 +150,20 @@ const additions = {
 };
 
 describe("BDB September 20 mappings", () => {
+  it("preserves both direction mappings in running text", () => {
+    expect(expandAbbreviations("S.E. of Arabah; E. of Arabah; S.E.", bdbData.mappings)).toBe(
+      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">East of</span> Arabah; <span class="dict-expanded">south-east</span>',
+    );
+  });
+
+  it("expands source-style directions beside multiword scholar citations", () => {
+    // BDB שֵׂעִיר uses "E. of Arabah"; citations reach the matcher after sup conversion.
+    const source = 'S.E. of Arabah; E. of Arabah; Haupt <sup>Hbr</sup>; Nöldeke<sup>Mand</sup>; prev.';
+    expect(expandAbbreviations(convertSupTagsToParens(source), bdbData.mappings)).toBe(
+      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">East of</span> Arabah; <span class="dict-expanded">Haupt (Hebraica</span>); <span class="dict-expanded">Nöldeke (Mandäische grammatik</span>); <span class="dict-expanded">previous</span>',
+    );
+  });
+
   it.each(Object.entries(additions))("expands %s exactly", (key, value) => {
     expect(expandAbbreviations(key, bdbData.mappings))
       .toBe(`<span class="dict-expanded">${value}</span>`);
