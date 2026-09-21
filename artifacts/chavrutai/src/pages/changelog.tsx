@@ -48,7 +48,8 @@ export default function Changelog() {
                 <li>Expanded grammatical terms, scholarly references, and publication titles, including British Museum, Encyclopedia Biblica, and Journal of Theological Studies; corrected Frey to Freytag.</li>
                 <li>Clarified vocabulary such as “contumely” (insulting language), “oftener” (more often), “whence” (from which), and “festal” (celebratory); expanded “§” to “section” and added contextual citations for Wellhausen and Müller.</li>
                 <li>Added further grammatical and bibliographic expansions, including Jewish Aramaic, Bibliotheca Sacra, Kleine Propheten, and contextual references to Kuenen, Hommel, Nöldeke, and Böttcher. Bracketed noun genders retain their brackets; standalone “m.” is no longer expanded.</li>
-                <li>Expanded Septuagint manuscript sigla and source labels, modernized “Art thou” and “harlot,” and revised “gen.” and “specif.” to “general(ly)” and “specific(ally).”</li>
+                <li>Expanded Septuagint manuscript sigla and source labels, modernized “Art thou,” “harlot,” and “harlotry,” and revised “gen.” and “specif.” to “general(ly)” and “specific(ally).” Added “transpos.” and “S.E.” and preserved “only” in “only P.”</li>
+                <li>Fixed bracketed noun-gender labels split across bold tags, including “n.[m.]” in זֵק³.</li>
               </ul>
             </div>
             <div>

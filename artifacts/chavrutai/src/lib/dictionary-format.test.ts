@@ -7,6 +7,22 @@ const mappings = bdbData.mappings;
 const jastrowMappings = jastrowData.mappings;
 
 describe("BDB abbreviation expansion", () => {
+  it("expands the split bold noun label from BDB זֵק³", () => {
+    const source = '<big>[<span dir="rtl">זֵק</span>]</big>  <strong>n.</strong>[<strong>m.</strong>] <strong>fetter</strong>';
+    expect(expandAbbreviations(source, mappings)).toBe(
+      '<big>[<span dir="rtl">זֵק</span>]</big>  <strong><span class="dict-expanded">noun[masculine]</span></strong> <strong>fetter</strong>',
+    );
+  });
+
+  it("also handles split feminine labels and preserves unmapped labels", () => {
+    const source = '<b>n.</b>[<b>f.</b>]';
+    expect(expandAbbreviations(source, mappings))
+      .toBe('<b><span class="dict-expanded">noun[feminine]</span></b>');
+    expect(expandAbbreviations(source, {})).toBe(source);
+    expect(expandAbbreviations('<strong>n.</strong><strong>m.</strong>', {}))
+      .toBe('<strong>n.</strong><strong>m.</strong>');
+  });
+
   it("leaves standalone m. unchanged while retaining specific grammatical mappings", () => {
     expect(expandAbbreviations("m.", mappings)).toBe("m.");
     expect(expandAbbreviations("2 m. s.", mappings))

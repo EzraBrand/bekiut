@@ -592,6 +592,18 @@ export function prependBdbCircaMarker(html: string): string {
 // a span we just inserted, and keeps the existing `(?![^<]*>)` "skip inside
 // HTML tags" guard sound (sentinels aren't HTML brackets).
 export function expandAbbreviations(text: string, mappings: Record<string, string>) {
+  // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
+  // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
+  // exposing the complete label to the ordinary longest-first matcher.
+  text = text.replace(
+    /<(strong|b)>n\.<\/\1>\s*\[\s*<(strong|b)>([mf])\.<\/\2>\s*\]/g,
+    (original, tag: string, _genderTag: string, gender: string) => {
+      const key = `n.[${gender}.]`;
+      return Object.prototype.hasOwnProperty.call(mappings, key)
+        ? `<${tag}>${key}</${tag}>`
+        : original;
+    },
+  );
   const sortedMappings = Object.entries(mappings).sort(([a], [b]) => b.length - a.length);
   const OPEN = '\x01';
   const CLOSE = '\x02';
