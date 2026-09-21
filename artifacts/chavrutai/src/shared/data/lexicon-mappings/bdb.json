@@ -901,7 +901,7 @@
     "Me": "A. Merx",
     "Meinh": "J. Meinhold",
     "Meissn": "B. Meissner",
-    "Mey": "Eduard Meyer",
+    "Mey": "Meyer",
     "Mich": "J. D. Michaelis",
     "Mordt": "J. H. Mordtmann",
     "Mordtm": "J. H. Mordtmann",
@@ -1714,6 +1714,8 @@
     "intens.": "intensive",
     "Kl. Proph.": "Kleine Propheten",
     "prev.": "previous",
+    "inchoat.": "inchoative",
+    "Meyer (E. Jud.": "Meyer (Entstehung des Judenthums",
     "// ── END ─────────────────────────────────────────────────────────────": "",
     "NSG": "Nöldeke, Syrische Grammatik"
   }

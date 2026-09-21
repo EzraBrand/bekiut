@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Meyer Citations (September 21)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added “inchoat.” → “inchoative” and “Meyer (E. Jud.” → “Meyer (Entstehung des Judenthums”; revised “Mey” to “Meyer.”</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation Expansions (September 20)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added Bible-book and place-name expansions, including Amos, Habakkuk, Nehemiah, Tell el-Amarna, and Euphrates.</li>

@@ -3,6 +3,9 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "inchoat.": "inchoative",
+  "Meyer (E. Jud.": "Meyer (Entstehung des Judenthums",
+  "Mey": "Meyer",
   "prev.": "previous",
   "Dagh.": "dagesh",
   "patr.": "patronymic",
@@ -177,6 +180,8 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("matches contextual citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Meyer<sup>E. Jud.</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Meyer (Entstehung des Judenthums</span>)');
     expect(expandAbbreviations(convertSupTagsToParens("Haupt <sup>Hbr</sup>"), bdbData.mappings))
       .toContain(">Haupt (Hebraica</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Nöldeke<sup>Mand</sup>"), bdbData.mappings))
