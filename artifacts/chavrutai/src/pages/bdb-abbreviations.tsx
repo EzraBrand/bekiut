@@ -103,10 +103,18 @@ export default function BdbAbbreviations() {
         </div>
 
         <div className="overflow-x-auto border-t border-border mb-12">
-          <table className="w-full text-sm" data-testid="abbreviations-table">
+          <table className="w-full table-fixed text-sm" data-testid="abbreviations-table">
+            <colgroup>
+              <col className="w-9 sm:w-12" />
+              <col className="w-[34%]" />
+              <col />
+            </colgroup>
             <thead className="text-left">
               <tr>
-                <th className="px-4 py-2 font-medium w-1/3">
+                <th scope="col" className="px-1 py-2 text-right font-medium text-muted-foreground">
+                  <span aria-label="Row number">#</span>
+                </th>
+                <th scope="col" className="px-2 py-2 font-medium">
                   <button
                     type="button"
                     onClick={() => toggleSort("abbr")}
@@ -116,7 +124,7 @@ export default function BdbAbbreviations() {
                     Abbreviation{arrow("abbr")}
                   </button>
                 </th>
-                <th className="px-4 py-2 font-medium">
+                <th scope="col" className="px-2 py-2 font-medium">
                   <button
                     type="button"
                     onClick={() => toggleSort("expansion")}
@@ -135,16 +143,19 @@ export default function BdbAbbreviations() {
                   className="border-t border-border hover:bg-secondary"
                   data-testid={`row-${i}`}
                 >
-                  <td className="px-4 py-2 font-mono align-top whitespace-pre">
+                  <td className="px-1 py-1.5 text-right text-xs tabular-nums text-muted-foreground align-top">
+                    {i + 1}
+                  </td>
+                  <td className="px-2 py-1.5 font-mono align-top whitespace-pre-wrap [overflow-wrap:anywhere]">
                     {row.abbr}
                   </td>
-                  <td className="px-4 py-2 align-top">{row.expansion}</td>
+                  <td className="px-2 py-1.5 align-top [overflow-wrap:anywhere]">{row.expansion}</td>
                 </tr>
               ))}
               {filtered.length === 0 && (
                 <tr>
                   <td
-                    colSpan={2}
+                    colSpan={3}
                     className="px-4 py-6 text-center text-muted-foreground"
                   >
                     No matches.
