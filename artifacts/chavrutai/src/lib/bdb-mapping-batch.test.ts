@@ -3,6 +3,7 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Bericht d. sächs. G. d. W.": "Berichte der Sächsischen Gesellschaft der Wissenschaften",
   "Alttest. Untersuch.": "Alttestamentliche Untersuchungen",
   "postex.": "post-exilic",
   "post-exil.": "post-exilic",
