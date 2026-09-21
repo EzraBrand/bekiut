@@ -3,6 +3,7 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "prev.": "previous",
   "Dagh.": "dagesh",
   "patr.": "patronymic",
   "intens.": "intensive",
