@@ -45,6 +45,7 @@ export default function Changelog() {
               <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Meyer Citations (September 21)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added “inchoat.” → “inchoative” and “Meyer (E. Jud.” → “Meyer (Entstehung des Judenthums”; revised “Mey” to “Meyer.”</li>
+                <li>Added “foregoing” → “previous,” “(both P)” → “(both Priestly source),” “Zend” → “Middle Persian,” “Elamit.” → “Elamite,” and “Archäol.” → “Archäologie.”</li>
               </ul>
             </div>
             <div>

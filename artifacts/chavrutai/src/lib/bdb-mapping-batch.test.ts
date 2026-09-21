@@ -3,6 +3,11 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "foregoing": "previous",
+  "(both P)": "(both Priestly source)",
+  "Zend": "Middle Persian",
+  "Elamit.": "Elamite",
+  "Archäol.": "Archäologie",
   "inchoat.": "inchoative",
   "Meyer (E. Jud.": "Meyer (Entstehung des Judenthums",
   "Mey": "Meyer",
