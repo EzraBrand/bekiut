@@ -3,6 +3,8 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "inscrr.": "inscriptions",
+  "Nor (": "Norris (",
   "Bae (Rel.": "Baethgen (Religionsgeschichte",
   "Rev": "Revelation",
   "neut.": "neuter",
