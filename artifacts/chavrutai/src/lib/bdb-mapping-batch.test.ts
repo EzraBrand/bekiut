@@ -3,6 +3,7 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Bae (Rel.": "Baethgen (Religionsgeschichte",
   "Rev": "Revelation",
   "neut.": "neuter",
   "Ethpa.": "Ethpa'al",
@@ -193,6 +194,12 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("expands the new work citations after superscript conversion", () => {
+    for (const citation of ["68", "67.68"]) {
+      expect(expandAbbreviations(convertSupTagsToParens(`Bae<sup>Rel. ${citation}</sup>`), bdbData.mappings))
+        .toBe(`<span class="dict-expanded">Baethgen (Religionsgeschichte</span> ${citation})`);
+    }
+    expect(expandAbbreviations("Rel.; Bae", bdbData.mappings))
+      .toBe('<span class="dict-expanded">Reland</span>; <span class="dict-expanded">Baethgen</span>');
     expect(expandAbbreviations(convertSupTagsToParens("Hpt<sup>Hbr 1885, 224</sup>"), bdbData.mappings))
       .toBe('<span class="dict-expanded">Haupt (Hebraica</span> 1885, 224)');
     expect(expandAbbreviations(convertSupTagsToParens("Baethgen<sup>Rel</sup>"), bdbData.mappings))
