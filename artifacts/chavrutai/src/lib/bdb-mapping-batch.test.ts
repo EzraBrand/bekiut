@@ -3,6 +3,20 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Leng": "Lengerke",
+  "pl. m.": "plural masculine",
+  "prn.": "proper name",
+  "Q.": "Qere",
+  "Urmia-Dial.": "Urmia dialect",
+  "Kön": "König",
+  "imit.": "imitation",
+  "Palest.": "Palestinian",
+  "Ps.-J.": "Pseudo-Jonathan",
+  "Sum.": "Sumerian",
+  "Schr (HI": "Schrader (Höllenfahrt der Ištar",
+  "appell.": "appellative",
+  "M-A (CD": "Muss-Arnolt (Compendious Assyrian Dictionary",
+  "Mediterr.": "Mediterranean",
   "inscrr.": "inscriptions",
   "Nor (": "Norris (",
   "Bae (Rel.": "Baethgen (Religionsgeschichte",
@@ -178,6 +192,23 @@ const additions = {
 };
 
 describe("BDB September 20 mappings", () => {
+  it("leaves already complete names unwrapped", () => {
+    const text = "Reland Reuss Renan Marti Strack Levy Krenkel Hommel Pinsker Sayce Rashi Seetzen Mordtmann";
+    expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+  });
+
+  it("expands scholars without personal initials", () => {
+    expect(expandAbbreviations("Mordt; GFM; HPS; DeW", bdbData.mappings)).toBe(
+      '<span class="dict-expanded">Mordtmann</span>; <span class="dict-expanded">Moore</span>; <span class="dict-expanded">Smith</span>; <span class="dict-expanded">De Wette</span>',
+    );
+    expect(bdbData.mappings["Zinj."]).toBe("Inscriptions of Zinjirli (N. Syria)");
+  });
+
+  it("expands Schrader and Muss-Arnolt source citations", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Schr<sup>HI</sup>; M-A<sup>CD</sup>"), bdbData.mappings)).toBe(
+      '<span class="dict-expanded">Schrader (Höllenfahrt der Ištar</span>); <span class="dict-expanded">Muss-Arnolt (Compendious Assyrian Dictionary</span>)',
+    );
+  });
   it.each(["De Rossi", "<em>De</em> Rossi", "Am I my brother’s keeper?", "<em>Am</em> I my brother’s keeper?"])(
     "preserves the literal phrase %s",
     (text) => expect(expandAbbreviations(text, bdbData.mappings)).toBe(text),

@@ -42,6 +42,13 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Scholar Names and Abbreviations (September 22)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Removed personal initials from scholar expansions and redundant mappings for already complete names.</li>
+                <li>Added grammatical, language, place-name, and scholarly expansions, including Qere, Pseudo-Jonathan, Sumerian, Mediterranean, and contextual citations for Schrader and Muss-Arnolt.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Names and Citation Expansions (September 21)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Protected “De Rossi” and “Am I” from incorrect expansions, including across italic formatting.</li>
