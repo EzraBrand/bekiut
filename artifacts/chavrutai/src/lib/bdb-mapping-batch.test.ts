@@ -3,6 +3,16 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Rev": "Revelation",
+  "neut.": "neuter",
+  "Ethpa.": "Ethpa'al",
+  "ellipt.": "elliptical",
+  "(all E)": "(all Elohist source)",
+  "Glas": "Glaser",
+  "Altsem. Inschr. von Sendschirli": "altsemitischen Inschriften von Sendschirli",
+  "Baethgen (Rel": "Baethgen (Religionsgeschichte",
+  "Feb.": "February",
+  "Hpt (Hbr": "Haupt (Hebraica",
   "onomatop.": "onomatopoeia",
   "monosyll.": "monosyllable",
   "voluntat.": "voluntative",
@@ -183,6 +193,10 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("expands the new work citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Hpt<sup>Hbr 1885, 224</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Haupt (Hebraica</span> 1885, 224)');
+    expect(expandAbbreviations(convertSupTagsToParens("Baethgen<sup>Rel</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Baethgen (Religionsgeschichte</span>)');
     expect(expandAbbreviations(convertSupTagsToParens("Ctesias<sup>Pers.</sup>"), bdbData.mappings))
       .toBe('<span class="dict-expanded">Ctesias (Persica</span>)');
   });

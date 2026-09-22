@@ -46,6 +46,7 @@ export default function Changelog() {
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Protected “De Rossi” and “Am I” from incorrect expansions, including across italic formatting.</li>
                 <li>Added onomatopoeia, monosyllable, voluntative, Herodotus, Roediger, Ctesias’s Persica, and Additions to Gesenius’s Thesaurus expansions.</li>
+                <li>Added Revelation, neuter, Ethpa'al, elliptical, Elohist source, Glaser, February, and contextual publication-title expansions for Sendschirli and Baethgen. Fixed Haupt’s Hebraica citation when the source abbreviates his name as “Hpt.”</li>
               </ul>
             </div>
             <div>
