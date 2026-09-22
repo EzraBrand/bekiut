@@ -3,6 +3,13 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "onomatop.": "onomatopoeia",
+  "monosyll.": "monosyllable",
+  "voluntat.": "voluntative",
+  "Herodot.": "Herodotus",
+  "Ctesias (Pers.": "Ctesias (Persica",
+  "Roed.": "Roediger",
+  "Thes Add": "Additions to Gesenius’s Thesaurus",
   "foregoing": "previous",
   "(both P)": "(both Priestly source)",
   "Zend": "Middle Persian",
@@ -158,6 +165,27 @@ const additions = {
 };
 
 describe("BDB September 20 mappings", () => {
+  it.each(["De Rossi", "<em>De</em> Rossi", "Am I my brother’s keeper?", "<em>Am</em> I my brother’s keeper?"])(
+    "preserves the literal phrase %s",
+    (text) => expect(expandAbbreviations(text, bdbData.mappings)).toBe(text),
+  );
+
+  it("preserves legitimate De and Am citations and exact phrase boundaries", () => {
+    expect(expandAbbreviations("De; Am; De Rossini; Am II", bdbData.mappings)).toBe(
+      '<span class="dict-expanded">Delitzsch</span>; <span class="dict-expanded">Amos</span>; <span class="dict-expanded">Delitzsch</span> Rossini; <span class="dict-expanded">Amos</span> II',
+    );
+  });
+
+  it("distinguishes Latin num? from grammatical num.", () => {
+    expect(expandAbbreviations("<em>num?</em>; num.", bdbData.mappings)).toBe(
+      '<em>num?</em>; <span class="dict-expanded">numeral</span>',
+    );
+  });
+
+  it("expands the new work citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Ctesias<sup>Pers.</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Ctesias (Persica</span>)');
+  });
   it("preserves both direction mappings in running text", () => {
     expect(expandAbbreviations("S.E. of Arabah; E. of Arabah; S.E.", bdbData.mappings)).toBe(
       '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">East of</span> Arabah; <span class="dict-expanded">south-east</span>',

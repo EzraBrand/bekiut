@@ -668,6 +668,16 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        // Protect literal names and English questions, including formatting
+        // boundaries such as "<em>Am</em> I" in BDB הֲ.
+        if ((abbreviation === 'De' && expansion === 'Delitzsch') ||
+            (abbreviation === 'Am' && expansion === 'Amos')) {
+          const followingText = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          if (abbreviation === 'De' && /^\s+Rossi(?![\p{L}\p{N}\p{M}_])/u.test(followingText)) continue;
+          if (abbreviation === 'Am' && /^\s+I(?![\p{L}\p{N}\p{M}_])/u.test(followingText)) continue;
+        }
         // BDB uses "c." for two different things: the Latin `cum` ("with",
         // e.g. "c. preposition") and the "circa" frequency marker that
         // precedes the leading occurrence count (e.g. "c. 6823 i.e."). The

@@ -42,6 +42,13 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Names and Citation Expansions (September 21)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Protected “De Rossi” and “Am I” from incorrect expansions, including across italic formatting.</li>
+                <li>Added onomatopoeia, monosyllable, voluntative, Herodotus, Roediger, Ctesias’s Persica, and Additions to Gesenius’s Thesaurus expansions.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Compact Abbreviation Table (September 21)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Kept abbreviations and expansions visible together on mobile with wrapping text, tighter spacing, and a narrow row-number column.</li>
