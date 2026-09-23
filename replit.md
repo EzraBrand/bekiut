@@ -28,6 +28,8 @@ Two habits that prevent recurring issues:
 
 ## Crucial Gotchas
 
+- BDB abbreviation-table categories describe the expanded meaning, not the abbreviated spelling. A scholar plus a named work is a work citation; a bare scholar name is Scholar. Store category/reference metadata once per expanded term, separately from reader expansions; keep the existing reader-facing table. Show only one preferred external hyperlink per row, not duplicate provider links.
+
 - Backend `registerRoutes(app)` mounts routes with their own prefixes; never wrap it in `app.use("/api", ...)`.
 - `talmud-data/` must live at the workspace root or chapter/outline data silently fails to load.
 - Restart the workflows (`artifacts/api-server: API Server`, `artifacts/chavrutai: web`) instead of running pnpm dev directly.

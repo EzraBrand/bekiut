@@ -42,6 +42,19 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Category Filter and Stable Headings (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Choose a single category from the dropdown above the abbreviation table, alongside text search. Column headings now stay fixed while scrolling without the jumping movement.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Categories and Reference Links (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>The <Link href="/bdb/abbreviations" className="text-primary underline">BDB abbreviation table</Link> now includes categories and selected verified reference links, with entry and work names as link labels. Search also finds categories and reference titles, and categories can be sorted.</li>
+                <li>Categories and references are shared by expanded meaning. Each row shows one preferred reference link; uncertain categories are marked Unclassified, and rows without a verified reference show an em dash. Column headings stay visible while scrolling. Reader expansions are unchanged.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Citation and Grammar Expansions (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Revised “Pi.” to “Pi'el”; added Plautus, Cicero, Eusebius, inscriptions, and “(all D)” expansions. Fixed Baethgen’s Religionsgeschichte citation when “Rel” has no period.</li>

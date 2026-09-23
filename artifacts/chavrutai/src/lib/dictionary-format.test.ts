@@ -45,7 +45,7 @@ describe("BDB abbreviation expansion", () => {
     expect(expandAbbreviations(source, mappings)).toBe(
       '<big>[<span dir="rtl">זֵק</span>]</big>  <strong><span class="dict-expanded">noun[masculine]</span></strong> <strong>fetter</strong>',
     );
-  });
+  }, 15000); // Full-map regex initialization can exceed 5s under parallel workspace tests.
 
   it("also handles split feminine labels and preserves unmapped labels", () => {
     const source = '<b>n.</b>[<b>f.</b>]';
