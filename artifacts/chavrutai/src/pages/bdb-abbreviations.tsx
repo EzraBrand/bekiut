@@ -12,6 +12,7 @@ import {
 } from "@/lib/bdb-table";
 import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
 import { useScrollingTableHeader } from "@/hooks/use-scrolling-table-header";
+import { BottomTableScrollbar } from "@/components/bottom-table-scrollbar";
 
 export default function BdbAbbreviations() {
   const seo = getStaticSEO("/bdb/abbreviations", window.location.origin);
@@ -52,7 +53,7 @@ export default function BdbAbbreviations() {
     sortKey === key ? (sortAsc ? " ▲" : " ▼") : "";
 
   return (
-    <PageShell testId="bdb-abbreviations-page" mainClassName="min-w-0">
+    <PageShell testId="bdb-abbreviations-page" mainClassName="min-w-0 pb-12">
         <PageHeader
           breadcrumbs={[
             { label: "BDB Dictionary", href: "/bdb" },
@@ -195,6 +196,7 @@ export default function BdbAbbreviations() {
 
           <div
             ref={bodyScrollRef}
+            id="bdb-table-scroll-area"
             className="max-w-full overflow-x-scroll overscroll-x-contain focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
             tabIndex={0}
             role="region"
@@ -262,6 +264,7 @@ export default function BdbAbbreviations() {
             </table>
           </div>
         </div>
+        <BottomTableScrollbar scrollRef={bodyScrollRef} controls="bdb-table-scroll-area" />
     </PageShell>
   );
 }

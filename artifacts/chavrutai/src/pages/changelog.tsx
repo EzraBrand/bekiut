@@ -44,7 +44,7 @@ export default function Changelog() {
             <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Mobile Table Scrolling (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>Kept the wide mapping table swipeable on mobile, with its horizontal scrollbar at the bottom and synchronized sticky headings. Removed the separate top scroll control.</li>
+                <li>Kept the wide mapping table swipeable on mobile, with a visible horizontal scrollbar fixed to the bottom of the page’s visible area and synchronized sticky headings. No top scroll widget is needed.</li>
               </ul>
             </div>
             <div>
