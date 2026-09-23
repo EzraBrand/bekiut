@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Talmud: Footnote Text Size (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Footnotes now match the main English text size at every reader text-size setting.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Scholar Names and Abbreviations (September 22)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Removed personal initials from scholar expansions and redundant mappings for already complete names.</li>

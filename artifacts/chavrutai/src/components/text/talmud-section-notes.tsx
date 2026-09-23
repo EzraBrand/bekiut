@@ -44,7 +44,7 @@ export function TalmudSectionNotes({ id, notes, children }: {
             <span aria-hidden="true">{expanded ? "▼" : "▶"}</span>
             {expanded ? "Hide notes" : `Notes (${notes.length})`}
           </button>
-          <div id={`${id}-notes`} role="region" aria-labelledby={`${id}-notes-toggle`} hidden={!expanded} className="reader-footnotes mt-3 space-y-2 text-muted-foreground max-w-prose">
+          <div id={`${id}-notes`} role="region" aria-labelledby={`${id}-notes-toggle`} hidden={!expanded} className="mt-3 space-y-2 text-muted-foreground max-w-prose leading-[1.7]">
             {notes.map(note => (
               <div key={note.number} id={`${id}-note-${note.number}`} tabIndex={-1} className="flex gap-2 scroll-mt-24">
                 <sup className="leading-5 flex-shrink-0">
@@ -63,7 +63,8 @@ export function TalmudSectionNotes({ id, notes, children }: {
                     {note.number}
                   </a>
                 </sup>
-                <div className="reader-note-body english-text min-w-0">
+                {/* Use the main English sizing directly, without a separate note-size base. */}
+                <div className="english-text min-w-0 [overflow-wrap:anywhere]">
                   {note.paragraphs.map((html, index) => (
                     <p key={index} className="mb-3 last:mb-0" dangerouslySetInnerHTML={{ __html: html }} />
                   ))}
