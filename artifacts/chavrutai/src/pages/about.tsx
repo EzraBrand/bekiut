@@ -428,6 +428,70 @@ export default function About() {
             </PageSection>
 
             <PageSection>
+              <SectionHeading className="mb-2">
+                Open Mapping Resources
+              </SectionHeading>
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                Search the curated tables Bekiut uses to make dense dictionary
+                entries and translated texts easier to read. Each table shows the
+                project&apos;s current mappings directly.
+              </p>
+              <div className="grid md:grid-cols-3 gap-3">
+                <Link
+                  href="/bdb/abbreviations"
+                  className="block border border-border rounded p-4 hover:bg-secondary"
+                  data-testid="link-about-bdb-abbreviations"
+                >
+                  <h3 className="font-medium text-foreground mb-1">
+                    BDB Abbreviations
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Scholarly, grammatical, biblical, and cognate-language shorthand
+                    used in the standard Hebrew Bible lexicon.
+                  </p>
+                </Link>
+                <Link
+                  href="/jastrow/abbreviations"
+                  className="block border border-border rounded p-4 hover:bg-secondary"
+                  data-testid="link-about-jastrow-abbreviations"
+                >
+                  <h3 className="font-medium text-foreground mb-1">
+                    Jastrow Abbreviations
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Rabbinic sources, grammatical shorthand, Latin phrases, and
+                    cited scholars in Jastrow&apos;s dictionary.
+                  </p>
+                </Link>
+                <Link
+                  href="/talmud/term-replacements"
+                  className="block border border-border rounded p-4 hover:bg-secondary"
+                  data-testid="link-about-term-replacements"
+                >
+                  <h3 className="font-medium text-foreground mb-1">
+                    Talmud Term Replacements
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    The targeted terminology updates applied to the Talmud&apos;s
+                    English translation, organized by category.
+                  </p>
+                </Link>
+              </div>
+              <p className="text-xs text-muted-foreground mt-4">
+                These curated project mapping tables and associated project-owned
+                processing code are available under a scoped{" "}
+                <a
+                  href="/mapping-license.txt"
+                  className="text-primary hover:underline"
+                  data-testid="link-about-mapping-license"
+                >
+                  MIT License
+                </a>
+                .
+              </p>
+            </PageSection>
+
+            <PageSection>
               <SectionHeading className="mb-4">
                 Frequently Asked Questions
               </SectionHeading>
@@ -572,6 +636,87 @@ export default function About() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+
+                <h3 className="font-georgia text-xl text-foreground mt-8 mb-2">
+                  Mapping Tables &amp; Transliteration
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Questions about Bekiut&apos;s published abbreviation and terminology
+                  resources.
+                </p>
+                <Accordion type="single" collapsible className="w-full" data-testid="mapping-faq-accordion">
+                  <AccordionItem value="mapping-tables">
+                    <AccordionTrigger className="text-left">
+                      What are the three mapping tables?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      <p>
+                        The{" "}
+                        <Link href="/bdb/abbreviations" className="text-primary hover:underline">
+                          BDB table
+                        </Link>{" "}
+                        expands scholarly shorthand in the Brown–Driver–Briggs
+                        Hebrew Bible lexicon; the{" "}
+                        <Link href="/jastrow/abbreviations" className="text-primary hover:underline">
+                          Jastrow table
+                        </Link>{" "}
+                        expands abbreviations in the dictionary of the Targumim,
+                        Talmud, and Midrash; and the{" "}
+                        <Link href="/talmud/term-replacements" className="text-primary hover:underline">
+                          Talmud term-replacements table
+                        </Link>{" "}
+                        lists targeted terminology updates used in the English
+                        Talmud reader. All three pages are searchable, and the two
+                        abbreviation tables are sortable.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="mapping-audience">
+                    <AccordionTrigger className="text-left">
+                      Who are these resources for?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      They are reference tools for students, educators, clergy,
+                      translators, and academic or independent scholars. The BDB
+                      table is especially useful to Jewish and Christian readers of
+                      the Hebrew Bible or Old Testament who encounter BDB&apos;s
+                      compressed grammatical, textual, and comparative-Semitic
+                      notation.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="abbreviation-transliteration">
+                    <AccordionTrigger className="text-left">
+                      What is the difference between abbreviation expansion and transliteration?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Abbreviation expansion replaces shorthand with the words or
+                      names it represents—for example, a grammatical label, scholar,
+                      work, or biblical book. Transliteration represents text from
+                      one writing system in another without translating its meaning.
+                      In the BDB reader, Greek, Arabic, and Ethiopic (Ge&apos;ez) are
+                      transliterated into Latin characters, while Syriac and
+                      Samaritan are transliterated into Hebrew characters. The
+                      abbreviation table documents expansions; these script
+                      transliterations are a separate reading aid.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="mapping-license">
+                    <AccordionTrigger className="text-left">
+                      What does the mapping-table MIT License cover?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      The{" "}
+                      <a href="/mapping-license.txt" className="text-primary hover:underline">
+                        scoped MIT License
+                      </a>{" "}
+                      covers only Bekiut&apos;s curated project mapping tables and
+                      associated project-owned processing code. It does not license
+                      or relicense any third-party dictionary or lexicon, source
+                      text, translation, or other source material; those works
+                      remain subject to their own terms.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
             </PageSection>
 
             <PageSection>

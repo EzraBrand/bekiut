@@ -45,4 +45,18 @@ describe("production-style sitemap routing", () => {
       }
     }
   });
+
+  it("includes all three mapping reference pages", async () => {
+    const [mainResponse, dictionariesResponse] = await Promise.all([
+      fetch(`${baseUrl}/sitemap-main.xml`),
+      fetch(`${baseUrl}/sitemap-dictionaries.xml`),
+    ]);
+    const mainXml = await mainResponse.text();
+    const dictionariesXml = await dictionariesResponse.text();
+
+    expect(mainXml).toContain("<loc>http://127.0.0.1");
+    expect(mainXml).toContain("/talmud/term-replacements</loc>");
+    expect(dictionariesXml).toContain("/jastrow/abbreviations</loc>");
+    expect(dictionariesXml).toContain("/bdb/abbreviations</loc>");
+  });
 });

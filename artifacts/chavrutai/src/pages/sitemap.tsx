@@ -154,6 +154,24 @@ export default function Sitemap() {
           </div>
       </PageSection>
 
+      <PageSection>
+        <SectionHeading className="mb-2">Open Mapping Resources</SectionHeading>
+        <p className="text-sm text-muted-foreground mb-4">
+          Search and reuse Bekiut&apos;s curated abbreviation and terminology tables.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <Link href="/bdb/abbreviations" className="block border border-border rounded bg-background p-3 text-primary dark:text-[#5b9fc5] hover:bg-secondary" data-testid="link-sitemap-bdb-abbreviations">
+            BDB Abbreviations
+          </Link>
+          <Link href="/jastrow/abbreviations" className="block border border-border rounded bg-background p-3 text-primary dark:text-[#5b9fc5] hover:bg-secondary" data-testid="link-sitemap-jastrow-abbreviations">
+            Jastrow Abbreviations
+          </Link>
+          <Link href="/talmud/term-replacements" className="block border border-border rounded bg-background p-3 text-primary dark:text-[#5b9fc5] hover:bg-secondary" data-testid="link-sitemap-term-replacements">
+            Talmud Term Replacements
+          </Link>
+        </div>
+      </PageSection>
+
       {/* Sedarim (Orders) */}
       <PageSection>
         <h2 className="font-georgia text-2xl text-foreground mb-6">

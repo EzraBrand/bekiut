@@ -42,6 +42,14 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Open Mapping Tables for Study and Reuse (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Made the BDB, Jastrow, and Talmud term-mapping tables easier to find from About, with resource links, dedicated FAQ entries, and clearer search-engine descriptions and structured data.</li>
+                <li>Added scoped MIT licensing for the project’s mapping tables and processing code, and linked the BDB Decoded article about an earlier version.</li>
+                <li>Added “Nas.” → “Nasoraean (Mandaic)” to BDB.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">Talmud: Footnote Text Size (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Footnotes now match the main English text size at every reader text-size setting.</li>

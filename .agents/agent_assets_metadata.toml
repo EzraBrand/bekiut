@@ -4,7 +4,7 @@ generated = []
 [[outputs]]
 id = "7AqNXUOE7w6p6BhBxZAMy"
 uri = "file://documents/talmud-footnotes-analysis.html"
-type = "text"
+type = "html"
 title = "Footnote analysis — corrected links"
 description = "The companion analysis now also uses the correct Bekiut section anchors."
 logical_id = "c9da23b3-6c76-4bc9-bdb2-b91e33c20c8f"
@@ -18,7 +18,7 @@ content_type = "text/html"
 [[outputs]]
 id = "lNFDZxPpQZWrwmbcKz4eu"
 uri = "file://documents/talmud-commentary-footnotes-blog.html"
-type = "text"
+type = "html"
 title = "Revised blog post with longest-footnotes appendix"
 description = "Removes Yevamot 2a as a main example, notes its introductory character, and appends the scope, method, and complete top-20 table."
 logical_id = "569d676e-b231-4aa4-bc5a-03f762b12fbf"
@@ -42,3 +42,31 @@ mtime_ms = 1789116006428
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/dc9e4c27-f0eb-4cbf-9022-fbacafa932fe/52e87453-2af4-431c-892d-c314a52cc5c6"
 storage_version_token = "1789116035554741"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "Ri7d1hU9VHwTxQYuQPwuH"
+uri = "file://documents/bdb-mappings-transliteration-draft.pdf"
+type = "pdf"
+title = "BDB mappings and transliteration — blog draft"
+description = "Unpublished four-page draft: three-page article plus a one-page technical appendix."
+logical_id = "aa168ce0-9a3f-422d-9f30-a2e2eda712c9"
+content_hash = "sha256:2f500282316ec92b30e0882d872ac0227d510a43029f132443c835e09c37d0e6"
+size = 153643
+mtime_ms = 1790152957108
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/aa168ce0-9a3f-422d-9f30-a2e2eda712c9/85c1ab19-0642-4cf4-93c5-f94d3f94e04f"
+storage_version_token = "1790152997954466"
+content_type = "application/pdf"
+
+[[outputs]]
+id = "FkPkuRews_v1rcDCkr0fP"
+uri = "file://documents/bdb-mappings-transliteration-draft.html"
+type = "html"
+title = "Blog draft — HTML edition"
+description = "Selectable text and print-ready four-page layout, for editing and reuse."
+logical_id = "c7d4c5b3-81a6-46b8-87c7-c8c5100c20f4"
+content_hash = "sha256:bbabffbb21c87eb50d87aa59b7cfce710d20a4c9ddb53d7040801fd00c6a2212"
+size = 18763
+mtime_ms = 1790152877576
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c7d4c5b3-81a6-46b8-87c7-c8c5100c20f4/f1bba6a4-f892-4653-ab94-537b90fc3fc7"
+storage_version_token = "1790152999368094"
+content_type = "text/html"

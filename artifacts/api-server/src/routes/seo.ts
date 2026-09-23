@@ -19,6 +19,7 @@ import { getBookBySlug } from "@workspace/shared-data/bible-books";
 import { getPageSEO } from "@workspace/shared-data/seo-data";
 import { isKnownAppPath, getNotFoundSEO } from "@workspace/shared-data/route-validation";
 import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
+import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
 
 function escapeHtmlAttr(str: string): string {
   return str
@@ -38,6 +39,8 @@ const CHAVRUTAI_SAME_AS = [
 function generateServerSideStructuredData(url: string, baseUrl: string): object | null {
   url = getCanonicalTalmudPath(url) ?? url;
   const origin = baseUrl;
+  const mappingResource = getMappingResourceStructuredData(url, origin);
+  if (mappingResource) return mappingResource;
 
   const organizationNode = {
     "@type": "Organization",
@@ -691,7 +694,7 @@ async function generateCrawlerBodyContent(
       }
       nav += `</ul>`;
     }
-  } else if (urlPath.match(/^\/talmud\/[^/]+$/)) {
+  } else if (urlPath.match(/^\/talmud\/(?!term-replacements$)[^/]+$/)) {
     const tractateSlug = urlPath.split('/')[2];
     const tractateTitle = normalizeDisplayTractateName(tractateSlug);
     const safeTractatePath = safeSlug(tractateSlug);
@@ -1013,10 +1016,23 @@ async function generateCrawlerBodyContent(
     const meta = LEXICON_CRAWLER_META[key];
     heading = `Abbreviations in ${meta.shortName}`;
     breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/${key}">${escapeHtml(meta.shortName)}</a> &rsaquo; Abbreviations</nav>`;
-    body = `<p>${escapeHtml(seoData.description)}</p><p>A reference guide to the scholarly abbreviations used throughout ${escapeHtml(meta.title)}, including source citations, grammatical terms, and bibliographic references.</p>`;
+    body = `<p>${escapeHtml(seoData.description)}</p><p>A reference guide to the curated expansion mappings Bekiut uses while presenting ${escapeHtml(meta.title)}. It helps readers interpret source citations, grammatical terms, language labels, and bibliographic references; it does not relicense the source lexicon.</p>`;
+    if (key === 'bdb') {
+      body += `<p>This guide supports Jewish, Christian, and academic readers working with Biblical Hebrew and the Hebrew Bible. For background on the curation, see <a href="https://www.academia.edu/167336159/BDB_Decoded_A_Curated_Expansion_Table_for_Scholarly_Abbreviations_in_Brown_Driver_Briggs_BDB_">BDB Decoded: A Curated Expansion Table</a>. The article describes an older version of these mappings; this page reflects the current Bekiut table.</p>`;
+    }
     nav = `<nav aria-label="Dictionary sections"><ul>` +
       `<li><a href="/${key}">${escapeHtml(meta.shortName)} Reader</a></li>` +
       `<li><a href="/${key}/headwords">Browse Headwords by Letter</a></li>` +
+      `<li><a href="/mapping-license.txt">License for Bekiut Curated Mappings</a></li>` +
+      `</ul></nav>`;
+  } else if (urlPath === '/talmud/term-replacements') {
+    heading = 'Talmud English Terms and Modern Replacements';
+    breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/talmud">Talmud</a> &rsaquo; Term Replacements</nav>`;
+    body = `<p>${escapeHtml(seoData.description)}</p><p>This reference explains Bekiut's curated mappings from older English wording to clearer terminology in its Talmud reader. Categories include archaic expressions, divine epithets, personal names, and Hebrew calendar dates. The mapping license applies to Bekiut's curated replacement pairs only, not to the source translation or Talmud text.</p>`;
+    nav = `<nav aria-label="Related resources"><ul>` +
+      `<li><a href="/talmud">Study the Babylonian Talmud</a></li>` +
+      `<li><a href="/term-index">Browse the Talmud Term Index</a></li>` +
+      `<li><a href="/mapping-license.txt">License for Bekiut Curated Mappings</a></li>` +
       `</ul></nav>`;
   } else if (urlPath === '/term-index') {
     heading = 'Talmud Term Index';

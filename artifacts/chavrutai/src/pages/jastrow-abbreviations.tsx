@@ -3,7 +3,9 @@ import { Input } from "@/components/ui/input";
 import { useSEO } from "@/hooks/use-seo";
 import { getStaticSEO } from "@workspace/shared-data/seo-data";
 import { PageShell, PageHeader } from "@/components/layout";
+import { MappingResourceLinks } from "@/components/mapping-resource-links";
 import jastrowMappings from "@shared/data/lexicon-mappings/jastrow.json";
+import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
 
 type SortKey = "abbr" | "expansion";
 
@@ -14,7 +16,13 @@ interface Row {
 
 export default function JastrowAbbreviations() {
   const seo = getStaticSEO("/jastrow/abbreviations", window.location.origin);
-  useSEO(seo!);
+  useSEO({
+    ...seo!,
+    structuredData: getMappingResourceStructuredData(
+      "/jastrow/abbreviations",
+      window.location.origin,
+    ) ?? undefined,
+  });
 
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("abbr");
@@ -87,6 +95,8 @@ export default function JastrowAbbreviations() {
             </a>
           </p>
         </PageHeader>
+
+        <MappingResourceLinks currentPath="/jastrow/abbreviations" />
 
         <div className="border-t border-border pt-6 mb-4">
           <Input

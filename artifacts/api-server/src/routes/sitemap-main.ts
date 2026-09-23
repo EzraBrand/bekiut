@@ -68,6 +68,12 @@ export function generateMainSitemap(req: Request, res: Response) {
     <lastmod>${currentDate}</lastmod>
   </url>
   <url>
+    <loc>${baseUrl}/talmud/term-replacements</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>${currentDate}</lastmod>
+  </url>
+  <url>
     <loc>${baseUrl}/outline/sanhedrin/10</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>

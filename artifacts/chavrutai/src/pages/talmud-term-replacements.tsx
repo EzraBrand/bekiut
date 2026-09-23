@@ -3,7 +3,9 @@ import { Input } from "@/components/ui/input";
 import { useSEO } from "@/hooks/use-seo";
 import { getStaticSEO } from "@workspace/shared-data/seo-data";
 import { PageShell, PageHeader, SectionHeading } from "@/components/layout";
+import { MappingResourceLinks } from "@/components/mapping-resource-links";
 import termReplacements from "@workspace/text-processing/data/term-replacements.json";
+import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
 
 interface CategoryData {
   description: string;
@@ -40,7 +42,13 @@ export default function TalmudTermReplacements() {
     "/talmud/term-replacements",
     window.location.origin,
   );
-  useSEO(seo!);
+  useSEO({
+    ...seo!,
+    structuredData: getMappingResourceStructuredData(
+      "/talmud/term-replacements",
+      window.location.origin,
+    ) ?? undefined,
+  });
 
   const [query, setQuery] = useState("");
 
@@ -105,6 +113,8 @@ export default function TalmudTermReplacements() {
             <em>Yehuda</em>).
           </p>
         </PageHeader>
+
+        <MappingResourceLinks currentPath="/talmud/term-replacements" />
 
         <div className="border-t border-border pt-6 mb-8">
           <Input

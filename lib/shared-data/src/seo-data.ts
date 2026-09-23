@@ -157,30 +157,30 @@ const STATIC_MAP: Record<string, SEOEntry> = {
     robots: "index, follow",
   },
   "/jastrow/abbreviations": {
-    title: "Jastrow Abbreviations Reference | Bekiut",
+    title: "Jastrow Dictionary Abbreviations & Meanings | Bekiut",
     description:
-      "Complete list of Jastrow Dictionary abbreviations expanded inline by the Bekiut Jastrow reader: rabbinic source abbreviations, grammatical shorthand, Latin logic phrases, and scholar surnames.",
-    ogTitle: "Jastrow Abbreviations Reference",
+      "Look up Jastrow Dictionary abbreviations and their meanings, including rabbinic sources, grammar, bibliographic references, Latin phrases, and scholar names.",
+    ogTitle: "Jastrow Dictionary Abbreviations & Meanings",
     ogDescription:
-      "Searchable table of every abbreviation expanded inline by the Bekiut Jastrow reader.",
+      "A searchable guide to abbreviations expanded in the Bekiut Jastrow Dictionary reader.",
     robots: "index, follow",
   },
   "/talmud/term-replacements": {
-    title: "Talmud Term Replacements Reference | Bekiut",
+    title: "Talmud English Terms & Modern Replacements | Bekiut",
     description:
-      "Complete list of inline terminology updates Bekiut applies to the English translation of the Talmud — archaic terms, divine epithets, personal names, Hebrew calendar dates, and more.",
-    ogTitle: "Talmud Term Replacements Reference",
+      "Reference table of older English Talmud terms and the clearer wording used in Bekiut, covering archaic language, divine epithets, names, and Hebrew dates.",
+    ogTitle: "Talmud English Terms & Modern Replacements",
     ogDescription:
-      "Searchable, categorized table of every terminology update applied to the Talmud's English translation in Bekiut.",
+      "Searchable reference to older English Talmud terms and the clearer wording used in Bekiut.",
     robots: "index, follow",
   },
   "/bdb/abbreviations": {
-    title: "BDB Abbreviations Reference | Bekiut",
+    title: "BDB Abbreviations for Hebrew Bible Study | Bekiut",
     description:
-      "Complete list of Brown-Driver-Briggs (BDB) abbreviations expanded inline by the Bekiut BDB reader: scholar surnames, grammatical shorthand, Latin logic phrases, cognate-language tags, biblical book references, and BDB-specific symbols.",
-    ogTitle: "BDB Abbreviations Reference",
+      "Look up Brown-Driver-Briggs (BDB) abbreviations used in Hebrew Bible study: grammar, biblical books, cognate languages, scholars, Latin phrases, and symbols.",
+    ogTitle: "BDB Abbreviations for Hebrew Bible Study",
     ogDescription:
-      "Searchable table of every abbreviation expanded inline by the Bekiut BDB reader.",
+      "A searchable BDB abbreviation guide for Jewish, Christian, and academic Hebrew Bible readers.",
     robots: "index, follow",
   },
   "/term-index": {

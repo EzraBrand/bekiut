@@ -3,7 +3,9 @@ import { Input } from "@/components/ui/input";
 import { useSEO } from "@/hooks/use-seo";
 import { getStaticSEO } from "@workspace/shared-data/seo-data";
 import { PageShell, PageHeader } from "@/components/layout";
+import { MappingResourceLinks } from "@/components/mapping-resource-links";
 import bdbMappings from "@shared/data/lexicon-mappings/bdb.json";
+import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
 
 type SortKey = "abbr" | "expansion";
 
@@ -14,7 +16,13 @@ interface Row {
 
 export default function BdbAbbreviations() {
   const seo = getStaticSEO("/bdb/abbreviations", window.location.origin);
-  useSEO(seo!);
+  useSEO({
+    ...seo!,
+    structuredData: getMappingResourceStructuredData(
+      "/bdb/abbreviations",
+      window.location.origin,
+    ) ?? undefined,
+  });
 
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("abbr");
@@ -68,12 +76,14 @@ export default function BdbAbbreviations() {
           title="BDB Abbreviations"
         >
           <p className="text-sm text-muted-foreground mb-3">
-            The full list of abbreviations expanded inline by the Bekiut BDB
-            reader. {rows.length.toLocaleString()} entries. These mappings cover
-            scholar surnames, grammatical shorthand, Latin logic phrases, cognate
-            languages, biblical book references, and BDB-specific symbols.
+            A searchable reference for readers of the Hebrew Bible and Old
+            Testament, including students, clergy, translators, and scholars using
+            Brown–Driver–Briggs. It lists all {rows.length.toLocaleString()}{" "}
+            abbreviations expanded inline by the Bekiut BDB reader: scholar
+            surnames, grammatical shorthand, Latin phrases, cognate languages,
+            biblical book references, ancient versions, and BDB-specific symbols.
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mb-2">
             For the original list of abbreviations as published in BDB itself, see{" "}
             <a
               href="https://www.sefaria.org.il/BDB%2C_Abbrevations"
@@ -85,7 +95,21 @@ export default function BdbAbbreviations() {
               BDB's own abbreviations list (digitized by Sefaria) →
             </a>
           </p>
+          <p className="text-sm text-muted-foreground">
+            For background and a citable description of an earlier version, read{" "}
+            <a
+              href="https://www.academia.edu/167336159/BDB_Decoded_A_Curated_Expansion_Table_for_Scholarly_Abbreviations_in_Brown_Driver_Briggs_BDB_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary dark:text-[#5b9fc5] hover:underline"
+              data-testid="link-bdb-decoded-academia"
+            >
+              “BDB Decoded” on Academia.edu →
+            </a>
+          </p>
         </PageHeader>
+
+        <MappingResourceLinks currentPath="/bdb/abbreviations" />
 
         <div className="border-t border-border pt-6 mb-4">
           <Input

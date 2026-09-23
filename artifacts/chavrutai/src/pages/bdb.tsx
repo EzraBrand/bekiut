@@ -593,6 +593,18 @@ export default function Bdb() {
                     Read more about this feature →
                   </a>
                 </p>
+                <p className="text-xs mt-2">
+                  <a
+                    href="https://www.academia.edu/167336159/BDB_Decoded_A_Curated_Expansion_Table_for_Scholarly_Abbreviations_in_Brown_Driver_Briggs_BDB_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                    data-testid="link-bdb-decoded-academia"
+                  >
+                    Read the Academia.edu article about an earlier version of the
+                    curated BDB expansion table →
+                  </a>
+                </p>
               </div>
             </div>
           )}
