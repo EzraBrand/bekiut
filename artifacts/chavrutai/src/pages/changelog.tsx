@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Citation and Grammar Expansions (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Revised “Pi.” to “Pi'el”; added Plautus, Cicero, Eusebius, inscriptions, and “(all D)” expansions. Fixed Baethgen’s Religionsgeschichte citation when “Rel” has no period.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">Open Mapping Tables for Study and Reuse (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Made the BDB, Jastrow, and Talmud term-mapping tables easier to find from About, with resource links, dedicated FAQ entries, and clearer search-engine descriptions and structured data.</li>

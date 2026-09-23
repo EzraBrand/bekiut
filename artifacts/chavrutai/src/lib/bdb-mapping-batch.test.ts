@@ -3,6 +3,13 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Pi.": "Pi'el",
+  "Plaut (Poen.": "Plautus (Poenulus",
+  "(all D)": "(all Deuteronomic source)",
+  "inscript.": "inscriptions",
+  "Euseb": "Eusebius",
+  "Cicero (Off.": "Cicero (De Officiis",
+  "Bae (Rel": "Baethgen (Religionsgeschichte",
   "Nas.": "Nasoraean (Mandaic)",
   "Sendsch.": "Sendschirli",
   "Oxon.": "Oxford",
@@ -256,6 +263,10 @@ describe("BDB September 20 mappings", () => {
   });
 
   it("expands the new work citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Bae<sup>Rel 76 f.</sup>"), bdbData.mappings))
+      .toContain('<span class="dict-expanded">Baethgen (Religionsgeschichte</span> 76');
+    expect(expandAbbreviations(convertSupTagsToParens("Plaut<sup>Poen.</sup>; Cicero<sup>Off.</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Plautus (Poenulus</span>); <span class="dict-expanded">Cicero (De Officiis</span>)');
     for (const citation of ["68", "67.68"]) {
       expect(expandAbbreviations(convertSupTagsToParens(`Bae<sup>Rel. ${citation}</sup>`), bdbData.mappings))
         .toBe(`<span class="dict-expanded">Baethgen (Religionsgeschichte</span> ${citation})`);
