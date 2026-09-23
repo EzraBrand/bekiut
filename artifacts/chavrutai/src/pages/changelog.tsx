@@ -45,7 +45,7 @@ export default function Changelog() {
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation Expansions (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added NHeb. (New Hebrew), consecr. (consecration), NÄ (Neue Ährenlese), St. C. (Status constructus), long. c. (longitude circa), lat. c. (latitude circa), dag. (dagesh), abst. (abstract), and Hist. Nat. (Natural History).</li>
-                <li>Corrected Nota Rel. im Hebr. to Die Nota relationis im Hebräischen.</li>
+                <li>Corrected Nota Rel. im Hebr. to Nota relationis im Hebräischen.</li>
               </ul>
             </div>
             <div>

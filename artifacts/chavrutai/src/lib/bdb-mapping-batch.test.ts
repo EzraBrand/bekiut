@@ -12,7 +12,7 @@ const additions = {
   "dag.": "dagesh",
   "abst.": "abstract",
   "Hist. Nat.": "Natural History",
-  "Nota Rel. im Hebr.": "Die Nota relationis im Hebräischen",
+  "Nota Rel. im Hebr.": "Nota relationis im Hebräischen",
   "Pi.": "Pi'el",
   "Plaut (Poen.": "Plautus (Poenulus",
   "(all D)": "(all Deuteronomic source)",

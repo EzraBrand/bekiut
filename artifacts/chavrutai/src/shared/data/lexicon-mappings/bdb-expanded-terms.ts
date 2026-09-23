@@ -993,7 +993,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Csepreghi (Leiden dissertation",
     "Lehrbuch",
     "Lagarde (Mittheilungen",
-    "Die Nota relationis im Hebräischen",
+    "Nota relationis im Hebräischen",
     "Leben nach dem Tode",
     "Kosmologie",
     "Arabischen Dichtern",
