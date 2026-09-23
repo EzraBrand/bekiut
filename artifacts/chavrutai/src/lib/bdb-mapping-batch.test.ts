@@ -3,6 +3,16 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "NHeb.": "New Hebrew",
+  "consecr.": "consecration",
+  "NÄ": "Neue Ährenlese",
+  "St. C.": "Status constructus",
+  "long. c.": "longitude circa",
+  "lat. c.": "latitude circa",
+  "dag.": "dagesh",
+  "abst.": "abstract",
+  "Hist. Nat.": "Natural History",
+  "Nota Rel. im Hebr.": "Die Nota relationis im Hebräischen",
   "Pi.": "Pi'el",
   "Plaut (Poen.": "Plautus (Poenulus",
   "(all D)": "(all Deuteronomic source)",

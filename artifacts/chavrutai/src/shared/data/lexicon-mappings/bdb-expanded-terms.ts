@@ -8,6 +8,8 @@ export type {
 // Canonical display metadata: edit expanded meanings here, never abbreviation spellings.
 const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
   "Reference notation": [
+    "longitude circa",
+    "latitude circa",
     "2",
     "3",
     "4",
@@ -231,6 +233,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "Status constructus",
     "Perfect",
     "Imperfect",
     "Infinitive",
@@ -452,6 +455,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "consecration",
     "technical term",
     "metaphorically",
     "figuratively",
@@ -857,6 +861,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Neue Ährenlese",
+    "Natural History",
     "Zeitschrift für Assyriologie",
     "Zeitschrift für die alttestamentliche Wissenschaft",
     "Zeitschrift der Deutschen Morgenländischen Gesellschaft",
@@ -987,7 +993,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Csepreghi (Leiden dissertation",
     "Lehrbuch",
     "Lagarde (Mittheilungen",
-    "Nota Relativi im Hebräischen",
+    "Die Nota relationis im Hebräischen",
     "Leben nach dem Tode",
     "Kosmologie",
     "Arabischen Dichtern",

@@ -27,7 +27,7 @@ const contextualExpansionExceptions = new Set([
 describe("BDB display categories", () => {
   it("covers every current mapping by its exact abbreviation", () => {
     expect(Object.keys(bdbCategories).sort()).toEqual(mappingKeys.sort());
-    expect(Object.keys(bdbCategories)).toHaveLength(1569);
+    expect(Object.keys(bdbCategories)).toHaveLength(mappingKeys.length);
   });
 
   it("only uses supported display categories", () => {
