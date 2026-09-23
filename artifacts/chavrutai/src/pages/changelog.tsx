@@ -45,6 +45,7 @@ export default function Changelog() {
               <h3 className="font-medium text-foreground mb-2">BDB: Scholar Names and Abbreviations (September 22)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Removed personal initials from scholar expansions and redundant mappings for already complete names.</li>
+                <li>Added further vocabulary and scholarly citations, including Oxford, Sendschirli, Jerome, Xenophon, Diodorus, Weber, and Tobler. Removed “Be,” “Castell,” and “Castle” expansions to avoid unwanted replacements.</li>
                 <li>Added grammatical, language, place-name, and scholarly expansions, including Qere, Pseudo-Jonathan, Sumerian, Mediterranean, and contextual citations for Schrader and Muss-Arnolt.</li>
               </ul>
             </div>

@@ -3,6 +3,21 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "Sendsch.": "Sendschirli",
+  "Oxon.": "Oxford",
+  "def.": "definite",
+  "Vocab.": "Vocabulary",
+  "thither": "there",
+  "cit.": "citation",
+  "Jer (Quaest. in libr. Genes": "Jerome (Quaestiones Hebraicae in libro Geneseos",
+  "dissyl.": "disyllabic",
+  "Genit.": "Genitive",
+  "Xenoph (Cyr": "Xenophon (Cyropaedia",
+  "Diod (": "Diodorus Siculus (",
+  "Weber (Synagog. Theol.": "Weber (System der altsynagogalen palästinischen Theologie",
+  "Tobler (Topogr.": "Tobler, Topographie",
+  "subterran.": "subterranean",
+  "Géogr. du Talm.": "Géographie du Talmud",
   "Leng": "Lengerke",
   "pl. m.": "plural masculine",
   "prn.": "proper name",
@@ -192,6 +207,19 @@ const additions = {
 };
 
 describe("BDB September 20 mappings", () => {
+  it("does not expand Be, Castell, or Castle", () => {
+    const text = "Be Castell Castle";
+    expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+    for (const key of ["Be", "Castell", "Castle"]) {
+      expect(bdbData.mappings).not.toHaveProperty(key);
+    }
+  });
+
+  it("expands Jerome and Xenophon citations before generic scholar and book keys", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Jer<sup>Quaest. in libr. Genes</sup>; Xenoph<sup>Cyr</sup>"), bdbData.mappings)).toBe(
+      '<span class="dict-expanded">Jerome (Quaestiones Hebraicae in libro Geneseos</span>); <span class="dict-expanded">Xenophon (Cyropaedia</span>)',
+    );
+  });
   it("leaves already complete names unwrapped", () => {
     const text = "Reland Reuss Renan Marti Strack Levy Krenkel Hommel Pinsker Sayce Rashi Seetzen Mordtmann";
     expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
