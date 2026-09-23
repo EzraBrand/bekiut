@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Mobile Table Scrolling (September 23)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Kept the wide mapping table swipeable on mobile, with its horizontal scrollbar at the bottom and synchronized sticky headings. Removed the separate top scroll control.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Category Filter and Stable Headings (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Choose a single category from the dropdown above the abbreviation table, alongside text search. Column headings now stay fixed while scrolling without the jumping movement.</li>

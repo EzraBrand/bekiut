@@ -52,7 +52,7 @@ export default function BdbAbbreviations() {
     sortKey === key ? (sortAsc ? " ▲" : " ▼") : "";
 
   return (
-    <PageShell testId="bdb-abbreviations-page">
+    <PageShell testId="bdb-abbreviations-page" mainClassName="min-w-0">
         <PageHeader
           breadcrumbs={[
             { label: "BDB Dictionary", href: "/bdb" },
@@ -136,14 +136,14 @@ export default function BdbAbbreviations() {
           </p>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-12 min-w-0 max-w-full">
           <div
             ref={stickyHeaderRef}
             className="sticky z-20 bg-background border-t border-border shadow-[0_1px_0_hsl(var(--border))]"
           >
             <div
               ref={headerScrollRef}
-              className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+              className="max-w-full overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
               tabIndex={0}
               role="region"
               aria-label="BDB abbreviations column headings, horizontally scrollable"
@@ -195,7 +195,7 @@ export default function BdbAbbreviations() {
 
           <div
             ref={bodyScrollRef}
-            className="overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+            className="max-w-full overflow-x-scroll overscroll-x-contain focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
             tabIndex={0}
             role="region"
             aria-label="BDB abbreviations table, horizontally scrollable"
