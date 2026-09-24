@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Additional Expansions (September 24)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added subjunct. (subjunctive), tr. (translated), repres. (represented), Trav. (Travels), Samml (Sammlung), and Richter u. Sam. (Richter und Samuel).</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">Sharing Previews (September 24)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Sharing previews now use the current favicon, with homepage titles and descriptions covering classical Jewish texts: Talmud, Tanakh, Mishnah, and more.</li>

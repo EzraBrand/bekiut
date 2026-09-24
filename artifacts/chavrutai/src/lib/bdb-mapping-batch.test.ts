@@ -3,6 +3,12 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
 
 const additions = {
+  "subjunct.": "subjunctive",
+  "tr.": "translated",
+  "repres.": "represented",
+  "Trav.": "Travels",
+  "Samml": "Sammlung",
+  "Richter u. Sam.": "Richter und Samuel",
   "exc.": "except",
   "elsewh.": "elsewhere",
   "rd.": "read",

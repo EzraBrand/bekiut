@@ -233,6 +233,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "subjunctive",
     "adversative",
     "Hithpolel",
     "Singular",
@@ -459,6 +460,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "represented",
     "except",
     "elsewhere",
     "read",
@@ -876,6 +878,9 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Travels",
+    "Sammlung",
+    "Richter und Samuel",
     "Göttingische Nachrichten",
     "Neue Ährenlese",
     "Natural History",
