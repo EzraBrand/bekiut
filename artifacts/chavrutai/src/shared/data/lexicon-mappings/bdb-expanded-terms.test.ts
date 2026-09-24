@@ -16,6 +16,11 @@ describe("BDB expanded-term metadata", () => {
     expect(bdbExpandedTerms.Dl).toBeUndefined();
   });
 
+  it("maps the exact Ethp. abbreviation to existing Ethpa'al metadata", () => {
+    expect(bdbData.mappings["Ethp."]).toBe("Ethpa'al");
+    expect(bdbExpandedTerms["Ethpa'al"].category).toBe("Grammar");
+  });
+
   it("shares metadata and unions verified references for equal expansions", () => {
     expect(bdbExpandedTerms.Ketiv.references).toHaveLength(1);
     expect(bdbExpandedTerms.Ketiv.references[0].title).toBe("Qere and Ketiv");
