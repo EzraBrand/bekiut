@@ -42,6 +42,12 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">Sharing Previews (September 24)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Sharing previews now use the current favicon, with homepage titles and descriptions covering classical Jewish texts: Talmud, Tanakh, Mishnah, and more.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Vocabulary, and Citations (September 24)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added exc., elsewh., rd., howbeit, advers., GN, Hithpol., descend. of, Is &amp;, supt., Cov’t, Ho, Sg., acco., ironic., 1 Cor, and indep.</li>

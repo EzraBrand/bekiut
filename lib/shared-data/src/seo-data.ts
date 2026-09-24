@@ -28,12 +28,12 @@ export type SEOResult = SEOEntry & { canonical: string };
 
 const STATIC_MAP: Record<string, SEOEntry> = {
   "/": {
-    title: "Study Talmud Online - Free Digital Platform | Bekiut",
+    title: "Study Classical Jewish Texts Online Free | Bekiut",
     description:
-      "Bekiut \u2014 study the Babylonian Talmud online, free. All 37 tractates with Hebrew-English text, chapter navigation, and modern study tools.",
-    ogTitle: "Bekiut - Study Talmud Online Free",
+      "Study classical Jewish texts online, free: Talmud, Tanakh, Mishnah, and more, with bilingual Hebrew-English text and modern study tools.",
+    ogTitle: "Bekiut - Study Classical Jewish Texts",
     ogDescription:
-      "Bekiut \u2014 study the Babylonian Talmud online, free. All 37 tractates with Hebrew-English text, chapter navigation, and modern study tools.",
+      "Study classical Jewish texts online, free: Talmud, Tanakh, Mishnah, and more, with bilingual Hebrew-English text and modern study tools.",
     robots: "index, follow",
   },
   "/talmud": {

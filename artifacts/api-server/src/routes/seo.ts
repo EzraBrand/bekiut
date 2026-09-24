@@ -48,7 +48,7 @@ function generateServerSideStructuredData(url: string, baseUrl: string): object 
     name: "Bekiut",
     url: origin,
     foundingDate: "2025",
-    description: "Free digital platform for studying the Babylonian Talmud with Hebrew-English bilingual text and modern study tools.",
+    description: "Study classical Jewish texts online, free: Talmud, Tanakh, Mishnah, and more, with bilingual Hebrew-English text and modern study tools.",
     logo: {
       "@type": "ImageObject",
       url: `${origin}/favicon-192x192.png`,
@@ -64,7 +64,7 @@ function generateServerSideStructuredData(url: string, baseUrl: string): object 
           "@type": "WebSite",
           "@id": `${origin}/#website`,
           name: "Bekiut",
-          description: "Free digital platform for studying the Babylonian Talmud with Hebrew-English bilingual text and modern study tools.",
+          description: "Study classical Jewish texts online, free: Talmud, Tanakh, Mishnah, and more, with bilingual Hebrew-English text and modern study tools.",
           url: origin,
           potentialAction: {
             "@type": "SearchAction",

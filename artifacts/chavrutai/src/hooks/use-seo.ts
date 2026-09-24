@@ -154,10 +154,10 @@ export function useSEO(seoData: SEOData) {
     updateMeta("og:locale:alternate", "he_IL", "property");
     updateMeta(
       "og:image",
-      `${window.location.origin}/og-image.png`,
+      `${window.location.origin}/favicon-512x512.png`,
       "property",
     );
-    updateMeta("og:image:alt", seoData.ogTitle || seoData.title, "property");
+    updateMeta("og:image:alt", "Bekiut logo", "property");
     updateMeta("og:image:width", "512", "property");
     updateMeta("og:image:height", "512", "property");
     updateMeta("og:image:type", "image/png", "property");
@@ -170,8 +170,8 @@ export function useSEO(seoData: SEOData) {
       "twitter:description",
       seoData.ogDescription || seoData.description,
     );
-    updateMeta("twitter:image", `${window.location.origin}/og-image.png`);
-    updateMeta("twitter:image:alt", seoData.ogTitle || seoData.title);
+    updateMeta("twitter:image", `${window.location.origin}/favicon-512x512.png`);
+    updateMeta("twitter:image:alt", "Bekiut logo");
     updateMeta("twitter:site", "@ChavrutAI");
 
     // Canonical URL
