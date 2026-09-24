@@ -53,30 +53,28 @@ export function Tagline() {
           position: absolute;
           left: 43%;
           right: 7%;
-          top: 20%;
+          top: 24%;
         }
         .bekiut-tagline-name {
           margin: 0;
           color: #f7f1e8;
-          font-size: clamp(25px, 5vw, 55px);
+          font-size: clamp(28px, 6vw, 64px);
           font-weight: 500;
           line-height: .95;
           letter-spacing: -.04em;
         }
         .bekiut-tagline-divider {
-          width: 19%;
-          height: 2px;
-          margin: 9% 0 7%;
+          display: none;
         }
         .bekiut-tagline-line {
           margin: 0;
           max-width: 490px;
           color: #f7f1e8;
           font-family: ui-sans-serif, system-ui, sans-serif;
-          font-size: clamp(12px, 2.15vw, 23px);
+          font-size: clamp(17px, 3.4vw, 34px);
           font-weight: 600;
-          line-height: 1.17;
-          letter-spacing: .025em;
+          line-height: 1.08;
+          letter-spacing: .01em;
           text-transform: uppercase;
         }
         .bekiut-tagline-meta {
