@@ -472,7 +472,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "ironically",
     "consecration",
     "technical term",
-    "metaphorically",
+    "metaphor(ically)",
     "figuratively",
     "literally",
     "poetic",

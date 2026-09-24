@@ -455,7 +455,10 @@ function splitSegmentBySemicolon(segment: string): string {
   if (parts.length <= 1) return segment.trim();
   return parts
     .map((part, i) => {
-      const content = i < parts.length - 1 ? `${part.trim()};` : part.trim();
+      // A trailing semicolon belongs to the source, too (e.g. the second
+      // <sup>(×2);</sup> in BDB אוֹנָן), not just to interior sub-parts.
+      const content = i < parts.length - 1 || segment.trimEnd().endsWith(';')
+        ? `${part.trim()};` : part.trim();
       return `<span class="bdb-semicolon-segment${i === 0 ? ' bdb-semicolon-first' : ''}">${content}</span>`;
     })
     .join('');
@@ -553,13 +556,17 @@ export function convertSuperscriptLetters(text: string) {
 
 // Replace <sup>...</sup> wrappers with " (...)" so citation refs render as
 // inline parenthetical notes instead of tiny superscript text. Inner HTML
-// (links, italics, etc.) is preserved verbatim.
+// (links, italics, etc.) is preserved verbatim. Some BDB superscripts already
+// contain their own parentheses, so do not wrap those a second time.
 export function convertSupTagsToParens(html: string): string {
   // Consume an optional space immediately before <sup> so that both `X<sup>…`
   // and `X <sup>…` (BDB is inconsistent) normalise to a single space before the
   // inserted paren — otherwise `X <sup>` yields `X  (…)` (double space), which
   // breaks contextual abbreviation keys like "Dl (Par".
-  return html.replace(/ ?<sup>([\s\S]*?)<\/sup>/g, ' ($1)');
+  // Sefaria also places punctuation *after* an existing closing parenthesis
+  // inside the superscript, e.g. <sup>(×2);</sup> in BDB אוֹנָן.
+  return html.replace(/ ?<sup>([\s\S]*?)<\/sup>/g, (_match, content: string) =>
+    ` ${/^\s*\([^)]*\)/.test(content) ? content : `(${content})`}`);
 }
 
 // BDB uses <sub>NNNN</sub> after a Hebrew lemma to give the total occurrence

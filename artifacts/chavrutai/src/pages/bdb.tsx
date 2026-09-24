@@ -485,11 +485,11 @@ export default function Bdb() {
           convertBdbInternalLinks(
             expandAbbreviations(
               convertSuperscriptLetters(
-                convertSupTagsToParens(
-                  splitIntoParagraphsBdb(
-                    wrapGreekMarkers(prepared, idPrefix),
-                    splitBySemicolon,
-                  )
+                splitIntoParagraphsBdb(
+                  // Convert superscripts before semicolon splitting: BDB
+                  // citations such as <sup>(×2);</sup> contain semicolons.
+                  convertSupTagsToParens(wrapGreekMarkers(prepared, idPrefix)),
+                  splitBySemicolon,
                 )
               ),
               bdbMappings.mappings

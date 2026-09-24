@@ -80,11 +80,9 @@ function renderBdbDefinition(
         convertBdbInternalLinks(
           expandAbbreviations(
             convertSuperscriptLetters(
-              convertSupTagsToParens(
-                splitIntoParagraphsBdb(
-                  wrapGreekMarkers(prepared, idPrefix),
-                  splitBySemicolon,
-                ),
+              splitIntoParagraphsBdb(
+                convertSupTagsToParens(wrapGreekMarkers(prepared, idPrefix)),
+                splitBySemicolon,
               ),
             ),
             bdbMappings.mappings,

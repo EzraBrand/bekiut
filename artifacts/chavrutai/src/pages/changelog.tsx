@@ -42,6 +42,14 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: References and Superscript Citations (September 24)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added reference expansions: Praep. Ev., Nasar., Sen (Taylor Cylind., Chron. Ecclesiast., AG &amp; BBMos., and “2 S”.</li>
+                <li>Added vocabulary and grammar expansions: Jud., rem., demot., parall., cons., and ptc. Changed metaph., Metaph., and Metaph to “metaphor(ically)”.</li>
+                <li>Fixed doubled parentheses on already-parenthesized superscript citations, including occurrence counts in the BDB Onan entry.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Additional Expansions (September 24)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added subjunct. (subjunctive), tr. (translated), repres. (represented), Trav. (Travels), Samml (Sammlung), and Richter u. Sam. (Richter und Samuel).</li>

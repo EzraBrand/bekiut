@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
-import { expandAbbreviations, convertSupTagsToParens } from "./dictionary-format";
+import { expandAbbreviations, convertSupTagsToParens, splitIntoParagraphsBdb } from "./dictionary-format";
 
 const additions = {
   "subjunct.": "subjunctive",
@@ -248,6 +248,18 @@ const additions = {
   "Ne": "Nehemiah",
   "Vergl. Sem. Gram.": "Vergleichende semitische Grammatik",
   "aphaer.": "aphaeresis",
+  "Praep. Ev.": "Praeparatio Evangelica",
+  "Nasar.": "Nasoraean (Mandaic)",
+  "Sen (Taylor Cylind.": "Sennacherib (Taylor Cylinder",
+  "Jud.": "Judah",
+  "rem.": "remark",
+  "Chron. Ecclesiast.": "Chronicon Ecclesiasticum",
+  "demot.": "Demotic",
+  "parall.": "parallel",
+  "AG & BBMos.": "Ägypten und die Bücher Moses",
+  "2 S": "2 Samuel",
+  "cons.": "vav-consecutive",
+  "ptc.": "participial",
 };
 
 describe("BDB September 20 mappings", () => {
@@ -363,6 +375,29 @@ describe("BDB September 20 mappings", () => {
       .toContain(">Nestle, Marginalien</span>");
     expect(expandAbbreviations(convertSupTagsToParens("Pliny<sup>NH</sup>"), bdbData.mappings))
       .toContain(">Pliny (Natural History</span>");
+    expect(expandAbbreviations(convertSupTagsToParens("Sen<sup>Taylor Cylind. 1</sup>"), bdbData.mappings))
+      .toContain(">Sennacherib (Taylor Cylinder</span>");
+  });
+
+  it("renders all metaphor variants as metaphor(ically)", () => {
+    for (const key of ["metaph.", "Metaph.", "Metaph"]) {
+      expect(expandAbbreviations(key, bdbData.mappings))
+        .toBe('<span class="dict-expanded">metaphor(ically)</span>');
+    }
+  });
+
+  it("does not double parentheses already inside superscripts in the Sefaria Onan entry", () => {
+    // BDB, אוֹנָן (Sefaria v3): the semicolon is inside each <sup>(×2);</sup>.
+    const source = '<a data-ref="Genesis 46:12" href="/Genesis.46.12">46:12</a><sup>(×2);</sup> <a data-ref="Numbers 26:19" href="/Numbers.26.19">Nu 26:19</a><sup>(×2);</sup>';
+    expect(convertSupTagsToParens(source)).toBe(
+      '<a data-ref="Genesis 46:12" href="/Genesis.46.12">46:12</a> (×2); <a data-ref="Numbers 26:19" href="/Numbers.26.19">Nu 26:19</a> (×2);',
+    );
+    const split = splitIntoParagraphsBdb(convertSupTagsToParens(source), true);
+    expect(split).not.toContain("<sup>");
+    expect(split).not.toContain("((×2);)");
+    expect(split.match(/\(×2\);/g)).toHaveLength(2);
+    expect(convertSupTagsToParens("X<sup>f.</sup>; X <sup><em>note</em></sup>; X<sup>(already)</sup>"))
+      .toBe("X (f.); X (<em>note</em>); X (already)");
   });
 
   it("does not replace short keys inside longer words", () => {
