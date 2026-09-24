@@ -42,6 +42,13 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Vocabulary, and Citations (September 24)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added exc., elsewh., rd., howbeit, advers., GN, Hithpol., descend. of, Is &amp;, supt., Cov’t, Ho, Sg., acco., ironic., 1 Cor, and indep.</li>
+                <li>Revised Assyr. and As. to Assyria(n), and opp. to “as opposed to:”.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation Expansions (September 23)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added NHeb. (New Hebrew), consecr. (consecration), NÄ (Neue Ährenlese), St. C. (Status constructus), long. c. (longitude circa), lat. c. (latitude circa), dag. (dagesh), abst. (abstract), and Hist. Nat. (Natural History).</li>
