@@ -702,6 +702,17 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
           const after = segment.slice(offset + match[0].length);
           if (!/^\s*\d/.test(after)) continue;
         }
+        // Rawlinson sigla are only citations, not general Roman numerals or
+        // letters. Superscripts have already become parentheses, but a locator
+        // may be inside an HTML link in the next text segment (VR<a>35:19</a>).
+        // Inspect the following visible text without modifying the locator.
+        if (expansion.startsWith('Rawlinson, Cuneiform Inscriptions ') &&
+            ['IR', 'II. R', 'ii. R', 'III R', 'V. R', 'VR', 'V R', 'v R.'].includes(abbreviation)) {
+          const after = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          if (!/^\s*(?:\(\s*)?\d/.test(after)) continue;
+        }
         candidates.push({ start: offset, end: offset + match[0].length, expansion });
       }
     }

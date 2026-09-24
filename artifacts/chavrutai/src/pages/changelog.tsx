@@ -42,6 +42,13 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Rawlinson Citations (September 24)</h3>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Expanded numeric citations marked IR, II. R, ii. R, III R, V. R, VR, V R, or v R. as “Rawlinson, Cuneiform Inscriptions” with the relevant volume (1, 2, 3, or 5), keeping page and line locators intact.</li>
+                <li>Shortened WAI to “Rawlinson, Cuneiform Inscriptions” without adding a volume; bare sigla are left unchanged.</li>
+              </ul>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: References and Superscript Citations (September 24)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added reference expansions: Praep. Ev., Nasar., Sen (Taylor Cylind., Chron. Ecclesiast., AG &amp; BBMos., and “2 S”.</li>

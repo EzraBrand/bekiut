@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import jastrowData from "@/shared/data/lexicon-mappings/jastrow.json";
-import { expandAbbreviations } from "@/lib/dictionary-format";
+import { convertSupTagsToParens, expandAbbreviations } from "@/lib/dictionary-format";
 
 const mappings = bdbData.mappings;
 const jastrowMappings = jastrowData.mappings;
@@ -134,6 +134,49 @@ describe("BDB abbreviation expansion", () => {
     expect(
       expandAbbreviations("civil vivid mix textile", mappings),
     ).toBe("civil vivid mix textile");
+  });
+
+  const rawlinsonAliases = [
+    ["IR", 1], ["II. R", 2], ["ii. R", 2], ["III R", 3],
+    ["V. R", 5], ["VR", 5], ["V R", 5], ["v R.", 5],
+  ] as const;
+  const rawlinsonMappings = Object.fromEntries(
+    rawlinsonAliases.map(([key]) => [key, mappings[key]]),
+  );
+
+  it.each(rawlinsonAliases)("expands numeric Rawlinson citation %s without consuming its locator", (alias, volume) => {
+    const title = `<span class="dict-expanded">Rawlinson, Cuneiform Inscriptions ${volume}</span>`;
+    expect(expandAbbreviations(`${alias} 35:19`, rawlinsonMappings)).toBe(`${title} 35:19`);
+    expect(expandAbbreviations(convertSupTagsToParens(`${alias}<sup>35:19</sup>`), rawlinsonMappings))
+      .toBe(`${title} (35:19)`);
+    expect(expandAbbreviations(`${alias}<a data-ref="Genesis 35:19" href="/Genesis.35.19">35:19</a>`, rawlinsonMappings))
+      .toBe(`${title}<a data-ref="Genesis 35:19" href="/Genesis.35.19">35:19</a>`);
+  });
+
+  it("keeps WAI to the short work title with no volume", () => {
+    expect(expandAbbreviations("WAI", mappings))
+      .toBe('<span class="dict-expanded">Rawlinson, Cuneiform Inscriptions</span>');
+  });
+
+  it("expands Sefaria's lowercase ii. R before a linked citation without changing the link", () => {
+    const citation = 'ii. R <a data-ref="Exodus 36:19" href="/Exodus.36.19">36:19</a> a. b';
+    expect(expandAbbreviations(citation, rawlinsonMappings))
+      .toBe('<span class="dict-expanded">Rawlinson, Cuneiform Inscriptions 2</span> <a data-ref="Exodus 36:19" href="/Exodus.36.19">36:19</a> a. b');
+  });
+
+  it.each(rawlinsonAliases)("does not expand %s without a numeric citation", (alias) => {
+    for (const following of ["", " see", " (text)", ' <a href="/work">text</a>']) {
+      expect(expandAbbreviations(`${alias}${following}`, rawlinsonMappings))
+        .toBe(`${alias}${following}`);
+    }
+    expect(expandAbbreviations(`pre${alias} 35:19`, rawlinsonMappings))
+      .toBe(`pre${alias} 35:19`);
+  });
+
+  it("does not create global R or unapproved Roman/volume mappings", () => {
+    expect(expandAbbreviations("R 35:19", rawlinsonMappings)).toBe("R 35:19");
+    expect(expandAbbreviations("RV 35:19", rawlinsonMappings)).toBe("RV 35:19");
+    expect(expandAbbreviations("IV R 35:19", rawlinsonMappings)).toBe("IV R 35:19");
   });
 
   it.each(["v", "x", "l"])("does not expand risky single-letter Roman numeral %s", (numeral) => {
