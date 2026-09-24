@@ -17,9 +17,11 @@ describe("homepage sharing metadata", () => {
     expect(html).toContain(`<meta property="og:title" content="${seo.ogTitle}"`);
   });
 
-  it("uses the current full-size favicon for sharing", () => {
-    expect(html).toContain('<meta property="og:image" content="https://bekiut.com/favicon-512x512.png"');
-    expect(html).toContain('<meta name="twitter:image" content="https://bekiut.com/favicon-512x512.png"');
+  it("uses the approved landscape artwork for sharing", () => {
+    expect(html).toContain('<meta property="og:image" content="https://bekiut.com/bekiut-social-classical-texts.png"');
+    expect(html).toContain('<meta name="twitter:image" content="https://bekiut.com/bekiut-social-classical-texts.png"');
+    expect(html).toContain('<meta property="og:image:width" content="1200"');
+    expect(html).toContain('<meta property="og:image:height" content="630"');
     expect(html).not.toContain("/og-image.png");
   });
 });

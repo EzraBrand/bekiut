@@ -70,3 +70,17 @@ mtime_ms = 1790152877576
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c7d4c5b3-81a6-46b8-87c7-c8c5100c20f4/f1bba6a4-f892-4653-ab94-537b90fc3fc7"
 storage_version_token = "1790152999368094"
 content_type = "text/html"
+
+[[outputs]]
+id = "NENkNX1lnSDTyeL5QnoPP"
+uri = "file://artifacts/chavrutai/public/bekiut-social-classical-texts.png"
+type = "image"
+title = "Bekiut sharing image — Option C"
+description = "1200 × 630 PNG, checked at a 340-pixel WhatsApp-sized preview."
+logical_id = "1121e6b1-bbeb-4906-8a05-08aeb2afb88a"
+content_hash = "sha256:ee1a00e2721e410b721c7bb8c176e71ff76dc550e429bb8aa41172dd36fe01da"
+size = 36013
+mtime_ms = 1790242699194
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/1121e6b1-bbeb-4906-8a05-08aeb2afb88a/52498839-63f8-4e74-9401-7c128bd12216"
+storage_version_token = "1790242754086483"
+content_type = "image/png"

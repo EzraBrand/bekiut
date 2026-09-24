@@ -50,7 +50,7 @@ export default function Changelog() {
             <div>
               <h3 className="font-medium text-foreground mb-2">Sharing Previews (September 24)</h3>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>Sharing previews now use the current favicon, with homepage titles and descriptions covering classical Jewish texts: Talmud, Tanakh, Mishnah, and more.</li>
+                <li>Sharing previews now use a landscape image with the bet mark, Bekiut wordmark, and readable “Study Classical Jewish Texts” tagline on a full blue background. Homepage titles and descriptions cover Talmud, Tanakh, Mishnah, and more.</li>
               </ul>
             </div>
             <div>

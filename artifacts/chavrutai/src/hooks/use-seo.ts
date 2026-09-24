@@ -154,12 +154,12 @@ export function useSEO(seoData: SEOData) {
     updateMeta("og:locale:alternate", "he_IL", "property");
     updateMeta(
       "og:image",
-      `${window.location.origin}/favicon-512x512.png`,
+      `${window.location.origin}/bekiut-social-classical-texts.png`,
       "property",
     );
-    updateMeta("og:image:alt", "Bekiut logo", "property");
-    updateMeta("og:image:width", "512", "property");
-    updateMeta("og:image:height", "512", "property");
+    updateMeta("og:image:alt", "Bekiut — Study Classical Jewish Texts", "property");
+    updateMeta("og:image:width", "1200", "property");
+    updateMeta("og:image:height", "630", "property");
     updateMeta("og:image:type", "image/png", "property");
     if (seoData.ogUrl) updateMeta("og:url", seoData.ogUrl, "property");
 
@@ -170,8 +170,8 @@ export function useSEO(seoData: SEOData) {
       "twitter:description",
       seoData.ogDescription || seoData.description,
     );
-    updateMeta("twitter:image", `${window.location.origin}/favicon-512x512.png`);
-    updateMeta("twitter:image:alt", "Bekiut logo");
+    updateMeta("twitter:image", `${window.location.origin}/bekiut-social-classical-texts.png`);
+    updateMeta("twitter:image:alt", "Bekiut — Study Classical Jewish Texts");
     updateMeta("twitter:site", "@ChavrutAI");
 
     // Canonical URL
