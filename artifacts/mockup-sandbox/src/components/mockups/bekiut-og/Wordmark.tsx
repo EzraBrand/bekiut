@@ -27,7 +27,6 @@ export function Wordmark() {
     <main className="bekiut-mockup">
       <article className="link-card" aria-label="WhatsApp link preview for Bekiut">
         <section className="og-artwork" aria-label="Bekiut open graph artwork">
-          <div className="artwork-rule" />
           <div className="brand-lockup">
             <div className="bet-mark">
               <BetMark />
@@ -77,33 +76,6 @@ export function Wordmark() {
           overflow: hidden;
           background: ${NAVY};
           isolation: isolate;
-        }
-        .og-artwork::before {
-          content: "";
-          position: absolute;
-          inset: 7.8% 4.6%;
-          border: 1px solid rgba(247, 241, 232, .27);
-          z-index: -1;
-        }
-        .og-artwork::after {
-          content: "";
-          position: absolute;
-          width: 42%;
-          height: 180%;
-          right: -13%;
-          top: -38%;
-          border: 1px solid rgba(247, 241, 232, .12);
-          border-radius: 50%;
-          transform: rotate(18deg);
-          z-index: -1;
-        }
-        .artwork-rule {
-          position: absolute;
-          left: 10.5%;
-          top: 50%;
-          width: 79%;
-          height: 1px;
-          background: rgba(247, 241, 232, .21);
         }
         .brand-lockup {
           position: absolute;

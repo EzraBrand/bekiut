@@ -42,23 +42,6 @@ export function Tagline() {
           background: #1b4a6e;
           color: #f7f1e8;
         }
-        .bekiut-tagline-artwork::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          opacity: .45;
-          background:
-            linear-gradient(90deg, transparent 0 14%, rgba(247,241,232,.07) 14% 14.15%, transparent 14.15% 100%),
-            linear-gradient(180deg, transparent 0 82%, rgba(247,241,232,.15) 82% 82.45%, transparent 82.45% 100%);
-        }
-        .bekiut-tagline-rule {
-          position: absolute;
-          left: 8.2%;
-          top: 13.5%;
-          width: 7%;
-          height: 1.5%;
-          background: #cba96c;
-        }
         .bekiut-tagline-mark {
           position: absolute;
           left: 8%;
@@ -84,7 +67,6 @@ export function Tagline() {
           width: 19%;
           height: 2px;
           margin: 9% 0 7%;
-          background: #cba96c;
         }
         .bekiut-tagline-line {
           margin: 0;
@@ -136,7 +118,6 @@ export function Tagline() {
 
       <article className="bekiut-tagline-card" aria-label="WhatsApp link preview for Bekiut">
         <div className="bekiut-tagline-artwork" aria-label="Bekiut artwork: Study Classical Jewish Texts">
-          <span className="bekiut-tagline-rule" aria-hidden="true" />
           <svg className="bekiut-tagline-mark" viewBox="145 125 210 265" aria-hidden="true">
             <path d={BET_PATH} fill="#f7f1e8" />
           </svg>
