@@ -43,4 +43,14 @@ describe("BDB expanded-term metadata", () => {
       "Work / journal",
     );
   });
+
+  it("keeps metadata synchronized after corrections and the Ra removal", () => {
+    expect(bdbExpandedTerms["original(ly)"].category).toBe("Vocabulary");
+    expect(bdbExpandedTerms["from where"].category).toBe("Vocabulary");
+    expect(bdbExpandedTerms["Plautus’ Poenulus"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms["masculine & feminine"].category).toBe("Grammar");
+    expect(bdbExpandedTerms.Rashi).toBeUndefined();
+    expect(bdbExpandedTerms.Grätz.category).toBe("Scholar");
+    expect(bdbExpandedTerms.Greek.category).toBe("Language");
+  });
 });

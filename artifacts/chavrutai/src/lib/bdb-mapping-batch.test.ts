@@ -209,7 +209,7 @@ const additions = {
   "Euphr.": "Euphrates",
   "Monatsschr.": "Monatsschrift",
   "oftener": "more often",
-  "whence": "from which",
+  "whence": "from where",
   "alternat.": "alternative",
   "Nithp.": "Nithpa'el",
   "Naz.": "Nazirite",
@@ -403,5 +403,48 @@ describe("BDB September 20 mappings", () => {
   it("does not replace short keys inside longer words", () => {
     const text = "America Neapolis Samuel Ezekiel Hartmann Freytag";
     expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+  });
+
+  it("keeps every September 27 mapping at its requested exact spelling and expansion", () => {
+    const expected = {
+      Koh: "Koheleth", Wr: "Wright", "Eccl.": "Ecclesiastes",
+      "calam.": "calamity", Ob: "Obadiah", "JPhil.": "Journal of Philology",
+      "of.": "often", "Yom.": "Yoma", "Epiph.": "Epiphanius",
+      "designat.": "designation", "Foll.": "Followed", "Ara.": "Arabic",
+      "Ass.": "Assyrian", "imper.": "imperative",
+      "Plaut. Poen.": "Plautus’ Poenulus", "Congr.": "Congress",
+      "mss.": "manuscripts", Linn: "Linnaeus", Makkeph: "Makaf",
+      "Opp.": "Opposite", "Covt.": "Covenant", "Bks.": "Books",
+      Chrys: "Chrysostom", "m. & f.": "masculine & feminine",
+      "m. &amp; f.": "masculine & feminine", "compd.": "compounded",
+      "Schaff-Herz.": "Schaff-Herzog", peradventure: "perhaps",
+      "necess.": "necessary", "Rawl.": "Rawlinson",
+      "Hist. Anc.": "History of Ancient", "instrum.": "instrument",
+      "Puʿl.": "Pu'al", plighting: "pledging", "Gr.": "Greek",
+      Urgesch: "Urgeschichte", "demonst.": "demonstrative",
+      whence: "from where", "orig.": "original(ly)",
+    };
+    for (const [key, expansion] of Object.entries(expected)) {
+      expect(bdbData.mappings[key as keyof typeof bdbData.mappings]).toBe(expansion);
+    }
+  });
+
+  it("prefers the complete citation and gender phrases over shorter overlapping keys", () => {
+    const input = "Plaut. Poen.; Hist. Anc.; Gr.; m. & f.; m. &amp; f.";
+    expect(expandAbbreviations(input, bdbData.mappings)).toBe(
+      '<span class="dict-expanded">Plautus’ Poenulus</span>; ' +
+      '<span class="dict-expanded">History of Ancient</span>; ' +
+      '<span class="dict-expanded">Greek</span>; ' +
+      '<span class="dict-expanded">masculine & feminine</span>; ' +
+      '<span class="dict-expanded">masculine & feminine</span>',
+    );
+  });
+
+  it("does not turn Ra into Rashi or alter longer words and literal scholar names", () => {
+    expect(bdbData.mappings).not.toHaveProperty("Ra");
+    expect(expandAbbreviations("Ra; sun god Ra; Rashi; Rawlinson; Grätz; Rachel", bdbData.mappings))
+      .toBe("Ra; sun god Ra; Rashi; Rawlinson; Grätz; Rachel");
+    expect(expandAbbreviations("Koheleth; Plautus’ Poenulus; originally; Whence", bdbData.mappings))
+      .toBe("Koheleth; Plautus’ Poenulus; originally; Whence");
   });
 });

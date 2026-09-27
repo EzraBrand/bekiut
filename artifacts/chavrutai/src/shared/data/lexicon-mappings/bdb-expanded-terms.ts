@@ -8,6 +8,8 @@ export type {
 // Canonical display metadata: edit expanded meanings here, never abbreviation spellings.
 const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
   "Reference notation": [
+    "Opposite",
+    "Followed",
     "longitude circa",
     "latitude circa",
     "2",
@@ -134,6 +136,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "in the places cited",
   ],
   "Place / person": [
+    "Yoma",
     "Eretz Yisrael",
     "Jerusalem",
     "Solomon",
@@ -168,6 +171,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "University of Pennsylvania Expedition",
   ],
   Language: [
+    "Assyrian",
     "Palestinian",
     "Babylonian",
     "Aramaic",
@@ -237,6 +241,11 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "masculine & feminine",
+    "compounded",
+    "instrument",
+    "Pu'al",
+    "demonstrative",
     "subjunctive",
     "adversative",
     "Hithpolel",
@@ -465,6 +474,14 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "calamity",
+    "designation",
+    "Congress",
+    "Makaf",
+    "Books",
+    "necessary",
+    "pledging",
+    "from where",
     "represented",
     "except",
     "elsewhere",
@@ -501,7 +518,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "including",
     "different",
     "doubtful",
-    "originally",
+    "original(ly)",
     "modern",
     "specific(ally)",
     "specifically",
@@ -681,7 +698,6 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "ceremonial",
     "prediction",
     "more often",
-    "from which",
     "alternative",
     "hyperbolically",
     "mythological",
@@ -728,6 +744,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Eigennamen",
   ],
   "Text / source": [
+    "Koheleth",
+    "Obadiah",
     "Isaiah &",
     "1 Corinthians",
     "variant reading",
@@ -884,6 +902,9 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Plautus’ Poenulus",
+    "History of Ancient",
+    "Urgeschichte",
     "Travels",
     "Sammlung",
     "Richter und Samuel",
@@ -1139,6 +1160,12 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Gesenius, translated by Robinson",
   ],
   Scholar: [
+    "Wright",
+    "Epiphanius",
+    "Linnaeus",
+    "Chrysostom",
+    "Schaff-Herzog",
+    "Rawlinson",
     "Delitzsch",
     "Hitzig",
     "Knobel",
@@ -1205,7 +1232,6 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Bähr",
     "Aben Ezra (Ibn Ezra)",
     "Kimchi",
-    "Rashi",
     "Reland",
     "Abulfeda",
     "Kennedy",
