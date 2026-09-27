@@ -43,6 +43,7 @@ export default function Changelog() {
           <div className="space-y-4 text-muted-foreground">
             <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation and Text Corrections (September 27)</h3>
+              <p>Added 2 f.pl. → 2nd-person feminine plural.</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
                 <li>Added book, scholar, language, citation, grammar, and vocabulary expansions, including Koh, Wr, Eccl., JPhil., Plaut. Poen., Gr., and m. &amp; f.</li>
                 <li>Added Morgenl., Kam., Onomast., Lag (On., BL, Sem. Sprachf., M’Lean-Dyer, Tabn., Thontafelfund v. El Amarna, Mesop., Canaanitish, Theol., and grammar forms Haph., Iph., Pōʿlal, Pōʿlēl, afformat., obl., substs., 2 s. f., and 2 m.pl. Corrected Inscr., Hiph., OHeb, and dial.; lowercase Roman numerals now cover 40–60 except ambiguous standalone l.</li>

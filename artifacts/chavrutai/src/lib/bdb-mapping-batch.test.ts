@@ -462,6 +462,7 @@ describe("BDB September 20 mappings", () => {
       "obl.": "oblique", "substs.": "substantives",
       "2 s. f.": "2nd-person singular feminine",
       "2 m.pl.": "2nd-person masculine plural",
+      "2 f.pl.": "2nd-person feminine plural",
       "Inscr.": "Inscription", "Hiph.": "Hiph'il",
       OHeb: "Old Hebrew", "dial.": "dialect(al)",
     };
