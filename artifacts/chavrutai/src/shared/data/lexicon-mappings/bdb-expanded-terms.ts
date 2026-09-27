@@ -316,6 +316,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "1st-person masculine plural",
     "2nd-person masculine plural",
     "2nd-person singular feminine",
+    "2nd-person singular masculine",
     "3rd-person masculine plural",
     "1st-person feminine plural",
     "2nd-person feminine plural",
