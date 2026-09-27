@@ -157,6 +157,78 @@ describe("BDB abbreviation expansion", () => {
       .toBe('live liver civil l <span class="dict-expanded">60</span> <span class="dict-expanded">51</span>');
   });
 
+  it("covers every lowercase Roman numeral from 61 through 99 without mapping bare l", () => {
+    const roman = (value: number) => {
+      const tens = ["", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"];
+      const ones = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"];
+      return tens[Math.floor(value / 10)] + ones[value % 10];
+    };
+    for (let number = 61; number <= 99; number++) {
+      const numeral = roman(number);
+      expect(mappings[numeral as keyof typeof mappings]).toBe(String(number));
+      expect(expandAbbreviations(numeral, mappings))
+        .toBe(`<span class="dict-expanded">${number}</span>`);
+    }
+    expect(mappings["lxvii"]).toBe("67");
+    expect(mappings["xcix"]).toBe("99");
+    expect(mappings).not.toHaveProperty("l");
+    expect(expandAbbreviations("l civil live lxvii xcix", mappings))
+      .toBe('l civil live <span class="dict-expanded">67</span> <span class="dict-expanded">99</span>');
+  });
+
+  it.each([
+    ["Mod. Rev.", "Modern Review"],
+    ["n. divin.", "divine name"],
+    ["Rel.Bab.", "Religion of Babylonia"],
+    ["Sa", "Samuel"],
+    ["vandeVelde", "van de Velde"],
+    ["Narrat.", "Narrative"],
+    ["vandeVelde (Mem", "van de Velde (Memoir"],
+    ["hypothet.", "hypothetical"],
+    ["Ms.", "Manuscript"],
+    ["Wisd. lit.", "Wisdom literature"],
+    ["text. error", "textual error"],
+    ["mispunct.", "mispunctuation"],
+    ["Eng. Tr", "English translation"],
+    ["lat.", "latitude"],
+    ["partit.", "partitively"],
+    ["kine", "cattle"],
+    ["Shlm (", "Shalmaneser ("],
+    ["Say (Ac.", "Sayce (Academy"],
+    ["geogr.", "geographical"],
+    ["volunt.", "voluntative (volitive)"],
+    ["conjs.", "conjunctions"],
+    ["Keilinschr.", "Keilinschriften"],
+    ["Hdb. d. Zendsprache", "Handbuch der Zendsprache"],
+    ["praegn.", "pregnant"],
+  ])("expands requested BDB key %s", (key, expansion) => {
+    expect(mappings[key as keyof typeof mappings]).toBe(expansion);
+    expect(expandAbbreviations(key, mappings))
+      .toBe(`<span class="dict-expanded">${expansion}</span>`);
+  });
+
+  it("resolves contextual keys after superscript conversion, ahead of generic keys", () => {
+    for (const [source, expansion] of [
+      ["vandeVelde<sup>Mem i. 4</sup>", "van de Velde (Memoir"],
+      ["Say<sup>Ac. 4</sup>", "Sayce (Academy"],
+      ["Shlm<sup>4</sup>", "Shalmaneser ("],
+    ]) {
+      expect(expandAbbreviations(convertSupTagsToParens(source), mappings))
+        .toContain(`<span class="dict-expanded">${expansion}</span>`);
+    }
+    expect(expandAbbreviations("lat. c.", mappings))
+      .toBe('<span class="dict-expanded">latitude circa</span>');
+    expect(expandAbbreviations("Sam Say vandeVelde", mappings))
+      .toBe('<span class="dict-expanded">Samuel</span> <span class="dict-expanded">Sayce</span> <span class="dict-expanded">van de Velde</span>');
+  });
+
+  it("does not expand false-positive Ki, literal Kimchi, or substrings of words", () => {
+    expect(mappings).not.toHaveProperty("Ki");
+    expect(expandAbbreviations("Ki Kings Kimchi", mappings)).toBe("Ki Kings Kimchi");
+    expect(expandAbbreviations("Samaritan Salvage kinetic hypothetical", mappings))
+      .toBe("Samaritan Salvage kinetic hypothetical");
+  });
+
   const rawlinsonAliases = [
     ["IR", 1], ["II. R", 2], ["ii. R", 2], ["III R", 3],
     ["V. R", 5], ["VR", 5], ["V R", 5], ["v R.", 5],

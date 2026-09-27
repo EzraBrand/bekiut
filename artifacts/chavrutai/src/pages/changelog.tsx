@@ -48,6 +48,7 @@ export default function Changelog() {
                 <li>Added book, scholar, language, citation, grammar, and vocabulary expansions, including Koh, Wr, Eccl., JPhil., Plaut. Poen., Gr., and m. &amp; f.</li>
                 <li>Added Morgenl., Kam., Onomast., Lag (On., BL, Sem. Sprachf., M’Lean-Dyer, Tabn., Thontafelfund v. El Amarna, Mesop., Canaanitish, Theol., and grammar forms Haph., Iph., Pōʿlal, Pōʿlēl, afformat., obl., substs., 2 s. f., and 2 m.pl. Corrected Inscr., Hiph., OHeb, and dial.; lowercase Roman numerals now cover 40–60 except ambiguous standalone l.</li>
                 <li>Corrected orig. to “original(ly)” and whence to “from where”; removed the false-positive Ra → Rashi expansion while leaving literal scholar names intact.</li>
+                <li>Added 24 exact expansions for works, names, grammar, vocabulary, and citations (including contextual vandeVelde (Mem and Say (Ac.); extended lowercase Roman numerals through xcix (99). Removed the false-positive Ki mapping without changing literal Kimchi.</li>
               </ul>
             </div>
             <div>

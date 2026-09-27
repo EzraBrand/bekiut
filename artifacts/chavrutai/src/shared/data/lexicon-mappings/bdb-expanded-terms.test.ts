@@ -67,4 +67,18 @@ describe("BDB expanded-term metadata", () => {
     expect(bdbExpandedTerms["Inscription"].category).toBe("Text / source");
     expect(bdbExpandedTerms.Hiphil).toBeUndefined();
   });
+
+  it("keeps shared expansions and removes only metadata no longer used by any key", () => {
+    expect(bdbData.mappings["Sam"]).toBe("Samuel");
+    expect(bdbData.mappings["Sa"]).toBe("Samuel");
+    expect(bdbExpandedTerms.Samuel.category).toBe("Text / source");
+    expect(bdbExpandedTerms["van de Velde"].category).toBe("Scholar");
+    expect(bdbExpandedTerms["latitude circa"].category).toBe("Reference notation");
+    expect(bdbExpandedTerms["Keilinschriften und Geschichtsforschung"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms.Kimchi).toBeUndefined();
+    expect(bdbExpandedTerms["van de Velde (Memoir"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms["Shalmaneser ("].category).toBe("Place / person");
+    expect(bdbExpandedTerms["67"].category).toBe("Reference notation");
+    expect(bdbExpandedTerms["99"].category).toBe("Reference notation");
+  });
 });
