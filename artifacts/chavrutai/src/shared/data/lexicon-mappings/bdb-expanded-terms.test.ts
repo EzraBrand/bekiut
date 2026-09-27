@@ -53,4 +53,18 @@ describe("BDB expanded-term metadata", () => {
     expect(bdbExpandedTerms.Grätz.category).toBe("Scholar");
     expect(bdbExpandedTerms.Greek.category).toBe("Language");
   });
+
+  it("categorizes September 27 work, scholar, grammar and numeral expansions", () => {
+    expect(bdbExpandedTerms["Lagarde (Onomastica sacra"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms["Al-Qāmūs"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms["McLean-Dyer"].category).toBe("Scholar");
+    expect(bdbExpandedTerms["Hiph'il"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["Po'alel"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["dialect(al)"].category).toBe("Language");
+    expect(bdbExpandedTerms["Old Hebrew"].category).toBe("Language");
+    expect(bdbExpandedTerms["54"].category).toBe("Reference notation");
+    expect(bdbExpandedTerms["60"].category).toBe("Reference notation");
+    expect(bdbExpandedTerms["Inscription"].category).toBe("Text / source");
+    expect(bdbExpandedTerms.Hiphil).toBeUndefined();
+  });
 });

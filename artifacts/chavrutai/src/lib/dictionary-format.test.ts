@@ -136,6 +136,27 @@ describe("BDB abbreviation expansion", () => {
     ).toBe("civil vivid mix textile");
   });
 
+  it("covers 40–49 and every multi-letter lowercase Roman numeral through 60 without mapping bare l", () => {
+    const numerals = [
+      "xl", "xli", "xlii", "xliii", "xliv", "xlv", "xlvi", "xlvii", "xlviii", "xlix",
+      "l", "li", "lii", "liii", "liv", "lv", "lvi", "lvii", "lviii", "lix", "lx",
+    ];
+    for (let index = 0; index < numerals.length; index++) {
+      const numeral = numerals[index];
+      const number = 40 + index;
+      if (numeral === "l") {
+        expect(mappings).not.toHaveProperty("l");
+        expect(expandAbbreviations(numeral, mappings)).toBe(numeral);
+      } else {
+        expect(mappings[numeral as keyof typeof mappings]).toBe(String(number));
+        expect(expandAbbreviations(numeral, mappings))
+          .toBe(`<span class="dict-expanded">${number}</span>`);
+      }
+    }
+    expect(expandAbbreviations("live liver civil l lx li", mappings))
+      .toBe('live liver civil l <span class="dict-expanded">60</span> <span class="dict-expanded">51</span>');
+  });
+
   const rawlinsonAliases = [
     ["IR", 1], ["II. R", 2], ["ii. R", 2], ["III R", 3],
     ["V. R", 5], ["VR", 5], ["V R", 5], ["v R.", 5],

@@ -447,4 +447,48 @@ describe("BDB September 20 mappings", () => {
     expect(expandAbbreviations("Koheleth; Plautus’ Poenulus; originally; Whence", bdbData.mappings))
       .toBe("Koheleth; Plautus’ Poenulus; originally; Whence");
   });
+
+  it("keeps the new September 27 spellings and corrected expansions exact", () => {
+    const expected = {
+      "Morgenl.": "Morgenländische", "Kam.": "Al-Qāmūs",
+      "Haph.": "Haph'el", "Onomast.": "Onomasticon (Eusebius)",
+      "Lag (On.": "Lagarde (Onomastica sacra", BL: "Bibel-Lexikon",
+      "Sem. Sprachf.": "Semitische Sprachforschungen",
+      "M’Lean-Dyer": "McLean-Dyer", "Iph.": "Iph'il",
+      "Tabn.": "Tabnit", "Pōʿlal": "Po'alal", "Pōʿlēl": "Po'alel",
+      "Thontafelfund v. El Amarna": "Thontafelfund von El-Amarna",
+      "Mesop.": "Mesopotamia", Canaanitish: "Canaanite",
+      "afformat.": "afformative", "Theol.": "Theology",
+      "obl.": "oblique", "substs.": "substantives",
+      "2 s. f.": "2nd-person singular feminine",
+      "2 m.pl.": "2nd-person masculine plural",
+      "Inscr.": "Inscription", "Hiph.": "Hiph'il",
+      OHeb: "Old Hebrew", "dial.": "dialect(al)",
+    };
+    for (const [key, expansion] of Object.entries(expected)) {
+      expect(bdbData.mappings[key as keyof typeof bdbData.mappings]).toBe(expansion);
+      expect(expandAbbreviations(key, bdbData.mappings)).toBe(
+        `<span class="dict-expanded">${expansion}</span>`,
+      );
+    }
+  });
+
+  it("uses the longest citation and person-number keys after superscript conversion", () => {
+    for (const source of ["Lag<sup>On. 14</sup>", "Lag <sup>On. 14</sup>"]) {
+      expect(expandAbbreviations(convertSupTagsToParens(source), bdbData.mappings)).toBe(
+        '<span class="dict-expanded">Lagarde (Onomastica sacra</span> 14)',
+      );
+    }
+    expect(expandAbbreviations("Lag (M. i. 255); Lag; 2 s. f.; 2 m.pl.", bdbData.mappings))
+      .toBe('<span class="dict-expanded">Lagarde (Mittheilungen</span> i. 255); ' +
+        '<span class="dict-expanded">Lagarde</span>; ' +
+        '<span class="dict-expanded">2nd-person singular feminine</span>; ' +
+        '<span class="dict-expanded">2nd-person masculine plural</span>');
+  });
+
+  it("does not change embedded spellings, existing expanded text, or HTML attributes", () => {
+    const text = '<a title="Lag (On.">Canaanitishness</a> ' +
+      'M’Lean-Dyerson BLending Mesopotamia afformative Theology';
+    expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+  });
 });
