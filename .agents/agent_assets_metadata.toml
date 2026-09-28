@@ -84,3 +84,17 @@ mtime_ms = 1790242699194
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/1121e6b1-bbeb-4906-8a05-08aeb2afb88a/52498839-63f8-4e74-9401-7c128bd12216"
 storage_version_token = "1790242754086483"
 content_type = "image/png"
+
+[[outputs]]
+id = "K-ARg-IXxpHO9TYCu41lY"
+uri = "file://docs/research/bdb-eth-verbs.csv"
+type = "table"
+title = "BDB -eth verb review list"
+description = "252 candidate forms with proposed modern replacements, occurrence counts, review flags, existing mappings, and all source excerpts. UTF-8 CSV suitable for Excel or Google Sheets."
+logical_id = "54a97b5a-6e9e-45f6-957d-560da685be47"
+content_hash = "sha256:30df62203373f656e6b2c337e0627ecc9a1a4c3f8f700bdebadee974482b5acd"
+size = 138721
+mtime_ms = 1790622895555
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/54a97b5a-6e9e-45f6-957d-560da685be47/94aaa1b6-76e3-4ccb-b9a5-d41a8f82a6e4"
+storage_version_token = "1790622907020710"
+content_type = "text/csv"
