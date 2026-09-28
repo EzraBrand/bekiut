@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Twelve Archaic Verb Modernizations (September 28)</h3>
+              <p>Modernized cometh → comes, knoweth → knows, liveth → lives, causeth → causes, giveth → gives, doeth → does, covereth → covers, speaketh → speaks, contendeth → contends, melteth → melts, spreadeth → spreads, and walketh → walks. These are exact-word replacements; seeth remains unchanged.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation and Text Corrections (September 27)</h3>
               <p>Added 2 f.pl. → 2nd-person feminine plural and 2 s. m. → 2nd-person singular masculine.</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
