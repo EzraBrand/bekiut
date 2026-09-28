@@ -22,6 +22,8 @@ const validCategories = new Set<BdbCategory>([
 const contextualExpansionExceptions = new Set([
   // "l. c." is a reference pointer; "thither" is ordinary vocabulary.
   "there",
+  // "Narrat." names a work; lowercase "narrat." describes narrative wording.
+  "narrative",
 ]);
 
 describe("BDB display categories", () => {

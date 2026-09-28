@@ -68,6 +68,19 @@ describe("BDB expanded-term metadata", () => {
     expect(bdbExpandedTerms.Hiphil).toBeUndefined();
   });
 
+  it("categorizes the new exact BDB expansions", () => {
+    expect(bdbExpandedTerms.cereal.category).toBe("Vocabulary");
+    expect(bdbExpandedTerms["compound proper names"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["tribal name"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["1 Kings"].category).toBe("Text / source");
+    expect(bdbExpandedTerms["Sinaitic Inscriptions"].category).toBe("Text / source");
+    expect(bdbExpandedTerms["Sinaitische Inschriften"].category).toBe("Text / source");
+    expect(bdbExpandedTerms["Studia Biblica"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms.Spiegelberg.category).toBe("Scholar");
+    expect(bdbExpandedTerms.Jehoshaphat.category).toBe("Place / person");
+    expect(bdbExpandedTerms["as if to say"].category).toBe("Reference notation");
+  });
+
   it("keeps shared expansions and removes only metadata no longer used by any key", () => {
     expect(bdbData.mappings["Sam"]).toBe("Samuel");
     expect(bdbData.mappings["Sa"]).toBe("Samuel");

@@ -45,6 +45,7 @@ export default function Changelog() {
               <h3 className="font-medium text-foreground mb-2">BDB: Abbreviation and Text Corrections (September 27)</h3>
               <p>Added 2 f.pl. → 2nd-person feminine plural and 2 s. m. → 2nd-person singular masculine.</p>
               <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Added 22 exact BDB expansions: grammar and vocabulary (corn, lang., subord., idiomat., n. pr.m., comp. n.pr., analog., n.pr. trib.); citations and sources (chap., Mat, 1 K., Sin. Inscr., Sin.Inschr., Stud. Bib., q. d., Brit. Mus., Mas, cent.); and names and language (Cl-Gann, Shemitic, Spiegelb, Jehosh.). Longer citation and grammar keys take precedence over their shorter components. No general eth conversion was added.</li>
                 <li>Added book, scholar, language, citation, grammar, and vocabulary expansions, including Koh, Wr, Eccl., JPhil., Plaut. Poen., Gr., and m. &amp; f.</li>
                 <li>Added Morgenl., Kam., Onomast., Lag (On., BL, Sem. Sprachf., M’Lean-Dyer, Tabn., Thontafelfund v. El Amarna, Mesop., Canaanitish, Theol., and grammar forms Haph., Iph., Pōʿlal, Pōʿlēl, afformat., obl., substs., 2 s. f., and 2 m.pl. Corrected Inscr., Hiph., OHeb, and dial.; lowercase Roman numerals now cover 40–60 except ambiguous standalone l.</li>
                 <li>Corrected orig. to “original(ly)” and whence to “from where”; removed the false-positive Ra → Rashi expansion while leaving literal scholar names intact.</li>

@@ -475,6 +475,47 @@ describe("BDB September 20 mappings", () => {
     }
   });
 
+  it("expands all 22 requested BDB spellings exactly", () => {
+    const expected = {
+      corn: "cereal", "lang.": "languages", "subord.": "subordinating",
+      "idiomat.": "idiomatically", "Cl-Gann": "Clermont-Ganneau",
+      "n. pr.m.": "noun proper masculine", "chap.": "chapter",
+      Shemitic: "Semitic", "comp. n.pr.": "compound proper names",
+      Mat: "Matthew", "analog.": "analogies", "1 K.": "1 Kings",
+      "Sin. Inscr.": "Sinaitic Inscriptions",
+      "Sin.Inschr.": "Sinaitische Inschriften",
+      "Stud. Bib.": "Studia Biblica", "n.pr. trib.": "tribal name",
+      "q. d.": "as if to say", "Brit. Mus.": "British Museum",
+      Mas: "Massora", Spiegelb: "Spiegelberg", "cent.": "century",
+      "Jehosh.": "Jehoshaphat",
+    };
+    expect(Object.keys(expected)).toHaveLength(22);
+    for (const [key, expansion] of Object.entries(expected)) {
+      expect(bdbData.mappings[key as keyof typeof bdbData.mappings]).toBe(expansion);
+      expect(expandAbbreviations(key, bdbData.mappings)).toBe(
+        `<span class="dict-expanded">${expansion}</span>`,
+      );
+    }
+  });
+
+  it("prefers longer requested citation and grammar keys without consuming adjacent text", () => {
+    expect(expandAbbreviations(
+      "comp. n.pr.; n.pr. trib.; Sin. Inscr.; Sin.Inschr.; Stud. Bib.; Brit. Mus.; 1 K.; q. d.",
+      bdbData.mappings,
+    )).toBe(
+      '<span class="dict-expanded">compound proper names</span>; ' +
+      '<span class="dict-expanded">tribal name</span>; ' +
+      '<span class="dict-expanded">Sinaitic Inscriptions</span>; ' +
+      '<span class="dict-expanded">Sinaitische Inschriften</span>; ' +
+      '<span class="dict-expanded">Studia Biblica</span>; ' +
+      '<span class="dict-expanded">British Museum</span>; ' +
+      '<span class="dict-expanded">1 Kings</span>; ' +
+      '<span class="dict-expanded">as if to say</span>',
+    );
+    expect(expandAbbreviations("cornfield; Mathew; Massora; Spiegelberg", bdbData.mappings))
+      .toBe("cornfield; Mathew; Massora; Spiegelberg");
+  });
+
   it("uses the longest citation and person-number keys after superscript conversion", () => {
     for (const source of ["Lag<sup>On. 14</sup>", "Lag <sup>On. 14</sup>"]) {
       expect(expandAbbreviations(convertSupTagsToParens(source), bdbData.mappings)).toBe(

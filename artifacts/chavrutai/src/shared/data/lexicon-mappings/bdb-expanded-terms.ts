@@ -183,8 +183,11 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "in the work cited",
     "at the end",
     "in the places cited",
+    "century",
+    "as if to say",
   ],
   "Place / person": [
+    "Jehoshaphat",
     "Shalmaneser (",
     "Yoma",
     "Eretz Yisrael",
@@ -292,6 +295,9 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "subordinating",
+    "compound proper names",
+    "tribal name",
     "masculine & feminine",
     "compounded",
     "instrument",
@@ -539,6 +545,10 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "cereal",
+    "languages",
+    "idiomatically",
+    "analogies",
     "Theology",
     "calamity",
     "designation",
@@ -814,6 +824,10 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Eigennamen",
   ],
   "Text / source": [
+    "1 Kings",
+    "Sinaitic Inscriptions",
+    "Sinaitische Inschriften",
+    "Massora",
     "Koheleth",
     "Obadiah",
     "Isaiah &",
@@ -975,6 +989,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Studia Biblica",
     "Modern Review",
     "Religion of Babylonia",
     "Narrative",
@@ -1245,6 +1260,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Gesenius, translated by Robinson",
   ],
   Scholar: [
+    "Spiegelberg",
     "McLean-Dyer",
     "Wright",
     "Epiphanius",
