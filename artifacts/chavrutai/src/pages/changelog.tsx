@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Ten Archaic -est Verb Modernizations (September 29)</h3>
+              <p>Added knowest → know, makest → make, desirest → desire, sayest → say, choosest → choose, givest → give, goest → go, keepest → keep, layest → lay, and mightest → might as exact-word replacements. No general -est conversion was added.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Citation and Vocabulary Expansions (September 29)</h3>
               <p>Added dist. → distinct, Phön. → Phönizier, Lam. → Lamech, Sab Denkm → Sabäische Denkmäler, Prol. Assyr. Gr. → Prolegomena to Assyrian Grammar, PEQ → Palestine Exploration Quarterly, h. priest → High Priest, TelAm → Tell el-Amarna, ÄZ → Ägyptische Zeitschrift, vocaliz. → vocalization, conseq. → consequence, and periph. → periphrasis.</p>
             </div>

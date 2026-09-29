@@ -7,6 +7,10 @@ const pairs = [
   ["causeth", "causes"], ["giveth", "gives"], ["doeth", "does"],
   ["covereth", "covers"], ["speaketh", "speaks"], ["contendeth", "contends"],
   ["melteth", "melts"], ["spreadeth", "spreads"], ["walketh", "walks"],
+  ["knowest", "know"], ["makest", "make"], ["desirest", "desire"],
+  ["sayest", "say"], ["choosest", "choose"], ["givest", "give"],
+  ["goest", "go"], ["keepest", "keep"], ["layest", "lay"],
+  ["mightest", "might"],
 ];
 
 describe("approved BDB archaic verbs", () => {
