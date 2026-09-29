@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Citation and Vocabulary Expansions (September 29)</h3>
+              <p>Added dist. → distinct, Phön. → Phönizier, Lam. → Lamech, Sab Denkm → Sabäische Denkmäler, Prol. Assyr. Gr. → Prolegomena to Assyrian Grammar, PEQ → Palestine Exploration Quarterly, h. priest → High Priest, TelAm → Tell el-Amarna, ÄZ → Ägyptische Zeitschrift, vocaliz. → vocalization, conseq. → consequence, and periph. → periphrasis.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Twelve Archaic Verb Modernizations (September 28)</h3>
               <p>Modernized cometh → comes, knoweth → knows, liveth → lives, causeth → causes, giveth → gives, doeth → does, covereth → covers, speaketh → speaks, contendeth → contends, melteth → melts, spreadeth → spreads, and walketh → walks. These are exact-word replacements; seeth remains unchanged.</p>
             </div>
