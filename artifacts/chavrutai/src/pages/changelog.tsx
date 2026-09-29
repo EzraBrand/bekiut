@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Works, and Vocabulary (September 29)</h3>
+              <p>Added high-p. → High Priest, Hothp. → Hothpa'al, n.pl.[m.] → noun plural [masculine], bullocks → bulls, bullock → bull, m. et. f. → masculine and feminine, RÉJ → Revue des Études Juives, A. u. A. → Aufsätze und Abhandlungen, milch → milk, and Cp. → Compare.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Ten Archaic -est Verb Modernizations (September 29)</h3>
               <p>Added knowest → know, makest → make, desirest → desire, sayest → say, choosest → choose, givest → give, goest → go, keepest → keep, layest → lay, and mightest → might as exact-word replacements. No general -est conversion was added.</p>
             </div>

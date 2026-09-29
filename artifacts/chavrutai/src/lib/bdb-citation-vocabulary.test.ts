@@ -3,6 +3,16 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["high-p.", "High Priest"],
+  ["Hothp.", "Hothpa'al"],
+  ["n.pl.[m.]", "noun plural [masculine]"],
+  ["bullocks", "bulls"],
+  ["bullock", "bull"],
+  ["m. et. f.", "masculine and feminine"],
+  ["RÉJ", "Revue des Études Juives"],
+  ["A. u. A.", "Aufsätze und Abhandlungen"],
+  ["milch", "milk"],
+  ["Cp.", "Compare"],
   ["dist.", "distinct"],
   ["Phön.", "Phönizier"],
   ["Lam.", "Lamech"],
@@ -31,5 +41,10 @@ describe("BDB citation and vocabulary additions", () => {
   it("does not replace text in attributes or inside longer words", () => {
     const text = '<a title="PEQ">xPEQ PEQx</a>';
     expect(expandAbbreviations(text, bdbData.mappings)).toBe(text);
+  });
+
+  it("handles singular and plural bullock independently without matching longer words", () => {
+    expect(expandAbbreviations("bullock bullocks bullockish", bdbData.mappings))
+      .toBe('<span class="dict-expanded">bull</span> <span class="dict-expanded">bulls</span> bullockish');
   });
 });
