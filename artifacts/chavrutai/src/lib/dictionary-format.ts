@@ -597,6 +597,42 @@ export function prependBdbCircaMarker(html: string): string {
 // to right, preferring the longest key at the same start. A globally longer key
 // must not steal the suffix of an earlier abbreviation ("E. of" in "S.E. of").
 // Emitting only after selection also prevents expansions from being re-matched.
+// Mappings are immutable after loading. Cache the stable sort and compiled
+// patterns per mapping object, not per definition or HTML text segment.
+type CompiledAbbreviation = {
+  abbreviation: string;
+  expansion: string;
+  pattern: RegExp;
+};
+const abbreviationCache = new WeakMap<Record<string, string>, CompiledAbbreviation[]>();
+
+function compiledAbbreviations(mappings: Record<string, string>): CompiledAbbreviation[] {
+  const cached = abbreviationCache.get(mappings);
+  if (cached) return cached;
+  const NW = '\\p{L}\\p{N}\\p{M}_';
+  const entries = Object.entries(mappings).sort(([a], [b]) => b.length - a.length);
+  const compiled = entries
+    .filter(([abbreviation]) => abbreviation.length > 0)
+    .map(([abbreviation, expansion]) => {
+      const leftWord = /^[\p{L}\p{N}\p{M}_]/u.test(abbreviation);
+      const rightWord = /[\p{L}\p{N}\p{M}_]$/u.test(abbreviation);
+      const leftAnchor = leftWord ? `(?<![${NW}])` : '';
+      const rightAnchor = rightWord ? `(?![${NW}])` : '';
+      const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // Trailing periods only require the left boundary. &c. has no
+      // boundaries at all; keep its original non-Unicode regex behavior.
+      const pattern = abbreviation === '&c.'
+        ? /&c\./g
+        : new RegExp(
+            `${leftAnchor}${escaped}${abbreviation.endsWith('.') && !abbreviation.includes(' ') ? '' : rightAnchor}`,
+            'gu',
+          );
+      return { abbreviation, expansion, pattern };
+    });
+  abbreviationCache.set(mappings, compiled);
+  return compiled;
+}
+
 export function expandAbbreviations(text: string, mappings: Record<string, string>) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
@@ -610,7 +646,7 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
         : original;
     },
   );
-  const sortedMappings = Object.entries(mappings).sort(([a], [b]) => b.length - a.length);
+  const compiled = compiledAbbreviations(mappings);
 
   // Split into alternating text segments (even indices) and HTML tag segments
   // (odd indices). This isolates abbreviation matching from HTML markup so
@@ -641,37 +677,12 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
     const prevTag = i > 0 ? parts[i - 1] : '';
     const insideStrong = /^<strong\b[^>]*>$/.test(prevTag);
 
-    for (const [abbreviation, expansion] of sortedMappings) {
-      if (!abbreviation) continue;
+    for (const { abbreviation, expansion, pattern } of compiled) {
       if (abbreviation === 'c.' && insideStrong) continue;
-
-      let pattern: RegExp;
-      // A word character for boundary purposes is any Unicode letter, number,
-      // combining mark, or underscore. JS's native `\b` only recognises ASCII
-      // word chars, so it treats accented/transliteration letters (ḳ, ē, ʿ),
-      // Hebrew, Greek, etc. as boundaries — which let short keys like "Pe"
-      // match inside "Peḳaḥ". These Unicode-aware lookarounds fix that.
-      const NW = '\\p{L}\\p{N}\\p{M}_';
-      // Only anchor a side when the abbreviation's edge char is itself a word
-      // char; for symbol/punctuation edges (e.g. "(Sym", "+.") no anchor is
-      // needed (and one would never fire).
-      const leftWord = /^[\p{L}\p{N}\p{M}_]/u.test(abbreviation);
-      const rightWord = /[\p{L}\p{N}\p{M}_]$/u.test(abbreviation);
-      const leftAnchor = leftWord ? `(?<![${NW}])` : '';
-      const rightAnchor = rightWord ? `(?![${NW}])` : '';
-      if (abbreviation === '&c.') {
-        pattern = /&c\./g;
-      } else if (abbreviation.includes(' ')) {
-        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        pattern = new RegExp(`${leftAnchor}${escaped}${rightAnchor}`, 'gu');
-      } else if (abbreviation.endsWith('.')) {
-        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        // Trailing "." is the right edge, so only a left anchor is needed.
-        pattern = new RegExp(`${leftAnchor}${escaped}`, 'gu');
-      } else {
-        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        pattern = new RegExp(`${leftAnchor}${escaped}${rightAnchor}`, 'gu');
-      }
+      // Literal search is cheaper than running thousands of Unicode regexes
+      // against every short HTML text node. A regex match necessarily contains
+      // its exact case-sensitive key, so this cannot exclude a real match.
+      if (!segment.includes(abbreviation)) continue;
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;

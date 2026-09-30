@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { memo, useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,63 @@ import {
   type AutosuggestSuggestion,
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
+
+type PreparedSense = {
+  id: string;
+  className: string;
+  html: string;
+};
+
+type OutlineItem = { rawLevel: number; level: number; marker: string; label: string; index: number; anchorId: string };
+
+export function prepareBdbEntries(
+  results: DictionaryEntry[],
+  buildOutline: (senses: { definition: string }[], entryKey: string) => OutlineItem[] | null,
+  classifyMarker: (raw: string) => { level: number; marker: string } | null,
+  renderDefinition: (definition: string, idPrefix: string, isFirstSense: boolean) => string,
+) {
+  return results.map((entry, index) => {
+    const entryKey = entry.rid || `${index}`;
+    const outline = buildOutline(entry.content.senses, entryKey);
+    const uniqueLevels = outline ? Array.from(new Set(outline.map(o => o.rawLevel))).sort((a, b) => a - b) : [];
+    const visibleLevels = new Set(uniqueLevels.slice(0, 2));
+    const collapsedOutline = outline?.filter(o => visibleLevels.has(o.rawLevel)) ?? null;
+    const hiddenCount = outline ? outline.length - (collapsedOutline?.length ?? 0) : 0;
+    const seenLevels = new Set<number>();
+    const senses = entry.content.senses.map((sense, senseIndex) => {
+      const senseId = `sense-${entryKey}-${senseIndex}`;
+      const leadMatch = sense.definition.match(/^\s*<strong>\s*([^<]{1,15}?)\s*<\/strong>/);
+      const cls = leadMatch ? classifyMarker(leadMatch[1]) : null;
+      let levelClass = '';
+      if (cls) {
+        levelClass = `bdb-section-level-${cls.level}`;
+        if (!seenLevels.has(cls.level)) {
+          levelClass += ' bdb-section-first';
+          seenLevels.add(cls.level);
+        }
+      }
+      return {
+        id: senseId,
+        className: `mb-2 last:mb-0 dictionary-content scroll-mt-20 ${levelClass}`,
+        html: renderDefinition(sense.definition, senseId, senseIndex === 0),
+      };
+    });
+    return { entry, entryKey, outline, collapsedOutline, hiddenCount, senses };
+  });
+}
+
+// Keep the HTML-bearing nodes out of the scroll-spy/search-input render path.
+// React never receives a new __html object unless the entry or split mode changes.
+const BdbSenses = memo(function BdbSenses({ senses }: { senses: PreparedSense[] }) {
+  return senses.map((sense) => (
+    <div
+      key={sense.id}
+      id={sense.id}
+      className={sense.className}
+      dangerouslySetInnerHTML={{ __html: sense.html }}
+    />
+  ));
+});
 
 export default function Bdb() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -324,8 +381,6 @@ export default function Bdb() {
   // Stricter than [IVX]+ so we don't accept malformed strings like IIX or VX.
   const ROMAN_RE = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/;
 
-  type OutlineItem = { rawLevel: number; level: number; marker: string; label: string; index: number; anchorId: string };
-
   // Greek lowercase letters BDB uses for the deepest sub-marker level inside a
   // single sense's prose (α., β., γ., δ., ε., ζ., η., θ., …). They appear inline
   // between semicolons, not in <strong> tags, so we detect them on the plain
@@ -499,6 +554,16 @@ export default function Bdb() {
       )
     );
   };
+
+  // Prepare the entire result set once per response/split mode. In particular,
+  // typing, scroll-spy updates and outline expansion must not rerun the HTML
+  // conversion pipeline or scan definitions to build outlines.
+  const preparedEntries = useMemo(
+    () => prepareBdbEntries(results, buildOutline, classifyMarker, renderDefinition),
+    // The preparation functions only close over static mappings and split mode;
+    // they are intentionally recreated by Bdb without invalidating this cache.
+    [results, splitBySemicolon],
+  );
 
   return (
     <PageShell mainClassName="max-w-4xl">
@@ -734,20 +799,13 @@ export default function Bdb() {
             </div>
           ) : (
             <div className="space-y-4">
-              {results.map((entry, index) => {
-                const entryKey = entry.rid || `${index}`;
-                const outline = buildOutline(entry.content.senses, entryKey);
+              {preparedEntries.map(({ entry, entryKey, outline, collapsedOutline, hiddenCount, senses }, index) => {
                 // By default show only the two shallowest distinct rawLevels (the
                 // "top-level + sub-items" view). Deeper levels — typically letter
                 // sub-sections (a./b./…) and inline Greek markers (α./β./…) — are
                 // collapsed behind a toggle so long entries (e.g. הָלַךְ) stay scannable.
-                const uniqueLevels = outline ? Array.from(new Set(outline.map(o => o.rawLevel))).sort((a, b) => a - b) : [];
-                const visibleLevels = new Set(uniqueLevels.slice(0, 2));
                 const isOutlineExpanded = !!outlineExpanded[entryKey];
-                const visibleOutline = outline
-                  ? (isOutlineExpanded ? outline : outline.filter(o => visibleLevels.has(o.rawLevel)))
-                  : null;
-                const hiddenCount = outline ? outline.length - (visibleOutline?.length ?? 0) : 0;
+                const visibleOutline = isOutlineExpanded ? outline : collapsedOutline;
                 return (
                 <div key={entry.rid || index} className="pb-4 border-b border-border last:border-b-0" data-testid={`entry-${entry.rid || index}`} data-entry-key={entryKey}>
                   <div className="flex items-start gap-4">
@@ -813,37 +871,7 @@ export default function Bdb() {
                           )}
                         </nav>
                       )}
-                      {(() => {
-                        // Pre-classify every sense so we can mark the first
-                        // occurrence of each section level as "bdb-section-first".
-                        // We can't rely on CSS :first-child because the outline
-                        // <nav> renders before the senses inside the same parent.
-                        const classifications = entry.content.senses.map(sense => {
-                          const leadMatch = sense.definition.match(/^\s*<strong>\s*([^<]{1,15}?)\s*<\/strong>/);
-                          return leadMatch ? classifyMarker(leadMatch[1]) : null;
-                        });
-                        const seenLevels = new Set<number>();
-                        return entry.content.senses.map((sense, senseIndex) => {
-                          const senseId = `sense-${entryKey}-${senseIndex}`;
-                          const cls = classifications[senseIndex];
-                          let levelClass = '';
-                          if (cls) {
-                            levelClass = `bdb-section-level-${cls.level}`;
-                            if (!seenLevels.has(cls.level)) {
-                              levelClass += ' bdb-section-first';
-                              seenLevels.add(cls.level);
-                            }
-                          }
-                          return (
-                            <div
-                              key={senseIndex}
-                              id={senseId}
-                              className={`mb-2 last:mb-0 dictionary-content scroll-mt-20 ${levelClass}`}
-                              dangerouslySetInnerHTML={{ __html: renderDefinition(sense.definition, senseId, senseIndex === 0) }}
-                            />
-                          );
-                        });
-                      })()}
+                      <BdbSenses senses={senses} />
                     </div>
                   </div>
                   {outline && openOutlineEntry === entryKey && (
@@ -933,8 +961,8 @@ export default function Bdb() {
                 const firstKey = results[0]?.rid || (results.length ? '0' : null);
                 const targetKey = activeEntryKey ?? firstKey;
                 if (!targetKey) return null;
-                const targetEntry = results.find((e, i) => (e.rid || `${i}`) === targetKey);
-                if (!targetEntry || !buildOutline(targetEntry.content.senses, targetKey)) return null;
+                const targetEntry = preparedEntries.find(e => e.entryKey === targetKey);
+                if (!targetEntry?.outline) return null;
                 const isOpen = openOutlineEntry === targetKey;
                 return (
                   <button

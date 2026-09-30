@@ -42,6 +42,11 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Faster Long Entries (September 30)</h3>
+              <p>Long dictionary entries now reuse abbreviation matching rules and prepared definitions. Typing, scrolling, and opening the outline no longer reformat the entire entry. Complete definitions, citations, abbreviation meanings, and transliteration remain unchanged.</p>
+              <p>Also synchronized the abbreviation index’s display categories with recent mappings, without changing their meanings.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Citation Expansions (September 30)</h3>
               <p>Added Ethpe. → Ethpe'el, Pōʿ. → Po'el, mont. → mountain, Bab. Rel. → Babylonische Religion, Arab. Dichter → Arabische Dichter, prægn. → pregnant, redund. → redundant, and implic. → implication. Changed ff. from “and following” to “and on”.</p>
             </div>

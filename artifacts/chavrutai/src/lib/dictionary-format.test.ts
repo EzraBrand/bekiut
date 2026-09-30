@@ -1,10 +1,182 @@
 import { describe, expect, it } from "vitest";
 import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import jastrowData from "@/shared/data/lexicon-mappings/jastrow.json";
-import { convertSupTagsToParens, expandAbbreviations } from "@/lib/dictionary-format";
+import exactQueryFixture from "./fixtures/bdb-kraat-response.json";
+import {
+  annotateTransliterationsInHtml,
+  convertBdbInternalLinks,
+  convertBdbSubFrequencyCounts,
+  convertJastrowInternalLinks,
+  convertSefariaLinksToInternal,
+  convertSuperscriptLetters,
+  convertSupTagsToParens,
+  expandAbbreviations,
+  prependBdbCircaMarker,
+  splitIntoParagraphsBdb,
+  type DictionaryEntry,
+} from "@/lib/dictionary-format";
 
 const mappings = bdbData.mappings;
 const jastrowMappings = jastrowData.mappings;
+
+// Frozen-in-test reference for the pre-cache matcher. Keep this independent of
+// the production compiler so a change to boundaries, guards, or selection is
+// caught by byte-for-byte comparisons, including adjacent HTML text nodes.
+function baselineExpand(text: string, map: Record<string, string>): string {
+  text = text.replace(
+    /<(strong|b)>n\.<\/\1>\s*\[\s*<(strong|b)>([mf])\.<\/\2>\s*\]/g,
+    (original, tag: string, _genderTag: string, gender: string) => {
+      const key = `n.[${gender}.]`;
+      return Object.prototype.hasOwnProperty.call(map, key)
+        ? `<${tag}>${key}</${tag}>` : original;
+    },
+  );
+  const sorted = Object.entries(map).sort(([a], [b]) => b.length - a.length);
+  const parts = text.split(/(<\/?[a-zA-Z][^>]*>)/);
+  for (let i = 0; i < parts.length; i += 2) {
+    const segment = parts[i];
+    if (!segment) continue;
+    const candidates: { start: number; end: number; expansion: string }[] = [];
+    const insideStrong = /^<strong\b[^>]*>$/.test(i > 0 ? parts[i - 1] : '');
+    for (const [abbreviation, expansion] of sorted) {
+      if (!abbreviation || (abbreviation === 'c.' && insideStrong)) continue;
+      const NW = '\\p{L}\\p{N}\\p{M}_';
+      const leftWord = /^[\p{L}\p{N}\p{M}_]/u.test(abbreviation);
+      const rightWord = /[\p{L}\p{N}\p{M}_]$/u.test(abbreviation);
+      const leftAnchor = leftWord ? `(?<![${NW}])` : '';
+      const rightAnchor = rightWord ? `(?![${NW}])` : '';
+      let pattern: RegExp;
+      if (abbreviation === '&c.') {
+        pattern = /&c\./g;
+      } else if (abbreviation.includes(' ')) {
+        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        pattern = new RegExp(`${leftAnchor}${escaped}${rightAnchor}`, 'gu');
+      } else if (abbreviation.endsWith('.')) {
+        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        pattern = new RegExp(`${leftAnchor}${escaped}`, 'gu');
+      } else {
+        const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        pattern = new RegExp(`${leftAnchor}${escaped}${rightAnchor}`, 'gu');
+      }
+      for (const match of segment.matchAll(pattern)) {
+        const offset = match.index!;
+        if ((abbreviation === 'De' && expansion === 'Delitzsch') ||
+            (abbreviation === 'Am' && expansion === 'Amos')) {
+          const followingText = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          if (abbreviation === 'De' && /^\s+Rossi(?![\p{L}\p{N}\p{M}_])/u.test(followingText)) continue;
+          if (abbreviation === 'Am' && /^\s+I(?![\p{L}\p{N}\p{M}_])/u.test(followingText)) continue;
+        }
+        if (abbreviation === 'c.') {
+          const after = segment.slice(offset + match[0].length);
+          if (/^\s+\d/.test(after)) continue;
+        }
+        if (abbreviation === 'ψ') {
+          const after = segment.slice(offset + match[0].length);
+          if (!/^\s*\d/.test(after)) continue;
+        }
+        if (expansion.startsWith('Rawlinson, Cuneiform Inscriptions ') &&
+            ['IR', 'II. R', 'ii. R', 'III R', 'V. R', 'VR', 'V R', 'v R.'].includes(abbreviation)) {
+          const after = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          if (!/^\s*(?:\(\s*)?\d/.test(after)) continue;
+        }
+        candidates.push({ start: offset, end: offset + match[0].length, expansion });
+      }
+    }
+    candidates.sort((a, b) => a.start - b.start || b.end - a.end);
+    let cursor = 0;
+    const output: string[] = [];
+    for (const candidate of candidates) {
+      if (candidate.start < cursor) continue;
+      output.push(segment.slice(cursor, candidate.start), `<span class="dict-expanded">${candidate.expansion}</span>`);
+      cursor = candidate.end;
+    }
+    output.push(segment.slice(cursor));
+    parts[i] = output.join('');
+  }
+  return parts.join('');
+}
+
+describe("cached abbreviation matcher differential", () => {
+  it("matches baseline for the complete captured /bdb?q=קְרַאת result through the reader pipeline", () => {
+    // Captured from /api/bdb/search?query=קְרַאת; fixture retains both raw
+    // entries and all 47 senses. Mirror bdb.tsx's Greek anchor step and the
+    // exact renderDefinition stage order, substituting only the old matcher.
+    // Transliteration is SSR-safe and a no-op in this Node test environment.
+    const entries: DictionaryEntry[] = exactQueryFixture.entries;
+    expect(exactQueryFixture.query).toBe("קְרַאת");
+    expect(entries.map(e => [e.rid, e.content.senses.length])).toEqual([
+      ["BDB08931", 41], ["BDB08937", 6],
+    ]);
+    expect(entries.flatMap(e => e.content.senses).reduce((n, s) => n + s.definition.length, 0))
+      .toBe(57152);
+
+    const greekMarker = /(^|[\s;(>—–:\-])([αβγδεζηθικλμνξοπρστυφχψω])(\.|\))/g;
+    const render = (definition: string, idPrefix: string, first: boolean, matcher: typeof expandAbbreviations) => {
+      let prepared = convertBdbSubFrequencyCounts(definition);
+      if (first) prepared = prependBdbCircaMarker(prepared);
+      const occurrences: Record<string, number> = {};
+      prepared = prepared.replace(greekMarker, (_match, lead: string, letter: string, trailer: string) => {
+        const occ = (occurrences[letter] = (occurrences[letter] ?? -1) + 1);
+        const id = `${idPrefix}-greek-${letter}-${occ}`;
+        return trailer === '.'
+          ? `${lead}<span id="${id}" class="scroll-mt-20">${letter}.</span>`
+          : `${lead}<span id="${id}" class="scroll-mt-20">${letter}</span>)`;
+      });
+      return annotateTransliterationsInHtml(
+        convertSefariaLinksToInternal(
+          convertJastrowInternalLinks(
+            convertBdbInternalLinks(
+              matcher(
+                convertSuperscriptLetters(splitIntoParagraphsBdb(convertSupTagsToParens(prepared), true)),
+                mappings,
+              ),
+            ),
+          ),
+        ),
+      );
+    };
+
+    for (const entry of entries) {
+      entry.content.senses.forEach((sense, index) => {
+        const id = `sense-${entry.rid}-${index}`;
+        expect(render(sense.definition, id, index === 0, expandAbbreviations))
+          .toBe(render(sense.definition, id, index === 0, baselineExpand));
+      });
+    }
+  }, 60000);
+
+  it.each([["BDB", mappings], ["Jastrow", jastrowMappings]] as const)(
+    "matches baseline for every %s key in running text and across tags",
+    (_name, map) => {
+      const keys = Object.keys(map);
+      // Key boundaries/overlaps can change when keys appear adjacent.
+      const passages = [
+        keys.join('; '),
+        keys.map(key => `<em title="${key.replace(/"/g, '&quot;')}">${key}</em>`).join(' '),
+        'S.E. of; E. of; αPeḳaḥ; < name of Bab. king > AV; <strong>c.</strong> c. 6823 c. preposition; ψ 23 ψυχή',
+        '<em>Am</em> I; De <a>Rossi</a>; VR<a href="/ref">35:19</a>; IR; <b>n.</b>[<b>f.</b>]',
+      ];
+      for (const passage of passages) {
+        const expected = baselineExpand(passage, map);
+        expect(expandAbbreviations(passage, map)).toBe(expected);
+        expect(expandAbbreviations(passage, map)).toBe(expected);
+      }
+    },
+    30000,
+  );
+
+  it("does not share compiled expansions between distinct mapping identities", () => {
+    const first = Object.freeze({ "E. of": "East of", "E.": "east" });
+    const second = Object.freeze({ "E. of": "Eastern side", "E.": "eastward" });
+    for (const map of [first, second, first, second]) {
+      expect(expandAbbreviations("E. of E.", map)).toBe(baselineExpand("E. of E.", map));
+    }
+  });
+});
 
 describe("BDB abbreviation expansion", () => {
   it("resolves overlaps leftmost first, then longest at the same position", () => {
@@ -45,7 +217,7 @@ describe("BDB abbreviation expansion", () => {
     expect(expandAbbreviations(source, mappings)).toBe(
       '<big>[<span dir="rtl">זֵק</span>]</big>  <strong><span class="dict-expanded">noun[masculine]</span></strong> <strong>fetter</strong>',
     );
-  }, 15000); // Full-map regex initialization can exceed 5s under parallel workspace tests.
+  }, 15000);
 
   it("also handles split feminine labels and preserves unmapped labels", () => {
     const source = '<b>n.</b>[<b>f.</b>]';

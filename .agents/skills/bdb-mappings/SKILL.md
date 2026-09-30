@@ -62,6 +62,8 @@ Defined in `dictionary-format.ts` around line 590. Key behaviors:
 
 ## Workflow: Adding New Mappings
 
+Whenever a mapping adds or changes an expansion, also update the exact expansion in `artifacts/chavrutai/src/shared/data/lexicon-mappings/bdb-expanded-terms.ts`. Assign its semantic category, preserve verified references, and remove an old expansion only if no mapping still uses it. Run the existing expanded-term and category tests; the abbreviation-index categories are derived from this metadata, not maintained separately.
+
 1. **Confirm the actual rendered text.** If the user reports a wrong expansion, look at the Sefaria source for that entry to see whether the abbreviation is inside `<sup>`, surrounded by punctuation, etc. The post-pipeline form is what your mapping key must match.
 
    Quick way to grab a Sefaria entry's raw text:

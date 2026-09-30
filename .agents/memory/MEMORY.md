@@ -18,3 +18,4 @@
 - [Chapter metadata loading](chapter-metadata-loading.md) — keep small TOC metadata synchronous; lazy downloads previously displayed and cached false zero-chapter states.
 - [Reader note typography](reader-note-typography.md) — shared readable note sizes across Bavli, Yerushalmi, and Rambam; avoid compounding relative text-size reductions.
 - [Scrolling table headings](scrolling-table-headers.md) — native sticky outside horizontal overflow; scroll-driven header translation looked fine in screenshots but jumped during scrolling.
+- [BDB performance constraints](bdb-performance.md) — immutable mapping identity; search caching must distinguish upstream failures from genuine empty results.

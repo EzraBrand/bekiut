@@ -8,6 +8,18 @@ const mappings = Object.entries(bdbData.mappings).filter(
 );
 
 describe("BDB expanded-term metadata", () => {
+  it("classifies recent mapping additions without changing their meanings", () => {
+    expect(bdbExpandedTerms["and on"].category).toBe("Reference notation");
+    expect(bdbExpandedTerms["and following"]).toBeUndefined();
+    expect(bdbExpandedTerms["periphrasis"].category).toBe(bdbExpandedTerms.Periphrasis.category);
+    expect(bdbExpandedTerms["Ethpe'el"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["Hothpa'al"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["noun plural [masculine]"].category).toBe("Grammar");
+    expect(bdbExpandedTerms["Phönizier"].category).toBe("Language");
+    expect(bdbExpandedTerms.Lamech.category).toBe("Place / person");
+    expect(bdbExpandedTerms["Babylonische Religion"].category).toBe("Work / journal");
+    expect(bdbExpandedTerms.knows.category).toBe("Vocabulary");
+  });
   it("is keyed by every exact expansion rather than abbreviation", () => {
     const expansions = [...new Set(mappings.map(([, expansion]) => expansion))];
 
