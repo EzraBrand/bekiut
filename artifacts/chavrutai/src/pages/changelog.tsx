@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Citation Expansions (September 30)</h3>
+              <p>Added Ethpe. → Ethpe'el, Pōʿ. → Po'el, mont. → mountain, Bab. Rel. → Babylonische Religion, Arab. Dichter → Arabische Dichter, prægn. → pregnant, redund. → redundant, and implic. → implication. Changed ff. from “and following” to “and on”.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Works, and Vocabulary (September 29)</h3>
               <p>Added high-p. → High Priest, Hothp. → Hothpa'al, n.pl.[m.] → noun plural [masculine], bullocks → bulls, bullock → bull, m. et. f. → masculine and feminine, RÉJ → Revue des Études Juives, A. u. A. → Aufsätze und Abhandlungen, milch → milk, and Cp. → Compare.</p>
             </div>

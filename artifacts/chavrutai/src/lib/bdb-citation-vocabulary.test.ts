@@ -3,6 +3,15 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["Ethpe.", "Ethpe'el"],
+  ["Pōʿ.", "Po'el"],
+  ["mont.", "mountain"],
+  ["Bab. Rel.", "Babylonische Religion"],
+  ["Arab. Dichter", "Arabische Dichter"],
+  ["prægn.", "pregnant"],
+  ["redund.", "redundant"],
+  ["implic.", "implication"],
+  ["ff.", "and on"],
   ["high-p.", "High Priest"],
   ["Hothp.", "Hothpa'al"],
   ["n.pl.[m.]", "noun plural [masculine]"],
