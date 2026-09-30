@@ -42,6 +42,10 @@ export default function Changelog() {
 
           <div className="space-y-4 text-muted-foreground">
             <div>
+              <h3 className="font-medium text-foreground mb-2">BDB: Classical Works and Reference Expansions (September 30)</h3>
+              <p>Added §§ → subsection, Dioscor → Dioscorides, De Mater. Med. → De Materia Medica, Hist. Plant. → Historia Plantarum, Plin (NH → Pliny (Natural History, and Ph. Spr. → phönizische Sprache.</p>
+            </div>
+            <div>
               <h3 className="font-medium text-foreground mb-2">BDB: Faster Long Entries (September 30)</h3>
               <p>Long dictionary entries now reuse abbreviation matching rules and prepared definitions. Typing, scrolling, and opening the outline no longer reformat the entire entry. Complete definitions, citations, abbreviation meanings, and transliteration remain unchanged.</p>
               <p>Also synchronized the abbreviation index’s display categories with recent mappings, without changing their meanings.</p>

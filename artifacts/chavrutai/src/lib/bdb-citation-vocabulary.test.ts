@@ -3,6 +3,12 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["§§", "subsection"],
+  ["Dioscor", "Dioscorides"],
+  ["De Mater. Med.", "De Materia Medica"],
+  ["Hist. Plant.", "Historia Plantarum"],
+  ["Plin (NH", "Pliny (Natural History"],
+  ["Ph. Spr.", "phönizische Sprache"],
   ["Ethpe.", "Ethpe'el"],
   ["Pōʿ.", "Po'el"],
   ["mont.", "mountain"],
@@ -37,6 +43,10 @@ const pairs = [
 ];
 
 describe("BDB citation and vocabulary additions", () => {
+  it("expands the contextual Pliny citation after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens("Plin<sup>NH 12</sup>"), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Pliny (Natural History</span> 12)');
+  });
   it.each(pairs)("expands %s as %s with the full mapping set", (key, value) => {
     expect(expandAbbreviations(key, bdbData.mappings))
       .toBe(`<span class="dict-expanded">${value}</span>`);
