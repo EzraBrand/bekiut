@@ -109,7 +109,7 @@ const additions = {
   "patr.": "patronymic",
   "intens.": "intensive",
   "Kl. Proph.": "Kleine Propheten",
-  "E. of": "East of",
+  "E. of": "east of",
   "indir.": "indirect",
   "Lg": "Lagarde",
   "Haupt (Hbr": "Haupt (Hebraica",
@@ -330,7 +330,7 @@ describe("BDB September 20 mappings", () => {
   });
   it("preserves both direction mappings in running text", () => {
     expect(expandAbbreviations("S.E. of Arabah; E. of Arabah; S.E.", bdbData.mappings)).toBe(
-      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">East of</span> Arabah; <span class="dict-expanded">south-east</span>',
+      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">east of</span> Arabah; <span class="dict-expanded">south-east</span>',
     );
   });
 
@@ -338,7 +338,7 @@ describe("BDB September 20 mappings", () => {
     // BDB שֵׂעִיר uses "E. of Arabah"; citations reach the matcher after sup conversion.
     const source = 'S.E. of Arabah; E. of Arabah; Haupt <sup>Hbr</sup>; Nöldeke<sup>Mand</sup>; prev.';
     expect(expandAbbreviations(convertSupTagsToParens(source), bdbData.mappings)).toBe(
-      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">East of</span> Arabah; <span class="dict-expanded">Haupt (Hebraica</span>); <span class="dict-expanded">Nöldeke (Mandäische grammatik</span>); <span class="dict-expanded">previous</span>',
+      '<span class="dict-expanded">south-east</span> of Arabah; <span class="dict-expanded">east of</span> Arabah; <span class="dict-expanded">Haupt (Hebraica</span>); <span class="dict-expanded">Nöldeke (Mandäische grammatik</span>); <span class="dict-expanded">previous</span>',
     );
   });
 

@@ -689,6 +689,17 @@ export function expandAbbreviations(
     // longer grammatical forms starting at the number (e.g. "1 m. s.")
     // must win over a contextual "m." later in the same text.
     if (options.bdbNumericContext) {
+      for (const match of segment.matchAll(/(?<![\p{L}\p{N}\p{M}_])long\./gu)) {
+        const start = match.index!;
+        const end = start + match[0].length;
+        const after = segment.slice(end);
+        if (BDB_NUMBER_AFTER_RE.test(after)) {
+          candidates.push({
+            start, end,
+            expansion: /^\s/.test(after) ? 'longitude' : 'longitude ',
+          });
+        }
+      }
       for (const match of segment.matchAll(BDB_MILES_RE)) {
         const end = match.index! + match[0].length;
         const start = end - match[1].length;

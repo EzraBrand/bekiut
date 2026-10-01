@@ -177,7 +177,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "critical note(s)",
     "section",
     "south-east",
-    "East of",
+    "east of",
     "previous",
     "citation",
     "February",
