@@ -34,9 +34,13 @@ export default function Changelog() {
       {/* Changelog Content */}
       <div>
 
-        {/* September 2026 */}
+        {/* October 2026 */}
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
+          <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: More Abbreviation Expansions (October 1)</h3>
+            <p>Expanded additional grammar, scholar, place, vocabulary, and reference-work abbreviations, including Hithpōʿl, Luzz, Carpentr., Hist. Anim., and Südar. Chrest. Standardized Niph'al, Pu'al, Hoph'al, and Hithpa'el with apostrophes.</p>
+          </div>
           <div className="text-muted-foreground">
             <h3 className="font-medium text-foreground mb-2">BDB: Two More Expansions (October 1)</h3>
             <p>Added defect. → defective and As. u. Eur. → Asien und Europa.</p>

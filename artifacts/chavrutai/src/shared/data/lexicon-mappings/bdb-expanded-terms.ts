@@ -8,6 +8,7 @@ export type {
 // Canonical display metadata: edit expanded meanings here, never abbreviation spellings.
 const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
   "Reference notation": [
+    "subsection",
     "Opposite",
     "Followed",
     "longitude circa",
@@ -187,6 +188,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "as if to say",
   ],
   "Place / person": [
+    "Carpentras",
+    "Amalek",
     "Lamech",
     "Jehoshaphat",
     "Shalmaneser (",
@@ -227,6 +230,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Mesopotamia",
   ],
   Language: [
+    "phönizische Sprache",
     "Phönizier",
     "Assyrian",
     "Palestinian",
@@ -297,6 +301,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "defective",
+    "Tiph'il",
     "vocalization",
     "periphrasis",
     "Hothpa'al",
@@ -329,9 +335,9 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "imperative",
     "infinitive",
     "jussive",
-    "Niphal",
+    "Niph'al",
     "Pi'el",
-    "Pual",
+    "Pu'al",
     "Hiph'il",
     "Haph'el",
     "Iph'il",
@@ -340,8 +346,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "afformative",
     "oblique",
     "substantives",
-    "Hophal",
-    "Hithpael",
+    "Hoph'al",
+    "Hithpa'el",
     "Pael (Aramaic)",
     "Aphel (Aramaic)",
     "absolute",
@@ -459,7 +465,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "noun proper territorial masculine",
     "originally a noun proper locative",
     "originally a noun proper masculine",
-    "verb Niphal",
+    "verb Niph'al",
     "denominative verb Piel",
     "Peal",
     "Polel",
@@ -553,6 +559,17 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "signification",
+    "family",
+    "pentameter",
+    "Desert",
+    "illustrated",
+    "preliminary",
+    "anthropomorphism",
+    "east-northeast",
+    "west-southwest",
+    "indicate",
+    "emblematic",
     "comes",
     "knows",
     "lives",
@@ -1025,6 +1042,15 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Asien und Europa",
+    "De Materia Medica",
+    "Historia Plantarum",
+    "Urgeschichte",
+    "Complutensische Varianten",
+    "Historia Animalium",
+    "Kleine Beiträge zur Lexicographie",
+    "Stellung der Israeliten zu den Fremden",
+    "Südarabische Chrestomathie",
     "Sabäische Denkmäler",
     "Prolegomena to Assyrian Grammar",
     "Palestine Exploration Quarterly",
@@ -1303,6 +1329,9 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Gesenius, translated by Robinson",
   ],
   Scholar: [
+    "Dioscorides",
+    "Luzzato",
+    "Stephanus of Byzantium",
     "Spiegelberg",
     "McLean-Dyer",
     "Wright",
@@ -1534,7 +1563,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
 };
 
 const referencesByExpansion: Record<string, BdbExpandedTerm["references"]> = {
-  Niphal: [
+  "Niph'al": [
     {
       title: "Niphal",
       source: "Wikipedia",
