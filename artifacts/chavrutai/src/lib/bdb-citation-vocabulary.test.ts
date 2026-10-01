@@ -3,6 +3,7 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["Ps-Jon", "Pseudo-Jonathan"],
   ["Hithpōʿl", "Hithpo'el"],
   ["Luzz", "Luzzato"],
   ["Carpentr.", "Carpentras"],

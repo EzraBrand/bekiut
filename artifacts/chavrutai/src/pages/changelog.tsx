@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Pseudo-Jonathan (October 1)</h3>
+            <p>Added Ps-Jon → Pseudo-Jonathan.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Longitude and Direction Labels (October 1)</h3>
             <p>Expanded long. before numbers to longitude and lowercased E. of to east of.</p>
           </div>
