@@ -36,6 +36,14 @@ export default function Changelog() {
 
         {/* September 2026 */}
         <div className="py-8 border-t border-border">
+          <SectionHeading className="mb-4">October 2026</SectionHeading>
+          <div className="text-muted-foreground">
+            <h3 className="font-medium text-foreground mb-2">BDB: Two More Expansions (October 1)</h3>
+            <p>Added defect. → defective and As. u. Eur. → Asien und Europa.</p>
+          </div>
+        </div>
+
+        <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">
             September 2026
           </SectionHeading>

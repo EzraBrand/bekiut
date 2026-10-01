@@ -3,6 +3,8 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["defect.", "defective"],
+  ["As. u. Eur.", "Asien und Europa"],
   ["§§", "subsection"],
   ["Dioscor", "Dioscorides"],
   ["De Mater. Med.", "De Materia Medica"],

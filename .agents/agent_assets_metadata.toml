@@ -112,3 +112,17 @@ mtime_ms = 1790662432689
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/46caefdb-9e55-4af1-bfcf-d3a828be0474/cda64437-ac1b-4458-b322-d993f13a5ba8"
 storage_version_token = "1790662545346054"
 content_type = "text/csv"
+
+[[outputs]]
+id = "lOTtwLK7RUYWdsnFF14Cn"
+uri = "file://.local/outputs/traffic-september.chart.html"
+type = "text"
+title = "Daily pageviews · September 3–30, 2026"
+description = "All tracked project domains; Jerusalem calendar days. Review period September 17–30, compared with September 3–16."
+logical_id = "7e9e52e8-9e07-430f-b8f1-8cf16d5fdce4"
+content_hash = "sha256:cdc5322c015d10975dcb2207d79ec48b948eda92906b6ef0d5e8475851c05fa1"
+size = 3748
+mtime_ms = 1790860825056
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/7e9e52e8-9e07-430f-b8f1-8cf16d5fdce4/eb162b02-76bc-48f9-9f03-46263acce58f"
+storage_version_token = "1790860826747428"
+content_type = "text/html;profile=replit-chart"
