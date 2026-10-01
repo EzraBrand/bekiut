@@ -25,6 +25,11 @@ import {
   type AutosuggestSuggestion,
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
+import {
+  BDB_GREEK_LETTERS as GREEK_LETTERS,
+  BDB_GREEK_MARKER_RE as GREEK_MARKER_RE,
+  wrapBdbGreekMarkers as wrapGreekMarkers,
+} from "@/lib/bdb-greek-markers";
 
 type PreparedSense = {
   id: string;
@@ -385,13 +390,11 @@ export default function Bdb() {
   // single sense's prose (α., β., γ., δ., ε., ζ., η., θ., …). They appear inline
   // between semicolons, not in <strong> tags, so we detect them on the plain
   // text and inject anchor IDs in renderDefinition.
-  const GREEK_LETTERS = 'αβγδεζηθικλμνξοπρστυφχψω';
   // Greek sub-markers may be preceded by whitespace, end-of-tag, an opening
   // paren, a semicolon, or a dash/colon (BDB commonly writes "relations:—α.").
   // BDB uses two surface forms for the same marker: bare "α." (with period)
   // and parenthesised "(α)" (no period, e.g. in entries like הָלַךְ). Capture
   // the trailer so wrapGreekMarkers can keep the ")" outside the span.
-  const GREEK_MARKER_RE = new RegExp(`(^|[\\s;(>—–:\\-])([${GREEK_LETTERS}])(\\.|\\))`, 'g');
 
   const classifyMarker = (raw: string): { level: number; marker: string } | null => {
     const trimmed = raw.trim();
@@ -503,23 +506,6 @@ export default function Bdb() {
   // is safe: later pipeline steps don't touch single Greek letters, and the
   // injected <span> wraps the marker so the transliterator can still annotate
   // the Greek letter inside the span without changing its id.
-  const wrapGreekMarkers = (html: string, idPrefix: string): string => {
-    // Per-letter occurrence counter so each α./β./γ./… in the sense gets a
-    // unique anchor ID matching the one buildOutline generated.
-    const occCount: Record<string, number> = {};
-    return html.replace(GREEK_MARKER_RE, (_match, lead: string, letter: string, trailer: string) => {
-      const occ = (occCount[letter] = (occCount[letter] ?? -1) + 1);
-      const id = `${idPrefix}-greek-${letter}-${occ}`;
-      // For "α." form, wrap letter + period together. For "(α)" form, wrap
-      // just the letter and leave the closing paren outside the span so the
-      // visible text still reads "(α)".
-      if (trailer === '.') {
-        return `${lead}<span id="${id}" class="scroll-mt-20">${letter}.</span>`;
-      }
-      return `${lead}<span id="${id}" class="scroll-mt-20">${letter}</span>)`;
-    });
-  };
-
   const renderDefinition = (
     definition: string,
     idPrefix: string,
