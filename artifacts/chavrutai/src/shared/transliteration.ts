@@ -422,10 +422,17 @@ export function transliterateEthiopic(input: string): string {
 // makes the module degrade to a no-op on engines without v-flag support
 // (Chrome <112, Firefox <116, Safari <17, Node <20).
 
-function buildRunRegex(blockPattern: string): RegExp | null {
+function buildRunRegex(blockPattern: string, allowGreekParentheses = false): RegExp | null {
   try {
+    const letter = `[[${blockPattern}]&&[\\p{L}\\p{M}]]`;
+    // Optional letters inside a Greek word belong to the same annotation.
+    // Require balanced, nonempty Greek-only groups directly after letters;
+    // surrounding parentheses and parenthetical prose remain boundaries.
+    const word = allowGreekParentheses
+      ? `${letter}+(?:\\(${letter}+\\)${letter}*)*`
+      : `${letter}+`;
     return new RegExp(
-      `[[${blockPattern}]&&[\\p{L}\\p{M}]]+(?:[\\s,]+[[${blockPattern}]&&[\\p{L}\\p{M}]]+)*`,
+      `${word}(?:[\\s,]+${word})*`,
       'gv'
     );
   } catch {
@@ -433,7 +440,7 @@ function buildRunRegex(blockPattern: string): RegExp | null {
   }
 }
 
-const GREEK_RUN_RE      = buildRunRegex('\\u0370-\\u03FF\\u1F00-\\u1FFF');
+const GREEK_RUN_RE      = buildRunRegex('\\u0370-\\u03FF\\u1F00-\\u1FFF', true);
 const SYRIAC_RUN_RE     = buildRunRegex('\\u0700-\\u074F');
 const SAMARITAN_RUN_RE  = buildRunRegex('\\u0800-\\u082F');
 const ARABIC_RUN_RE     = buildRunRegex('\\u0600-\\u06FF\\u0750-\\u077F');

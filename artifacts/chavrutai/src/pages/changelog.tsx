@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Dictionary: Greek Transliteration Parentheses (October 1)</h3>
+            <p>Greek words with parenthesized optional letters now receive one uninterrupted transliteration—for example, Ακ(κ)αταν [Ak(k)atan]—while surrounding parentheses and English notes remain separate.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: More Abbreviation Expansions (October 1)</h3>
             <p>Expanded additional grammar, scholar, place, vocabulary, and reference-work abbreviations, including Hithpōʿl, Luzz, Carpentr., Hist. Anim., and Südar. Chrest. Standardized Niph'al, Pu'al, Hoph'al, and Hithpa'el with apostrophes.</p>
           </div>
