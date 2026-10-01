@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Number-Based Abbreviation Expansions (October 1)</h3>
+            <p>Expanded c. before numbers to circa and m. after numbers to miles, including decimals and ranges, while preserving grammatical abbreviations and section labels.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Dictionary: Greek Transliteration Parentheses (October 1)</h3>
             <p>Greek words with parenthesized optional letters now receive one uninterrupted transliteration—for example, Ακ(κ)αταν [Ak(k)atan]—while surrounding parentheses and English notes remain separate. BDB outline anchors also leave these optional letters intact rather than treating them as section labels.</p>
           </div>

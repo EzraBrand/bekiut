@@ -633,7 +633,21 @@ function compiledAbbreviations(mappings: Record<string, string>): CompiledAbbrev
   return compiled;
 }
 
-export function expandAbbreviations(text: string, mappings: Record<string, string>) {
+const BDB_NUMBER_PATTERN = String.raw`\d+(?:,\d{3})*(?:\.\d+)?(?:\s*[-–—]\s*\d+(?:,\d{3})*(?:\.\d+)?)?`;
+const BDB_NUMBER_AFTER_RE = new RegExp(
+  `^\\s*${BDB_NUMBER_PATTERN}(?=m\\.(?![\\p{L}\\p{N}\\p{M}_])|[^\\p{L}\\p{N}\\p{M}_]|$)`,
+  'u',
+);
+const BDB_MILES_RE = new RegExp(
+  `(?:(?<![\\p{L}\\p{N}\\p{M}_.])|(?<=\\bc\\.))${BDB_NUMBER_PATTERN}\\s*(m\\.)(?![\\p{L}\\p{N}\\p{M}_])`,
+  'gu',
+);
+
+export function expandAbbreviations(
+  text: string,
+  mappings: Record<string, string>,
+  options: { bdbNumericContext?: boolean } = {},
+) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
   // exposing the complete label to the ordinary longest-first matcher.
@@ -671,6 +685,20 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
     if (!segment) continue;
     const candidates: { start: number; end: number; expansion: string }[] = [];
 
+    // Join the normal candidate selection rather than replacing in advance:
+    // longer grammatical forms starting at the number (e.g. "1 m. s.")
+    // must win over a contextual "m." later in the same text.
+    if (options.bdbNumericContext) {
+      for (const match of segment.matchAll(BDB_MILES_RE)) {
+        const end = match.index! + match[0].length;
+        const start = end - match[1].length;
+        candidates.push({
+          start, end,
+          expansion: /\d/.test(segment[start - 1]) ? ' miles' : 'miles',
+        });
+      }
+    }
+
     // BDB uses `<strong>c.</strong>` as a section label (the lettered sub-sense
     // "c."). Skip bare `c.` -> "with" expansion when this text segment sits
     // directly inside a <strong> open tag.
@@ -703,6 +731,13 @@ export function expandAbbreviations(text: string, mappings: Record<string, strin
         // skip the `c.` -> "with" expansion in that context.
         if (abbreviation === 'c.') {
           const after = segment.slice(offset + match[0].length);
+          if (options.bdbNumericContext && BDB_NUMBER_AFTER_RE.test(after)) {
+            candidates.push({
+              start: offset, end: offset + match[0].length,
+              expansion: /^\s/.test(after) ? 'circa' : 'circa ',
+            });
+            continue;
+          }
           if (/^\s+\d/.test(after)) continue;
         }
         // BDB uses the Greek letter ψ both as the Psalms siglum (always a

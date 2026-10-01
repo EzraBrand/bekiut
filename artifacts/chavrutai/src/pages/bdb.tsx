@@ -533,7 +533,8 @@ export default function Bdb() {
                   splitBySemicolon,
                 )
               ),
-              bdbMappings.mappings
+              bdbMappings.mappings,
+              { bdbNumericContext: true },
             )
           )
         )
