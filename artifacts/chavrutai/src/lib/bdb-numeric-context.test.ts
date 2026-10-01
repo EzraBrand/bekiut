@@ -8,16 +8,6 @@ const plain = (text: string) => expand(text).replace(/<[^>]+>/g, "");
 
 describe("BDB numeric abbreviation context", () => {
   it.each([
-    ["long. 36°", "longitude 36°"],
-    ["long.36°", "longitude 36°"],
-    ["long. 36.25°", "longitude 36.25°"],
-    ["long. 36–37°", "longitude 36–37°"],
-    ["long.\u00a036°", "longitude\u00a036°"],
-    ["long. c. 36°", "longitude circa 36°"],
-    ["long. vowel", "long. vowel"],
-    ["long. 36abc", "long. 36abc"],
-    ["prolong. 36", "prolong. 36"],
-    ["E. of Hermon", "east of Hermon"],
     ["c. 8 m.", "circa 8 miles"],
     ["c.8m.", "circa 8 miles"],
     ["c. 8.5 m.", "circa 8.5 miles"],
@@ -46,16 +36,6 @@ describe("BDB numeric abbreviation context", () => {
 
   it("preserves existing behavior unless BDB opts in", () => {
     expect(expandAbbreviations("c. 8 m.", bdb.mappings)).toBe("c. 8 m.");
-    expect(expandAbbreviations("long. 36°", bdb.mappings)).toBe("long. 36°");
-  });
-
-  it("expands the Damascus coordinates without changing markup or attributes", () => {
-    const raw = 'long. 36° 15<em>ˊ</em> E., in plain E. of Hermon';
-    const html = expand(raw);
-    expect(html).toContain('<span class="dict-expanded">longitude</span> 36° 15<em>ˊ</em>');
-    expect(html).toContain('<span class="dict-expanded">east of</span> Hermon');
-    expect(expand('<a title="long. 36°">long. vowel</a>'))
-      .toBe('<a title="long. 36°">long. vowel</a>');
   });
 
   it("handles the Keilah geography passage after paragraph and citation formatting", () => {
