@@ -164,7 +164,7 @@ const additions = {
   "Kuenen (Ond.": "Kuenen (Onderzoek",
   "voc.": "vocative",
   "ZWTh": "Zeitschrift für wissenschaftliche Theologie",
-  "n.[m.]": "noun[masculine]",
+  "n.[m.]": "noun [masculine]",
   "n.[f.]": "noun[feminine]",
   "Herod.": "Herodotus",
   "Nos.": "Numbers",

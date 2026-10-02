@@ -616,8 +616,16 @@ function compiledAbbreviations(mappings: Record<string, string>): CompiledAbbrev
     .map(([abbreviation, expansion]) => {
       const leftWord = /^[\p{L}\p{N}\p{M}_]/u.test(abbreviation);
       const rightWord = /[\p{L}\p{N}\p{M}_]$/u.test(abbreviation);
-      const leftAnchor = leftWord ? `(?<![${NW}])` : '';
-      const rightAnchor = rightWord ? `(?![${NW}])` : '';
+      // Version sigla are often concatenated in BDB (e.g. 𝔊𝔖 in Edom).
+      // Permit neighboring version sigla, but not ordinary word letters.
+      const versionSigla = '𝔊𝔗𝔖𝔙𝔐';
+      const isVersionSiglum = [...abbreviation].length === 1 && versionSigla.includes(abbreviation);
+      const leftAnchor = leftWord
+        ? isVersionSiglum ? `(?:(?<![${NW}])|(?<=[${versionSigla}]))` : `(?<![${NW}])`
+        : '';
+      const rightAnchor = rightWord
+        ? isVersionSiglum ? `(?:(?![${NW}])|(?=[${versionSigla}]))` : `(?![${NW}])`
+        : '';
       const escaped = abbreviation.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       // Trailing periods only require the left boundary. &c. has no
       // boundaries at all; keep its original non-Unicode regex behavior.

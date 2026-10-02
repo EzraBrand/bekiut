@@ -215,7 +215,7 @@ describe("BDB abbreviation expansion", () => {
   it("expands the split bold noun label from BDB זֵק³", () => {
     const source = '<big>[<span dir="rtl">זֵק</span>]</big>  <strong>n.</strong>[<strong>m.</strong>] <strong>fetter</strong>';
     expect(expandAbbreviations(source, mappings)).toBe(
-      '<big>[<span dir="rtl">זֵק</span>]</big>  <strong><span class="dict-expanded">noun[masculine]</span></strong> <strong>fetter</strong>',
+      '<big>[<span dir="rtl">זֵק</span>]</big>  <strong><span class="dict-expanded">noun [masculine]</span></strong> <strong>fetter</strong>',
     );
   }, 15000);
 

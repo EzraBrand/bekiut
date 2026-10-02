@@ -10,13 +10,12 @@ in some script the lexicon quotes (e.g. `ψ` = Psalms siglum, but also the Greek
 letter inside words like ψυχή), a bare `key -> expansion` mapping in
 `shared/data/lexicon-mappings/bdb.json` will corrupt those quoted words.
 
-**Why:** `expandAbbreviations` (`client/src/lib/dictionary-format.ts`) anchors
-non-word keys with ASCII-only lookarounds `(?<![A-Za-z0-9_]) … (?![A-Za-z0-9_])`.
-Greek/Hebrew/etc. letters are non-ASCII, so the lookarounds do NOT stop a match
-inside a foreign-script word.
+**Why:** BDB reuses script letters as editorial symbols. Word boundaries alone
+cannot distinguish a standalone quoted letter from a citation siglum. Earlier
+ASCII-only boundaries also corrupted letters inside foreign-script words;
+Unicode-aware boundaries now protect those words.
 
-**How to apply:** Add a per-key guard in the `.replace()` callback (alongside the
-existing `c.` frequency-marker guard) that only fires the expansion in the
+**How to apply:** Add a per-key guard in candidate selection that only fires the expansion in the
 intended context. For `ψ`, BDB only uses it as a Psalms citation (`ψ 23`,
 `ψ 119:105`), so the guard requires the match be followed by optional space + a
 digit; otherwise return the match unchanged. Mirror this pattern for any future

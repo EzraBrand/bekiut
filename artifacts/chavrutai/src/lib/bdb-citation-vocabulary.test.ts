@@ -3,6 +3,21 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["MA", "Mission archéologique"],
+  ["n.pr.m. & f.", "noun proper masculine & feminine"],
+  ["(S)", "(Samuel)"],
+  ["Bä (Rel.", "Baethgen (Religionsgeschichte"],
+  ["inanim.", "inanimate"],
+  ["Fleisch.", "Fleischer"],
+  ["n.pr.[m.]", "noun proper [masculine]"],
+  ["parallelopip.", "parallelepiped"],
+  ["necrom.", "necromancer"],
+  ["Loftus (CS", "Loftus (Chaldaea and Susiana"],
+  ["Luth", "Luther"],
+  ["𝔖", "Syriac (Peshitta)"],
+  ["Bab.", "Babylonia(n)"],
+  ["Babyl.", "Babylonia(n)"],
+  ["n.[m.]", "noun [masculine]"],
   ["Ps-Jon", "Pseudo-Jonathan"],
   ["Hithpōʿl", "Hithpo'el"],
   ["Luzz", "Luzzato"],
@@ -78,6 +93,19 @@ const pairs = [
 ];
 
 describe("BDB citation and vocabulary additions", () => {
+  it("expands adjacent version sigla in the Edom passage", () => {
+    expect(expandAbbreviations('𝔊𝔖, v.', bdbData.mappings)).toContain(
+      '<span class="dict-expanded">LXX (Septuagint)</span><span class="dict-expanded">Syriac (Peshitta)</span>,',
+    );
+    expect(expandAbbreviations('a𝔖 𝔖a', bdbData.mappings)).toBe('a𝔖 𝔖a');
+    expect(expandAbbreviations('<a title="𝔊𝔖">𝔊𝔖</a>', bdbData.mappings))
+      .toContain('<a title="𝔊𝔖"><span class="dict-expanded">LXX (Septuagint)</span>');
+  });
+  it("expands new work citations after superscript conversion", () => {
+    const html = expandAbbreviations(convertSupTagsToParens('Bä<sup>Rel. 10</sup>; Loftus<sup>CS 12</sup>'), bdbData.mappings);
+    expect(html).toContain('Baethgen (Religionsgeschichte</span> 10)');
+    expect(html).toContain('Loftus (Chaldaea and Susiana</span> 12)');
+  });
   it("expands the contextual Pliny citation after superscript conversion", () => {
     expect(expandAbbreviations(convertSupTagsToParens("Plin<sup>NH 12</sup>"), bdbData.mappings))
       .toBe('<span class="dict-expanded">Pliny (Natural History</span> 12)');

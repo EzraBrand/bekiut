@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Citations, and Version Symbols (October 2)</h3>
+            <p>Added MA, n.pr.m. &amp; f., (S), Bä (Rel., inanim., Fleisch., n.pr.[m.], parallelopip., necrom., Loftus (CS, and Luth. Updated Babylonia(n), noun [masculine], and Syriac (Peshitta), and fixed joined version symbols such as 𝔊𝔖.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Pseudo-Jonathan (October 1)</h3>
             <p>Added Ps-Jon → Pseudo-Jonathan.</p>
           </div>
