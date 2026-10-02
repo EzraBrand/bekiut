@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Mobile Mapping Table (October 2)</h3>
+            <p>Added WR → Wright and Zech. → Zechariah. Narrowed the row-number and abbreviation columns on mobile, keeping expansions visible and wrapping within the screen.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Grammar, Citations, and Version Symbols (October 2)</h3>
             <p>Added MA, n.pr.m. &amp; f., (S), Bä (Rel., inanim., Fleisch., n.pr.[m.], parallelopip., necrom., Loftus (CS, and Luth. Updated Babylonia(n), noun [masculine], and Syriac (Peshitta), and fixed joined version symbols such as 𝔊𝔖.</p>
           </div>

@@ -3,6 +3,8 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["WR", "Wright"],
+  ["Zech.", "Zechariah"],
   ["MA", "Mission archéologique"],
   ["n.pr.m. & f.", "noun proper masculine & feminine"],
   ["(S)", "(Samuel)"],
