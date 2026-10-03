@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Additional Mappings and Table Widths (October 3)</h3>
+            <p>Added afform., heathen, Sprachforsch., Schol. Hamâsa, libr. hist. interpr. Arab., Mitth., Conj., cas. pend., and wast. Slightly widened mobile row-number and abbreviation columns to accommodate longer values.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Vocabulary Mappings (October 2)</h3>
             <p>Added conn., 𝔄, 3 ps, 1 or 2 ps., wrought, antec., unfreq., monosyl., and brake. Changed fig. and Fig. to figurative(ly).</p>
           </div>

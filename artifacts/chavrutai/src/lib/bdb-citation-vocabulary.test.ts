@@ -3,6 +3,15 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["afform.", "afformative"],
+  ["heathen", "pagan"],
+  ["Sprachforsch.", "Sprachforschungen"],
+  ["Schol. Hamâsa", "scholia on Ḥamāsa"],
+  ["libr. hist. interpr. Arab.", "librorum historicorum interpretatione Arabica"],
+  ["Mitth.", "Mittheilungen"],
+  ["Conj.", "Conjunction"],
+  ["cas. pend.", "casus pendens (hanging case, topic fronting)"],
+  ["wast", "were"],
   ["conn.", "connected"],
   ["𝔄", "Alexandrine manuscript of the Septuagint"],
   ["3 ps", "3rd-person singular"],

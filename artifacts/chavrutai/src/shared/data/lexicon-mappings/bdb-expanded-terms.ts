@@ -301,6 +301,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "Conjunction",
+    "casus pendens (hanging case, topic fronting)",
     "1st- or 2nd-person singular",
     "antecedent",
     "defective",
@@ -563,6 +565,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "pagan",
     "connected",
     "made",
     "infrequently",
@@ -1055,6 +1058,10 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Sprachforschungen",
+    "scholia on Ḥamāsa",
+    "librorum historicorum interpretatione Arabica",
+    "Mittheilungen",
     "Mission archéologique",
     "Loftus (Chaldaea and Susiana",
     "Asien und Europa",
