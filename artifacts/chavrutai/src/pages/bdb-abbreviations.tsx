@@ -152,7 +152,7 @@ export default function BdbAbbreviations() {
               <table className="w-[calc(100%+304px)] sm:w-full sm:min-w-[760px] table-fixed text-sm">
                 <colgroup>
                   <col className="w-10 sm:w-12" />
-                  <col className="w-[120px] sm:w-[21%]" />
+                  <col className="w-[144px] sm:w-[21%]" />
                   <col />
                   <col className="w-[114px] sm:w-[15%]" />
                   <col className="w-[190px] sm:w-[25%]" />
@@ -207,7 +207,7 @@ export default function BdbAbbreviations() {
             <table className="w-[calc(100%+304px)] sm:w-full sm:min-w-[760px] table-fixed text-sm" data-testid="abbreviations-table">
               <colgroup>
                 <col className="w-10 sm:w-12" />
-                <col className="w-[120px] sm:w-[21%]" />
+                <col className="w-[144px] sm:w-[21%]" />
                 <col />
                 <col className="w-[114px] sm:w-[15%]" />
                 <col className="w-[190px] sm:w-[25%]" />
