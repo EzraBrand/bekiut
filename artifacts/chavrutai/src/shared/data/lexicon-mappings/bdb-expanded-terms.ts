@@ -301,6 +301,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "1st- or 2nd-person singular",
+    "antecedent",
     "defective",
     "Tiph'il",
     "vocalization",
@@ -561,6 +563,10 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "connected",
+    "made",
+    "infrequently",
+    "broke",
     "inanimate",
     "parallelepiped",
     "necromancer",
@@ -629,7 +635,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "consecration",
     "technical term",
     "metaphor(ically)",
-    "figuratively",
+    "figurative(ly)",
     "literally",
     "poetic",
     "prophetic",
@@ -882,6 +888,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Eigennamen",
   ],
   "Text / source": [
+    "Alexandrine manuscript of the Septuagint",
     "(Samuel)",
     "1 Kings",
     "Sinaitic Inscriptions",

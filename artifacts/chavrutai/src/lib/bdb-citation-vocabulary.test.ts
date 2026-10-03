@@ -3,6 +3,17 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["conn.", "connected"],
+  ["𝔄", "Alexandrine manuscript of the Septuagint"],
+  ["3 ps", "3rd-person singular"],
+  ["1 or 2 ps.", "1st- or 2nd-person singular"],
+  ["wrought", "made"],
+  ["antec.", "antecedent"],
+  ["unfreq.", "infrequently"],
+  ["monosyl.", "monosyllable"],
+  ["brake", "broke"],
+  ["fig.", "figurative(ly)"],
+  ["Fig.", "figurative(ly)"],
   ["WR", "Wright"],
   ["Zech.", "Zechariah"],
   ["MA", "Mission archéologique"],
@@ -95,6 +106,13 @@ const pairs = [
 ];
 
 describe("BDB citation and vocabulary additions", () => {
+  it("expands the Alexandrine siglum alongside other version sigla", () => {
+    expect(expandAbbreviations("𝔊𝔄𝔖", bdbData.mappings)).toBe(
+      '<span class="dict-expanded">LXX (Septuagint)</span><span class="dict-expanded">Alexandrine manuscript of the Septuagint</span><span class="dict-expanded">Syriac (Peshitta)</span>',
+    );
+    expect(expandAbbreviations("a𝔄 𝔄a brakeword wroughtword", bdbData.mappings))
+      .toBe("a𝔄 𝔄a brakeword wroughtword");
+  });
   it("expands adjacent version sigla in the Edom passage", () => {
     expect(expandAbbreviations('𝔊𝔖, v.', bdbData.mappings)).toContain(
       '<span class="dict-expanded">LXX (Septuagint)</span><span class="dict-expanded">Syriac (Peshitta)</span>,',

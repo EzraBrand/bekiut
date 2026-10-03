@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Vocabulary Mappings (October 2)</h3>
+            <p>Added conn., 𝔄, 3 ps, 1 or 2 ps., wrought, antec., unfreq., monosyl., and brake. Changed fig. and Fig. to figurative(ly).</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Mobile Mapping Table (October 2)</h3>
             <p>Added WR → Wright and Zech. → Zechariah. Narrowed the row-number and abbreviation columns on mobile, keeping expansions visible and wrapping within the screen.</p>
           </div>

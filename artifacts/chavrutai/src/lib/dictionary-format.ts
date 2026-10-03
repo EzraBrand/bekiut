@@ -618,7 +618,7 @@ function compiledAbbreviations(mappings: Record<string, string>): CompiledAbbrev
       const rightWord = /[\p{L}\p{N}\p{M}_]$/u.test(abbreviation);
       // Version sigla are often concatenated in BDB (e.g. 𝔊𝔖 in Edom).
       // Permit neighboring version sigla, but not ordinary word letters.
-      const versionSigla = '𝔊𝔗𝔖𝔙𝔐';
+      const versionSigla = '𝔊𝔗𝔖𝔙𝔐𝔄';
       const isVersionSiglum = [...abbreviation].length === 1 && versionSigla.includes(abbreviation);
       const leftAnchor = leftWord
         ? isVersionSiglum ? `(?:(?<![${NW}])|(?<=[${versionSigla}]))` : `(?<![${NW}])`
