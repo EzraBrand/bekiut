@@ -7,6 +7,13 @@ type Active = { trigger: HTMLElement; pinned: boolean; source: string; expansion
 
 /** One delegated panel for HTML-based senses; links retain their native action. */
 export function BdbAbbreviationPanel({ revision }: { revision: unknown }) {
+  return <DictionaryAbbreviationPanel revision={revision} categories={bdbExpandedTerms} />;
+}
+
+export function DictionaryAbbreviationPanel({ revision, categories = {} }: {
+  revision: unknown;
+  categories?: Record<string, { category: string }>;
+}) {
   const [active, setActive] = useState<Active | null>(null);
   const current = useRef(active);
   current.current = active;
@@ -134,7 +141,7 @@ export function BdbAbbreviationPanel({ revision }: { revision: unknown }) {
           {active.pinned && <button type="button" onClick={dismiss} className="text-sm underline focus-visible:outline" aria-label="Close abbreviation expansion">Close</button>}
         </div>
         <p dir="auto" className="mt-2 text-base">{active.expansion}</p>
-        {bdbExpandedTerms[active.expansion.trim()] && <p className="mt-2 text-xs text-muted-foreground">{bdbExpandedTerms[active.expansion.trim()].category}</p>}
+        {categories[active.expansion.trim()] && <p className="mt-2 text-xs text-muted-foreground">{categories[active.expansion.trim()].category}</p>}
       </div>, document.body,
     )}
   </>;

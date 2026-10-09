@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Link } from "wouter";
+import { DictionaryAbbreviationPanel } from "@/components/bdb-abbreviation-panel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PageShell, PageHeader } from "@/components/layout/page-shell";
@@ -27,6 +28,16 @@ export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<DictionaryEntry[]>([]);
+  const [expandInline, setExpandInline] = useState(() => {
+    try { return sessionStorage.getItem("jastrow-expand-inline") === "true"; } catch { return false; }
+  });
+  useEffect(() => {
+    try { sessionStorage.setItem("jastrow-expand-inline", String(expandInline)); } catch { /* Storage may be disabled. */ }
+  }, [expandInline]);
+  const abbreviationRevision = useMemo(() => ({ results, expandInline }), [results, expandInline]);
+  const renderAbbreviations = (text: string) => expandAbbreviations(
+    text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original" },
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -264,8 +275,8 @@ export default function Jastrow() {
                 <p className="font-medium">What this reader adds on top of the raw text:</p>
                 <ul className="list-disc list-inside space-y-1 ml-2">
                   <li>
-                    <strong>Inline abbreviation expansion.</strong> A wide variety of abbreviations
-                    are replaced inline. Categories include rabbinic source
+                    <strong>On-demand abbreviation expansion.</strong> Hover, focus, click, or tap an underlined abbreviation
+                    to read its meaning, or enable inline expansion. Categories include rabbinic source
                     abbreviations (<em>Ber.</em>, <em>Sanh.</em>, <em>Pes.</em>, <em>Gen. R.</em>),
                     grammatical shorthand (<em>denom.</em>, <em>constr.</em>, <em>pl.</em>,{" "}
                     <em>fem.</em>), Latin logic (<em>i.e.</em>, <em>e.g.</em>, <em>l.c.</em>), and
@@ -293,7 +304,7 @@ export default function Jastrow() {
                     wider audience.
                   </li>
                   <li>
-                    <strong>Expanded abbreviations as monospace pills.</strong> Every inline
+                    <strong>Optional inline expansions as monospace pills.</strong> Every inline
                     expansion is rendered in a small monospace pill, so consecutive expansions
                     (e.g. two scholar names in a row) read as distinct tags rather than running
                     together, and you can see at a glance which words came from the original
@@ -409,7 +420,17 @@ export default function Jastrow() {
 
         {(isLoading || lastSearchedQuery) && (
         <section className="py-8 border-t border-border">
-          <h2 className="font-georgia text-xl mb-4">Dictionary Entries</h2>
+          <DictionaryAbbreviationPanel revision={abbreviationRevision} />
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <h2 className="font-georgia text-xl">Dictionary Entries</h2>
+            <label className="flex items-center gap-2 text-sm">
+              <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" />
+              Expand abbreviations inline
+            </label>
+          </div>
+          <p className="mb-4 text-sm text-muted-foreground">
+            {expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}
+          </p>
 
           {isLoading ? (
             <div className="flex justify-center items-center py-8">
@@ -469,14 +490,14 @@ export default function Jastrow() {
                         {originMetadata && (
                           <div
                             className="mb-2 dictionary-content text-muted-foreground"
-                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(expandAbbreviations(originMetadata, jastrowMappings.mappings)))) }}
+                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(renderAbbreviations(originMetadata)))) }}
                           />
                         )}
                         {entry.content.senses.map((sense, senseIndex) => (
                           <div
                             key={senseIndex}
                             className="mb-2 last:mb-0 dictionary-content"
-                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(expandAbbreviations(convertSuperscriptLetters(splitByPeriodAndLink(splitIntoParagraphs(sense.definition))), jastrowMappings.mappings)))) }}
+                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(renderAbbreviations(convertSuperscriptLetters(splitByPeriodAndLink(splitIntoParagraphs(sense.definition))))))) }}
                           />
                         ))}
                       </div>

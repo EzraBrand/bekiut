@@ -664,7 +664,7 @@ function originalBdbMatch(source: string, expansion: string, insideLink: boolean
 export function expandAbbreviations(
   text: string,
   mappings: Record<string, string>,
-  options: { bdbNumericContext?: boolean; bdbDisplay?: 'original' | 'inline' } = {},
+  options: { bdbNumericContext?: boolean; bdbDisplay?: 'original' | 'inline'; display?: 'original' | 'inline' } = {},
 ) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
@@ -796,7 +796,7 @@ export function expandAbbreviations(
       if (candidate.start < cursor) continue;
       output.push(
         segment.slice(cursor, candidate.start),
-        options.bdbDisplay === 'original'
+        (options.display ?? options.bdbDisplay) === 'original'
           ? originalBdbMatch(segment.slice(candidate.start, candidate.end), candidate.expansion, linkDepth > 0)
           : `<span class="dict-expanded">${candidate.expansion}</span>`,
       );
