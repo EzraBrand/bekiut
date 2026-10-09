@@ -1,0 +1,27 @@
+title	url	category	description	access
+Sefaria	https://www.sefaria.org/texts	Primary texts	Searchable Jewish texts, translations and linked commentaries. Check the version and translator before citing.	Free library; some features require an account
+AlHaTorah	https://alhatorah.org/	Primary texts	Texts, commentaries and edition-specific research tools. Use the individual edition’s introduction to establish its textual basis.	Consult site
+Hebrew Wikisource	https://he.wikisource.org/wiki/עמוד_ראשי	Primary texts	Collaboratively transcribed Hebrew texts. Check revision history and compare with the cited printed edition.	Free
+Mechon Mamre	https://mechon-mamre.org/	Primary texts	Hebrew biblical and rabbinic texts for reading and reference; consult the project’s edition notes.	Free
+Ben-Yehuda Project	https://benyehuda.org/	Primary texts	Hebrew literary texts, including medieval poetry relevant to the guide’s historical scope.	Free
+Open Siddur	https://opensiddur.org/	Primary texts	Liturgical texts, transcriptions and facsimiles with source and licensing information.	Consult individual item
+Bar-Ilan Responsa Project	https://www.responsa.co.il/home.en-US.aspx	Search & bibliographies	Searchable rabbinic literature. Useful for locating passages; cite the underlying work and edition.	Subscription; confirm current terms
+Ma’agarim	https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx	Dictionaries & language	Historical Hebrew corpus and lexicographic research from the Academy of the Hebrew Language.	Consult site
+Talmud Yerushalmi critical edition	https://www.talmudyerushalmi.com/	Primary texts	Digital critical-edition project for the Jerusalem Talmud; inspect tractate coverage and editorial method.	Consult site
+HebrewBooks	https://hebrewbooks.org/	Scanned books	Scanned Hebrew books and journals; cite the scan’s printed title page, pagination and edition.	Consult item
+Otzar HaHochma	https://www.otzar.org/	Scanned books	Large scanned-book database with search tools. Availability depends on subscription and collection.	Subscription; confirm current terms
+Friedberg Genizah Project	https://fjms.genizah.org/	Manuscripts	Manuscript images, metadata and tools for Genizah research. Record shelfmarks and image permissions.	Consult site
+Hachi Garsinan	https://bavli.genizah.org/	Manuscripts	Textual witnesses and synopsis tools for Talmud Bavli research; distinguish manuscript from transcription.	Consult site
+Princeton Geniza Project	https://geniza.princeton.edu/en/documents/	Manuscripts	Documents, transcriptions and bibliographic connections for the Cairo Genizah. Record stable document identifiers.	Consult item
+Digital Mishnah	https://editions.erabbinica.org/	Manuscripts	A digital edition project for comparing Mishnah textual witnesses. Consult project coverage and encoding documentation.	Consult site
+The Ilanot Project	https://ilanot.org/	Manuscripts	Research on kabbalistic diagrams and diagrammatic manuscripts. Consult catalogue records and image rights.	Consult item
+DICTA	https://dicta.org.il/	Search & bibliographies	Hebrew text-analysis tools, including search, citation discovery and abbreviation expansion. Assess each tool against its corpus and task.	Consult individual tool
+DICTA citation finder	https://citation.dicta.org.il/	Search & bibliographies	Locate possible sources and quotations in Hebrew texts. Candidate matches need contextual verification.	Consult site
+eScriptorium	https://gitlab.com/scripta/escriptorium	AI tools & text processing	An open-source environment for transcription and handwritten-text recognition. Results depend on training data and require human correction.	Open-source software; hosting and setup required
+Transkribus Hebrew-script models	https://readcoop.eu/model/hebrew-script-languages/	AI tools & text processing	A starting point for Hebrew-script handwritten-text recognition models. Test on representative pages before batch transcription.	Confirm current model and platform terms
+RAMBI	https://www.nli.org.il/he/research-and-teach/catalogs/bibliographic-databases/rambi	Search & bibliographies	Index of articles on Jewish studies. A catalogue record does not guarantee free full-text access.	Index access; full text varies
+Google Scholar	https://scholar.google.com/	Secondary literature	Search scholarly literature and citation trails. Check publication metadata against publisher or repository records.	Search access; full text varies
+Academia.edu	https://www.academia.edu/	Secondary literature	Author-shared research copies and profiles. Check version, publication details and lawful reuse; not a substitute for bibliographic verification.	Account and access terms vary
+Jewish Encyclopedia	https://www.jewishencyclopedia.com/	Dictionaries & language	Historical reference work useful as a starting point; its scholarship and terminology require comparison with current research.	Free
+Jastrow on Sefaria	https://www.sefaria.org/Jastrow	Dictionaries & language	A searchable entry point to Jastrow’s dictionary. Verify headwords, abbreviations and citations against the original edition when needed.	Free
+Tiresias	https://tiresias.haifa.ac.il/	Search & bibliographies	Ancient Mediterranean religions source database, useful for finding thematic parallels and references.	Consult site

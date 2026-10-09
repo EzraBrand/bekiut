@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+.pythonlibs/
+node_modules/
+sources/original-layout.png

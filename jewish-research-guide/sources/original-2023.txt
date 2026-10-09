@@ -1,0 +1,3041 @@
+## Page 1
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 1
+Guide to Online Resources for Scholarly
+Jewish Study and Research - 2023
+v6 - 4-Dec-20231
+1 This Guide is a revised and expanded version of a series of blogposts that originally appeared in three parts at the
+Seforim Blog March-July 2022 (with intro and appendix, not included in this version), with the title “Guide and
+Review of Online Resources – 2022”: Part I ; Part II ; Part III.
+I’d like to thank Eliezer Brodt, Sholom Licht, and my father and brother for looking over a previous draft of this
+piece, and providing very helpful comments and feedback. Of course, the final product is mine, for better or for
+worse.
+After publishing in Seforim Blog, I made a few changes and updates in this version. The revisions are mostly
+additions based on additional resources that I hadn’t been aware of, that were pointed out to me in emails and in
+comments to the blogposts. I later gave a presentation at a workshop based on this Guide, the slides are available
+at my Academia.edu page: “Presentation slides: A Selective Overview of Digital Resources for the Scholarly Study of
+Rabbinic Texts”, and the presentation itself is available on YouTube. (The workshop was organized by Prof.
+Menachem Katz, and took place at University of Haifa.)
+I’d like to thank all the people who gave feedback on that post, both those who commented directly, as well as
+those who reached out over email. I’d like to especially thank A. Berman for pointing out numerous additional
+resources, via email.
+I can be reached at ezrabrand@gmail.com; any and all feedback to this guide is greatly appreciated.
+
+
+## Page 2
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 2
+Table of Contents
+Table of Contents________________________________________________________________ 2
+Intro__________________________________________________________________________ 3
+Electronic vs. physical - pros and cons_____________________________________ 4
+Existing Guides______________________________________________________________ 4
+This Guide__________________________________________________________________ 6
+Primary Texts___________________________________________________________________ 7
+Books - text format - popular editions____________________________________________ 8
+Books - text format - scholarly editions__________________________________________ 12
+Books - PDF format__________________________________________________________13
+Manuscripts - General_______________________________________________________ 16
+Manuscripts - by Topic_______________________________________________________ 17
+Tools for Navigating Primary Texts__________________________________________________23
+Search and Related Tools_____________________________________________________ 23
+Tools for Transcription of manuscripts___________________________________________ 24
+Bibliographic Information and Indexes - General___________________________________25
+Bibliographic Information and Indexes - by Topic__________________________________ 27
+Databases_________________________________________________________________ 27
+Requires subscription or purchase______________________________________________28
+Secondary literature____________________________________________________________ 29
+Books_____________________________________________________________________29
+Journals___________________________________________________________________32
+Articles___________________________________________________________________ 35
+Tools for Navigating Secondary Literature____________________________________________36
+Bibliographic Information and Indexes___________________________________________36
+Tertiary literature_______________________________________________________________38
+Encyclopedias______________________________________________________________ 38
+Dictionaries________________________________________________________________40
+Popular Media and Platforms_____________________________________________________ 40
+Articles - general____________________________________________________________40
+Articles - Newspapers and Magazines___________________________________________ 41
+Blogs_____________________________________________________________________ 42
+Videos and Podcasts_________________________________________________________44
+Twitter____________________________________________________________________46
+Facebook__________________________________________________________________46
+Forums___________________________________________________________________ 46
+Mobile Apps_______________________________________________________________ 47
+
+
+## Page 3
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 3
+Intro
+It’s an exciting time to be a reader of scholarship, and to be engaged with the field. The dramatic shift to
+"remote" and “virtual” over the past two years may be on par with the shifts to writing and the codex
+around the 9th century) and the printing press in the 15th.2
+Digital publishing has become more and more mainstream. As defined by Wikipedia (in entry “Electronic
+publishing”):
+“Electronic publishing (also referred to as publishing, digital publishing, or online publishing)
+includes the digital publication of e-books, digital magazines, and the development of digital
+libraries and catalogs. It also includes the editing of books, journals and magazines to be posted
+on a screen (computer, e-reader, tablet, or smartphone).”
+Regarding Hebrew books specifically, and for recent data, Israeli National Library annual statistics for
+2020 state (Hebrew, my translation):
+“In 2020, digital publishing was significantly expanded. Not all the digital books have been
+processed [by the library] yet, but already 799 digital books have been registered in the National
+Library, from publishers, research institutions, private individuals and more [...]
+For many in the past year, digital publication has become the primary mode of distribution, as
+opposed to paper. Notable in this area is the relatively small amount of children's books (8%)
+compared to the high number of digital reference literature (69%).
+The share of [books put out by] associations (43%) is particularly high, especially for reference
+books in the field of Israeli society and Jewish studies. [The share of books put out by] [p]rivate
+publishers (37%) include[s] many biographies, rabbinic literature and a few children's books that
+have come out. Commercial publishers released most of the digital prose books.”
+Specifically regarding rabbinic literature, one scholar pointed out already in 2016: “Searching for
+ancient original Jewish sources online, it is astonishing how diverse and numerous are the websites
+that are available.”3
+At the same time as the trend towards digital publishing and distribution is occurring, there is also a
+movement towards “open access”. In this context, “open access” means an academic resource, whether
+databases, journals, or other tools, with no paywalls or subscriptions required to access content.
+Over the first few decades of electronic resources, most of the resources were proprietary. They were
+generally available on a CD, which had to be bought. With the shift to the internet, many of these
+resources became available online, but required a subscription.
+The movement towards freely available scholarship has continued to gain steam, making a huge amount
+of cutting edge scholarly publications available for free, and for all. In addition, there are a huge amount
+of grassroots initiatives to make available primary sources for study.
+3 Apolline Thromas, “12 Digital Resources of the Rabbinic Literature: Radical Change with a Click of the Mouse", in:
+Ancient Worlds in Digital Culture (2016).
+2 Jewish culture is stereotypically one of the book. There is understandably a huge literature on of books in Jewish
+history. For one example, on the material aspect of books in Jewish history, see Malachi Beit-Arié’s monumental
+700-page book, Hebrew Codicology (2022), recently finalized, and available for free online here and here.
+Somewhat contrary to the stereotype of “People of the Book”, Yaakov Zussman and others have convincingly
+argued that Torah Sheba’al Peh was written down only in the post-talmudic era, besides for midrashim in Eretz
+Yisrael. For the Jewish shift to using the codex, see Malachi Beit-Arie, ibid., pp. 39ff. For the influence of the
+printing press on the Jewish community, see Zeev Gries (2007), The Book in the Jewish World, 1700–1900.
+
+
+## Page 4
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 4
+Open-access can be financially sustained in one of the following major ways:
+1.
+Volunteer work
+2.
+Funding by institution (esp. non-profit, university, or government) or individual donation
+3.
+Advertising
+The open-source resources in this guide are mostly supported in one of the first two ways.
+Besides for full open-access, another model is called “freemium”. Freemium, as I use it in this context,
+means that some very basic part is provided for free, with the hope that the main product will be
+bought.
+Electronic vs. physical - pros and cons
+Electronic material has a lot of advantages, though there are some disadvantages.
+For the intellectually curious, the relative ease of access is honestly astonishing, and it's truly a
+wonderful time to be a book lover (not to mention the higher level of book typesetting).
+Of course, physical books have certain advantages, tangible and intangible, that people get roused up
+about, especially traditionalists. And of course Orthodox Jews don't use electronic sources on Shabbat
+and holidays. But electronic sources have their own massive advantages:
+1.
+Instantly accessible
+2.
+Searchable
+3.
+Easily shared and saved via copy-paste and screenshots
+4.
+Easily highlighted and annotated
+5.
+Text size can be customized
+6.
+Takes up far less physical space
+7.
+Last but not least, allows for new forms of scholarship4
+I personally have switched over to electronic texts wherever possible.
+Of course, traditional physical books and internet-based resources aren’t mutually exclusive. One can
+have the best of both worlds. In Modern Orthodox yeshivot it’s been a common sight already for many
+years for people to have a laptop before them. Admittedly, the main use of the laptop is for notetaking,
+but it can also act as a portal to a world of supplemental books.
+Existing Guides
+There are many guides to electronic resources for Jewish scholarship, such as that of university library
+guides, as well as other websites. However, many of these guides are meant for students and
+researchers, and less for the general educated reader with an interest in these topics. In addition, many
+previous guides are from ten years ago or longer, and many of the links no longer work.
+Here are some guides that I found especially useful:
+4 See at length Moshe Koppel and Avi Shmidman, “Torah Study and the Digital Revolution: A Glimpse of the
+Future”, The Lehrhaus (2020).
+
+
+## Page 5
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 5
+Guides by librarians5
+1.
+Talmud & Oral Law | Libraries and Information System | Bar-Ilan University
+2.
+Jewish History | Libraries and Information System | Bar-Ilan University
+3.המכללה
+האקדמית
+הרצוג
+<
+ספריות
+<
+מאגרים
+בחוג
+ללשון
+עברית
+4.המכללה
+האקדמית
+הרצוג
+<
+ספריות
+<
+מאגרים
+בחוג
+למחשבת
+ישראל
+5.המכללה
+האקדמית
+הרצוג
+<
+ספריות
+<
+מאגרים
+בחוג
+לספרות
+עברית
+6.
+Center for Jewish History > LibGuides > A-Z Databases
+7.ארון
+הספרים
+היהודי
+המקוון
+–
+מאגרי
+מידע
+ואתרי
+ספרים
+סרוקים
+|Safranim's Blog
+8.
+Recommended Websites - *Jewish Studies - Research Guides at Northwestern University
+9.
+eTexts - Directory of Judaica online resources - Guides at Penn Libraries
+10. Resources for Doing Research - Jewish Studies - Guides at Johns Hopkins University
+11. Reference Works - Hebrew and Jewish Studies - Guides at Georgetown University
+12. Turning the Page: Jewish Print Cultures & Digital Humanities - An EAJS Roundtable
+13. Digital Collection Gateways: a Selection - Hebrew and Judaic Studies - Research Guides at New
+York University
+14. Online Resources Jewish Studies „Corona Service FID Jewish Studies based at the University
+Library Frankfurt am Main. Updated February 2021. Great updated list.
+15. Links to Other Libraries and Archives | Jewish Museum Berlin “This page features links to other
+libraries and archives that support research on Jewish topics, as well as to library portals and
+directories”.
+16. Free Online Resources - HUC6
+Other Guides
+1.מאגר
+תורני
+–
+ויקיפדיה
+2.
+Torah database - Wikipedia
+3.
+Rabbinic literature - Wikipedia > “External links”
+4.השפה
+העברית-קישורים
+5.פורטל
+הדף
+היומי:
+ספריה
+וירטואלית
+6.פורטל
+הדף
+היומי:
+נוסחאות
+וגירסאות
+7.הלכה
+ברורה
+<
+ספרייה
+וירטואלית
+8.
+Search Engines and Other Web-Resources | The Talmud Blog
+9.
+Textual Witnesses | The Talmud Blog
+10. Rabbinics
+6 Last three links pointed out by A. Berman.
+5 See here for “a list of guides prepared by university librarians worldwide to help students taking courses in Jewish
+studies” by Diane Romm, published no later than 2018. See the About page. Thanks to A. Berman for pointing out
+this guide. Unfortunately many of the links are now broken. For a relevant university syllabus, see Prof. Aaron
+Ahrend’s syllabus to his course “Research Guidance in Bibliography and Writing”. I took this course many years ago
+as part of my MA in Talmud at Bar-Ilan. The course and course packet went over many digital tools, however the
+syllabus available online only gives topic headings, and bibliography of published articles.
+
+
+## Page 6
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 6
+11. #DHJewish Jewish Studies & Digital Humanities Projects7
+12. Online Resources for Talmud Research, Study, and Teaching By Heidi Lerner, published Fall 2010.
+13.קישורים
+שימושייםBy Uriel Frank.8
+14. The Top Sites to do Torah Research in the Internet Era | OLAMI Resources By Reuven Chaim
+Klein, published December 12, 2018.
+15. Sources on the Net By Dr. Melech Tanen.
+16. mi vami: Some excellent Talmud projects out there By R’ Josh Waxman, published March 5,
+2020.
+17. Jewish Digital Collections and Jewish Study Guides.9 By Diane Romm, published no later than
+2018. See the About page.
+18. The Jewish Guide to the Internet . By Diane Romm.
+19. Moshe Koppel and Avi Shmidman, “Torah Study and the Digital Revolution: A Glimpse of the
+Future”, The Lehrhaus (2020).
+20. Shai Secunda, “Resources for the Critical Study of Rabbinic Literature in the Twenty-First
+Century” in Compendia Rerum Iudaicarum ad Novum Testamentum (CRINT) 16, Christine Hayes
+(ed.), (2022), pp. 621-632 (Esp. pp. 625 and on - “Digital Corpora”).
+This Guide
+This guide is designed for enthusiasts and those intellectually curious, who may not be specialists in the
+field. It focuses on easily accessible and user-friendly resources found on contemporary websites. The
+guide primarily covers what can be termed the "middle", the "rabbinic", or (perhaps Zionistically) the
+"Diaspora" era of Jewish history, spanning from post-Destruction to pre-late modern (approx. 100 CE to
+1850 CE).10 A key theme emphasized is the increasing democratization of knowledge and opportunities
+for contribution. The goal is to help readers find new and valuable resources where they can consume
+and even contribute to scholarship.
+As for scope: This guide will mostly cover resources related to the topics from circa 100 CE to 1850 BCE.
+So will not cover:
+1.
+Primary sources and studies of Tanach/Bible, Dead Sea Scrolls, Pseudepigrapha (=“Seforim
+Hitzonim”), Philo, Josephus, and early Christianity. In other words, works up to the period of
+Chazal, circa 100 CE. So for example, I didn’t include Bar Ilan University’s Mikra'ot Gedolot
+Haketer (מקראות
+גדולות
+הכתר- see on this project Wikipedia here (English) and here (Hebrew) or
+their weekly Parshat Hashavua sheet.
+2.
+At the opposite end, the Late Modern period (circa 1850-2000). So it won’t cover resources
+related to modern Hebrew literature, Haskalah, Zionism, the modern State of Israel, Holocaust,
+contemporary Jewish thought and hashkafa, or more contemporary books (such as R’ Ashlag’s
+10 On the starting date of the rabbinic period, see recently Adiel Schremer:
+עדיאל
+שרמר,
+"עולמם
+של
+החכמים
+בחברה
+היהודית
+בארץ־ישראל
+בתקופת
+המשנה:
+תורה,
+יוקרה
+ומעמד
+ציבורי",
+ספרות
+חז"ל
+הארץ־ישראלית
+א, ,
+תשע"ח,
+עמ'558
+,והביבליוגרפיה
+המצויינית
+שם.
+9 Thanks to A. Berman for pointing out this guide.
+8 Thanks to A. Fredj for pointing out this list.
+7 Thanks to Shaul Seidler-Feller for pointing out this resource.
+
+
+## Page 7
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 7
+commentary on Zohar, and those of his descendants). Also will not cover the topic of Yiddish
+literature, even though it begins before 1850.11 Also will not cover Jewish art.12
+There are a number of resources that are geared towards beginner students, such as Gemara Brura and
+The People's Talmud.13 These will not be covered here.
+I have also not included links and descriptions to websites of collections and catalogs of individual
+libraries. Rather, I’ve focused on websites that aggregate information across collections.14
+Should also add my focus is on resources with a substantial focus on academic/scholarly topics and style.
+So especially in the section on blogs, won’t include blogs that don’t have a more academic perspective.
+I have also mostly limited the guide to resources in English and Hebrew. There are relevant resources in
+French and German, but a) I don’t read those, b) I’m assuming that my readers are less likely to read
+them, and c) in any case, there are only a few, marginal such resources.
+A large part of my annotations are taken from the descriptions provided by the maintainers of the
+project, as well as from Wikipedia. Many of these descriptions are in Hebrew. All translations from
+Hebrew are my own, unless noted otherwise. My translation is sometimes loose, and I did not always
+fact-check. The info in this guide should definitely be double-checked if used for anything more scholarly.
+In general, my main intention is to raise awareness and point readers to some of the incredible resources
+currently available to anyone with an internet connection.
+Note: The website of the resource is hyperlinked in the name. In cases where only a part of a website is
+relevant to the resources under discussion, I try to link to the page on the website that best acts as a
+portal to the resources.
+Another note: It’s quite incredible how much is now available on the internet. At the same time, projects
+become outdated and links become broken very rapidly. I hope to be able to update this guide every
+once in a while, but unfortunately the rapid changes in the layout of the internet is one of the blessings
+and the curses that come with this new medium (victims of the unfortunate phenomenon of “link rot”).
+While researching this guide, I constantly found new resources that I was not aware of, and I’m certain
+(and hoping, in a good way) that this guide will rapidly become more and more outdated as more
+resources come online, and (negatively) as links break.
+After writing this guide, I created this Template on Wikipedia:
+תבנית:ספריות
+דיגיטליות
+בנושאי
+יהדות
+–
+ויקיפדיה
+Primary Texts
+A huge amount of primary texts have been transcribed and scanned, and are readily available.15
+15 For a general list of digital library projects, see the Wikipedia entry “List of digital library projects”.
+14 For links and descriptions to websites of collections and catalogs of individual libraries, see Adiel Breuer’sרשימת
+אתרים
+ואשכולות
+לסריקות
+כת"י
+וספרי
+דפוס
+עתיקיםon the Otzar HaHochma forum. I discuss Breuer’s guide in further
+detail in footnotes later.
+13 See more at R’ Josh Waxman’s blogpost, “Some excellent Talmud projects out there” (March 5, 2020).
+12 For example, the index of works at the website of The Bezalel Narkiss Index of Jewish Art, Center for Jewish Art,
+Hebrew University of Jerusalem.
+11 For example, texts at the website of In Geveb: A Journal of Yiddish Studies.
+
+
+## Page 8
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 8
+Shai Secunda writes:16
+“[...] [W]hile philology is a conservative undertaking by nature, talmudic philology has also seen
+development of its own, thanks in no small part to the digital revolution, which has inaugurated
+new, computerized, modes of textual analysis, and novel types of digitally driven visualizations.”
+Moshe Koppel and Avi Shmidman, after discussing a wide variety of digital humanities projects related to
+Jewish Studies, write:17
+“All of the above tasks have either been completed or will be completed in the next few years.
+But note that all these tools are merely efficient ways of providing that which has already been
+done manually. The difference is one of scale. Projects that have taken lifetimes or have built on
+the efforts of teams of skilled editors might be scaled to the entirety of Jewish literature in
+relatively rapid fashion. Once a viable algorithm is designed and developed, its application to the
+corpus as a whole is just a matter of raw computing power.
+Thus, if until now, the trend of creating accessible versions – vocalized, punctuated, and with
+expanded abbreviations – has been applied to a very limited set of texts, automated methods
+could facilitate the production of accessible versions of virtually any text in the near future. The
+same is true regarding the scholarly world and the production of scholarly editions of Rabbinic
+texts. Until now, the painstaking work required to produce critical editions has resulted in a
+situation where only a small portion of the corpus has been properly edited. Only selected
+chapters of the Talmud, Midrash, and some other canonical works have ever been published in
+critical editions. Automated methods for the creation of critical editions of almost any book
+could be available in several years.”
+Books - text format - popular editions
+Popular editions, as opposed to scholarly/critical editions. See next section for scholarly editions.
+Open-access
+1.
+Sefaria (.)ספריאLarge number of texts, as well as English translations.18
+a.
+Wikipedia - English: “Sefaria has a vast library of Jewish text, including Tanakh, Talmud,
+and Jewish prayers alongside sources in philosophy, mysticism, Jewish law, and newer
+18 See, now, many experiments of things that can be done with Talmud via Sefaria API, discussed in a number of
+pieces on my blog: “Cataloging My Blogposts: An Organized Breakdown by Theme” (July 28, 2023), section “Digital
+Layout of the Talmud and other Rabbinic Texts”.
+17 Moshe Koppel and Avi Shmidman, “Torah Study and the Digital Revolution: A Glimpse of the Future”, The
+Lehrhaus (2020).
+16 Shai Secunda, “Resources for the Critical Study of Rabbinic Literature in the Twenty-First Century” in Compendia
+Rerum Iudaicarum ad Novum Testamentum (CRINT) 16, Christine Hayes (ed.), (2022), p. 621.
+On the genre of electronic scholarly editions, see Kenneth M. Price, "Electronic Scholarly Editions", in: Susan
+Schreibman and Ray Siemens (Eds.), A Companion to Digital Literary Studies (2008); Greta Franzini et. al., “A
+Catalogue of Digital Editions”, in Digital Scholarly Editing: Theories and Practices, pp.161-182; Menachem Katz et.
+al., “Talmud Yerushalmi Digital Critical Edition - IRCDL 2022” (2022). (See Katz’s abstract there: “This is the first full
+digital critical edition of any Talmudic text; the existing digital editions in this field to date are either not critical or
+incomplete, and the critical editions are not digital.”)
+
+
+## Page 9
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 9
+works. Some works, such as Tanakh and Talmud, feature English translations. These are
+either crowdsourced, provided by publishers, or in the public domain. Contains a
+complete English translation of Rashi's commentary on the Torah, the William Davidson
+Talmud translation,19 and a complete translation of Ibn Ezra's Torah commentaries, one
+of the only resources to have a complete translation of these works in English. Many
+works are linked with their respective commentaries. For example, clicking on a verse in
+Tanakh will open a window on the side, allowing the user to open a commentary on that
+verse.”
+b.
+Some of the texts available, all highly credible works, and that I’ve personally used in
+Sefaria for study (all with hyper-linked table of contents, transcribed, searchable,
+downloadable, ability to make text larger, and many other features):
+i.
+Steinzaltz-Koren translation into English and commentary on Talmud Bavli
+ii.
+Guggenheimer translation and commentary of Talmud Yerushalmi
+iii.
+Mishnat Eretz Yisrael commentary on Mishnah
+iv.
+Jastrow Dictionary
+2.
+Al-Hatorah (התורה-. )על20
+a.
+Both Al-Hatorah as well as Sefaria are very user friendly and powerful both for looking
+up references, as well as for studying. However, not all of the transcriptions on
+Al-Hatorah are complete.
+b.
+Al-Hatorah has more developed tools for serious study. While Sefaria has a bit of a
+cleaner interface and more modern UX/UI with lots of whitespace.
+c.
+The UX/UI is quite similar to the “Bar Ilan Responsa Project,” where the Table of
+Contents are set up as “trees”.
+d.
+From the About page: “ALHATORAH.ORG was founded by Rabbi Hillel & Neima Novetsky
+and their children, Yonatan, Aviva, Ariella, and Yehuda. Hillel is a musmakh of RIETS (YU)
+and earned an MA in Jewish History from Bernard Revel Graduate School and a PhD in
+Bible from Haifa University. Neima earned an MA in Bible from Bernard Revel Graduate
+School (YU) and teaches in Torah institutions in Israel. The content of the website is the
+product of an ongoing, worldwide, collaborative effort of Rabbis, scholars, educators,
+and laypeople.”
+e.
+See also their mission statement and Who We Are (listed on the Advisory Board there:
+Prof. Uriel Simon, Prof. Haym Soloveitchik, Prof. Richard Steiner, and more).
+f.
+Al-Hatorah is especially strong in medieval commentaries on Tanakh and Talmud. It is
+also good on the basic texts of a typical yeshiva curriculum (Tanakh, Mishna, Talmud,
+and their commentaries). It is fairly weak to non-existent in the genres of Kabbalah,
+Liturgy, Jewish Thought, Chasidut, Musar, and Responsa (all of which are major sections
+in Sefaria, with multiple major works of each).
+20 See, now, my full review at my blog: “Evaluating Al-Hatorah's Digital Repository: Exploring Its Excellent Tanakh
+and Talmud Commentaries, and More” (June 9, 2023). A Wikipedia entry on Al-Hatorah was a desideratum when
+this piece was first written (beginning of 2022), there is now an entry:על
+התורה
+–
+ויקיפדיה.
+19 In the About page there: “includes Rabbi Adin Even-Israel Steinsaltz’s complete Modern Hebrew and English
+translations of the Talmud”.
+
+
+## Page 10
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 10
+g.
+Full “library tree” here.
+h.
+See the full list of digital editions. The full range of high-quality editions is quite
+impressive.
+i.
+Some of the works available there (many from recent critical editions):
+i.
+Targum Yerushalmi - Neofiti (תרגום
+ירושלמי-ניאופיטי
+.)
+ii.
+New digital edition of Rashi on Torah, Leipzig manuscript.21
+iii.
+New digital edition of R’ Yosef Kara's Torah Commentary.
+iv.
+Reconstruction of the Lost Parts of Rashbam's Torah Commentary.22
+v.
+Ramban's Updates to his Torah Commentary.
+vi.
+Additional new digital editions of Torah commentaries, with introductions: ibn
+Ezra, Yosef Bekhor Shor, and more; see list here (under “נושאים
+פרשניים
+.)”
+vii.
+New digital edition of Rif (ed. E. Chwat).23
+viii.
+Rashbam's Commentary on Avodah Zarah (ed. H. Gershuni).
+ix.
+Mishna MS Kaufmann (ed. D. Be’eri).
+x.
+Mishnat Eretz Yisrael - modern scholarly commentary on Mishnah. (This
+commentary also in Sefaria, as mentioned in its entry.)
+xi.
+Steinsaltz-Koren commentary on Talmud Bavli in Hebrew (Sefaria has the English
+translation and commentary, as mentioned in its entry.)
+xii.
+List of translated works into English.
+xiii.
+Visualizations. Very interesting visualizations: timelines, maps, and lists.
+xiv.
+Intros, with footnotes to latest academic research:24
+1.
+Bereshit_Rabbah
+2.
+Mekhilta_DeRabbi_Yishmael25
+3.
+Sifra
+3.
+Wikisource - Hebrew (.)ויקיטקסט
+a.
+Wikisource is a "sister-project" of Wikipedia, under the auspices of the Wikimedia
+Foundation.
+b.
+Wikipedia - Hebrew: “In May 2009, the Hebrew Wikisource ()ויקיטקסטreached 25,000
+text units upon completion of uploading all of Maimonides’ Mishneh Torah.”
+c.
+Due to the fact that it’s a crowd-sourced project, it very much has the feel of a
+“work-in-progress”, with lots of individual chapters missing transcriptions, and of uneven
+editorship.
+25 Footnote 1 there: “1 This section incorporates information from M. Kahana, "The Halakhic Midrashim" in The
+Literature of the Sages Part II, ed. Safrai et al. (Assen, 2006): 3-105 (hereafter: Kahana), and G. Stemberger and H.
+Strack, Introduction to the Talmud and Midrash (1996, hereafter: Stemberger and Strack).”
+24 Full list here. Many of the linked pages only have headers, with no content.
+23 See interview with Chwat on this edition on Seforim Chatter podcast: “With Dr. Ezra Chwat discussing the Rif (Rav
+Yitzchak Alfasi, 1013 – 1103) and his new critical edition”, #97, October 10, 2021.
+22 From the intro there: “The reconstructed interpretations of Rashbam presented on these pages are a preliminary
+version from 2015 of the analysis conducted by Hillel Novetsky of material which he discovered in various
+manuscripts. An updated version of these texts based on his dissertation (2020) can be accessed at
+https://mg.alhatorah.org [...].”
+21 See discussion started by R’ Adiel Breuer at this Otzar HaHochma forum, dated 25-Jan-2016.
+
+
+## Page 11
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 11
+d.
+Despite this, it's a great resource, and one that many other websites draw on.
+e.
+For example of an interesting sefer found there, see R’ Aharon Heiman’s Toldot Tana’im
+VeAmora’im. I recently used Wikisource’s transcription to do various analyses of the
+entire corpus of names of rabbis found in Chazal.26
+4.
+Ben-Yehuda Project (פרויקט
+יהודה-בן
+. )
+a.
+Wikipedia - Hebrew: “The project includes, among other things, poetry, fiction,
+translation, research ()עיוןand essays in Hebrew from the Middle Ages to the present
+day. As of October 2021 it includes over 28,000 works, by about 1,000 different authors.”
+b.
+Includes piyutim from Late Antiquity (such as Eleazar ben Kalir and Yanai) and from
+Medieval era (such as Yehudah Halevi and Shlomo ibn Gabirol).
+5.
+An Invitation to Piyut (הזמנה
+לפיוט
+.)
+a.
+Tremendous database of piyyutim, with a huge number of piyyutim transcribed.
+b.
+Wikipedia - Hebrew: “A cultural-educational project that works to preserve and revive
+the traditions of piyyut and prayer of the Jewish people, through a website, publishing,
+conservation activities, community education and cultural events. The site has about
+1,000 columns and articles, including personal columns, memoirs, introductory
+passages, and reviews. Among the authors of the site are Prof. Ephraim Hazan, Dr. Meir
+Buzaglo, Prof. Haviva Pedia, Prof. Edwin Seroussi, Rabbi Dr. Benny Lau and many others.”
+6.
+Grimoar .
+a.
+Focuses on kabbalistic texts.
+b.
+Wikipedia - Hebrew: “A database collecting a large amount of Kabbalah books and books
+of Jewish thought typed and open for use.”
+c.
+Unfortunately, the website contains no bibliographical information whatsoever, such as
+on what edition or manuscript the text is based on. In general it’s unclear who hosts the
+website (the website domain is Czech, and so are the book descriptions on the website).
+7.
+Kodesh.Snunit (סנונית-מאגר
+ספרות
+הקודש
+.)Basic rabbinic texts.
+8.
+Mamre Institute (מכון
+ממרא
+.)
+a.
+Wikipedia: “The Mamre Institute is an Israeli research institute aimed at providing
+accessible and accurate texts for the Hebrew Bible, Mishnah, Tosefta, Babylonian
+Talmud, Jerusalem Talmud, Mishneh Torah and Targum Onkelos.”
+9.
+Mercava. A digital edition of Talmud, in the traditional tzurat hadaf.27
+10. Tashma - Jewish Office (תא
+שמע-אופיס
+יהודי
+.)28
+a.
+Requires registration. Interesting UX/UI, dark mode by default. Works contain no
+indication of which edition is used. Full list of books in the database here.
+28 This resource was pointed out by the commenter “Sam” to pt. 2 blogpost.
+27 For a general review of digital editions of Talmud, see now my “From Print to Pixel: Digital Editions of the Talmud
+Bavli” (June 5, 2023), at the Seform Blog.
+26 Seth (Avi) Kadish, personal communication:
+“One of the most amazing [resources], which I think should get more recognition, is Dr. Ronen Ahituv's
+commentary on the Mishnah, Tosefta, and the halakhic midrashim e.g. Sifrei Devarim (with interlinks and
+references between them). It needs better formatting, but the actual content is priceless.
+Also see the vocalized, formatted and annotated version of the Mishnah, first edited by R’ Dan Be'eri and then
+highly improved for many tractates (ongoing) by Dr. Simhah Gershon Borer.”
+
+
+## Page 12
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 12
+11. Zemirot Database (אוצר
+זמירות
+.)
+a.
+From FAQ page:
+i.
+“This is an editable online database for zemirot, liturgy, and other Jewish songs.”
+ii.
+Contains original text, translation, bibliographic info, history, and recordings.
+12. Open Siddur Project (פרויקט
+הסדור
+הפתוח
+)
+a.
+Wikipedia:
+i.
+“[An] open-source, web-to-print publishing and digital humanities project intent
+on sharing the semantic data of Jewish liturgy and liturgy-related work”.
+b.
+Example of interesting section: “[C]ontainer for facsimile editions and digital
+transcriptions of Maimonides’ Seder Tefillot (Order of Prayers) found at the end of his
+Sefer Ahava (Book of Love) in his Mishneh Torah.”
+13. Chabad Library (ספריית
+חב"ד
+ליובאוויטש
+.)
+a.
+Works of Chabad Chasidut transcribed.
+14. Ramhal.net (קהילת
+הרמח”ל
+.)
+a.
+Works of the Ramhal transcribed.
+b.
+From the About page: “The community was founded in 2002 with the aim of making
+Ramchal's teachings accessible to the general public.”
+15. Hassidout.org. Works of Kabbalah transcribed.
+Requires subscription or purchase
+16. Bar Ilan Responsa Project . Massive number of texts, with very high level of accuracy. Requires
+subscription.
+a.
+Wikipedia - English: “The database consists of one of the world's largest electronic
+collections of Jewish texts in Hebrew. It includes numerous works from the Responsa
+Literature. The database also includes the Bible and the Talmud (with commentaries);
+articles about Jewish law and customs; Maimonides' Mishneh Torah and the Shulchan
+Aruch with main commentaries; Zohar, Midrashim, and the Talmudic Encyclopedia.”
+Books - text format - scholarly editions
+17. Ma'agarim - Historical Dictionary Project of the Hebrew Language (מאגרים-המילון
+ההיסטורי
+ללשון
+העברית
+.)
+a.
+Not especially user-friendly, meant for rigorous research.29
+b.
+Wikipedia - Hebrew: “Includes a database of all the major works of the Hebrew language
+in antiquity. As of 2012, more than 7,900 works have been typed into the database,
+which include more than nine million words, and contain more than 36,000 entries.
+Work on the database continues consistently, both because of the need to update the
+database according to updated research, as well as due to the discovery of additional
+ancient works.”
+29 I used this resource as one of the sources for word counts of major Jewish works. See my “Words of Wisdom:
+Word Counts of Classical Jewish Works”.
+
+
+## Page 13
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 13
+18. Talmud Yerushalmi digital critical edition (תלמוד
+ירושלמי
+מהדורה
+דיגיטלית
+.)
+a.
+Project of Prof. Menachem Katz. In beta, only Yevamot is available.30
+b.
+An incredible project, with tremendous potential.
+19. Midrash Project - Schechter Institute of Jewish Studies (מפעל
+המדרש-מכון
+שכטר
+למדעי
+היהדות
+.)
+a.
+Synoptic editions of eight Midrashim.
+20. Vayikra Rabba - synoptic edition (ויקרא
+רבה-מהדורה
+סינופטית
+.)
+a.
+A website presenting a complete synopsis of the versions preserved in manuscripts of
+Vayikra Rabba, hosted by Bar-Ilan University.
+21. Aramaic Texts of The Zohar.
+a.
+From the edition prepared by Prof. Daniel Matt.
+b.
+“This website contains the Aramaic text of the first five volumes of [the Pritzker] edition
+of the Zohar. The Versions include regular text, underlined text showing emendations,
+and “user-friendly,” which includes page numbers that correspond to this printed
+edition, Italics for the Biblical verses, and citations for the verses with verse and chapter
+number.”31
+c.
+As of 31-May-23, the only link that works is the button labeled as follows: “Unified PDF
+of the Aramaic of all volumes (large file)”.
+22. Moreh Nevuchim (מורה
+נבוכים
+)with mark-up.
+a.
+See description here: Hillel Gershuni and Yohai Makbili, “Guide for the Perplexed -
+Glossary and bibliography” (2019).
+23. Inscriptions of Israel/Palestine . “[A] Brown University site directed by Michael Satlow. This
+website presents transcriptions, images, and bibliographic data of a growing number of
+inscriptions of relevance to rabbinics research, including epigraphical references to ‘rabbis’.”32
+From the About page: “The Inscriptions of Israel/Palestine project seeks to collect and make
+freely accessible all of the previously published inscriptions (and their English translations) of
+Israel/Palestine from the Persian period through the Islamic conquest (ca. 500 BCE - 640 CE).”
+a.
+“Your search for `display status:approved AND dates after 100 CE AND dates before 600
+CE AND religion:jewish AND language:he` yielded 119 results”.
+Books - PDF format
+Mostly searchable via OCR, and in PDF format.
+Open-access
+1.
+HebrewBooks .
+a.
+Wikipedia - Hebrew: “Free online digital library for Torah literature. The site contains
+about 61,000 scanned Torah books and journals, from the beginning of printing to
+contemporary authors, most of them in Hebrew. The books can be viewed, downloaded
+32 Secunda, ibid., p. 626.
+31 https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources > “Zohar Pritzker edition”.
+30 See full overview here: Menachem Katz et. al., “Talmud Yerushalmi Digital Critical Edition - IRCDL 2022” (2022).
+
+
+## Page 14
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 14
+and textually searched for in the book's content. The site is accessible in Hebrew and
+English.”
+b.
+HebrewBooks is likely well-known to most readers. However, something that might be
+less well-known is that HebrewBooks has a new search page, officially in beta:
+https://beta.hebrewbooks.org/#gsc.tab=0. It’s a much more powerful search engine,
+with many new, modern features (bringing it closer to the Otzar HaChochma
+experience).33
+2.
+National Library of Israel (הספרייה
+הלאומית
+.)
+a.
+Links to books accessed via search or direct link, no way to browse. However, the
+“Halacha Brura” index (see later, under section “Index”) often links to it.
+b.
+Unfortunately, due to many changes and updates to the National Library website over
+the years, many of the links to the website found at outside websites are now broken.
+c.
+Presumably, the best way to find the work is to as follows:
+i.
+Search the name of the work in the National Library website search box
+(“Merhav”).
+ii.
+Filter for “Available online” AND “Books”
+iii.
+Click on “Online access”
+d.
+URLs of open-access works appear to following template:
+“https://www.nli.org.il/he/books/NNL_ALEPH00XXXXXXX/NLI”. For example, Ohev
+Yisra’el: https://www.nli.org.il/he/books/NNL_ALEPH001091556/NLI
+3.
+Center for Jewish History.
+a.
+Links to books accessed via search or direct link, no way to browse. Has many primary
+texts available. Couldn’t find a simple way to search for books. However, the “Halacha
+Brura” index (see later, under section “Index”) often links to it. For example, the sefer
+Derech Yeshara.
+4.
+Open Library .
+a.
+Part of the Internet Archive family of projects. Has thousands of relevant scanned books.
+Can be searched by subject.
+5.
+Massorti.com . Has all of Lieberman’s Tosefet Rishonim and Tosefta Kifshuta available. See links
+at Halacha Brura >מפרשי
+תוספתא.
+6.
+Abuelafia.blogspot.
+a.
+A number of books by the medieval kabbalist R’ Avraham Abulafia, published recently by
+R’ Amnon Gros. This is R’ Gros’s website.34
+7.
+Google Books.
+34 See Boaz Hus,שאלת
+קיומה
+של
+מיסטיקה
+יהודית,2016
+, pp. 146-147, for a discussion of these editions. (Book
+available in Kotar here.)
+33 Thanks to Eliezer Brodt for bringing this new tool to my attention.
+
+
+## Page 15
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 15
+a.
+No way to browse, only search.35 But relevant works can be found using Halacha Brura’s
+index,36 see the webpage indexing Tanach and Hazal. Has a few hundred scanned
+manuscripts and early printed works.
+8.
+Israel613 .
+a.
+An eccentric website, mostly dedicated to contemporary haredi works and polemics.
+However, there are some PDFs of interest, of historical hasidic works. No real browsing
+capabilities on the website, but can be found using Halacha Brura’s index (as in previous
+item).
+9.
+Google Drive. Sometimes individuals upload scans of books, and share the links. For example,
+the full set of R’ Moshe Cordevero’s Or Yakar is currently hosted by an unknown host on Google
+Drive (see Halacha Brura > Kabbala > “אור
+יקר,
+ר'
+משה
+קורדוברו,
+פרוש
+על
+הזהר,
+ירושלים
+תשכ"ב
+.)”
+10. Epidat .
+a.
+See description at the website of European Association for Jewish Studies (EAJS):
+“Epidat, short for epigraphic database, is a research platform for Jewish funerary
+epigraphy. Currently, Epidat contains transcriptions, translations, descriptions, and
+iconographic documentation of 43,838 headstones (with 79,972 digital images) from 233
+historical Jewish cemeteries, spanning a period of 900 years (1040-1952) and covering
+six European countries (Germany, The Netherlands, Poland, Spain, Latvia and Czechia).”
+11. Machberet Menachamiyot (מחברות
+מנחמיות
+.)
+a.
+New formatting of Talmud Bavli, by Prof. Menahem Katz:
+i.אקדמות
+למהדורה
+של
+התלמוד
+הבבלי
+–
+מסכת
+קידושין
+–
+מחברות
+מנחמיות
+ii.מסכת
+קידושין
+ב
+ע"א-יד
+ע"ב
+iii
+.מסכת
+קידושין
+יד
+ע"ב
+כה –
+ע"ב
+iv
+.מסכת
+קידושין
+כה
+ע"ב
+כט –
+ע"א
+v.מסכת
+קידושין
+כט
+ע"א
+–
+מא
+ע"א
+vi
+.מסכת
+קידושין
+מא
+ע"א
+נח –
+ע"ב
+vii
+.מסכת
+קידושין
+נח
+ע"ב
+סט –
+ע"א
+viii
+.מסכת
+קידושין
+סט
+ע"א-פב
+ע"ב
+Requires subscription or purchase
+12. Otzar HaHochma (אוצר
+החכמה
+.)
+a.
+Generally requires subscription. However, interestingly enough, as of this writing
+(23-Jan-2022), it appears that the entire basic Otzar HaHochma is open-access, and has
+been for three months already! As per the pop-up notification on the website, and the
+banner at the top while browsing: “בס"ד19/10/2021
+. Dear users, the system is
+undergoing upgrades at this time, some users may experience technical difficulties,
+36 See my discussion later of this index.
+35 Searching on Google Books can be aided greatly by their Advanced Google Books search:
+https://books.google.com/advanced_book_search (thanks to A. Berman for pointing this out). See short overview
+of the source of seforim on Google books, as well as a guide for how to search for seforim there, at Otzar
+HaHochma forum.
+
+
+## Page 16
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 16
+therefore we are giving free access to the beta site: beta.otzar.org. This service will be
+free of charge until further notice. Please note the printing option as well as the add-on
+packages are available for purchase only on the old website.”37
+b.
+Add-ons include books from the following publishers (in order of price): Oz VeHodor,
+Mossad HaRav Kook, Mechon Yerushalayim, Mechon Ahavat Shalom, Mechon Ofek,
+Mechon Hochmat Shelomo.
+c.
+Wikipedia - Hebrew: “Otzar HaHochma is a database containing over 110,000 Torah and
+academic books scanned in the same format as the original printing pages that have
+undergone optical character recognition, which allows information to be retrieved using
+a search engine embedded in the system. In version 19.0 (summer 2021) of the database
+there are 112,749 titles. The update rate of the database is about 5,000 books annually.
+The database allows the books to be divided into categories, such as: Bible and its
+commentators; Mishnah and its commentaries; Babylonian Talmud and its
+commentaries; Jerusalem Talmud and its commentaries; Kabbalah; Mussar; Hasidut;
+history; disputes (;)פולמוסיםjournals; community books (ספרי
+קהילות
+,)jubilee books
+(ספרי
+יובל
+,)memorial books (ספרי
+זיכרון
+,)manuscripts and first editions.”
+13. Siddurim Database (מאגר
+הסידורים
+הממוחשב
+.)
+a.
+Distributed by R’ Aharon Gabbai. See the Otzar Hahochma post, published Apr 3, 2017.
+b.
+From the post:
+i.
+“A computerized database containing more than a thousand siddurim and
+machzorim, both manuscript and printed editions. Collected from all over the
+internet (including hundreds of items that were previously downloadable and
+can not be downloaded today) and from other rare sources. The database is
+over a hundred gigabytes in size.”
+Manuscripts - General
+Some with transcription.
+Open-access
+1.
+Ktiv (. )כתיב
+a.
+Wikipedia - Hebrew: “The Ktiv project, launched with the 17th World Congress of Jewish
+Studies in August 2017, is the next stage in the Institute of Microfilmed Hebrew
+Manuscripts’s life, designed to make photographs of all Hebrew manuscripts in the
+world accessible to the public on the Internet. Upon its launch, four years after the
+digitization project began, Ktiv had full scans with an excellent resolution of 45,000
+manuscripts (out of 90,000) that together hold 4.37 million pages available to the
+37 A commenter on the blogpost noted: “Unfortunately they have updated the notice on Otzar
+[HaHochma], they will be ending the free access ‘in a few days’ ”.
+
+
+## Page 17
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 17
+public.38 The project was organized in collaboration with the National Library of France
+(BnF), the Jewish Theological Seminary of America (JTS), the Palatine Library, the British
+Library, the National Library of Austria, the Bavarian State Library, the Rosenthaliana
+Library, Yad Yitzhak Ben-Zvi, the Vatican Library, Hebrew Union College, The State Library
+in Berlin, the National Library of Russia, the National Library of Florence, and more.”39
+b.
+See also “Moreshet B’reshet” of the National Library of Israel. From the page: “This page
+focuses on webpages set up by the National Library over the years. Although these
+webpages are not updated, they preserve valuable items and information for future
+generations. Therefore, these sites are maintained and made accessible.”
+c.
+For example, see the webpage for searching for images of Talmudic manuscripts (עיון
+בכתבי
+היד
+.)
+2.
+Hebrew Manuscripts : Free Texts . Hosted on archive.org. From the About section: “Hebrew and
+Judaica manuscripts from Columbia University's Rare Book & Manuscript Library.” Currently
+shows 334 manuscripts.
+3.
+Digitized Items: Hebrew Manuscripts . From the About page: “[t]his project will make 1.5 million
+digitized pages freely available over the next three years. Portions of the Bodleian and Vatican
+Libraries’ collections of Hebrew manuscripts [...] have been selected for digitization by a team of
+scholars and curators from around the world.”
+a.
+Based on my count, links to 773 Bodleian manuscripts, and 641 Vatican manuscripts.
+b.
+See also here: Hebrew Manuscripts and Printed Books, wide range of ways to browse
+806 Bodleian manuscripts.
+Manuscripts - by Topic
+4.
+Friedberg projects. Each will have its own entry below. See YouTube video for recent discussion
+of some of these projects (uploaded 2-Feb-2022). All require registration (free). The first two
+39 For a full list of library website portals of their Hebrew manuscript collections, see Adiel Breuer’s 2015
+Otzar HaHochma forum post (mentioned also above in section “Existing guides”, in footnote). There he
+lists (with some short descriptions) around 40 such library websites in alphabetical order. Subsequent
+commenters add additional links.
+Breuer there also has subsections for links to library websites with PDF scans of:
+1.
+Cairo geniza manuscripts (6 websites),
+2.
+“European genizah” manuscripts (3 websites).
+3.
+Books (around 13 such websites). Relevant to earlier section “Books - PDF format”.
+4.
+Catalogs of around 20 libraries and other collections, in alphabetical order. Relevant to later
+sections “Bibliographic info” and “Indexes”.
+For a general extensive list of digitized library collections, see the bottom of this page:
+https://publicdomainreview.org/collections/source/british-library.
+There’s an interesting analogue to Breur’s work, a German-language Wikisource page listing websites of
+“digital collections that make at least one public domain German-language printed book available in the
+form of a scan (digital copy), i.e. that can be considered as a source for Wikisource” (translation from
+Google Translate. This list pointed out to me by A. Berman). A potentially interesting idea would be to
+have all the websites in Breuer’s post and ensuing comments compiled and maintained in a
+Hebrew-language Wikisource page.
+38 A. Berman pointed out (private communication): “You may want to note that some printed seforim can
+be found on the Ktiv website, when there are handwritten notes in the sefer.”
+
+
+## Page 18
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 18
+projects appear to be the ones most actively used and developed: Hachi Garsinan and Genizah
+Project.
+a.
+Hachi Garsinan - The Friedberg Project for Talmud Bavli Variants (הכי
+גרסינן
+.)
+b.
+Friedberg Genizah Project.
+c.
+Mahadura - the Friedberg Site for Transcriptions and Synopsis (.)מהדורא
+d.
+Yad Harambam (יד
+הרמב”ם-פרוייקט
+פרידברג
+לשינויי
+נוסחאות
+ברמב”ם
+.)
+e.
+The Nahum Collection of Yemenite Manuscripts (אוסף
+נחום
+לכתבי
+יד
+תימניים
+.)
+f.
+The Friedberg Judeo-Arabic Project (פרויקט
+פרידברג
+לערבית
+יהודית
+.)
+5.
+Hachi Garsinan - The Friedberg Project for Talmud Bavli Variants (הכי
+גרסינן
+.)40
+a.
+Requires registration (free).
+b.
+From the webpage:
+i.
+“The Hachi Garsinan site displays all variant-readings of the Talmud Bavli,
+including images and transcriptions, with sophisticated comparison tools
+between the variants.
+ii.
+The "Hachi Garsinan" site is meant to serve the wide range of all Bavli learners
+and researchers: from academic researchers, through Yeshiva communities and
+Torah students, as well as anyone interested in exploring the variations of the
+Talmud Bavli and its transformations throughout the ages.
+iii.
+The site contains high quality digital images of all original textual witnesses that
+exist for the Talmud Bavli (manuscripts, early printings, Genizah fragments,
+binding fragments and other fragments), accompanied by precise transcriptions
+of the text in the image. The site integrates additional functions, including full
+text search, Sussmann catalog, Dikdukei Sofrim, and also save, copy and print
+options.
+c.
+Also includes the following foundational works, open-access and user-friendly:
+i.
+Jacob Sussman, Otzar Kitvey Yad Talmudiyyim (יעקב
+זוסמן,
+אוצר
+היד-כתבי
+)התלמודיים
+ii.
+R’ Raphael Nathan Nata Rabbinovicz, Dikdukei Sofrim (
+'ר
+רפאל
+נתן
+נטע
+ראבינאוויטץ,
+דקדוקי
+סופרים
+)
+iii.
+Many relevant articles (“Ref. Materials > Introductions”).
+6.
+Friedberg Genizah Project .
+a.
+Requires registration (free).
+b.
+From the homepage:
+i.
+“The Friedberg Genizah Project (FGP) presents a real revolution in the study and
+research of the field of Cairo Genizah and Jewish Studies in general. Its main task
+is to computerize the entire corpus of Genizah manuscripts and Genizah-related
+materials: images, identifications, catalogs, metadata, transcriptions,
+translations and bibliographical references. In the course of this project a full
+40 See the reviews: Amit Gvaryahu: ““We Read Thus”: On Hachi Garsinan and Learning Talmud in the
+21st century | The Talmud Blog” (June 19, 2016) ; Menachem Katz, Assael Shmeltzer, Hillel Gershuni,
+Sara Preis, "The Hachi Garsinan Project as a Critical Edition of the Talmud Bavli", (September 2017) ;
+Secunda, pg. 627.
+
+
+## Page 19
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 19
+digitization of the entire Genizah collections has been done, together with a
+huge database which is accessible to every scholar and student. The project also
+introduces new designated tools for Genizah research which are based on
+advanced technologies of image processing.
+ii.
+The Site was developed by Genazim Digital, headed by Professor Yaacov
+Choueka. Currently it is supported by the Association for the Study of Jewish
+Manuscripts.”
+7.
+Mahadura - the Friedberg Site for Transcriptions and Synopsis (.)מהדורא
+a.
+I tried browsing existing projects, got a lot of errors.
+b.
+From the homepage:
+i.
+“The Mahadura site is designed to create, preserve and share transcriptions and
+synopses of manuscripts and early printings. The site is meant for Academics,
+Biblical and Religious Scholars, anyone who is interested in publishing new
+transcriptions of ancient Jewish texts and preparation of critical revisions.
+Currently the site allows the user to create new projects in any area of Jewish
+studies, including uploading of images and texts and to create new
+transcriptions of manuscripts and prints in a simple painless way, and to view
+images and transcriptions, and to try the transcription tools in the existing
+projects. The creator of each project will be able to define a closed group of
+colleagues to work together on a project, and then decide when it will be
+publically available. In the future you will be able to create variant synopsis
+comparisons, using specialized algorithms.
+ii.
+The Amuta was established as a joint venture of the "Friedberg Genizah Project"
+(FGP) and the "Friedberg Jewish Manuscript Society"(FJMS).”
+8.
+Yad Harambam (יד
+הרמב”ם-פרוייקט
+פרידברג
+לשינויי
+נוסחאות
+ברמב”ם
+.)
+a.
+Requires registration (free).
+b.
+From the webpage:
+i.
+“The "Yad HaRambam" site was established for the purpose of presenting all
+versions of the Rambam's Mishneh Torah ("haYad haHazaka"). It includes
+images, transcriptions and a sophisticated synopsis (comparison) system
+between versions.
+ii.
+The site is meant to serve all who want to study the Mishneh Torah; academic
+researchers, Torah students in Yeshivot, everyone who is interested in historical
+versions of The Mishneh Torah and its changing unfolding versions through the
+ages.
+iii.
+The site includes high resolution digital images of early versions of the Mishneh
+Torah including manuscripts and early printings. Each image is supplemented by
+an accurate transcription.
+iv.
+The site also integrates additional functions, including full text search on all
+Rambam textual witnesses, the ability to save, copy and print, personal
+workspaces, and more.
+
+
+## Page 20
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 20
+v.
+The Amuta was established as a joint venture of the "Friedberg Genizah Project"
+(FGP) and the "Friedberg Jewish Manuscript Society"(FJMS). The textual witness'
+transcriptions, as well as the software for connecting the image and its
+transcriptions, are prepared by the Amuta Transcription Team.”
+9.
+The Nahum Collection of Yemenite Manuscripts (אוסף
+נחום
+לכתבי
+יד
+תימניים
+.)
+a.
+Requires registration (free).
+b.
+From the webpage:
+i.
+“The aim of this website is to present efficient research tools for researchers
+interested in the Nahum Collection of Yemenite Manuscripts. The website
+contains about 80,000 high-quality digital images of the (mostly) handwritten
+fragments and volumes in this collection. The site also contains short (1-2 lines)
+identifications of these manuscripts, whenever available, as well as scanned
+images of the corresponding entries from the relevant catalogs The site is under
+continuous development, and we hope to include in it more information in the
+future. The shelfmarks of the various manuscripts were primordially determined
+by the existing shelfmarks as marked on the manuscripts and in the catalogs,
+and when these were missing, new serially shelfmarks were given. In addition,
+there is a correspondence table in the website that enables direct access to the
+available information according to the entry-number in the above-mentioned
+catalogs. Viewing entire volumes can be efficiently browsed using special
+software that simulates the manual flipping of pages as in a real book. This Site
+was initially developed by Genazim Digital, headed by Professor Yaacov Choueka
+and is now supported by the Association for the Study of Jewish Manuscripts.”
+10. The Friedberg Judeo-Arabic Project (פרויקט
+פרידברג
+לערבית
+יהודית
+.)
+a.
+Requires registration (free).
+b.
+From the webpage:
+i.
+“This site is designed to assist researchers of the Judeo-Arabic gain a
+comprehensive and fundamental knowledge of this language, especially in the
+lexicon, semantics, idiomatic expressions, and word-related areas. This is done
+by establishing an extensive computerized corpus of titles and advanced
+software that can search for words and phrases and display their instances in the
+corpus (or selected parts thereof) with suitable context and various statistics.
+ii.
+For every page of every work in the corpus, a good quality image is available and
+can be viewed with its transcription, for testing and comparison. In the first
+stage, the site will contain Judeo-Arabic titles that have already appeared in
+print, focusing on titles that were written up to the 16th century. With time, the
+corpus will be expanded, hopefully encompassing all Judeo-Arabic titles in the
+mentioned group.
+iii.
+When the corpus will be sufficiently broad, advanced tools of computational
+linguistics and natural language processing will be developed and will reveal
+interesting structures and linguistic connections that can be discovered only
+with the help of a computerized system. This Site was initially developed by
+
+
+## Page 21
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 21
+Genazim Digital, headed by Professor Yaacov Choueka and is now supported by
+the Association for the Study of Jewish Manuscripts.”
+c.
+Includes foundational works, open-access:
+i.מרדכי
+עקיבא
+פרידמן,
+מילון
+הערבית
+יהודית
+מימי
+הבינים
+:
+לתעודות
+הגניזה
+של
+ספר
+הודו
+ולטקסטים
+אחרים
+11. Princeton Geniza Lab.
+a.
+From About page: “The Princeton Geniza Project is a database of more than 30,000
+records and 4,600 transcriptions of documentary geniza texts. Since 1986, the PGP has
+been dedicated to discovering and describing unpublished documents; maintaining a
+full-text retrieval database of geniza documents; and creating new transcriptions and
+translations.”
+b.
+Project Directors (“PIs”): Nachum Dershowitz, Judith Olszowy-Schlanger, Avi Shmidman,
+Daniel Stökl Ben Ezra.
+12. Digital Mishnah Project . Prepared by Hayim Lapin and Daniel Stökl Ben Ezra.
+13. Princeton University Sefer Hasidim Database. Peter Schäfer – Project Director. From the About
+page: “The database includes fourteen manuscripts containing different versions of Sefer
+Hasidim and its fragments.”41
+14. Qerovot-of-18 from the Cairo Genizah.42
+a.
+Project of Prof. Avi Shmidman of Bar-Ilan University.
+b.
+He writes (Hebrew):43 “The Palestinian paytanim, who operated from the fifth century
+CE to the eleventh century, composed thousands of piyutim for the prayer cycle. While
+most of the piyutim were written in honor of Shabbat and the holidays of the year, the
+paytanim also composed works for the Amidah prayer of the holy days, that is, the series
+of blessings said every day at Shacharit, Mincha and Aravit. These works are called
+'Kerovot Shemonah Esreh.' The purpose of the research was to decipher these
+manuscripts and make the secrets they contain accessible to researchers and the general
+public. The research included deciphering hundreds of worn and damaged Geniza
+pieces, and in the process, if possible, restoring the original works [...]
+c.
+You can view and search the piyutim, or alternatively download them all with one click.
+The digital texts have been transferred to the public domain, and anyone can download
+and use them as they wish. The piyutim are coded on According to a method called TEI
+("Text Encoding Initiative"). Among the advantages of this method, it should be noted
+that it paves the way for a site that is used by both the researchers and the general
+public. Researchers need access to the original text as it appears in the manuscript,
+including archaic forms and even corrupted forms; also, in order to serve the audience of
+researchers, markings are required throughout the text to indicate letters added
+between the lines, unclear letters, and the like. On the other hand, editions of piyutim
+intended for the general public always strive to present the reader with a legible text,
+free of forms, obvious oddities and disruptions, and without unnecessary markings. TEI's
+43פיוטים
+לתפילת
+העמידה
+מפי
+פייטני
+ארץ
+ישראל
+42 Thanks to Gila Prebor for pointing out this resource in a presentation.
+41 Thanks to M.Honig for pointing out this project to me.
+
+
+## Page 22
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 22
+format allows encoding of all these configurations, side by side; both the original text
+according to the manuscript, with all the provided letters (which are in doubt), etc., and
+also the normalized and corrected forms. The encoding used on the current website
+allows the user to choose the appropriate display form: whether to view the original text
+or the normalized text; whether to leave visible disruptions or correct them; if to mark
+text added between the sheets; if to mark provided letters; And another priest and
+priest. The current corpus is the first significant corpus in the Hebrew language to be
+coded into the TEI format. In recent years, interest in digital humanities in general and
+TEI in particular has been increasing. But until now researchers have not had even one
+example of Hebrew text encoding in TEI. The current corpus fills this void and serves as
+an example for researchers seeking to carry out similar projects involving the digitization
+of Hebrew corpora in the TEI format.”
+15. The Ilanot Project - (מפעל
+האילנות
+.)
+a.
+From the homepage: “Welcome to the “Proof of Concept” Preview of “Maps of God” -
+The Ilanot Portal [...] “Maps of God” (MoG) is the flagship digital humanities initiative of
+the Ilanot Project, dedicated to the research of Jewish kabbalistic diagrams known as
+ilanot (“trees,” being intricately inscribed parchment scrolls dedicated to mapping the
+divine realm). The MoG platform presents scientific editions of the great ilanot using an
+innovative linked-data approach to enable scholars and laypeople to explore these
+fascinating artifacts for the first time.”
+Requires subscription or purchase
+16. The Sol and Evelyn Henkind Talmud Text Databank ; Primary Textual Witnesses to Tannaitic
+Literature.
+a.
+From the home page:
+i.
+“Welcome to our new integrated website: Cooperative Development Initiative –
+Created by CDI Systems in partnership with the Saul Lieberman Institute of
+Talmudic Research of the Jewish Theological Seminary and Bar Ilan University’s
+Institute for Computerization in Jewish Life.
+ii.
+This new resource upgrades and integrates the three Judaic studies databases
+developed by these institutions:
+1.
+The Sol and Evelyn Henkind Talmud Text Databank.
+2.
+The Index of References Dealing with Talmudic Literature, offering
+pinpointed citations from hundreds of classic and modern scholarly
+works directly related to the specific selected passage within Talmudic
+literature.
+3.
+Primary Textual Witnesses to Tannaitic Literature.”
+b.
+See under section “Bibliographic info” for “The Index of References Dealing with
+Talmudic Literature”.
+
+
+## Page 23
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 23
+Tools for Navigating Primary Texts
+Search and Related Tools
+There are some very powerful tools for researching primary and secondary sources.
+Gone are the days when one is completely at the mercy of memory, concordance, index, or colleagues.
+Many of the websites in the previous section (“Primary texts”) have good hyperlinked navigation pages.
+In addition, they have very good search capabilities. In addition to this, there are websites which are
+dedicated to search and indexes, that provide powerful capabilities that the previously mentioned
+websites don’t have.
+Open-access
+1.
+Dicta.
+a.
+Search is highly recommended.
+b.
+From the About Us page: “Dicta applies cutting edge machine learning and natural
+language processing tools to the analysis of Hebrew texts.”
+c.
+Created by Prof. Moshe Koppel of Bar-Ilan University. List of their search and other tools,
+all very cool and quite user-friendly and hyper-modern UX/UI, in the best way:
+i.
+Tanach search: “Search the Bible intuitively, with no need to worry about
+alternate spellings, prefixes and suffixes or sorting out multiple meanings of a
+word. Dicta’s search engine understands what you’re looking for.”
+ii.
+Talmud Search: “Search the Talmud and Mishnah for words and phrases
+intuitively, with no need to worry about alternate spellings and multiple
+meanings. Dicta’s search engine understands what you’re looking for.”
+iii.
+Quick Nakdan: “Automatically add nikud (vocalization) to text as you type.”
+iv.
+Citation finder: “Identify exact or approximate quotations of biblical and
+talmudic sources in a given text.”
+v.
+Rabbinic Abbreviation Expander: “Expand abbreviations in Rabbinic texts. An
+entered text will be displayed including expanded abbreviations. The automated
+expansions are editable by the user.”
+vi.
+Synopsis Builder: “Align two or more versions of the same (arbitrarily long) text,
+highlighting differences between versions and matching parallel words, including
+variant spellings and synonyms.”
+vii.
+Stylistic Segmentation: “Partition any selected text into distinct stylistic
+components. For example, a multi-authored text can be automatically
+decomposed and displayed so that distinct authorial threads are shown in
+different colors.”
+viii.
+Charuzit: “Find rhymes, assonance, and alliteration for any given Hebrew word.
+Search results can be filtered by entering semantic words and configuring
+various grammatical settings.”
+ix.הסרת
+ניקוד
+
+
+## Page 24
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 24
+2.
+Sefaria’s search function is also quite robust.
+Tools for Transcription of manuscripts
+1.
+Transkribus, Dijest model.
+a.
+Free Public AI Model for Handwritten Text Recognition with Transkribus, for Hebrew
+script languages:44 https://readcoop.eu/model/hebrew-script-languages/
+b.
+It uses the Dijest model. From the webpage: “Among Transkribus public models you will
+find the DiJeSt model for Hebrew script languages, which you can apply to your
+documents. It is good for automatic recognition of several types of printed texts in
+Yiddish, Hebrew, Judeo Arabic and Ladino.”
+2.
+Escriptorium
+a.
+From the homepage: “A project providing digital recognition of handwritten documents
+using machine learning techniques.”45
+b.
+From the Princeton Geniza Lab website: “In February 2021, we began exploring machine
+learning as a method of transcribing Geniza documents in partnership with Daniel Stökl
+Ben-Ezra of the École Pratique des Hautes Études (EPHE) in Paris and the digital
+paleography framework e-Scriptorium.”
+c.
+ERC Synergy MiDRASH Awarded to EPHE and partner institutions – eScripta: “The
+European Research Council has awarded an ERC Synergy Grant to the EPHE and its
+partner institutions in Israel for a six years computational-humanities project on
+Medieval Hebrew manuscripts starting in 2023 with a budget of over 10 million Euro.
+eScriptorium and kraken play a central role in it [...] In this project, we aim to achieve the
+following goals:
+i.
+Convert the writing appearing in the images of a large fraction of those
+manuscripts into searchable text — including as much as possible of interlinear
+insertions and marginal comments. This will require significant improvements in
+the state-of-the-art of computerized page segmentation and handwritten-text
+recognition.
+ii.
+Have the computer compare the multitude of texts to find quotations,
+paraphrases, borrowings, allusions, and other intertextual relations. These can
+be made available to people browsing or studying the texts.
+45For overview, see the recent presentation, available on YouTube: “eScriptorium for Handwritten Text
+Recognition in Humanities Research” (uploaded Mar 3, 2021. accessed 25-Feb-2022).
+For use on Hebrew manuscripts, there is a gated presentation cited by Katz 2022, footnote 16:
+D. Stoekl Ben Ezra, “Sofer Mahir: Opening Up Rabbinic Manuscripts Towards Scholarly Editions”.
+Presentation at the DHJewish conference in Luxembourg, January 2021. URL:
+https://sofermahir.hypotheses.org/59. See also here: Digital Forum Showcases: eScriptorium and here:
+DH Tutorials - Goethe-Universität.
+Katz and Gershuni point out: “Unfortunately, the ability to use OCR to read Hebrew or Aramaic
+manuscripts is not yet sufficiently developed. When textual manuscript-based projects such as Stoekal.'s
+Sofer Mahir and Tikoun Sofrim will reach a more mature stage, the extension of the edition to the entire
+Talmud will be far easier to achieve.” (Katz 2022, section 4.1).
+44 I’d like to thank Gila Prebor for pointing out this webpage to me, in personal communication.
+
+
+## Page 25
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 25
+iii.
+Train computer algorithms to analyze handwriting so as to determine where
+and when each manuscript was written — down to the century and the country.
+This will involve synergetic feedback between human paleographers and modern
+neural-network machine learning, teaching the computer to detect the features
+that have been identified by experts throughout the manuscripts, identifying
+outliers, and explaining machine classifications in human-understandable terms.
+iv.
+Train computer algorithms to analyze the texts for linguistic (lexical,
+morphological, and syntactic) features that can be used in text searches and
+which can help place literary works in their historical context [...]
+d.
+The results of this project — data as well as algorithms — will be made available to the
+public.”
+Bibliographic Information and Indexes - General
+Open-access
+3.
+Merhav - The National Library (מרחב-הספרייה
+הלאומית
+של
+ישראל
+.)
+a.
+Recommended. Tremendous bibliographic resource, besides for being a powerful search
+tool (mentioned also above, under “Search”).
+b.
+Overview at their website here (Hebrew): “The National Library's collection includes
+about five million items, including books, manuscripts, journals, maps, music and
+audio-visual and electronic material, in a variety of languages.
+4.
+Bar-Ilan Catalog. Includes many important Jewish works missing from Merhav. Especially
+dissertations written in Bar-Ilan University.
+5.
+Sfardata (דתא-.)ספר
+a.
+Comprehensive data on dated manuscripts, based largely on the life’s work of Prof.
+Malachi Beit-Arie.
+b.
+Wikipedia - Hebrew: “The codicological database of the Hebrew Paleography Project.
+The purpose of the project is to collect data of all Hebrew manuscripts, such as data on
+ink, codexes, pagination traditions of the text, page and text dimensions and proportions
+between them, line management [...], and graphic symbols (symbols of emphasis,
+acronyms and numbers). The total parameters collected are about 900.
+c.
+The database contains about 5,000 Hebrew manuscripts dated either with a colophon or
+with the author's name, which were examined in 250 libraries and private collections,
+which constitute about 95% of the existing [Hebrew manuscripts].”
+6.
+The Bibliography of The Hebrew Book (also here) (מפעל
+הביבליוגרפיה
+העברית
+.)
+a.
+My understanding is that “The Bibliography of The Hebrew Book” has been incorporated
+into “Merhav”. See also National Library’s guides here:
+https://www.nli.org.il/en/research-and-teach/catalogs/bibliographic-databases
+b.
+Wikipedia - Hebrew: “A body designated for the editing of a bibliography of Jewish
+printing. The project lists and describes all the books printed in Hebrew characters in the
+
+
+## Page 26
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 26
+Hebrew language and in the languages of the Jews (Yiddish, Ladino, Judaeo-Arabic, etc.)
+from the first Hebrew incunabula in the year 1475, until about 1960. The bibliographic
+database was built on the basis of the collections of the National Library and other
+collections in Israel and around the world. The bibliography numbers over 141,000
+bibliographic and 15,000 biographical entries, and includes: books, journals and
+individual pages (ephemera). Each publication is reviewed by the project staff, and the
+description of the books is very broad and comprehensive than their description in the
+National Library catalog, and includes, for example: book approvals (הסכמות
+לספרים
+,)
+introductions written by other authors, and the like. As of 2011, the project recorded
+and described close to 90% of the world's Jewish books and is online on the National
+Library website.”
+7.
+Halacha Brura Institute - Virtual Library (מכון
+הלכה
+ברורה-ספריה
+וירטואלית
+.)
+a.
+This is an incredible project.
+b.
+From the webpage: “The Halacha Brura Institute centralizes here links to books that are
+on the Internet at various websites, in full text, some as text and some as images, to save
+the visit to libraries.”
+c.
+Has a system of symbols to mark the website where the work is found, and the file type.
+d.
+Ironically, Halacha Brura’s own meta-index of its own indexes is unfortunately not very
+good, there’s no full sitemap available on the website, and the organization of the
+webpages doesn’t isn’t always the best (for example, Rambam and commentators and
+Responsa are on the same page). Presumably, this is because webpages were split as
+they got larger. In any case, to help with this issue, I created my own meta-index of
+Halacha Brura's indexes (available here).
+e.
+This project appears to be affiliated with the Rambam Library (ספריית
+הרמב”ם-בית
+)אריאלהin Tel-Aviv, though it’s not clearly stated on their website.
+8.
+Thesaurus of Talmudic Manuscripts
+a.
+Hosted at the Hachi Garsinan website, mentioned earlier. Requires registration (free).
+b.
+Based on Y. Sussman, Thesaurus of Talmudic Manuscripts, Jerusalem 2012. With
+Friedberg updates, edited by M. Katz, September 2017.
+9.רשימת
+אתרים
+ואשכולות
+לסריקות
+כת"י
+וספרי
+דפוס
+עתיקים. R’ Adiel Breuer, published July 5, 2015
+on the Otzar HaHochma forum. It contains a plethora of links to websites that contain Hebrew
+manuscripts and books.46 Breuer’s post focuses on providing links to university library website
+portals for their Hebrew manuscript and rare book collections. It dates from 2015. As he points
+out there, the database Ktiv [see below] intends to include all Hebrew manuscripts, rendering
+going to individual library websites much less relevant. See also under section “Manuscripts”, in
+a footnote, for further discussion of Breuer’s guide.
+Requires subscription or purchase
+10. Talmud Yerushalmi Citation Database (מאגרי
+מידע
+לתלמוד
+הירושלמי
+.)
+46 Pointed out to me by A. Berman, private communication.
+
+
+## Page 27
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 27
+a.
+Project of Dr. Moshe Pinchuk of Netanya Academic College.47
+Bibliographic Information and Indexes - by Topic
+11. Bibliography of works in Judeo-Arabic (אתר
+פרידברג
+לביבלוגרפיה
+בערבית
+יהודית
+.)
+a.
+From the webpage:
+i.
+“The aim of this website is to present to all scholars, researchers and, in general,
+users interested in Judeo-Arabic texts, a comprehensive bibliography of all works
+in Judeo-Arabic ever printed, in a variety of formats, with some filtering
+capabilities.
+ii.
+The list, with some 1,500 entries, is intended to cover all regions of publications
+and all periods of the works' writings, up until and including the very early works
+of the 21st century.”
+12. Introduction - History of the Early Printed Hebrew Book - Guides at Penn Libraries. See
+description here: “From the University of Pennsylvania comes this guide to the study of the early
+printed Hebrew book from its beginning around the year 1470 through the seventeenth-century.
+For every topic, in both the general and the Hebrew sections, you will find a bibliography
+arranged alphabetically by author, and the availability of the materials in the Penn libraries
+system, online, or from other academic libraries.”
+Databases
+Open access
+13. Parallels in Yerushalmi (מקבילות
+לירושלמי
+.)
+a.
+Project of Prof. Leib Moscovitz of Bar-Ilan University.
+b.
+From the About page:
+i.
+“This site contains lists of sources and parallels to the Jerusalem Talmud, from
+the Bible, the literature of the Tannaim (Mishnah, Tosefta, and the Halachic
+Midrashim), the Jerusalem Talmud itself, and the classic Aggadic Midrashim of
+the Land of Israel. For some of the Tractates, parallels from the Babylonian
+Talmud are also recorded.”
+14. Elyonim veTachtonim.
+a.
+Project focused on the supernatural entities of the Hebrew Bible and Babylonian
+Talmud. The website offers the databases of these entities and a system of the
+quantitative and qualitative analysis of such traditions.48
+b.
+See the list of Papers and chapters based on this project here.
+15. PEACE Project - Portal of Epigraphy, Archaeology, Conservation and Education on Jewish
+Funerary Culture.
+48 Personal communication from Wojciech Kosior. I’d like to thank him for pointing out his project to me.
+47 See his article:משה
+פינצ'וק,
+"
+מאגרי
+מידע
+לתלמוד
+הירושלמי,"עלי
+ספר
+כב
+)תשע"ב(,
+עמ'165-171
+.
+
+
+## Page 28
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 28
+a.
+From the About page: “The PEACE portal explores Jewish funerary culture through the
+ages. In this initial phase, it focuses on epigraphical aspects: the inscriptions recorded on
+stone, plaster, or gold-glass.”
+b.
+A search for “Year” = -530 - 1732, got me 8606 results of transcriptions of tombstones.
+16. Seforimonline.org .
+a.
+Well-organized, publications can be sorted by place of publication, year, etc. There also
+seem to be works there not found in other websites, especially of manuscripts and early
+editions of Rabbinic works. (Halacha Brura’s index above sometimes links to
+Seforimonline.org.)
+17. Judaica Archival Project.
+a.
+Wikipedia: “The Judaica Archival Project was founded in 1987 as a non-profit
+preservation and access program for Rabbinics. From 1988 to 1999 the Project operated
+a microfilm lab at the Jewish National and University Library (JNUL) of the Hebrew
+University. The Project was supported by private foundations, book lovers and from the
+sale of facsimile copies. Over half a million pages were filmed from thousands of rare
+and out-of-print Hebrew works.”
+b.
+Archived list of thousands of primary texts, with bibliographic info, and archived links to
+book cover pages, here.
+18. List of works in Bar-Ilan University’s Responsa Project (“Global Jewish Database - Responsa
+Project”) . Archived list of primary works, from 2007-2001. List of thousands of primary works,
+with basic bibliographic info, categorized by genre.
+19. Heichal Menahem (היכל
+מנחם
+.)
+a.
+E-commerce website selling books. Can be used as a kind of index of recently published
+books, with lots of bibliographical info and pictures.
+Requires subscription or purchase
+1.
+Otzar Hadmuyot.49 From the webpage: “The Bonayich ‘Index of Rabbinic Sages’ is the most
+up-to-date and scientific database of Tannaim and Amoraim. The data includes identification of
+every personality mentioned in Rabbinic literature, with all spelling variations of their names,
+identification of their generation and place of activity, their family and scholarly relationships
+with other personalities, and all scholarly research written about each figure. The data is
+presented in a powerful search engine environment enabling sorting and arranging of the
+personalities as needed.”
+Secondary literature
+Books
+There are a nice amount of academic books available online, especially more recent ones.
+49 Thank you to Menachem Katz for pointing out this resource to me.
+
+
+## Page 29
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 29
+Open-access
+1.
+Daat (.)דעת
+a.
+Has both books as text, as well as scanned PDFs. Includes lots of out-of-copyright books,
+as well as recent open-access scholarly books, see here, and here.
+b.
+Wikipedia - Hebrew: “Daat is a Hebrew website whose main content is texts in the fields
+of Judaism and the humanities that were collected from various printed sources. The site
+contains learning and teaching materials in various fields: Bible, Torah Sheba’al Peh,
+Shabbat and festivals, Jewish history, Jewish thought, literature, studies of the Land of
+Israel, Shemita, medicine and halakhah, education, Hasidism, family studies, Hebrew
+law, army and war, the Holocaust, and more. The site includes extensive databases
+containing entire books, full text of articles published in about 30 different journals,
+photos and maps, illustrations, photographs and presentations.”
+2.
+Portal HaDaf HaYomi (פורטל
+הדף
+היומי
+. )
+a.
+Has a few hundred scanned books, mostly relating to Talmud Bavli, many of them not
+available elsewhere. Examples: R’ Kashet’s highly methodical works on lomdus (קובץ
+יסודת
+וחקירות;אמרי
+במערבא;פלפולא
+דאורייתא;דרכי
+התלמודים; see also there R’
+Kashash’s similar style work,קובץ
+מיסודות
+הש”ס); R’ Amitai’s well-researched and
+highly-structured works on Torah and science (דע
+מאיין
+באו;הידיעות
+המדעיות
+שבדברי
+חז"ל;היחס
+שבין
+היקף
+המעגל
+לרוחבו;באהלי
+שם;מנא
+להו;אמונה
+טהורה); R’ Pinchuk’s
+intro to Talmud Yerushalmi (מבוא
+ללימוד
+התלמוד
+הירושלמי); some great works on
+Talmudic humor (Engleman’sשעשועי; Lifshitz’sברוח
+טובה).
+b.
+Maps of Talmudic Babylonia.
+3.
+Society for the Interpretation of the Talmud (האיגוד
+לפרשנות
+התלמוד
+.)Scholarly interpretation of
+Talmud Bavli, written in Modern Hebrew.
+a.
+Recommended. The first seven of their publications are available there (published
+between 2006 - 2016). Does not include the most recent publications published 2019 -
+2021. The level of scholarship is very high.
+b.
+Wikipedia - Hebrew: “A series of commentaries on the Babylonian Talmud based on
+scientific research as well as a traditional-religious interpretation. Most of the project’s
+books are available for public use as PDF files on the Society’s website, along with
+additional unpublished reference materials. The chairman of the association is its
+founder, Professor Shama Friedman, and its management consists of Prof. Yeshayahu
+Gafni, Prof. Gideon Libson and Prof. Shmuel Shilo.”
+4.
+Asif - Sifriyat Asif (אסיף-ספריית
+אסיף
+). Dissertations in Hebrew, written by scholars associated
+with hesder and Religious-Zionist institutions. Also whole books and Torah journals divided
+neatly and searchable, many of them of potential scholarly interest, well-annotated and sourced
+(such as R’ David Bruckner’s series Mishnat Tana’im).
+5.
+P’sik (. )פסיקScholarly books in Hebrew, for a more popular audience, mostly on Bible and
+contemporary religious thought.
+a.
+From Bar-Ilan University’s library guide: “The digital book platform is designed for
+reading and academic research.”
+
+
+## Page 30
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 30
+6.
+De Gruyter. Academic publisher. Has around 100 open-access books in English categorized as on
+Jewish topics available for download.50
+7.
+JSTOR.
+a.
+Many open-access books, see the books marked “open-access”.
+b.
+Especially JSTOR, Brown Judaic Studies. Currently around 65 open-access books. From
+the “Publisher Description”:
+i.
+“Brown Judaic Studies has been publishing scholarly books in all areas of Judaic
+studies for forty years. Our books, many of which contain groundbreaking
+scholarship, were typically printed in small runs and are not easily accessible
+outside of major research libraries. We are delighted that with the support of a
+grant from the National Endowment for the Humanities/Andrew W. Mellon
+Foundation Humanities Open Book Program, we are now able to make available,
+in digital, open-access, format, fifty titles from our backlist. Once digitized the
+volumes will be freely available through ProjectMUSE, JSTOR, ACLS Open
+Humanities and the Hathi Trust.”
+Requires subscription or purchase
+8.
+Kotar . ()כותר- Requires subscription.
+a.
+For Hebrew academic books. Fairly user friendly for reading, though not as user-friendly
+as Kindle (see later). According to results, around 800 titles in Jewish studies. Leans
+towards newer publications. Subscription for remote access is sometimes available
+through libraries, such as my library (Tel Aviv library). Should be pointed out that Kotar
+links are often linked in National Library’s Merhav search results (see earlier under
+“Search”).51
+b.
+Wikipedia - Hebrew: “A website that is an online library for subscribers of scholarly
+books in Hebrew, in collaboration with Israeli publishers. The title library offers hundreds
+of digital books and online reference on a wide range of topics from the humanities and
+social sciences, law, natural sciences and exact sciences and more. The publishers
+involved in the project include about 100 academic, public and private book publishers.
+The library began operating in January 2006. Kotar offers online access to a large variety
+of information sources. Kotar offers online browsing of a selection of over 3,000 titles (as
+of March 2018) of reference and information books and is constantly expanding.”
+c.
+There are a large amount of works put out by the following publishers:
+i.
+Yad Ben-Tzvi
+ii.
+Bialik
+iii.
+Sifriyat Heileil Ben-Chaim
+51 Such as for the seriesמשנת
+ארץ
+ישראל
+.It appears that the entire series is on Kotar, see Merhav search
+results and Kotar search results.
+50 Search done on 23-Jan-2022. Example of books available: Ari Bergmann’s recent book, The Formation
+of the Talmud: Scholarship and Politics in Yitzhak Isaac Halevy’s Dorot Harishonim (2021) ;
+Guggenheimer’s recent translation into English and short commentary of Talmud Yershalmi.
+(Guggenheimer’s translation is also available in Sefaria.)
+
+
+## Page 31
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 31
+d.
+A few of the hundreds of books that are available there (all in Hebrew, as mentioned):
+i.
+M. Kahana et. al (ed.), Sifrut Hazal HaEretz Yisra’elit (2 vol.)
+ii.
+A. Grosman, Rashi VeHaPolemos HaYehudi HaNotzri
+iii.
+A. Reiner, Rabbeinu Tam
+iv.
+S. Reif, HaGeniza MiKahir
+v.
+Anat Reizel, Mavo LeMidrashim.52
+9.
+Kindle e-books.
+a.
+Requires purchase for full books. Samples of first 10% of book are often available for
+free.
+b.
+Great for scholarly books in English. Recommend, in my opinion underrated as a
+resource for scholarly English books. Great advantages of Kindle e-books:
+i.
+Can highlight and annotate, with a special section with your highlights and
+annotations, which is great for later skimming and refreshing memory.
+ii.
+Can hover for dictionary definitions and Wikipedia entry header paragraphs.
+iii.
+As well as many of the other advantages mentioned above for electronic
+resources: instant availability; takes up minimal space, searchable, easily
+screenshotted, etc.
+iv.
+For most books, can download free sample of beginning of book, usually
+containing front matter, Table of Contents, intro, and first chapter or two.
+c.
+However, it should be pointed out that Kindle editions are not necessarily “cheap”,
+though they’re generally cheaper than the physical copies. For example, Halivni’s book
+mentioned below is currently being sold on Amazon for $104, and the Kindle version is
+$67.53
+d.
+Some of the many scholarly books available on Kindle:
+1.
+Secunda, The Iranian Talmud (2013)
+2.
+Halivni, The Formation of the Babylonian Talmud (2013)
+3.
+Cohen, From the Maccabees to the Mishnah (2014)
+4.
+Feiner, The Jewish Enlightenment (2011)
+5.
+Fonrobert & Jaffee (eds.), The Cambridge Companion to the Talmud and
+Rabbinic Literature (2007)
+10. Magnes Press. Hebrew University’s academic press. Around 350 books available as ebooks for
+purchase, to read on their app. Came across this while researching this guide, have no idea if it’s
+any good, but looks promising.
+Journals54
+There are a lot of academic articles readily available online.
+54 See recent list of Jewish Studies journal websites here: Digitized Historical Magazines and Present-Day
+Academic Journals | Jewish Museum Berlin
+53 As of 20-Jan-2022.
+52 This book is also available open-access, in a very user-friendly format, at a dedicated website:מבוא
+למדרשים
+|
+מחלקי
+המים. Thanks to Eliezer Brodt for pointing this out.
+
+
+## Page 32
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 32
+Open-access
+Journals whose full archives are currently open-access.
+1.
+Kiryat Sefer (קרית
+ספר
+( )years available: 1924 - 1998). Scholarly articles written in Modern
+Hebrew.
+a.
+Recommended. Contains a huge number of articles by the greats of Hebrew
+bibliography.
+b.
+Wikipedia - Hebrew: “The journal was published from the founding of the database in
+1925 until 2003. It also contains many bibliographic articles.”
+2.
+Cathedra (( )קתדרהyears available: 1976 - 2017). Scholarly articles written in Modern Hebrew.
+a.
+See description in Wikipedia Hebrew:קתדרה
+)כתב
+עת(
+–
+ויקיפדיה
+3.
+Pe’amim (( )פעמיםyears available: 1979 - 2009). Scholarly articles written in Modern Hebrew.
+After 2009, some articles open-access, but most not.
+a.
+See description in Wikipedia Hebrew:פעמים
+–
+ויקיפדיה.
+4.
+Jewish Studies, an Internet Journal (years available: 2002 -). Scholarly articles written in English
+and Modern Hebrew
+a.
+Started in 2002, have issued 21 issues so far. Editor-in-Chief - Prof. James L. Kugel.
+Managing Editor - Prof. Leib Moscovitz.
+b.
+From the home page: “JSIJ is a peer-reviewed electronic journal dealing with all fields of
+Jewish studies, which is distributed free of charge via the Internet. By publishing articles
+electronically via the Internet, JSIJ seeks to disseminate articles much faster than is
+possible with paper publication, and to make these articles readily and conveniently
+accessible to a wide variety of readers at all times. We hope that the use of this new
+technology will eventually allow JSIJ to develop in ways not available with conventional
+print journals, including the possibility of computerized full-text searches and the use of
+hyperlinks to other texts.”
+5.
+Ginzei Qedem (גנזי
+קדם
+( .)years available: 2005 - ). Scholarly articles written in Modern Hebrew.
+Journal is published by the Friedberg Genizah Project and the Ben-Zvi Institute.
+a.
+From the About page: “Ginzei Qedem is a peer reviewed annual publication devoted to
+Genizah texts and studies published by the Friedberg Genizah Project and the Ben-Zvi
+Institute. Ginzei Qedem uses the term, “Genizah texts and studies” in the widest sense of
+the term – fragments of literary works and documents from genizot in Cairo and
+elsewhere – including all the relevant disciplines – history, literature (including piyyut),
+language, Biblical studies and exegesis, Talmud and Rabbinics, magic etc. The articles are
+in Hebrew and English. Seven issues have appeared to date.”
+b.
+See further description in Wikipedia Hebrew:גנזי
+קדם
+)שנתון(
+–
+ויקיפדיה
+6.
+HaTzofeh LaHochmat Yisra’el (הצופה
+לחכמת
+ישראל
+.)Available on HebrewBooks. (years available:
+1921 - 1931). Scholarly articles written in Hebrew. See description in Wikipedia Hebrew:הצופה
+מארץ
+הגר
+–
+ויקיפדיה.
+7.
+Kovetz al Yad (קובץ
+על
+יד
+. )Available on HebrewBooks. (years available: 1885 - 1946).
+Publications of works from manuscripts. See description in Wikipedia Hebrew:מקיצי
+נרדמים.
+
+
+## Page 33
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 33
+8.
+Revue des Etudes Juives. Available here.55
+9.
+Hama’ayan (( )המעיןyears available: 1953 - 2009). Scholarly articles written in Modern Hebrew.
+Journal is currently affiliated with Yeshivat Sha’alvim.
+a.
+Wikipedia - Hebrew: “HaMa'ayan is a quarterly publication, published since 1953, ‘which
+combines a Torah dimension with a scientific-Torah dimension’ and contains various
+articles on Halacha, hashkafa, Jewish history and scholarly research.”
+b.
+Available here:
+i.המעין-מכון
+שלמה
+אומן: years available: 2007 -
+ii.
+Earlier issues, years available: 1953 - 2006, at Daat and HebrewBooks
+10. Netu’im (( )נטועיםyears available: 1994 -). Scholarly articles written in Modern Hebrew. Focuses
+on Torah Sheba’al Peh. Journal is affiliated with Yeshivat Alon Shevut and Herzog College.
+11. Al Atar (על
+אתר
+( )years available: 1996 -). Scholarly articles written in Modern Hebrew. Focuses
+on Eretz Yisra’el. Journal is affiliated with Yeshivat Alon Shevut and Herzog College.
+12. Dinei Yisra’el (דיני
+ישראל
+( .)years available: 2009 - ). Scholarly articles written in Modern Hebrew.
+Focuses on Jewish law. Journal is affiliated with Tel-Aviv University. 56
+13. Masechet (years available: 2004 - ). Scholarly articles written in Modern Hebrew. Focuses on
+topics related to women. Journal is affiliated with Bar-Ilan University.
+14. Tallelei Orot (טללי
+אורות
+( )years available: 1989 - ). Scholarly articles written in Modern Hebrew.
+Journal is affiliated with Orot Yisra’el College. Also selected articles at Daat, in text format.
+15. Oreshet (( )אורשתyears available: 2010 - ). Scholarly articles written in Modern Hebrew. Journal
+is affiliated with Orot Yisra’el College.
+16. Moreshet Israel (מורשת
+ישראל
+( )years available: 2018 - ). Scholarly articles written in Modern
+Hebrew. Journal is affiliated with Ariel University.
+17. Oqimta (( .)אוקימתאyears available: 2013 - ). Scholarly articles written in Modern Hebrew and
+English. Journal started by Prof. Shamma Friedman of Bar-Ilan University.
+a.
+See description in Wikipedia Hebrew:אוקימתא
+)כתב
+עת
+)
+18. Tradition (years available: 1958 -).
+19. Hakira (years available: 2004 - ). Scholarly articles written in English.
+a.
+Wikipedia: “Ḥakirah, The Flatbush Journal of Jewish Law and Thought is a peer-reviewed
+academic journal in the field of halakha and Jewish thought. Hakirah is a Jewish journal
+which publishes articles that reflect a wide range of Orthodox beliefs and ideas. Those
+who submit articles run the gamut from laypeople, to rabbis, doctors and professors.
+The first volume of Hakirah was published in the fall of 2004. Each volume generally
+contains about ten English and two Hebrew articles comprising a total of about 250
+pages. A new volume appears about every six to seven months.”
+20. Journal of Synagogue Music Archive - Cantors Assembly.
+a.
+“The Cantors Assembly provides full text of Journal of Synagogue Music Archive and
+audio recordings or Torah reading. Essays address Jewish law related to music [and
+piyut].”57
+57 https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources > “Cantors Assembly”.
+56 Previous issues of Dinei Yisra’el available at Nevo ()נבוwith subscription, years available: 1970 -.
+55 See Otzar HaHochama forum for description of how to access it from there (accessed 18-May-22).
+
+
+## Page 34
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 34
+21. Many Torani journals are available on HebrewBooks, by searching the title. Many are also linked
+to by Halacha Brura in their index of journals, and in their respective Wikipedia entries. These
+are Torani journals, meaning that they are published by Orthodox institutions. They are all
+written in Modern Hebrew. The articles in these journals are mostly not relevant for this guide;
+however, they often contain scholarly articles, especially related to publications of manuscripts
+of rabinnic works of Geonim, Rishonim, or Aharonim. For ideological reasons, the scholarly
+articles relevant for this guide generally don’t cover topics earlier than the Geonic period, and
+they are more likely to publish on recent topics than earlier ones.58
+a.
+Tzefunot (( .)צפונותyears available: 1989 - 1993). Focuses on bibliographic topics. See
+description in Wikipedia:צפונות.
+b.
+Kovetz Beis Aharon VeYisra’el (קובץ
+בית
+אהרן
+וישראל
+( )years available: 1986 - 2002) . Also
+available on Otzar Hachochma’s forum.
+c.
+Or Yisra’el (אור
+ישראל
+( .)Years available: 1996 - 2015). See description in Wikipedia:
+קובץ_בית_אהרן_וישראל#חסידות_קרלין.
+d.
+Pe’alim LeTorah (פעלים
+לתורה
+.)
+e.
+Yeshurun (( .)ישורוןYears available: 1996 - 2015). See description in Wikipedia:ישורון
+)מאסף
+תורני
+).
+f.
+Yerushateinu (.)ירושתנוSee description in Wikipedia:ירושתנו.
+g.
+Asifas Chachomim (אסיפת
+חכמים
+.)
+h.
+Hitzei Giborim (חצי
+גבורים
+.)
+i.
+Min HaGenazim (מן
+הגנזים
+.)
+Requires subscription or purchase
+1.
+JSTOR
+a.
+58 journals that focus on the subject of Jewish Studies.59
+2.
+Nevo.
+a.
+Israeli law journals, in Modern Hebrew. Journals there with many articles relevant to
+history of halacha:
+i.
+Dinei Yisra’el available at Nevo ()נבוwith subscription, years available: 1970 -.
+ii.
+Sh’naton Hamishpat Ha’ivri (שנתון
+המשפט
+העברי
+( .)years available: 1974 - 2006).
+Journal is affiliated with Hebrew University.
+iii.
+Mehkerei Mishpat (מחקרי
+משפט
+( .)years available: 1980 - ). Journal is affiliated
+with Bar-Ilan University.
+3.
+Otzar HaHochma (אוצר
+החכמה
+:)
+a.
+See on this resource above.
+b.
+For example, the journal Areshet ()ארשתis available there. (years available: 1958 -
+1980). Journal published by Mossad HaRav Kook, focused on Hebrew bibliography. Links
+at the Wikipedia entry for the journal.
+59 A commenter to the blogpost noted:
+“I just want to publicize that one can get 100 articles/month free on JSTOR, which could be enough for
+most part-time researchers.”
+58 See index of Hebrew Wikipedia entries on Torani journals here:
+:קטגוריה:ישראל
+כתבי
+עת
+תורניים
+–
+ויקיפדיה
+
+
+## Page 35
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 35
+4.
+Project MUSE.
+a.
+Some journals on Project MUSE that focus on Jewish Studies: JQR
+5.
+EBSCO
+Articles
+Websites with scholarly articles.
+Open-access
+1.
+Academia.edu .
+a.
+I follow around 200 academics. Some of them are for deceased scholars whose students
+have set up a profile for them, and uploaded their work. I get updates of articles in my
+“feed” about once a day, and the articles are generally a good fit for my interests. (E.g.
+Elliot Wolfson has 165 articles there.)
+b.
+Wikipedia - English: “Academia.edu is an American for-profit social networking website
+for academics. It began as a free and open repository of academic journal articles and
+registered a .edu domain name when this was not limited to educational institutions.”60
+2.
+Academy of Hebrew Language (האקדמיה
+ללשון
+העברית
+.)
+a.
+Scholarly articles in Modern Hebrew.
+b.
+From the page on “Articles”: “The Hebrew Language Academy publishes selected articles
+here from time to time for the benefit and enjoyment of the visitors to the site. The
+articles are written by linguists - including members of the Academy and its researchers -
+and are usually taken from the journals of the Academy: Leshonenu (,)לשוננוHa’Ivrit
+(Leshonenu L’am) (העברית
+=
+לשוננו
+לעם
+)and Akadem (.)אקדםSome of the articles were
+written specifically for the academy's website.”
+c.
+Appear in both PDF format, as well as text.
+3.
+Daat (.)דעת
+a.
+See above. Besides for complete texts of primary works, has many scholarly articles from
+journals, in text format, such as Sinai (,)סיניShma’atin (,)שמעתיןMahanayim (.)מחניים
+4.
+Metah (.)מטח
+a.
+Lots of transcribed scholarly articles in Hebrew. See also the section of the website
+called “Peshita” (.)פשיטא
+b.
+From the About page: “The virtual library project of Metah began in 2000. Metah is a
+non-profit institution and the library project is non-commercial; The library is open and
+accessible to anyone for free.”
+c.
+Some examples of articles available:
+i.
+55 Tarbitz ()תרביץarticles, see list.
+5.
+Ad Henah (עד
+הנה
+.)
+a.
+Lots of PDFs of scholarly articles in Hebrew.
+60 There are some concerns about Academia.edu as a platform, see for example these articles: here,
+here, and here. Thanks to Michelle Margolis for pointing these out.
+
+
+## Page 36
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 36
+b.
+From the About page: “A study and research institute that studies the Torah work of
+Galician and Bukovina Jewry, from the sixteenth century to the present time.”
+6.
+Ptil Tekhelet (פתיל
+תכלת
+.)
+a.
+Lots of PDFs of scholarly articles in Hebrew (shows 530 items). Focuses on the topic of
+tekhelet.
+7.
+Author academic websites, generally hosted on the website of the university that they’re
+affiliated with (e.g. Yehuda Liebes)
+8.
+Humanities Commons. The tag “Hebrew Literature” has 16 papers.
+9.
+Ask the author - generally amenable to sending their own articles and dissertation.
+Requires subscription or purchase
+1.
+National Library of Israel has a service for ordering scans from the library collections (הזמנת
+סריקות
+והדפסות
+מאוספי
+הספרייה). See also:הזמנת
+צילומים
+מיוחדים.
+Tools for Navigating Secondary Literature
+Bibliographic Information and Indexes
+Open-access
+1.
+RAMBI (.)רמב"י
+a.
+My understanding is that “The Bibliography of The Hebrew Book” has been incorporated
+into “Merhav” (see above).
+b.
+Wikipedia - Hebrew: “An indexed and cataloged article index (or bibliography) of
+thousands of academic and other articles in a wide range of fields in the Jewish Studies,
+the study of the Land of Israel and the State of Israel, and is the largest and most
+comprehensive database of its kind in the world. The information contained in Rambi
+was collected from thousands of scientific journals, literary or documentary journals,
+collections and files of one-time articles on a specific topic, in Hebrew, English, French,
+German and other languages and in the Judaic languages: Yiddish, Arabic, Ladino and
+others; most of them found in the National Library of Israel. The criteria for inclusion in
+Rambi are that the publication be in an academic publication or another recognized and
+respected stage, or that it be useful for academic research purposes.”
+2.
+RAMBISH (.)רמבי”שSame concept as RAMBI, but for articles appearing in Orthodox journals.
+3.
+Cotar Project - Collection of Torah Articles.
+a.
+A database of Torah journals/periodicals. Has a list of periodicals, and also breakdown by
+topic.61
+61 This resource was pointed out by the commenter “Sam” to the pt. 2 blogpost. Some functionality of “Cotar”
+doesn’t work on Chrome or other Chromium browsers; it requires Internet Explorer and a specific plug-in, which for
+technical reasons I was unable to test.
+
+
+## Page 37
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 37
+4.
+Indexes of dissertations / theses:
+a.
+Hebrew University - search
+b.
+Bar-Ilan University, Jewish Studies Department - list
+c.
+Jewish Theological Seminary- search and list
+5.
+Google Scholar
+6.
+Tiresias: The Ancient Mediterranean Religions Source Database
+a.
+“An aggregation of (currently about 700) back-of-book indices, both subject and text
+indices. It is by no means limited to Rabbinics, but includes them.”62
+Requires subscription or purchase
+7.
+Index of References Dealing with Talmudic Literature (Lieberman Index) . Requires subscription.
+a.
+From the home page:
+i.
+“The Index of References Dealing with Talmudic Literature, offering pinpointed
+citations from hundreds of classic and modern scholarly works directly related to
+the specific selected passage within Talmudic literature.”
+8.
+Oxford Bibliographies in Jewish Studies. Requires subscription.
+a.
+From Bar-Ilan University’s library guide: “Oxford Bibliographies in Jewish Studies is an
+interdisciplinary database encompassing history, religion, philosophy, literature,
+sociology and political science. Its chronological and geographical range stretches from
+the Bible to the present, including communities from the Americas to Western and
+Eastern Europe, North Africa and the Middle East, South and East Asia, and Africa.
+Oxford Bibliographies Jewish Studies offers selected articles that break down subject
+areas into their component parts and pithy annotations that summarize the main
+contribution of each citation. The database is one of the components of the Oxford
+Bibliography, a database that offers an authoritative guide to the current scholarship,
+containing original commentary and annotations.”
+62 Private communication from Dr. Moshe Blidstein. He wrote to me further: “you can read a short About section on
+the site, or a longer description here: https://www.digitalhumanities.org/dhq/vol/17/1/000651/000651.html.
+There are a number of options, we can look at a subject - e.g., https://tiresias.haifa.ac.il/?subj=burial. This will give
+all kinds of things, but certainly include also Rabbinics results (if you scroll down).
+The search can also be limited chronologically to the relevant centuries if more focus is needed. It is true that in
+such subjects the main perspective of the site is comparative.
+You can also look at subjects which are "Jewish", e.g., ., https://tiresias.haifa.ac.il/?subj=synagogue will of course
+be more focused.
+The other way if through texts. the general list is here: https://tiresias.haifa.ac.il/texts
+b. sanhedrin, for example: https://tiresias.haifa.ac.il/?subj=ezezez:1778. If you click in to one of the pages
+(preferably one with alot of subjects) you get a list of intertexts, subjects, and of the books discussing this text.”
+
+
+## Page 38
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 38
+Tertiary literature
+Encyclopedias
+Open-access
+1.
+Jewish Encyclopedia . In English.
+a.
+Large parts of it have been incorporated into the corresponding English Wikipedia
+entries.
+2.
+Wikipedia - Hebrew.
+a.
+Great source for Jewish topics. I personally have found Wikipedia to be great sources for,
+among other topics:
+i.
+Biographies of Jews
+ii.
+Jewish communities
+iii.
+Jewish Law (halacha)
+3.
+Hamichlol.
+a.
+Wikipedia - Hebrew: “Hamichlol is a wiki-based Haredi encyclopedia. As of 2023, most of
+the entries in the collection are exact copies of Hebrew Wikipedia entries or filtered
+versions of them for ultra-Orthodox. Next to them, it has entries that were originally
+written for Hamichlol. The website was launched in 2015.”
+b.
+The entries original to Hamichlol are especially strong for Jewish topics, especially
+biographies of rabbis.
+4.
+Encyclopedia Talmudit - Micropedia (האנציקלופדיה
+התלמודית
+.)In rabbinic/modern Hebrew, on
+Talmudic topics.
+a.
+From the webpage: “From Micropedia to Encyclopedia: Wikishiva ()ויקישיבהcontinues
+its collaboration with the Talmudic Encyclopedia project and now becomes the home of
+the new Talmudic Encyclopedia entries. Now, beyond the Talmudic Micropedia project,
+the entries of the Encyclopedia itself will be published here. It is important to note that
+entries published here are not currently published as books. To date, 251 entries have
+been written in the Talmudic Encyclopedia project. The Talmudic Encyclopedia: The new
+Talmudic Encyclopedia entries are already on Wikishiva! You can browse all the entries
+on the site or search using the search box, select the first letter, or select from the new
+entries on the site. The Talmudic Micropedia: The Talmudic Micropedia is a concise and
+up-to-date treasure trove of the entries of the Talmudic Encyclopedia, in a flowing and
+clear style.”
+Requires subscription or purchase
+5.
+Encyclopedia Judaica, 2nd edition. In English.
+
+
+## Page 39
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 39
+a.
+Second edition published by Gale and available on their website. Requires subscription,
+many libraries give access through OpenAthens, see for example Bar-Ilan University’s
+page.
+b.
+The entries (all? some?) of Encyclopedia Judaica, 2nd edition, appear to have been
+incorporated into encyclopedia.com, and fully hyperlinked to other EJ entries. The
+entries seem to be able to be found only via search, there’s no way to browse list of
+entries. See google search "Encyclopaedia Judaica site:https://www.encyclopedia.com/".
+c.
+Bar-Ilan University overview: “Provides an overview of Jewish life and knowledge from
+the Second Temple period to the contemporary State of Israel, from Rabbinic to modern
+Yiddish literature, from Kabbalah to "Americana" and from Zionism to the contribution
+of Jews to world cultures.”
+6.
+Encyclopedias published by Brill, in English:
+a.
+Encyclopaedia of Judaism Online.
+i.
+From the webpage: “The prize-winning Encyclopaedia of Judaism is now
+available online. More than 200 entries comprising more than 1,000,000 words.
+This unique reference tool offers an authoritative, comprehensive, and
+systematic presentation of the current state of scholarship on fundamental
+issues of Judaism, both past and present. Comprehensive and up-to-date, it
+reflects the highest standards in scholarship. Covering a tradition of nearly four
+thousand years, some of the most distinguished scholars in the field describe
+the way of life, history, art, theology, philosophy, and the practices and beliefs of
+the Jewish people.”
+b.
+Encyclopedia of Jews in the Islamic World Online.
+i.
+From the webpage: “[T]he first cohesive and discreet reference work which
+covers the Jews of Muslim lands particularly in the late medieval, early modern
+and modern periods. The expanded online version, EJIW Online (started in
+2010), is updated twice annually with newly commissioned articles, illustrations,
+multimedia, and primary source material. Interdisciplinary articles cover a wide
+range of topics from history, law, music, visual arts, social sciences, philosophy,
+anthropology and demography.”
+c.
+Encyclopedia of Jewish History and Culture Online.
+i.
+From the webpage: “From Europe to America to the Middle East, North Africa
+and other non-European Jewish settlement areas the Encyclopedia of Jewish
+History and Culture covers the recent history of the Jews from 1750 until the
+1950s. Translated from German into English, approximately 800 keywords
+present the current state of international research and depict a complex portrait
+of Jewish life - illustrated by many maps and images. About 40 key articles
+convey central themes on topics like autonomy, exile, emancipation, literature,
+liturgy, music or the science of Judaism.”
+d.
+Encyclopedia of Hebrew Language and Linguistics Online.
+i.
+From the webpage: “[A] systematic and comprehensive treatment of all aspects
+of the history and study of the Hebrew language from its earliest attested form
+
+
+## Page 40
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 40
+to the present day. The encyclopedia contains overview articles that provide a
+readable synopsis of current knowledge of the major periods and varieties of the
+Hebrew language as well as thematically-organized entries which provide further
+information on individual topics. With over 950 entries and approximately 400
+contributing scholars, the Encyclopedia of Hebrew Language and Linguistics is
+the authoritative reference work for students and researchers in the fields of
+Hebrew linguistics, general linguistics, Biblical studies, Hebrew and Jewish
+literature, and related fields.”
+Dictionaries
+Open-access
+1.
+Wiktionary - Hebrew (H). Generally very good entries, with ample primary and secondary
+sources.
+2.
+Jastrow’s A Dictionary of the Targumim, the Talmud Babli and Yerushalmi, and the Midrashic
+Literature, in English:
+a.
+Sefaria: here. Transcribed and searchable, with hyperlinked Table of Contents.
+b.
+Wiktionary: here. Transcribed, with hyperlinked Table of Contents.
+c.
+Tyndale House: here. Scanned, with hyperlinked Table of Contents.
+3.
+Ben-Yehuda Dictionary (מילון
+יהודה-בן-מילון
+העברית
+הישנה
+והחדשה
+.)Transcribed, with
+hyperlinked Table of Contents.
+4.
+R’ Natan of Rome, Sefer HeArukh, ed. Lublin 1883, on Sefaria. Includes R’ Benjamin Mousafia’s
+Musaf Aruch. Also at Sefaria: R’ Isaiah Berlin’s Hafla'ah ShebaArakhin on Sefer HeArukh.
+5.
+Academy of Hebrew language’s online dictionary . In Modern Hebrew. Based on Milon HaHoveh
+(מילון
+ההווה
+.)Does not include etymologies or sources.
+6.
+Zohar Dictionary by Daniel Matt.
+7.
+Gershom Scholem, Lexicon to Sefer Zohar - (גרשם
+שלום,
+כרטסת
+שלום,
+לקסיקון
+לספר
+הזוהר
+.)
+a.
+Card catalog. Scans of his index cards.
+Popular Media and Platforms
+Articles - general
+Websites with open-access articles, written for a popular audience, with relatively high scholarly
+standards.
+General
+1.
+Academy of Hebrew Language .
+
+
+## Page 41
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 41
+a.
+See above. Besides for a selection of scholarly articles from journals, has many articles
+specifically written for the website.
+b.
+Recommended. Focuses on Hebrew linguistics. Great resource, at a high level of
+scholarship, with lots of interesting articles on all topics related to Hebrew language,
+throughout history.
+c.
+Wikipedia: “The Academy of the Hebrew Language was established by the Israeli
+government in 1953 as the "supreme institution for scholarship on the Hebrew language
+in the Hebrew University of Jerusalem of Givat Ram campus." Its stated aims are to
+assemble and research the Hebrew language in all its layers throughout the ages; to
+investigate the origin and development of the Hebrew tongue; and to direct the course
+of development of Hebrew, in all areas, including vocabulary, grammar, writing, spelling,
+and transliteration.”
+2.
+TheGemara.com.
+a.
+In English.
+b.
+Focuses on Talmud Bavli. Recommended. From the About Us: “We solicit original essays
+that are reviewed and edited by our in-house scholars, to ensure the highest academic
+standards as well as maximum readability for the general audience.”
+3.
+My Jewish Learning.
+a.
+Lots of good articles. However, it mostly focuses on Bible and Modern Jewish history,
+which are out of the scope of this guide.
+4.
+929- Tanach B’yachad (929 -תנך
+ביחד
+.)
+a.
+In Modern Hebrew. Lots of articles on Hebrew linguistics (for example: on the phrase
+"עומד
+על
+הפרק
+"). However, mostly focuses on Bible, which is out of the scope of this
+guide. And not so simple to filter for articles on Hebrew linguistics.
+Articles - Newspapers and Magazines
+Newspapers and magazines can be a great source of scholarship, and they’re often available online. They
+are especially good for reviews of scholarly books, and interviews with scholars.63 Israeli publications
+often have high-quality articles on Hebrew linguistics. Mostly behind paywall, with some articles not
+behind paywall.
+Some of the best:
+1.
+Makor Rishon (מקור
+ראשון
+.)
+a.
+In Modern Hebrew. Their Mussaf Shabbat (מוסף
+שבת
+)is especially good on scholarly
+topics.
+b.
+Wikipedia:
+63 For an interesting example of newspaper interviews and lectures on YouTube being used as evidence
+in scholarly discussion, see Prof. Bezalel Bar-Kochva’s critique of Prof. Rachel Elior:
+https://www.tau.ac.il/sites/tau.ac.il.en/files/media_server/imported/508/files/2014/10/elior-25.11.2013.pdf.
+However, it must be admitted that that's an unusual case.
+
+
+## Page 42
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 42
+i.
+“Makor Rishon is a semi-major Israeli newspaper [...] Shabbat (Sabbath) – a
+supplement for Jewish philosophy, Judaism and literature, with an intellectual
+bent.”
+2.
+Haaretz (.)הארץ
+a.
+In Modern Hebrew and English.64
+b.
+Available online: 4 April 1918 - 31 December 1997 (22,721 issues; 394,984 pages), at
+National Library of Israel’s Jpress archive. However, not all pages in this date range are in
+fact available there.
+c.
+Wikipedia:
+i.
+“Haaretz is an Israeli newspaper. It was founded in 1918, making it the longest
+running newspaper currently in print in Israel, and is now published in both
+Hebrew and English [...]”
+3.
+Segula (.)סגולה
+a.
+In Modern Hebrew and English.
+b.
+Wikipedia - Hebrew:
+i.
+“Segula is an Israeli monthly dedicated to history, published since April 2010.
+The magazine deals with the history of the people of Israel and general history,
+from the perspective that the people of Israel play an important part in world
+history and the historical processes leading humanity. The magazine is published
+monthly. An equivalent edition in English is published once every two months.”
+4.
+Tablet
+a.
+Wikipedia:
+i.
+“Tablet is an online religious magazine of news, ideas, and Jewish culture.
+Founded in 2009 [...]”.
+5.
+Jewish Review of Books
+a.
+Wikipedia:
+i.
+“The Jewish Review of Books is a quarterly magazine with articles on literature,
+culture and current affairs from a Jewish perspective. [...] The magazine was
+launched in 2010 [...] ”
+Blogs
+Blogs are generally not formally peer-reviewed and are generally written more informally and
+conversationally, but are often a great resource. With the shift from blogs to social media, many blogs
+have shifted to Facebook, and to a lesser extent Twitter and Reddit. (E.g., Mississippi Fred McDowel no
+longer posts on "On the Main Line", but does on Facebook..) Blogs are far less active than they were.
+There are a lot of Facebook groups, which I'm less familiar with, and technically have to be added to and
+aren't indexed by Google unfortunately ("walled gardens", vs. “open platforms”).
+My focus here is on blogs with a substantial focus on academic/scholarly topics and style.
+64 Example of article on Hebrew linguistics, on the word “
+:”שחצן
+המילה
+שַׁחְצָן:
+מה
+הקשר
+בין
+אריות
+לנחשים
+וביניהם
+לבין
+יוהרה
+:?https://www.haaretz.co.il/magazine/the-edge/mehasafa/.premium-1.2853618
+
+
+## Page 43
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 43
+1.
+The Seforim Blog. Edited by Eliezer Brodt.
+2.
+The Talmud Blog. Written primarily by Shai Secunda. Focuses on Talmud.
+3.
+Rationalist Judaism. Written by Natan Slifkin. Focuses on the relationship of science and Judaism,
+besides for contemporary politics and hashkafa.
+4.
+Lehrhaus. Founded by Shlomo Zuckier. Mostly articles related to contemporary issues, but many
+that have scholarly interest. Especially in section Talmud and Halacha.
+5.
+Knowledge in Circulation (EsKnow). Masthead: “Knowledge in Circulation: The Reception and
+Transmission of Jewish Esoteric Knowledge in Manuscripts and Print in Early Modern East-Central
+Europe.” Footer: “A research blog on the history and materiality of Jewish kabbalistic knowledge
+in East-Central Europe.”
+6.
+Kavvanah.blog- The Book of Doctrines and Opinions. Written by Alan Brill.
+7.
+Jewish Studies @ CUL . Written by by Michelle Margolis. A blog affiliated with Columbia
+University, focused on Hebrew Bibliography.
+8.
+Footprints Blog – Tracing Jewish Books Through Time and Place . A blog affiliated with Columbia
+University, focused on Hebrew Bibliography.
+9.
+Safranim .
+10. Am Hasefer (עם
+הספר
+.)The blog of Rambam Library of Tel Aviv, focused on Hebrew Bibliography.
+11. Hagahot. Active 2005 - 2013.
+12. Giluy Milta B'alma (גילוי
+מילתא
+בעלמא
+.)Masthead: “We present here new and interesting
+findings in Hebrew Manuscripts, and Genizah- We welcome posts in Hebrew or English.”
+13. On the Main Line . Blog of “Mississippi Fred MacDowell”.
+14. English Hebraica . Another blog of “Mississippi Fred MacDowell”. Masthead: “Chronicling Jewish
+and Jewish themed writing in the English language prior to the 19th century. interesting
+biographies, diagrams, translations, transliterations and descriptions of Jewish learning and
+theology from primary sources.” Active 2006 - 2007. Since then posts on Facebook.
+15. What's Bothering Artscroll? . Another blog of “Mississippi Fred MacDowell”. Active 2006 - 2008.
+16. Hollander Books Blog. Masthead: “A bookseller and his books, his very many books. And a few
+ideas.”
+17. Kol Safran. Masthead: “A librarian's comments on books, copyright, management, librarianship,
+and libraries that don't get the full article treatment.” Many posts on topics in Jewish
+bibliography, as well as visits to Jewish libraries.
+18. Musings of a Jewish Bookseller. Masthead: “On Jewish Books, Jewish Bookselling and Jewish
+Booksellers”
+19. Notrikon (.)נוטריקוןIn Modern Hebrew. Masthead: ”A journey through the space of the written
+word, between books, periods and people ... stops at different stations, who knows where we
+will end up.”
+20. Oneg Shabbat (עונג
+שבת
+.)Blog of Prof. David Assaf. Many interesting posts on modern Jewish
+history, and on history of Hasidut.
+21. HaSafranim - Blog of National Library of Israel (הספרנים-בלוג
+הספרייה
+הלאומית
+.)In Modern
+Hebrew. Focuses on Hebrew bibliography, and topics related to Modern Israel.
+
+
+## Page 44
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 44
+22. The Librarians. English blog of National Library of Israel, which is not identical to the content of
+the Hebrew blog (previous).
+23. which is not identical to the Hebrew content.
+24. 7minim (.)מיניםWritten by Tomer Persico. Masthead: “This blog is intended to allow me, Tomer
+Persico, to comment briefly on this and that”. Has a number of posts on recent scholarly books
+on history of Kabbalah (though the blog mostly focuses on contemporary issues).
+25. Parshablog. Written by R’ Josh Waxman. Masthead: “Parshablog is published by R’ Josh Waxman,
+a grad student in Revel, a grad student in a Phd program in computer science at CUNY. I recently
+received semicha from RIETS. This blog is devoted to parsha as well as whatever it is I am
+currently learning.”
+26. Scribal Error. Written by R’ Josh Waxman. Focuses on Talmud
+27. Talmud & Tech. My blog (Ezra Brand). Covers a wide area of interests, with focus on Talmud and
+digitial humanities.
+Blogs - Hebrew Linguistics
+28. HaZirah HaLeshonit - Ruvik Rozental (הזירה
+הלשונית-רוביק
+רוזנטל
+.)Many posts on history of
+individual Hebew words, by a well-known and popular Hebrew linguist.
+29. Leshoniada (.)לשוניאדהIn Modern Hebrew. Focuses on Hebrew linguistics.
+30. Safa Ivrit (השפה
+העברית
+.)In Modern Hebrew. Focuses on Hebrew linguistics. Not quite a blog,
+rather a wide range of short articles on sources of sayings and words.
+31. Balashon (.)בלשוןWritten by David Curwin. Focuses on Hebrew linguistics, especially on Modern
+Hebrew words that draw on classical Hebrew with Greek and Latin cognates.65
+32. Philologos. Appears twice a month in Mosaic. On Jewish historical and linguistic topics.
+33. The Aramaic Language of the Zohar. By Judy Barrett. Good collection of basic intros to language
+of the Zohar.
+Videos and Podcasts
+YouTube has a lot of academic lectures. With the covid restrictions over the past two years, it has
+become especially common to live stream scholarly lectures (whether there’s a live component or not),
+and often the videos are then permanently publicly available on YouTube.66
+Some channels:
+1.
+Academic lectures. Hundreds of lectures available. The YouTube channels seem to often be used
+now for live streaming of scholarly lectures:
+a.
+National Library of Israel.
+b.
+The Israel Academy of Sciences and Humanities.67
+67 See here: The Israel Academy of Sciences and Humanities - YouTube > “Past live streams”. Recent
+example that showed in my email inbox of youtube being used for live streaming of a scholarly lecture:
+66 As for podcasts, many podcasts are also available on YouTube. For example, see below for the
+podcast “Channeling Jewish History”.
+65 See my index of such blogposts here, pp. 4-8.
+
+
+## Page 45
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 45
+c.
+Israeli university channels. For example, Hebrew University ; Bar-Ilan University.
+d.
+Scholarly organizations, such as Yad Ben-Zvi.
+2.
+Torah in Motion. A large number of lecture series. However, it mostly focuses on more modern
+history, contemporary theology, and on the Bible, so outside the scope of this guide. For lecture
+series within the scope of this guide, see for example the series with Dr. William Gewirtz, The
+Changing Nature of Time in Halakha, which is a four-part series that, according to the
+description, includes a lot of discussion of the history of the Jewish calendar.
+3.
+Seforim Chatter. Podcast hosted by Nachi Weinsten of Lakewood, NJ.68 Has interviews with top
+scholars discussing their most interesting research. For example, some previous guests include:
+Seforim Blog’s Prof. Marc Shapiro; Jacob J. Schacter, and many more. Recommended. Also has an
+associated Twitter feed.69
+4.
+Misfit Torah. Podcast hosted by Akiva Weisinger.
+5.
+Channeling Jewish History. Podcast hosted by my friend Joel Davidi.70 Interviews many scholars,
+such as Prof. Marc Shapiro.
+6.
+AllDaf. A number of discussions featuring R’ Dr. Eliezer Brodt “to briefly highlight some of the
+Rishonim and Acharonim ‘out there’ on this masechta”, see the latest Seforim Blog post here,
+with links to previous.
+7.
+Tradition Podcast. Hosted by the editor of Tradition. Available on their YouTube channel. For
+example, one episode is an interview with Prof. Eric Lawee on a new book of his on Rashi’s
+Commentary.
+8.
+Am HaSefer - Rambam Library - Beit Ariela (עם
+הספר-ספריית
+הרמב"ם
+בית
+אריאלה
+.)
+9.
+AJS Adventure in Jewish Studies Podcast series
+10. Endless videos and podcasts, each of which must be judged on its own. One genre is well-edited
+videos with graphics by unknown hosts. Another type is podcast-type interviews with
+well-known personalities. A majority of all of these are focused on Bible, which as mentioned in
+70 Admin of the Facebook group “Channeling Jewish History Group”.
+69 The tweets are also accessible at his website, and thus this can help one circumvent the need to sign
+up to Twitter as they can see all the tweets here without being signed up:
+https://www.seforimchatter.com/tweets/ (pointed out to me by Nachi).
+See the recent article about the podcast: Yosef Herz | APRIL 3, 2023, One for the Books – Mishpacha
+Magazine, about “Nachi Weinstein, the bibliophile behind the seforim chatter podcast”. See there this
+interesting quote: “I try to stay away from certain topics, namely academic Bible studies and academic
+dissections of Talmud and Chazal, because I don’t think they’re befitting a frum podcast.”
+For an index of podcast episodes, see my article “Index, by century discussed, of interviews of historians
+on Seforim Chatter podcast”.
+68 Introduction Show, Seforimchatter,
+https://seforimchatter.buzzsprout.com/1218638/4587641-introduction-show, July 15, 2020, Season 1
+Episode 18. (Accessed 13-Feb-22).
+(PDF) 'Three Lectures on Habad Hasidism', Schocken Institute, Jerusalem, November 8, 15, 22, 2021
+(Poser + Video) | Jonatan Meir - Academia.edu
+When I was sent this link, Gmail even knew to attach the YouTube preview in the email.
+The most extensive index I’ve found of open-access academic lectures online is the 90 (!) page list of
+links to lectures online (mostly YouTube) on Jewish mysticism compiled by Judy Barrett on her
+Academia.edu page: "Best of the Web for the Zohar: lectures, interviews, conferences & courses
+(rev.5/11/20)".
+
+
+## Page 46
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 46
+the introduction, are outside the scope of this guide. Also, many of them are focused more on
+drawing lessons, in the “self-help” genre, and less on pure scholarship.71
+Twitter
+Now requires registration (free) to view most content.
+Essentially every organization focused on Jewish scholarship has a Twitter feed and a Facebook page.
+Most Twitter feeds and Facebook pages affiliated with organizations are focused on academic events,
+book launches, awards, etc., and so are less interesting for our purposes here. Here are the ones that
+especially caught my eye as having content relevant to this guide, especially bibliographical content.
+1.
+Michelle Margolis (@hchesner) / Twitter .
+a.
+“Judaica @Columbia @Footprints_Heb #dhjewish, VP @jewishlibraries, Jewish book
+history, Hebrew incunabula”
+2.
+Footprints Project (@Footprints_Heb) / Twitter .
+a.
+“Tracing Jewish books through time and place.”
+3.
+National Library of Israel (@NLIsrael) / Twitter .
+a.
+“Collecting & preserving the cultural treasures of #Israel & the #Jewish People. Opening
+access to millions of books, photos, recordings, maps, archives + more.”
+4.נתן
+הירשNathan Hirsch (@NLITorani) / Twitter.
+a.
+“Contemporary Rabbinic literature”.
+b.
+Also on Telegram: https://t.me/s/NLITorani
+c.
+And on Facebook: Nathan Hirsch | Facebook
+5.
+DayenuPal
+6.
+#dhjewish - Twitter Search / Twitter
+7.
+Princeton Geniza Lab (@GenizaLab) / Twitter
+8.
+Marina Rustow (@mrustow) / Twitter
+Facebook
+1.
+Norman E. Alexander Library for Jewish Studies - Home | Facebook .
+a.
+“The Norman E. Alexander Library for Jewish Studies at Columbia University collects
+Judaica and Hebraica in all formats and supports research.”
+Forums
+There are some great forums dedicated to academic Jewish Studies.
+1.
+Otzar HaChochma’s forum (פורום
+אוצר
+החכמה
+.)In Modern Hebrew. Lots of really interesting
+discussions.
+2.
+Daf-yomi.com’s forum (פורום
+פורטל
+הדף
+היומי
+)In Modern Hebrew. Lots of really interesting
+discussions on the Talmud and commentators.
+71 A few examples: R’ Dr. Ari Lamm’s podcast called “Good Faith Effort”; Michael Eisenberg’s YouTube
+channel.
+
+
+## Page 47
+-
+BRAND, GUIDE TO ONLINE RESOURCES FOR SCHOLARLY JEWISH STUDY AND RESEARCH – 2023 - p. 47
+3.
+Behadrei Haredim - Forum: Seforim and Sofrim (בחדרי
+חרדים-
+:פורום
+ספרים
+וסופרים
+.)In Modern
+Hebrew.
+4.
+Judaism.stackexchange.com (Mi Yodea). In English.
+Mobile Apps
+1.
+Sefaria. See above on Sefaria in general.
+2.
+Artscroll
+3.
+Rambam Plus - Mishneh Torah - Mifal Mishneh Torah.
+a.
+Mobile app with Rambam’s Mishneh Torah (ed. Makbili).

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide to Online Resources for Scholarly Jewish Study and Research — 2026 Working Edition</title>
+<meta property="og:title" content="Jewish Research Guide — 2026 Working Edition">
+<meta property="og:description" content="Ezra Brand’s research guide: scholarly resources, AI methods, source provenance and a transparent link audit.">
+<meta property="og:type" content="website">
+<meta name="description" content="A 2026 working edition of Ezra Brand's Guide to Online Resources for Scholarly Jewish Study and Research: a searchable directory of digital resources with provenance, link-audit transparency, and guidance on using AI responsibly.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">2026 Working Edition</p>
+    <h1>Guide to Online Resources for Scholarly Jewish Study and Research</h1>
+    <p class="byline">After the 2023 guide by Ezra Brand</p>
+    <nav aria-label="Sections" class="sections">
+      <a href="#directory">Directory</a>
+      <a href="#ai">AI and research</a>
+      <a href="#audit">Audit</a>
+      <a href="#sources">Sources and downloads</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap notice" aria-labelledby="status-h">
+    <h2 id="status-h" class="eyebrow">Edition status</h2>
+    <p>This is a <strong>working edition</strong>. It reorganizes the links of the 2023 guide, adds entries from public directories and a small number of 2026 additions, and records an automated link check. It is <strong>not</strong> an exhaustive scholarly revision, and not every broken or moved link has been repaired. Descriptions should be double-checked before scholarly use.</p>
+  </section>
+
+  <section id="directory" class="wrap" aria-labelledby="dir-h">
+    <div class="sec-head">
+      <h2 id="dir-h">Resource directory</h2>
+      <p class="lede">Search and filter. Each entry records where it came from and what the link check found.</p>
+    </div>
+
+    <form class="controls" id="controls" role="search" onsubmit="return false">
+      <div class="field grow">
+        <label for="q">Search</label>
+        <input id="q" type="search" placeholder="Title, description, URL, Hebrew…" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="f-cat">Category</label>
+        <select id="f-cat"><option value="">All categories</option></select>
+      </div>
+      <div class="field">
+        <label for="f-origin">Origin</label>
+        <select id="f-origin"><option value="">All origins</option></select>
+      </div>
+      <div class="field">
+        <label for="f-status">Link status</label>
+        <select id="f-status"><option value="">All statuses</option></select>
+      </div>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="f-all"> Include all historical links</label>
+        <div class="toggle" role="group" aria-label="View">
+          <button type="button" id="v-cards" aria-pressed="true">Cards</button>
+          <button type="button" id="v-table" aria-pressed="false">Table</button>
+        </div>
+        <button type="button" id="reset" class="link-btn">Reset filters</button>
+      </div>
+    </form>
+
+    <p id="result-count" class="count" aria-live="polite"></p>
+    <div id="results" class="results"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+  </section>
+
+  <section id="ai" class="band" aria-labelledby="ai-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="ai-h">Using AI in Jewish textual research</h2>
+        <p class="lede">AI systems can speed up finding and drafting. They cannot replace sources. Treat every output as a lead to be checked.</p>
+      </div>
+      <ol class="principles">
+        <li><h3>Retrieve, then cite</h3><p>Prefer tools that retrieve from a named corpus and show the passage. Open every cited source yourself and confirm the reference (tractate, folio, chapter, edition) actually says what is claimed.</p></li>
+        <li><h3>Return to scans and editions</h3><p>Digital text is a derivative. For anything that matters, check the manuscript images, early printings, or critical edition — and record which edition you used.</p></li>
+        <li><h3>Expect hallucinations</h3><p>Language models invent plausible quotations, authors, page numbers, and bibliographic entries. A confident answer is not evidence. Absence of a source is a reason to stop.</p></li>
+        <li><h3>OCR and translation errors</h3><p>Hebrew and Aramaic OCR confuses similar letters and mangles abbreviations; machine translation flattens technical terms. Compare against the image and against a human translation where one exists.</p></li>
+        <li><h3>Privacy and copyright</h3><p>Do not paste unpublished work, private correspondence, or restricted materials into third-party services without permission. Respect licences of editions and translations.</p></li>
+        <li><h3>No automated halakhic authority</h3><p>AI output is not a ruling. Practical questions of Jewish law belong with a qualified, accountable authority who knows the person and the case.</p></li>
+        <li><h3>Tools versus scholarship about AI</h3><p>Distinguish AI <em>tools</em> (search, transcription, translation, chat interfaces) from <em>scholarship about</em> AI and Jewish texts. The directory labels these where possible; a listing is not an endorsement.</p></li>
+      </ol>
+      <p class="aside">Directories consulted for AI-era and API-based tools: <a href="https://developers.sefaria.org/docs/powered-by-sefaria" rel="noopener">Powered by Sefaria</a> and <a href="https://jewishai.me/table.html" rel="noopener">JewishAI resource table</a>. Entries from those lists keep their source attribution.</p>
+    </div>
+  </section>
+
+  <section id="audit" class="wrap" aria-labelledby="audit-h">
+    <div class="sec-head">
+      <h2 id="audit-h">Audit transparency</h2>
+      <p class="lede">An automated check requested each link. A 2xx response means the server answered — <strong>HTTP reachable</strong>, not that the content was verified.</p>
+    </div>
+    <div id="audit-body" aria-live="polite"><div class="skeleton"></div></div>
+    <dl class="legend" id="legend"></dl>
+  </section>
+
+  <section id="sources" class="band" aria-labelledby="src-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="src-h">Original source and downloads</h2>
+        <p class="lede">The 2023 guide remains the reference text. This edition is a layer on top of it.</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3>The 2023 guide</h3>
+          <p>Ezra Brand, <cite>Guide to Online Resources for Scholarly Jewish Study and Research — 2023</cite> (v6, 4 December 2023), revised from a 2022 Seforim Blog series.</p>
+          <p><a class="cta" href="https://www.academia.edu/83334340/Guide_to_Online_Resources_for_Scholarly_Jewish_Study_and_Research_2023" rel="noopener">Read the original on Academia.edu</a></p>
+        </div>
+        <ul class="downloads">
+          <li><a href="downloads/original-2023.txt" download>original-2023.txt</a><span>Plain-text extraction of the 2023 PDF, page-marked</span></li>
+          <li><a href="downloads/guide-2026.md" download>guide-2026.md</a><span>This working edition as Markdown</span></li>
+          <li><a href="downloads/resources.csv" download>resources.csv</a><span>Directory data with provenance</span></li>
+          <li><a href="downloads/link-audit.csv" download>link-audit.csv</a><span>Full link-check results</span></li>
+          <li><a href="downloads/link-audit.md" download>link-audit.md</a><span>Audit findings and suggested replacements</span></li>
+          <li><a href="downloads/review-queue.csv" download>review-queue.csv</a><span>Failed or inconclusive checks needing review</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Original 2023 guide by <strong>Ezra Brand</strong>: <a href="https://www.academia.edu/83334340/Guide_to_Online_Resources_for_Scholarly_Jewish_Study_and_Research_2023" rel="noopener">Guide to Online Resources for Scholarly Jewish Study and Research — 2023</a>.</p>
+    <p class="small">2026 working edition. Links checked automatically; listings are not endorsements. Verify before citing.</p>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-09T13:13:38.273734+00:00",
+  "counts": {
+    "reachable": 343,
+    "redirected": 70,
+    "blocked_or_restricted": 75,
+    "http_error": 13,
+    "network_error": 18,
+    "not_found": 17
+  },
+  "total": 536,
+  "originalUniqueUrls": 511,
+  "pdfPages": 47,
+  "annotations": 618,
+  "internalLinks": 36,
+  "newResources": 25,
+  "curatedResources": 50,
+  "originalCounts": {
+    "reachable": 322,
+    "blocked_or_restricted": 75,
+    "redirected": 67,
+    "network_error": 17,
+    "http_error": 13,
+    "not_found": 17
+  }
+}

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/research-guide/"
+title = "Jewish Research Guide · 2026"
+description = "Preview of the standalone GitHub Pages research guide. The portable source and independent Git repository live in jewish-research-guide at the workspace root."
+version = "1.0.0"
+id = "artifacts/research-guide-preview"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/research-guide/" ]
+localPort = 23945
+
+[services.development]
+run = "pnpm --filter @workspace/research-guide-preview run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/research-guide-preview", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/research-guide-preview/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23945"
+BASE_PATH = "/research-guide/"

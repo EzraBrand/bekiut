@@ -1,0 +1,4328 @@
+[
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://seforimblog.com/2022/03/guide-and-review-of-online-resources-2022-part-i/",
+    "target_page": null,
+    "label": "Part I"
+  },
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://seforimblog.com/2022/05/guide-and-review-of-online-resources-2022-part-ii/",
+    "target_page": null,
+    "label": "Part II"
+  },
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://seforimblog.com/2022/07/guide-and-review-of-online-resources-2022-part-iii/",
+    "target_page": null,
+    "label": "Part III"
+  },
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://www.academia.edu/103620375/Presentation_slides_A_Selective_Overview_of_Digital_Resources_for_the_Scholarly_Study_of_Rabbinic_Texts",
+    "target_page": null,
+    "label": "Presentation slides: A Selective Overview of Digital Resources for the Scholarly Study of"
+  },
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://www.academia.edu/103620375/Presentation_slides_A_Selective_Overview_of_Digital_Resources_for_the_Scholarly_Study_of_Rabbinic_Texts",
+    "target_page": null,
+    "label": "Rabbinic Texts"
+  },
+  {
+    "page": 1,
+    "kind": 2,
+    "url": "https://youtu.be/v561mI90BLg",
+    "target_page": null,
+    "label": "YouTube"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 1,
+    "label": "Table of Contents________________________________________________________________ 2"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 2,
+    "label": "Intro__________________________________________________________________________ 3"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 3,
+    "label": "Electronic vs. physical - pros and cons_____________________________________ 4"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 3,
+    "label": "Existing Guides______________________________________________________________ 4"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 5,
+    "label": "This Guide__________________________________________________________________ 6"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 6,
+    "label": "Primary Texts___________________________________________________________________ 7"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 7,
+    "label": "Books - text format - popular editions____________________________________________ 8"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 11,
+    "label": "Books - text format - scholarly editions__________________________________________ 12"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 12,
+    "label": "Books - PDF format__________________________________________________________13"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 15,
+    "label": "Manuscripts - General_______________________________________________________ 16"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 16,
+    "label": "Manuscripts - by Topic_______________________________________________________ 17"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 22,
+    "label": "Tools for Navigating Primary Texts__________________________________________________23"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 22,
+    "label": "Search and Related Tools_____________________________________________________ 23"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 23,
+    "label": "Tools for Transcription of manuscripts___________________________________________ 24"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 24,
+    "label": "Bibliographic Information and Indexes - General___________________________________25"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 26,
+    "label": "Bibliographic Information and Indexes - by Topic__________________________________ 27"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 26,
+    "label": "Databases_________________________________________________________________ 27"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 27,
+    "label": "Requires subscription or purchase______________________________________________28"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 27,
+    "label": "Secondary literature____________________________________________________________ 29"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 27,
+    "label": "Books_____________________________________________________________________29"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 30,
+    "label": "Journals___________________________________________________________________32"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 34,
+    "label": "Articles___________________________________________________________________ 35"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 35,
+    "label": "Tools for Navigating Secondary Literature____________________________________________36"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 35,
+    "label": "Bibliographic Information and Indexes___________________________________________36"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 37,
+    "label": "Tertiary literature_______________________________________________________________38"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 37,
+    "label": "Encyclopedias______________________________________________________________ 38"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 39,
+    "label": "Dictionaries________________________________________________________________40"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 39,
+    "label": "Popular Media and Platforms_____________________________________________________ 40"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 39,
+    "label": "Articles - general____________________________________________________________40"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 40,
+    "label": "Articles - Newspapers and Magazines___________________________________________ 41"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 41,
+    "label": "Blogs_____________________________________________________________________ 42"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 43,
+    "label": "Videos and Podcasts_________________________________________________________44"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 45,
+    "label": "Twitter____________________________________________________________________46"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 45,
+    "label": "Facebook__________________________________________________________________46"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 45,
+    "label": "Forums___________________________________________________________________ 46"
+  },
+  {
+    "page": 2,
+    "kind": 1,
+    "url": "",
+    "target_page": 46,
+    "label": "Mobile Apps_______________________________________________________________ 47"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Electronic_publishing",
+    "target_page": null,
+    "label": "Electronic"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Electronic_publishing",
+    "target_page": null,
+    "label": "publishing"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/at-your-service/who-we-are/depositing/statistics/2020-book-week-report",
+    "target_page": null,
+    "label": "Israeli National Library annual statistics for"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/at-your-service/who-we-are/depositing/statistics/2020-book-week-report",
+    "target_page": null,
+    "label": "2020"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Open_access",
+    "target_page": null,
+    "label": "open access"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://brill.com/view/book/edcoll/9789004325234/B9789004325234_013.xml",
+    "target_page": null,
+    "label": "12 Digital Resources of the Rabbinic Literature: Radical Change with a Click of the Mouse"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://www.academia.edu/62424008/Malachi_Beit_Ari%C3%A9_Hebrew_Codicology_Historical_and_Comparative_Typology_of_Medieval_Hebrew_Codices_based_on_the_Documentation_of_the_Extant_Dated_Manuscripts_until_1540_using_a_Quantitative_Approach_Jerusalem_The_Israel_Academy_of_Sciences_and_Humanities_2022_",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://www.fdr.uni-hamburg.de/record/9349#.YkQDuihBxPZ",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 3,
+    "kind": 2,
+    "url": "https://www.cambridge.org/core/books/book-in-the-jewish-world-17001900/558158449B2B59B5694979AE0DB6746C",
+    "target_page": null,
+    "label": "The Book in the Jewish World, 1700–1900"
+  },
+  {
+    "page": 4,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Freemium",
+    "target_page": null,
+    "label": "freemium"
+  },
+  {
+    "page": 4,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/commentary/torah-study-and-the-digital-revolution-a-glimpse-of-the-future/",
+    "target_page": null,
+    "label": "Torah Study and the Digital Revolution: A Glimpse of the"
+  },
+  {
+    "page": 4,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/commentary/torah-study-and-the-digital-revolution-a-glimpse-of-the-future/",
+    "target_page": null,
+    "label": "Future"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/db-subject/217",
+    "target_page": null,
+    "label": "Talmud & Oral Law | Libraries and Information System | Bar-Ilan University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/db-subject/198",
+    "target_page": null,
+    "label": "Jewish History | Libraries and Information System | Bar-Ilan University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.herzog.ac.il/library-page/%d7%9e%d7%90%d7%92%d7%a8%d7%99%d7%9d-%d7%91%d7%97%d7%95%d7%92-%d7%9c%d7%9c%d7%a9%d7%95%d7%9f-%d7%a2%d7%91%d7%a8%d7%99%d7%aa/",
+    "target_page": null,
+    "label": "המכללה\nהאקדמית\nהרצוג\n<\nספריות\n<\nמאגרים\nבחוג\nללשון\nעברית"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.herzog.ac.il/library-page/%d7%9e%d7%90%d7%92%d7%a8%d7%99%d7%9d-%d7%91%d7%97%d7%95%d7%92-%d7%9c%d7%9e%d7%97%d7%a9%d7%91%d7%aa-%d7%99%d7%a9%d7%a8%d7%90%d7%9c/",
+    "target_page": null,
+    "label": "המכללה\nהאקדמית\nהרצוג\n<\nספריות\n<\nמאגרים\nבחוג\nלמחשבת\nישראל"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.herzog.ac.il/library-page/%d7%9e%d7%90%d7%92%d7%a8%d7%99%d7%9d-%d7%91%d7%97%d7%95%d7%92-%d7%9c%d7%a1%d7%a4%d7%a8%d7%95%d7%aa-%d7%a2%d7%91%d7%a8%d7%99%d7%aa/",
+    "target_page": null,
+    "label": "המכללה\nהאקדמית\nהרצוג\n<\nספריות\n<\nמאגרים\nבחוג\nלספרות\nעברית"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://libguides.cjh.org/az.php",
+    "target_page": null,
+    "label": "Center for Jewish History > LibGuides > A-Z Databases"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://safranim.com/2010/12/01/%D7%90%D7%A8%D7%95%D7%9F-%D7%94%D7%A1%D7%A4%D7%A8%D7%99%D7%9D-%D7%94%D7%99%D7%94%D7%95%D7%93%D7%99-%D7%94%D7%9E%D7%9E%D7%95%D7%97%D7%A9%D7%91-%D7%9E%D7%90%D7%92%D7%A8%D7%99-%D7%9E%D7%99%D7%93%D7%A2/",
+    "target_page": null,
+    "label": "ארון\nהספרים\nהיהודי\nהמקוון\n–\nמאגרי\nמידע\nואתרי\nספרים\nסרוקים\n|Safranim's Blog"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://libguides.northwestern.edu/c.php?g=114862&p=749233",
+    "target_page": null,
+    "label": "Recommended Websites - *Jewish Studies - Research Guides at Northwestern University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://guides.library.upenn.edu/judaica-resources/etexts",
+    "target_page": null,
+    "label": "eTexts - Directory of Judaica online resources - Guides at Penn Libraries"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://guides.library.jhu.edu/jewish-studies/research-resources",
+    "target_page": null,
+    "label": "Resources for Doing Research - Jewish Studies - Guides at Johns Hopkins University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://guides.library.georgetown.edu/hebrew/reference",
+    "target_page": null,
+    "label": "Reference Works - Hebrew and Jewish Studies - Guides at Georgetown University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.eurojewishstudies.org/wp-content/uploads/2018/06/eajs-resources-17-09-07.pdf",
+    "target_page": null,
+    "label": "Turning the Page: Jewish Print Cultures & Digital Humanities - An EAJS Roundtable"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://guides.nyu.edu/c.php?g=276652&p=1845363",
+    "target_page": null,
+    "label": "Digital Collection Gateways: a Selection - Hebrew and Judaic Studies - Research Guides at New"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://guides.nyu.edu/c.php?g=276652&p=1845363",
+    "target_page": null,
+    "label": "York University"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.ub.uni-frankfurt.de/judaica3/en/corona_en.html",
+    "target_page": null,
+    "label": "Online Resources Jewish Studies „Corona Service"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.jmberlin.de/en/links-other-libraries-and-archives",
+    "target_page": null,
+    "label": "Links to Other Libraries and Archives | Jewish Museum Berlin"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://huc.edu/libraries/free-online-resources/",
+    "target_page": null,
+    "label": "Free Online Resources - HUC"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9E%D7%90%D7%92%D7%A8_%D7%AA%D7%95%D7%A8%D7%A0%D7%99",
+    "target_page": null,
+    "label": "מאגר\nתורני\n–\nויקיפדיה"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Torah_database",
+    "target_page": null,
+    "label": "Torah database - Wikipedia"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Rabbinic_literature#External_links",
+    "target_page": null,
+    "label": "Rabbinic literature - Wikipedia"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.safa-ivrit.org/links.php",
+    "target_page": null,
+    "label": "השפה\nהעברית-קישורים"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "http://daf-yomi.com/content.aspx?PageId=210",
+    "target_page": null,
+    "label": "פורטל\nהדף\nהיומי:\nספריה\nוירטואלית"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "http://daf-yomi.com/content.aspx?PageId=110",
+    "target_page": null,
+    "label": "פורטל\nהדף\nהיומי:\nנוסחאות\nוגירסאות"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "http://www.halachabrura.org/alephlink.htm",
+    "target_page": null,
+    "label": "הלכה\nברורה\n<\nספרייה\nוירטואלית"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://thetalmud.blog/toolbox/search-engines-and-other-web-resources/",
+    "target_page": null,
+    "label": "Search Engines and Other Web-Resources | The Talmud Blog"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://thetalmud.blog/toolbox/textual-witnesses-pictures-transcriptions-descriptions-and-synopsi/",
+    "target_page": null,
+    "label": "Textual Witnesses | The Talmud Blog"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://www.rabbinics.org/",
+    "target_page": null,
+    "label": "Rabbinics"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "http://www.jewishdigitalcollections.com/jewish-studies-guides.html",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "http://www.jewishdigitalcollections.com/about.html",
+    "target_page": null,
+    "label": "the About page."
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://talmud.biu.ac.il/sites/talmud/files/shared/%D7%AA%D7%9C%D7%9E%D7%95%D7%93%20%D7%A1%D7%99%D7%9C%D7%91%D7%95%D7%A1%D7%99%D7%9D%20%D7%AA%D7%A9%D7%A4%D7%91/%D7%90%D7%A8%D7%A0%D7%9309101%D7%94%D7%93%D7%A8%D7%9B%D7%94.pdf",
+    "target_page": null,
+    "label": "Prof. Aaron"
+  },
+  {
+    "page": 5,
+    "kind": 2,
+    "url": "https://talmud.biu.ac.il/sites/talmud/files/shared/%D7%AA%D7%9C%D7%9E%D7%95%D7%93%20%D7%A1%D7%99%D7%9C%D7%91%D7%95%D7%A1%D7%99%D7%9D%20%D7%AA%D7%A9%D7%A4%D7%91/%D7%90%D7%A8%D7%A0%D7%9309101%D7%94%D7%93%D7%A8%D7%9B%D7%94.pdf",
+    "target_page": null,
+    "label": "Ahrend’s syllabus to his course “Research Guidance in Bibliography and Writing”"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://dhjewish.org/projects",
+    "target_page": null,
+    "label": "#DHJewish Jewish Studies & Digital Humanities Projects"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.associationforjewishstudies.org/professional-development/professional-development/digital-jewish-studies/perspectives-on-technology/online-resources-for-talmud-research-study-and-teaching",
+    "target_page": null,
+    "label": "Online Resources for Talmud Research, Study, and Teaching"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.maanelashon.org/links",
+    "target_page": null,
+    "label": "קישורים\nשימושיים"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "http://nleresources.com/2018/12/the-top-sites-to-do-torah-research-in-the-internet-era/#.YkTAlihBxPY",
+    "target_page": null,
+    "label": "The Top Sites to do Torah Research in the Internet Era | OLAMI Resources"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://docs.google.com/document/u/1/d/1ZfHfZsLh2qYBM6Q6Qp18csQvYQMBUOvjfwPCRn9iyJk/mobilebasic",
+    "target_page": null,
+    "label": "Sources on the Net"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://blog.mivami.org/2020/03/some-excellent-talmud-projects-out-there.html",
+    "target_page": null,
+    "label": "mi vami: Some excellent Talmud projects out there"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "http://www.jewishdigitalcollections.com/",
+    "target_page": null,
+    "label": "Jewish Digital Collections and Jewish Study Guides"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "http://www.jewishdigitalcollections.com/about.html",
+    "target_page": null,
+    "label": "the About page"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.jewishinternetguide.com/",
+    "target_page": null,
+    "label": "The Jewish Guide to the Internet"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/commentary/torah-study-and-the-digital-revolution-a-glimpse-of-the-future/",
+    "target_page": null,
+    "label": "Torah Study and the Digital Revolution: A Glimpse of the"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/commentary/torah-study-and-the-digital-revolution-a-glimpse-of-the-future/",
+    "target_page": null,
+    "label": "Future"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.academia.edu/83275646/Resources_for_the_Critical_Study_of_Rabbinic_Literature_in_the_Twenty_First_Century_in_Compendia_Rerum_Iudaicarum_ad_Novum_Testamentum_CRINT_16_Christine_Hayes_ed_Leiden_The_Netherlands_Brill_2022_pp_621_632",
+    "target_page": null,
+    "label": "Resources for the Critical Study of Rabbinic Literature in the Twenty-First"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.academia.edu/83275646/Resources_for_the_Critical_Study_of_Rabbinic_Literature_in_the_Twenty_First_Century_in_Compendia_Rerum_Iudaicarum_ad_Novum_Testamentum_CRINT_16_Christine_Hayes_ed_Leiden_The_Netherlands_Brill_2022_pp_621_632",
+    "target_page": null,
+    "label": "Century"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.mgketer.org/",
+    "target_page": null,
+    "label": "Mikra'ot Gedolot"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www.mgketer.org/",
+    "target_page": null,
+    "label": "Haketer"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Torah_database#Mikra'ot_Gedolot_Haketer",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9E%D7%A7%D7%A8%D7%90%D7%95%D7%AA_%D7%92%D7%93%D7%95%D7%9C%D7%95%D7%AA_%D7%94%D7%9B%D7%AA%D7%A8",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "https://www2.biu.ac.il/jh/parasha/",
+    "target_page": null,
+    "label": "Parshat Hashavua"
+  },
+  {
+    "page": 6,
+    "kind": 2,
+    "url": "http://www.ashlagbaroch.org/",
+    "target_page": null,
+    "label": "R’ Ashlag’s"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "http://www.ashlagbaroch.org/",
+    "target_page": null,
+    "label": "commentary on Zohar, and those of his descendants"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://www.gemaraberura.com/app/",
+    "target_page": null,
+    "label": "Gemara Brura"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://thepeoplestalmud.com/#!",
+    "target_page": null,
+    "label": "The People's Talmud"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Link_rot",
+    "target_page": null,
+    "label": "link rot"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%AA%D7%91%D7%A0%D7%99%D7%AA:%D7%A1%D7%A4%D7%A8%D7%99%D7%95%D7%AA_%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%95%D7%AA_%D7%91%D7%A0%D7%95%D7%A9%D7%90%D7%99_%D7%99%D7%94%D7%93%D7%95%D7%AA",
+    "target_page": null,
+    "label": "תבנית:ספריות\nדיגיטליות\nבנושאי\nיהדות\n–\nויקיפדיה"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/List_of_digital_library_projects",
+    "target_page": null,
+    "label": "List of digital library projects"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946",
+    "target_page": null,
+    "label": "רשימת"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946",
+    "target_page": null,
+    "label": "אתרים\nואשכולות\nלסריקות\nכת\"י\nוספרי\nדפוס\nעתיקים"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://blog.mivami.org/2020/03/some-excellent-talmud-projects-out-there.html",
+    "target_page": null,
+    "label": "Some excellent Talmud projects out there"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://cja.huji.ac.il/browser.php",
+    "target_page": null,
+    "label": "The Bezalel Narkiss Index of Jewish Art, Center for Jewish Art,"
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://cja.huji.ac.il/browser.php",
+    "target_page": null,
+    "label": "Hebrew University of Jerusalem."
+  },
+  {
+    "page": 7,
+    "kind": 2,
+    "url": "https://ingeveb.org/texts-and-translations",
+    "target_page": null,
+    "label": "In Geveb: A Journal of Yiddish Studies"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.sefaria.org/texts",
+    "target_page": null,
+    "label": "Sefaria"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Sefaria",
+    "target_page": null,
+    "label": "Wikipedia - English"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.ezrabrand.com/p/cataloguing-my-blogposts-an-organized-78d",
+    "target_page": null,
+    "label": "Cataloging My Blogposts: An Organized Breakdown by Theme"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/commentary/torah-study-and-the-digital-revolution-a-glimpse-of-the-future/",
+    "target_page": null,
+    "label": "Torah Study and the Digital Revolution: A Glimpse of the Future"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.academia.edu/83275646/Resources_for_the_Critical_Study_of_Rabbinic_Literature_in_the_Twenty_First_Century_in_Compendia_Rerum_Iudaicarum_ad_Novum_Testamentum_CRINT_16_Christine_Hayes_ed_Leiden_The_Netherlands_Brill_2022_pp_621_632",
+    "target_page": null,
+    "label": "Resources for the Critical Study of Rabbinic Literature in the Twenty-First Century"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://whitmanarchive.org/about/articles/anc.00267.html",
+    "target_page": null,
+    "label": "\"Electronic Scholarly Editions"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.researchgate.net/publication/264205341_A_Catalogue_of_Digital_Editions",
+    "target_page": null,
+    "label": "A"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.researchgate.net/publication/264205341_A_Catalogue_of_Digital_Editions",
+    "target_page": null,
+    "label": "Catalogue of Digital Editions"
+  },
+  {
+    "page": 8,
+    "kind": 2,
+    "url": "https://www.academia.edu/72403082/Talmud_Yerushalmi_Digital_Critical_Edition_IRCDL_2022",
+    "target_page": null,
+    "label": "Talmud Yerushalmi Digital Critical Edition - IRCDL 2022”"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.sefaria.org/texts/Talmud",
+    "target_page": null,
+    "label": "Steinzaltz-Koren translation into English and commentary on Talmud Bavli"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.sefaria.org/texts/Talmud/Yerushalmi",
+    "target_page": null,
+    "label": "Guggenheimer translation and commentary of Talmud Yerushalmi"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.sefaria.org/texts/Mishnah/Modern%20Commentary%20on%20Mishnah/Mishnat%20Eretz%20Yisrael",
+    "target_page": null,
+    "label": "Mishnat Eretz Yisrael"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.sefaria.org/Jastrow",
+    "target_page": null,
+    "label": "Jastrow Dictionary"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://alhatorah.org/",
+    "target_page": null,
+    "label": "Al-Hatorah"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://alhatorah.org/About:Who_We_Are/en",
+    "target_page": null,
+    "label": "About page"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://alhatorah.org/About:Our_Mission/0/en",
+    "target_page": null,
+    "label": "mission statement"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://alhatorah.org/About:Who_We_Are/en",
+    "target_page": null,
+    "label": "Who We Are"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.ezrabrand.com/p/evaluating-al-hatorahs-digital-repository",
+    "target_page": null,
+    "label": "Evaluating Al-Hatorah's Digital Repository: Exploring Its Excellent Tanakh"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://www.ezrabrand.com/p/evaluating-al-hatorahs-digital-repository",
+    "target_page": null,
+    "label": "and Talmud Commentaries, and More"
+  },
+  {
+    "page": 9,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A2%D7%9C_%D7%94%D7%AA%D7%95%D7%A8%D7%94",
+    "target_page": null,
+    "label": "על\nהתורה\n–\nויקיפדיה"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://mg.alhatorah.org/Editions",
+    "target_page": null,
+    "label": "the full list of digital editions"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/?r1=Targum_Yerushalmi_(Neofiti)_Bereshit_1:1",
+    "target_page": null,
+    "label": "Targum Yerushalmi - Neofiti"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Rashi_Leipzig_1/1/en",
+    "target_page": null,
+    "label": "New digital edition of Rashi on Torah, Leipzig manuscript"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:R._Yosef_Kara's_Torah_Commentary/1/en",
+    "target_page": null,
+    "label": "New digital edition of R’ Yosef Kara's Torah Commentary."
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Rashbam's_Torah_Commentary/1/en",
+    "target_page": null,
+    "label": "Reconstruction of the Lost Parts of Rashbam's Torah Commentary."
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Ramban's_Updates",
+    "target_page": null,
+    "label": "Ramban's Updates to his Torah Commentary"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Ibn_Ezra's_Torah_Commentary",
+    "target_page": null,
+    "label": "ibn"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Ibn_Ezra's_Torah_Commentary",
+    "target_page": null,
+    "label": "Ezra"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:R._Yosef_Bekhor_Shor's_Torah_Commentary",
+    "target_page": null,
+    "label": "Yosef Bekhor Shor"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://rashi.alhatorah.org/",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:R._Yitzchak_Alfasi_(Rif)/0/he",
+    "target_page": null,
+    "label": "New digital edition of Rif"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Rashbam's_Commentary_on_Avodah_Zarah/0/he",
+    "target_page": null,
+    "label": "Rashbam's Commentary on Avodah Zarah"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/?r1=Mishna_MS_Kaufmann_Berakhot_1",
+    "target_page": null,
+    "label": "Mishna MS Kaufmann"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/?r1=Mishnat_Eretz_Yisrael_Berakhot_Introduction",
+    "target_page": null,
+    "label": "Mishnat Eretz Yisrael"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/?r1=Steinsaltz_Commentary_Berakhot_2a",
+    "target_page": null,
+    "label": "Steinsaltz-Koren commentary on Talmud Bavli in Hebrew"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://library.alhatorah.org/Editions#English",
+    "target_page": null,
+    "label": "List of translated works into English"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Home/0",
+    "target_page": null,
+    "label": "Visualizations"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Bereshit_Rabbah",
+    "target_page": null,
+    "label": "Bereshit_Rabbah"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Mekhilta_DeRabbi_Yishmael",
+    "target_page": null,
+    "label": "Mekhilta_DeRabbi_Yishmael"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Sifra",
+    "target_page": null,
+    "label": "Sifra"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://he.wikisource.org/wiki/%D7%A2%D7%9E%D7%95%D7%93_%D7%A8%D7%90%D7%A9%D7%99",
+    "target_page": null,
+    "label": "Wikisource - Hebrew"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%95%D7%99%D7%A7%D7%99%D7%98%D7%A7%D7%A1%D7%98",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://alhatorah.org/Commentators:Home/TopicList",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://www.seforimchatter.com/2021/10/10/with-dr-ezra-chwat-discussing-the-rif-rav-yitzchak-alfasi-1013-1103-and-his-new-critical-edition/",
+    "target_page": null,
+    "label": "With Dr. Ezra Chwat discussing the Rif (Rav"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://www.seforimchatter.com/2021/10/10/with-dr-ezra-chwat-discussing-the-rif-rav-yitzchak-alfasi-1013-1103-and-his-new-critical-edition/",
+    "target_page": null,
+    "label": "Yitzchak Alfasi, 1013 – 1103) and his new critical edition"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "https://mg.alhatorah.org",
+    "target_page": null,
+    "label": "https://mg.alhatorah.org"
+  },
+  {
+    "page": 10,
+    "kind": 2,
+    "url": "http://forum.otzar.org/viewtopic.php?f=7&t=25619",
+    "target_page": null,
+    "label": "this Otzar HaHochma forum"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikisource.org/wiki/%D7%AA%D7%95%D7%9C%D7%93%D7%95%D7%AA_%D7%AA%D7%A0%D7%90%D7%99%D7%9D_%D7%95%D7%90%D7%9E%D7%95%D7%A8%D7%90%D7%99%D7%9D",
+    "target_page": null,
+    "label": "Toldot Tana’im"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikisource.org/wiki/%D7%AA%D7%95%D7%9C%D7%93%D7%95%D7%AA_%D7%AA%D7%A0%D7%90%D7%99%D7%9D_%D7%95%D7%90%D7%9E%D7%95%D7%A8%D7%90%D7%99%D7%9D",
+    "target_page": null,
+    "label": "VeAmora’im"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/",
+    "target_page": null,
+    "label": "Ben-Yehuda Project"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98_%D7%91%D7%9F-%D7%99%D7%94%D7%95%D7%93%D7%94",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/read/35887",
+    "target_page": null,
+    "label": "Late Antiquity"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/author/1457",
+    "target_page": null,
+    "label": "Eleazar ben Kalir"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/author/1470",
+    "target_page": null,
+    "label": "Yanai"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/period/medieval",
+    "target_page": null,
+    "label": "Medieval era"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/author/161",
+    "target_page": null,
+    "label": "Yehudah Halevi"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://benyehuda.org/author/180",
+    "target_page": null,
+    "label": "Shlomo ibn Gabirol"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "http://old.piyut.org.il/search/",
+    "target_page": null,
+    "label": "An Invitation to Piyut"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%96%D7%9E%D7%A0%D7%94_%D7%9C%D7%A4%D7%99%D7%95%D7%98",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "http://hebrew.grimoar.cz/",
+    "target_page": null,
+    "label": "Grimoar"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9E%D7%90%D7%92%D7%A8_%D7%AA%D7%95%D7%A8%D7%A0%D7%99#%D7%90%D7%AA%D7%A8_Grimoar",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://kodesh.snunit.k12.il/i/tr/t0101.htm",
+    "target_page": null,
+    "label": "Kodesh.Snunit"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://mechon-mamre.org/",
+    "target_page": null,
+    "label": "Mamre Institute"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Mamre_Institute",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://www.themercava.com/app/books/metanav/1695",
+    "target_page": null,
+    "label": "Mercava"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://tashma.jewishoffice.co.il/",
+    "target_page": null,
+    "label": "Tashma - Jewish Office"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://jewishoffice.co.il/catalog/",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://seforimblog.com/2023/06/from-print-to-pixel-digital-editions-of-the-talmud-bavli/",
+    "target_page": null,
+    "label": "From Print to Pixel: Digital Editions of the Talmud"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://seforimblog.com/2023/06/from-print-to-pixel-digital-editions-of-the-talmud-bavli/",
+    "target_page": null,
+    "label": "Bavli"
+  },
+  {
+    "page": 11,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%93%D7%9F_%D7%91%D7%90%D7%A8%D7%99",
+    "target_page": null,
+    "label": "R’ Dan Be'eri"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://www.zemirotdatabase.org/song_index.php",
+    "target_page": null,
+    "label": "Zemirot Database"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://opensiddur.org/",
+    "target_page": null,
+    "label": "Open Siddur Project"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Open_Siddur_Project",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://opensiddur.org/compilations/liturgical/siddurim/kol-bo/maimonides-seder-tefillot/",
+    "target_page": null,
+    "label": "[C]ontainer for facsimile editions and digital"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://opensiddur.org/compilations/liturgical/siddurim/kol-bo/maimonides-seder-tefillot/",
+    "target_page": null,
+    "label": "transcriptions of Maimonides’ Seder Tefillot (Order of Prayers) found at the end of his"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://opensiddur.org/compilations/liturgical/siddurim/kol-bo/maimonides-seder-tefillot/",
+    "target_page": null,
+    "label": "Sefer Ahava (Book of Love) in his Mishneh Torah."
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://chabadlibrary.org/books/",
+    "target_page": null,
+    "label": "Chabad Library"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://ramhal.net/%d7%a1%d7%a4%d7%a8%d7%99-%d7%95%d7%9e%d7%90%d7%9e%d7%a8%d7%99-%d7%94%d7%a8%d7%9e%d7%97%d7%9c/",
+    "target_page": null,
+    "label": "Ramhal.net"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://www.hassidout.org/hassidout/Textes_Kodech/Kabbalah/index.php-rootid=103.htm",
+    "target_page": null,
+    "label": "Hassidout.org"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://www.responsa.co.il/home.en-US.aspx",
+    "target_page": null,
+    "label": "Bar Ilan Responsa Project"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Bar_Ilan_Responsa_Project",
+    "target_page": null,
+    "label": "Wikipedia - English"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://maagarim.hebrew-academy.org.il/Pages/PMain.aspx",
+    "target_page": null,
+    "label": "Ma'agarim - Historical Dictionary Project of the Hebrew Language"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%99%D7%9C%D7%95%D7%9F_%D7%94%D7%94%D7%99%D7%A1%D7%98%D7%95%D7%A8%D7%99_%D7%9C%D7%9C%D7%A9%D7%95%D7%9F_%D7%94%D7%A2%D7%91%D7%A8%D7%99%D7%AA",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://www.academia.edu/106385574/Words_of_Wisdom_Word_Counts_of_Classical_Jewish_Works",
+    "target_page": null,
+    "label": "Words of Wisdom:"
+  },
+  {
+    "page": 12,
+    "kind": 2,
+    "url": "https://www.academia.edu/106385574/Words_of_Wisdom_Word_Counts_of_Classical_Jewish_Works",
+    "target_page": null,
+    "label": "Word Counts of Classical Jewish Works"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://www.talmudyerushalmi.com/",
+    "target_page": null,
+    "label": "Talmud Yerushalmi digital critical edition"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://haifa.academia.edu/MenachemKatz",
+    "target_page": null,
+    "label": "Prof. Menachem Katz"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://schechter.ac.il/research-center/midrash/",
+    "target_page": null,
+    "label": "Midrash Project"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "http://www.biu.ac.il/JS/midrash/VR/",
+    "target_page": null,
+    "label": "Vayikra Rabba - synoptic edition"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://www.sup.org/zohar/aramaic/",
+    "target_page": null,
+    "label": "Aramaic Texts of The Zohar."
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://hamore.openapp.co.il/index.php/%D7%A2%D7%9E%D7%95%D7%93_%D7%A8%D7%90%D7%A9%D7%99",
+    "target_page": null,
+    "label": "Moreh Nevuchim"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://www.academia.edu/39895312/%D7%9E%D7%95%D7%A8%D7%94_%D7%94%D7%A0%D7%91%D7%95%D7%9B%D7%99%D7%9D_%D7%A8%D7%A9%D7%99%D7%9E%D7%AA_%D7%9E%D7%95%D7%A0%D7%97%D7%99_%D7%AA%D7%A8%D7%92%D7%95%D7%9D_%D7%95%D7%91%D7%99%D7%91%D7%9C%D7%99%D7%95%D7%92%D7%A8%D7%A4%D7%99%D7%94_Guide_for_the_Perplexed_Glossary_and_bibliography",
+    "target_page": null,
+    "label": "Guide for the Perplexed -"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://www.academia.edu/39895312/%D7%9E%D7%95%D7%A8%D7%94_%D7%94%D7%A0%D7%91%D7%95%D7%9B%D7%99%D7%9D_%D7%A8%D7%A9%D7%99%D7%9E%D7%AA_%D7%9E%D7%95%D7%A0%D7%97%D7%99_%D7%AA%D7%A8%D7%92%D7%95%D7%9D_%D7%95%D7%91%D7%99%D7%91%D7%9C%D7%99%D7%95%D7%92%D7%A8%D7%A4%D7%99%D7%94_Guide_for_the_Perplexed_Glossary_and_bibliography",
+    "target_page": null,
+    "label": "Glossary and bibliography"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://library.brown.edu/iip/index/",
+    "target_page": null,
+    "label": "Inscriptions of Israel/Palestine"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://library.brown.edu/iip/about/why_inscription/",
+    "target_page": null,
+    "label": "the About page"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://hebrewbooks.org/",
+    "target_page": null,
+    "label": "HebrewBooks"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/HebrewBooks",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources",
+    "target_page": null,
+    "label": "https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources"
+  },
+  {
+    "page": 13,
+    "kind": 2,
+    "url": "https://www.academia.edu/72403082/Talmud_Yerushalmi_Digital_Critical_Edition_IRCDL_2022",
+    "target_page": null,
+    "label": "Talmud Yerushalmi Digital Critical Edition - IRCDL 2022"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://beta.hebrewbooks.org/#gsc.tab=0",
+    "target_page": null,
+    "label": "https://beta.hebrewbooks.org/#gsc.tab=0"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://merhav.nli.org.il/primo-explore/search?vid=NLI&lang=iw_IL",
+    "target_page": null,
+    "label": "National Library of Israel"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/books/NNL_ALEPH001091556/NLI",
+    "target_page": null,
+    "label": "https://www.nli.org.il/he/books/NNL_ALEPH001091556/NLI"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://archives.cjh.org/",
+    "target_page": null,
+    "label": "Center for Jewish History"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://digipres.cjh.org/delivery/DeliveryManagerServlet?dps_pid=IE4934153",
+    "target_page": null,
+    "label": "the sefer"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://digipres.cjh.org/delivery/DeliveryManagerServlet?dps_pid=IE4934153",
+    "target_page": null,
+    "label": "Derech Yeshara"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://openlibrary.org/search/subjects?q=jewish+&mode=everything",
+    "target_page": null,
+    "label": "Open Library"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "http://www.halachabrura.org/library/library8l.htm#%D7%90%D7%91%D7%95%D7%AA",
+    "target_page": null,
+    "label": "Halacha Brura >מפרשי\nתוספתא"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "http://abuelafia.blogspot.com/",
+    "target_page": null,
+    "label": "Abuelafia.blogspot"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Abraham_Abulafia",
+    "target_page": null,
+    "label": "Avraham Abulafia"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://books.google.com/",
+    "target_page": null,
+    "label": "Google Books"
+  },
+  {
+    "page": 14,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/KotarApp/Viewer.aspx?nBookID=102847481",
+    "target_page": null,
+    "label": "ת\nhere"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "http://www.halachabrura.org/library/library0.htm",
+    "target_page": null,
+    "label": "the webpage indexing Tanach and Hazal"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "http://www.israel613.com/",
+    "target_page": null,
+    "label": "Israel613"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "http://www.halachabrura.org/library/library6.htm",
+    "target_page": null,
+    "label": "Halacha Brura > Kabbala"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "http://www.steinheim-institut.de/cgi-bin/epidat?lang=en&release=beta&id=&info=&show=&project=",
+    "target_page": null,
+    "label": "Epidat"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.eurojewishstudies.org/digital-forum-showcase-reports/epidat/",
+    "target_page": null,
+    "label": "website of European Association for Jewish Studies (EAJS)"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/72820895/Mahbarot_Menachamyiot_%D7%90%D7%A7%D7%93%D7%9E%D7%95%D7%AA_%D7%9C%D7%9E%D7%94%D7%93%D7%95%D7%A8%D7%94_%D7%A9%D7%9C_%D7%94%D7%AA%D7%9C%D7%9E%D7%95%D7%93_%D7%94%D7%91%D7%91%D7%9C%D7%99_%D7%9E%D7%A1%D7%9B%D7%AA_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA",
+    "target_page": null,
+    "label": "אקדמות\nלמהדורה\nשל\nהתלמוד\nהבבלי\n–\nמסכת\nקידושין\n–\nמחברות\nמנחמיות"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/11120558/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%AA%D7%9C%D7%9E%D7%95%D7%93_%D7%91%D7%91%D7%9C%D7%99_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%90_%D7%9E%D7%A9%D7%A0%D7%94_%D7%90_%D7%91_%D7%A2_%D7%90_%D7%99%D7%93_%D7%A2_%D7%91_",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nב\nע\"א-יד\nע\"ב"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/13224118/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%AA%D7%9C%D7%9E%D7%95%D7%93_%D7%91%D7%91%D7%9C%D7%99_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%90_%D7%9E%D7%A9%D7%A0%D7%99%D7%95%D7%AA_%D7%91_%D7%92_%D7%9E%D7%A1%D7%9B%D7%AA_%D7%A2%D7%91%D7%93%D7%99%D7%9D_%D7%99%D7%93_%D7%A2_%D7%91_%D7%9B%D7%94_%D7%A2_%D7%91_Qiddushin",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nיד\nע\"ב\nכה –\nע\"ב"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/18819286/Qiddushin_%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%AA%D7%9C%D7%9E%D7%95%D7%93_%D7%91%D7%91%D7%9C%D7%99_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%90_%D7%9E%D7%A9%D7%A0%D7%99%D7%95%D7%AA_%D7%93_%D7%95_%D7%A7%D7%A0%D7%99%D7%99%D7%A0%D7%99_%D7%91%D7%94%D7%9E%D7%94_%D7%95%D7%A0%D7%9B%D7%A1%D7%99%D7%9D_%D7%9B%D7%94_%D7%A2_%D7%91_%D7%9B%D7%98_%D7%A2_%D7%90_",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nכה\nע\"ב\nכט –\nע\"א"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/21126241/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%AA%D7%9C%D7%9E%D7%95%D7%93_%D7%91%D7%91%D7%9C%D7%99_%D7%9E%D7%A1%D7%9B%D7%AA_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%90_%D7%9E%D7%A9%D7%A0%D7%99%D7%95%D7%AA_%D7%96_%D7%99_%D7%9E%D7%A1%D7%9B%D7%AA_%D7%9E%D7%A6%D7%95%D7%95%D7%AA_%D7%9B%D7%98_%D7%A2_%D7%90_%D7%9E%D7%90_%D7%A2_%D7%90_",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nכט\nע\"א\n–\nמא\nע\"א"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/24587460/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%91_Qiddushin",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nמא\nע\"א\nנח –\nע\"ב"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/25088401/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%92_%D7%A0%D7%97_%D7%A2_%D7%91_%D7%A1%D7%98_%D7%A2_%D7%90_Qiddushin",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nנח\nע\"ב\nסט –\nע\"א"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.academia.edu/25445026/%D7%9E%D7%97%D7%91%D7%A8%D7%95%D7%AA_%D7%9E%D7%A0%D7%97%D7%9E%D7%99%D7%95%D7%AA_%D7%A7%D7%99%D7%93%D7%95%D7%A9%D7%99%D7%9F_%D7%A4%D7%A8%D7%A7_%D7%93_Qiddushin",
+    "target_page": null,
+    "label": "מסכת\nקידושין\nסט\nע\"א-פב\nע\"ב"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://www.otzar.org/otzaren/indexeng.asp",
+    "target_page": null,
+    "label": "Otzar HaHochma"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://books.google.com/advanced_book_search",
+    "target_page": null,
+    "label": "https://books.google.com/advanced_book_search"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946#p229838",
+    "target_page": null,
+    "label": "at Otzar"
+  },
+  {
+    "page": 15,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946#p229838",
+    "target_page": null,
+    "label": "HaHochma forum."
+  },
+  {
+    "page": 16,
+    "kind": 2,
+    "url": "https://www.otzar.org/mekuvan-mosdot.asp",
+    "target_page": null,
+    "label": "Add-ons include books from the following publishers"
+  },
+  {
+    "page": 16,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%90%D7%95%D7%A6%D7%A8_%D7%94%D7%97%D7%9B%D7%9E%D7%94",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 16,
+    "kind": 2,
+    "url": "http://212.199.162.70/viewtopic.php?t=39717",
+    "target_page": null,
+    "label": "the Otzar Hahochma post"
+  },
+  {
+    "page": 16,
+    "kind": 2,
+    "url": "https://web.nli.org.il/sites/nlis/en/manuscript",
+    "target_page": null,
+    "label": "Ktiv"
+  },
+  {
+    "page": 16,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%9B%D7%95%D7%9F_%D7%9C%D7%AA%D7%A6%D7%9C%D7%95%D7%9E%D7%99_%D7%9B%D7%AA%D7%91%D7%99_%D7%99%D7%93_%D7%A2%D7%91%D7%A8%D7%99%D7%99%D7%9D#%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98_%22%D7%9B%D7%AA%D7%99%D7%91%22",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://web.nli.org.il/sites/NLI/Hebrew/digitallibrary/moreshet_bareshet/Pages/default.aspx",
+    "target_page": null,
+    "label": "Moreshet B’reshet"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://web.nli.org.il/sites/nli/hebrew/collections/jewish-collection/talmud/pages/default.aspx",
+    "target_page": null,
+    "label": "webpage"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://archive.org/details/culhebrewmss?tab=collection",
+    "target_page": null,
+    "label": "Hebrew Manuscripts : Free Texts"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "http://bav.bodleian.ox.ac.uk/digitized-items-hebrew-manuscripts",
+    "target_page": null,
+    "label": "Digitized Items: Hebrew Manuscripts"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "http://bav.bodleian.ox.ac.uk/about-the-project",
+    "target_page": null,
+    "label": "the About page"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://digital.bodleian.ox.ac.uk/collections/hebrew/",
+    "target_page": null,
+    "label": "Hebrew Manuscripts and Printed Books"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://youtu.be/bCwfzfU4AJI",
+    "target_page": null,
+    "label": "YouTube video"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946#p229554",
+    "target_page": null,
+    "label": "Adiel Breuer’s 2015\nfootnote). There he"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946#p229554",
+    "target_page": null,
+    "label": "For a full list of library webs\nOtzar HaHochma forum post\nlists (with some short descrip"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://publicdomainreview.org/collections/source/british-library",
+    "target_page": null,
+    "label": "For a general extensive list of digitized library collections, see t\nhttps://publicdomainreview.org/collections/source/british-library\nThere’s an interesting analogue to Breur’s work, a German-lang"
+  },
+  {
+    "page": 17,
+    "kind": 2,
+    "url": "https://de.wikisource.org/wiki/Digitale_Sammlungen",
+    "target_page": null,
+    "label": "british-library.\nGerman-language Wikisource page\nmain German-language printed boo"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://bavli.genizah.org/",
+    "target_page": null,
+    "label": "Hachi Garsinan - The Friedberg Project for Talmud Bavli Variants"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "http://sussmann.genizah.org/Home/ZussmanCatalog",
+    "target_page": null,
+    "label": "Otzar Kitvey Yad Talmudiyyim"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://bavli.genizah.org/GeneralPages/DKS/DKS_Browse",
+    "target_page": null,
+    "label": "Dikdukei Sofrim"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://fgp.genizah.org/",
+    "target_page": null,
+    "label": "Friedberg Genizah Project"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://thetalmud.blog/2016/06/19/we-read-thus-on-hachi-garsinan-and-learning-talmud-in-the-21st-century/",
+    "target_page": null,
+    "label": "““We Read Thus”: On Hachi Garsinan and Learning Talmud in the\nne 19, 2016) ; Menachem Katz, Assael Shmeltzer, Hillel Gershuni,"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://thetalmud.blog/2016/06/19/we-read-thus-on-hachi-garsinan-and-learning-talmud-in-the-21st-century/",
+    "target_page": null,
+    "label": "See the reviews: Amit Gvarya\n21st century | The Talmud Blog\nSara Preis, \"The Hachi Garsina"
+  },
+  {
+    "page": 18,
+    "kind": 2,
+    "url": "https://bavli.genizah.org/Content/pdfFile/Introductions_B/Introductions_Eng/The%20Hachi%20Garsinan%20Project%20as%20a%20Critical%20Edition%20of%20the%20Talm.pdf",
+    "target_page": null,
+    "label": "| The Talmud Blog” (June 19, 2016) ; Menachem Katz, Assael Shm\n\"The Hachi Garsinan Project as a Critical Edition of the Talmud Bavli\ng. 627."
+  },
+  {
+    "page": 19,
+    "kind": 2,
+    "url": "https://manuscripts.genizah.org/",
+    "target_page": null,
+    "label": "Mahadura - the Friedberg Site for Transcriptions and Synopsis"
+  },
+  {
+    "page": 19,
+    "kind": 2,
+    "url": "https://rambam.genizah.org/",
+    "target_page": null,
+    "label": "Yad Harambam"
+  },
+  {
+    "page": 20,
+    "kind": 2,
+    "url": "https://nachumsite.genizah.org/",
+    "target_page": null,
+    "label": "The Nahum Collection of Yemenite Manuscripts"
+  },
+  {
+    "page": 20,
+    "kind": 2,
+    "url": "https://ja.genizah.org/",
+    "target_page": null,
+    "label": "The Friedberg Judeo-Arabic Project"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://ja.genizah.org/JA_Dictionary_pdfjs/JA_Dictionary.html",
+    "target_page": null,
+    "label": "מילון\nהערבית\nיהודית\nמימי\nהבינים\n:\nלתעודות\nהגניזה\nשל\nספר"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://ja.genizah.org/JA_Dictionary_pdfjs/JA_Dictionary.html",
+    "target_page": null,
+    "label": "הודו\nולטקסטים\nאחרים"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://geniza.princeton.edu/en/documents/",
+    "target_page": null,
+    "label": "Princeton Geniza Lab"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://genizalab.princeton.edu/pgp-database/about",
+    "target_page": null,
+    "label": "m About page"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://editions.erabbinica.org/",
+    "target_page": null,
+    "label": "Digital Mishnah Project"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://etc.princeton.edu/sefer_hasidim/index.php?a=manuscripts",
+    "target_page": null,
+    "label": "Princeton University Sefer Hasidim Database."
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://etc.princeton.edu/sefer_hasidim/index.php?a=about",
+    "target_page": null,
+    "label": "About"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://www.qerovot18.com/",
+    "target_page": null,
+    "label": "Qerovot-of-18 from the Cairo Genizah"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Piyyut",
+    "target_page": null,
+    "label": "paytanim"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Amidah",
+    "target_page": null,
+    "label": "Amidah"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Text_Encoding_Initiative",
+    "target_page": null,
+    "label": "\"Text Encoding Initiative"
+  },
+  {
+    "page": 21,
+    "kind": 2,
+    "url": "https://isf.org.il/layperson-reports/%D7%A4%D7%99%D7%95%D7%98%D7%99%D7%9D-%D7%9C%D7%AA%D7%A4%D7%99%D7%9C%D7%AA-%D7%94%D7%A2%D7%9E%D7%99%D7%93%D7%94-%D7%9E%D7%A4%D7%99-%D7%A4%D7%99%D7%99%D7%98%D7%A0%D7%99-20181218153326.html",
+    "target_page": null,
+    "label": "פיוטים\nלתפילת\nהעמידה\nמפי\nפייטני\nארץ\nישראל\n Thanks to Gila Prebor for pointing out thi"
+  },
+  {
+    "page": 22,
+    "kind": 2,
+    "url": "https://ilanot.org/",
+    "target_page": null,
+    "label": "The Ilanot Project"
+  },
+  {
+    "page": 22,
+    "kind": 2,
+    "url": "https://www.lieberman-institute.com/",
+    "target_page": null,
+    "label": "The Sol and Evelyn Henkind Talmud Text Databank ; Primary Textual Witnesses to Tannaitic"
+  },
+  {
+    "page": 22,
+    "kind": 2,
+    "url": "https://www.lieberman-institute.com/",
+    "target_page": null,
+    "label": "Literature"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://dicta.org.il/",
+    "target_page": null,
+    "label": "Dicta"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://dicta.org.il/about",
+    "target_page": null,
+    "label": "page"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://search.dicta.org.il/",
+    "target_page": null,
+    "label": "Tanach search"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://talmudsearch.dicta.org.il/",
+    "target_page": null,
+    "label": "Talmud Search"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://nakdan.dicta.org.il/",
+    "target_page": null,
+    "label": "Quick Nakdan:"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://citation.dicta.org.il/",
+    "target_page": null,
+    "label": "Citation finder"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://abbreviation.dicta.org.il/",
+    "target_page": null,
+    "label": "Rabbinic Abbreviation Expander"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://synoptic.dicta.org.il/",
+    "target_page": null,
+    "label": "Synopsis Builder"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://segment.dicta.org.il/",
+    "target_page": null,
+    "label": "Stylistic Segmentation"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://wordplay.dicta.org.il/",
+    "target_page": null,
+    "label": "Charuzit"
+  },
+  {
+    "page": 23,
+    "kind": 2,
+    "url": "https://removenikud.dicta.org.il/",
+    "target_page": null,
+    "label": "הסרת\nניקוד"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://dijest.net/digitize-your-texts-with-transkribus/",
+    "target_page": null,
+    "label": "Dijest model"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://readcoop.eu/model/hebrew-script-languages/",
+    "target_page": null,
+    "label": "https://readcoop.eu/model/hebrew-script-languages/"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://dijest.net/digitize-your-texts-with-transkribus/",
+    "target_page": null,
+    "label": "Dijest model"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://gitlab.com/scripta/escriptorium",
+    "target_page": null,
+    "label": "Escriptorium"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://genizalab.princeton.edu/projects/handwritten-text-recognition",
+    "target_page": null,
+    "label": "From the Princeton Geniza Lab website"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://escripta.hypotheses.org/500",
+    "target_page": null,
+    "label": "ERC Synergy MiDRASH Awarded to EPHE and partner institutions – eScripta"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://youtu.be/tut007D6w3o",
+    "target_page": null,
+    "label": "“eScriptorium for Handwritten Text\nssed 25-Feb-2022).\nn personal communication."
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://youtu.be/tut007D6w3o",
+    "target_page": null,
+    "label": "For overview, see the recent presen\nRecognition in Humanities Research\nFor use on Hebrew manuscripts, ther"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://sofermahir.hypotheses.org/59",
+    "target_page": null,
+    "label": "Presentation at the DHJewish confer\nhttps://sofermahir.hypotheses.org/59\nDH Tutorials - Goethe-Universität."
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://www.eurojewishstudies.org/digital-forum-showcase-reports/escriptorium/",
+    "target_page": null,
+    "label": "ourg, January 2021. URL:\n Digital Forum Showcases: eScriptorium"
+  },
+  {
+    "page": 24,
+    "kind": 2,
+    "url": "https://eajs-2023.eu/133556336/DH_Tutorials",
+    "target_page": null,
+    "label": "https://sofermahir.hypotheses.org\nDH Tutorials - Goethe-Universität\nKatz and Gershuni point out: “Unf"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://merhav.nli.org.il/primo-explore/search?query=any,contains,NNL&sortby=rank&vid=NLI&lang=en_US",
+    "target_page": null,
+    "label": "Merhav - The National Library"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/research-and-teach/catalogs",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://biu.primo.exlibrisgroup.com/",
+    "target_page": null,
+    "label": "Bar-Ilan Catalog"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://sfardata.nli.org.il/",
+    "target_page": null,
+    "label": "Sfardata"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A1%D7%A4%D7%A8-%D7%93%D7%AA%D7%90",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "http://www.hebrew-bibliography.com/",
+    "target_page": null,
+    "label": "The Bibliography of The Hebrew Book"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "http://uli.nli.org.il/F?func=find-b-0&local_base=mbi01",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://www.nli.org.il/en/research-and-teach/catalogs/bibliographic-databases",
+    "target_page": null,
+    "label": "https://www.nli.org.il/en/research-and-teach/catalogs/bibliographic-databases"
+  },
+  {
+    "page": 25,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9E%D7%A4%D7%A2%D7%9C_%D7%94%D7%91%D7%99%D7%91%D7%9C%D7%99%D7%95%D7%92%D7%A8%D7%A4%D7%99%D7%94_%D7%94%D7%A2%D7%91%D7%A8%D7%99%D7%AA",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "http://www.halachabrura.org/alephlink.htm",
+    "target_page": null,
+    "label": "Halacha Brura Institute - Virtual Library"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "https://www.academia.edu/93648655/Meta_index_of_Halacha_Bruras_index_of_scanned_Jewish_books",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "https://fjms.genizah.org/",
+    "target_page": null,
+    "label": "Thesaurus of Talmudic Manuscripts"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "https://bavli.genizah.org/",
+    "target_page": null,
+    "label": "Hachi Garsinan"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946",
+    "target_page": null,
+    "label": "רשימת\nאתרים\nואשכולות\nלסריקות\nכת\"י\nוספרי\nדפוס\nעתיקים"
+  },
+  {
+    "page": 26,
+    "kind": 2,
+    "url": "https://yerushalmidb.com/",
+    "target_page": null,
+    "label": "Talmud Yerushalmi Citation Database"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://netanya.academia.edu/MoshePinchuk",
+    "target_page": null,
+    "label": "Dr. Moshe Pinchuk"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "http://bibja.genizah.org/",
+    "target_page": null,
+    "label": "Bibliography of works in Judeo-Arabic"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://guides.library.upenn.edu/earlyprintedhebrewbook",
+    "target_page": null,
+    "label": "Introduction - History of the Early Printed Hebrew Book - Guides at Penn Libraries"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://www.jewishinternetguide.com/JewishWebsiteCategories/Books",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://www2.biu.ac.il/js/tl/yerushalmi/index.html",
+    "target_page": null,
+    "label": "Parallels in Yerushalmi"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://elyonimvetachtonim.project.uj.edu.pl/en_GB/databases/babylonian-talmud",
+    "target_page": null,
+    "label": "Elyonim veTachtonim"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://elyonimvetachtonim.project.uj.edu.pl/en_GB/about/legacy",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://peace.sites.uu.nl/epigraphy/search/",
+    "target_page": null,
+    "label": "PEACE Project - Portal of Epigraphy, Archaeology, Conservation and Education on Jewish"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://peace.sites.uu.nl/epigraphy/search/",
+    "target_page": null,
+    "label": "Funerary Culture"
+  },
+  {
+    "page": 27,
+    "kind": 2,
+    "url": "https://www.academia.edu/30989122/A_Database_for_the_Research_of_Talmud_Yerushalmi_Hebrew_",
+    "target_page": null,
+    "label": "I’d like to thank him for poin\nמאגרי\nמידע\nלתלמוד\nהירושלמי\""
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://peace.sites.uu.nl/about/peace/",
+    "target_page": null,
+    "label": "About page"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://www.seforimonline.org/seforim-database/",
+    "target_page": null,
+    "label": "Seforimonline.org"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Judaica_Archival_Project",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://web.archive.org/web/20050209182706/http://www.virtualgeula.com/archival/eng/cat-ti-e.htm#BB",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://web.archive.org/web/20070311031116/http://www.digento.de/zusatz/101413_01",
+    "target_page": null,
+    "label": "Archived list of primary works"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://www.heichal.co.il/departments/%D7%A1%D7%A4%D7%A8%D7%99%D7%9D/1",
+    "target_page": null,
+    "label": "Heichal Menahem"
+  },
+  {
+    "page": 28,
+    "kind": 2,
+    "url": "https://www.bonayich.com/project/otzar-hadmuyot/",
+    "target_page": null,
+    "label": "Otzar Hadmuyot"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://www.daat.ac.il/",
+    "target_page": null,
+    "label": "Daat"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://daat.ac.il/daat/bibliogr/allbooks.asp?sub=0",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://daat.ac.il/EPUB/home.asp",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%93%D7%A2%D7%AA_(%D7%90%D7%AA%D7%A8_%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98)",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFilesAll.aspx?PageId=211",
+    "target_page": null,
+    "label": "Portal HaDaf HaYomi"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=142",
+    "target_page": null,
+    "label": "קובץ"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=520",
+    "target_page": null,
+    "label": "דרכי\nהתלמודים"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=442",
+    "target_page": null,
+    "label": "פלפולא\nדאורייתא"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=36",
+    "target_page": null,
+    "label": "אמרי\nבמערבא"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=142",
+    "target_page": null,
+    "label": "יסודת\nוחקירות"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=561",
+    "target_page": null,
+    "label": "קובץ\nמיסודות\nהש”ס"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=363",
+    "target_page": null,
+    "label": "הידיעות\nהמדעיות\nשבדברי"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=403",
+    "target_page": null,
+    "label": "דע\nמאיין\nבאו"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=363",
+    "target_page": null,
+    "label": "ד"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=558",
+    "target_page": null,
+    "label": "אמונה\nטהורה"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=513",
+    "target_page": null,
+    "label": "מנא\nלהו"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=440",
+    "target_page": null,
+    "label": "באהלי\nשם"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=369",
+    "target_page": null,
+    "label": "היחס\nשבין\nהיקף\nהמעגל\nלרוחבו"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=363",
+    "target_page": null,
+    "label": "חז\"ל"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=544",
+    "target_page": null,
+    "label": "מבוא\nללימוד\nהתלמוד\nהירושלמי"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=559",
+    "target_page": null,
+    "label": "שעשועי"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/BookFiles.aspx?type=1&id=242",
+    "target_page": null,
+    "label": "ברוח\nטובה"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://daf-yomi.com/content.aspx?PageId=93",
+    "target_page": null,
+    "label": "Maps of Talmudic Babylonia"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "http://www.talmudha-igud.org.il/nosafot.asp?lang=en&id=5",
+    "target_page": null,
+    "label": "Society for the Interpretation of the Talmud"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%99%D7%92%D7%95%D7%93_%D7%9C%D7%A4%D7%A8%D7%A9%D7%A0%D7%95%D7%AA_%D7%94%D7%AA%D7%9C%D7%9E%D7%95%D7%93",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://asif.co.il/%d7%a1%d7%a4%d7%a8%d7%99%d7%99%d7%aa-%d7%99%d7%95%d7%9e%d7%90/%d7%a2%d7%91%d7%95%d7%93%d7%95%d7%aa-%d7%97%d7%a7%d7%a8/",
+    "target_page": null,
+    "label": "Asif - Sifriyat Asif (אסיף-ספריית\nאסיף\n)"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://asif.co.il/%d7%a1%d7%a4%d7%a8%d7%99%d7%99%d7%aa-%d7%99%d7%95%d7%9e%d7%90/%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/",
+    "target_page": null,
+    "label": "whole books"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://asif.co.il/%d7%a1%d7%a4%d7%a8%d7%99%d7%99%d7%aa-%d7%99%d7%95%d7%9e%d7%90/%d7%93%d7%a4%d7%99-%d7%99%d7%a9%d7%99%d7%91%d7%95%d7%aa/",
+    "target_page": null,
+    "label": "Torah journals"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://asif.co.il/%d7%a1%d7%a4%d7%a8%d7%99%d7%99%d7%aa-%d7%99%d7%95%d7%9e%d7%90/%d7%a1%d7%a4%d7%a8%d7%99%d7%9d/%d7%9e%d7%a9%d7%a0%d7%aa-%d7%aa%d7%a0%d7%90%d7%99%d7%9d/",
+    "target_page": null,
+    "label": "Mishnat Tana’im"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://ebooks.psik.io/home",
+    "target_page": null,
+    "label": "P’sik"
+  },
+  {
+    "page": 29,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/Ebooks%20%20Full%20",
+    "target_page": null,
+    "label": "Bar-Ilan University’s library guide"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.degruyter.com/search?query=licenseType%3A%22open-access%22&startItem=0&pageSize=10&sortBy=relevance&subjectFacet=JS&documentTypeFacet=book&languageFacet=en",
+    "target_page": null,
+    "label": "around 100 open-access books in English categorized as on"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.degruyter.com/search?query=licenseType%3A%22open-access%22&startItem=0&pageSize=10&sortBy=relevance&subjectFacet=JS&documentTypeFacet=book&languageFacet=en",
+    "target_page": null,
+    "label": "Jewish topics"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.jstor.org/subject/jewishstudies",
+    "target_page": null,
+    "label": "JSTOR"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.jstor.org/publisher/bjs",
+    "target_page": null,
+    "label": "JSTOR, Brown Judaic Studies"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/",
+    "target_page": null,
+    "label": "Kotar"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9B%D7%95%D7%AA%D7%A8_(%D7%A1%D7%A4%D7%A8%D7%99%D7%99%D7%94_%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99%D7%AA)",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://nli.userservices.exlibrisgroup.com/view/uresolver/972NNL_INST/openurl?Force_direct=false&ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2022-01-06T17%3A01%3A41IST&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-NNL_ALEPH&req_id=&rft_dat=ie=972NNL_INST/51440491650005171,ie=972NNL_INST:51440491650005171,language=heb,view=NLI&svc_dat=viewit&u.ignore_date_coverage=true&Force_direct=true&is_new_ui=true",
+    "target_page": null,
+    "label": "Merhav search"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://nli.userservices.exlibrisgroup.com/view/uresolver/972NNL_INST/openurl?Force_direct=false&ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2022-01-06T17%3A01%3A41IST&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-NNL_ALEPH&req_id=&rft_dat=ie=972NNL_INST/51440491650005171,ie=972NNL_INST:51440491650005171,language=heb,view=NLI&svc_dat=viewit&u.ignore_date_coverage=true&Force_direct=true&is_new_ui=true",
+    "target_page": null,
+    "label": "Such\nresults"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/KotarApp/Search.aspx?sSearchText=%D7%9E%D7%A9%D7%A0%D7%AA%20%D7%90%D7%A8%D7%A5%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C&lang=#0",
+    "target_page": null,
+    "label": "or the series\nץ\nישראל\nKotar search results"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.degruyter.com/document/doi/10.1515/9783110709834/html",
+    "target_page": null,
+    "label": "The Formation\n;"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.degruyter.com/document/doi/10.1515/9783110709834/html",
+    "target_page": null,
+    "label": "Search done on 23-Jan-2022. Example of books available: Ari Bergmann’s recen\nof the Talmud: Scholarship and Politics in Yitzhak Isaac Halevy’s Dorot Harishonim\nGuggenheimer’s recent translation into English and short commentary of Talmud Ye"
+  },
+  {
+    "page": 30,
+    "kind": 2,
+    "url": "https://www.degruyter.com/serial/jertal-b/html",
+    "target_page": null,
+    "label": "of the Talmud: Scholarship and Politics in Yitzhak Isaac Halevy’s Dorot Harishonim (2021) ;\nGuggenheimer’s recent translation into English and short commentary of Talmud Yershalmi\n(Guggenheimer’s translation is also available in Sefaria.)"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/kotarapp/index/Book.aspx?nBookID=104820662",
+    "target_page": null,
+    "label": "Sifrut Hazal HaEretz Yisra’elit"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/kotarapp/index/Book.aspx?nBookID=109043536",
+    "target_page": null,
+    "label": "Rashi VeHaPolemos HaYehudi HaNotzri"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/kotarapp/index/Book.aspx?nBookID=108308905",
+    "target_page": null,
+    "label": "Rabbeinu Tam"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/kotarapp/index/Book.aspx?nBookID=108702657",
+    "target_page": null,
+    "label": "HaGeniza MiKahir"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://kotar.cet.ac.il/kotarapp/index/Book.aspx?nBookID=105755469",
+    "target_page": null,
+    "label": "Mavo LeMidrashim"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/dp/B084YWP1C8",
+    "target_page": null,
+    "label": "The Iranian Talmud"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/dp/B00DY57D6C",
+    "target_page": null,
+    "label": "The Formation of the Babylonian Talmud"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/dp/B00SVSGVSI/",
+    "target_page": null,
+    "label": "From the Maccabees to the Mishnah"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/dp/B00B4FJ9BQ",
+    "target_page": null,
+    "label": "The Jewish Enlightenment"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/Cambridge-Companion-Rabbinic-Literature-Companions-ebook/dp/B00AA8JWQ0/",
+    "target_page": null,
+    "label": "The Cambridge Companion to the Talmud and"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.amazon.com/Cambridge-Companion-Rabbinic-Literature-Companions-ebook/dp/B00AA8JWQ0/",
+    "target_page": null,
+    "label": "Rabbinic Literature"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.magnespress.co.il/category/%D7%9E%D7%93%D7%A2%D7%99_%D7%94%D7%99%D7%94%D7%93%D7%95%D7%AA-76?format=ebook",
+    "target_page": null,
+    "label": "Magnes Press"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.jmberlin.de/en/digitized-historical-magazines-and-present-day-academic-journals",
+    "target_page": null,
+    "label": "Digitized Historical Magazines and Present-Day"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.jmberlin.de/en/digitized-historical-magazines-and-present-day-academic-journals",
+    "target_page": null,
+    "label": "See recent list of Jewish Studies journal w\nAcademic Journals | Jewish Museum Berlin"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.mayim.org.il/publications/#gsc.tab=0",
+    "target_page": null,
+    "label": "מבוא"
+  },
+  {
+    "page": 31,
+    "kind": 2,
+    "url": "https://www.mayim.org.il/publications/#gsc.tab=0",
+    "target_page": null,
+    "label": "53 As of 20-Jan-2022.\n This book is also a\nלמדרשים\n|\nמחלקי\nהמים"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/research-and-teach/catalogs/bibliographic-databases/rambi/kiryat-sefer",
+    "target_page": null,
+    "label": "Kiryat Sefer"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A7%D7%A8%D7%99%D7%AA_%D7%A1%D7%A4%D7%A8_(%D7%9E%D7%A4%D7%A2%D7%9C_%D7%91%D7%99%D7%91%D7%9C%D7%99%D7%95%D7%92%D7%A8%D7%A4%D7%99)",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://www.ybz.org.il/cathedra/gilyonot",
+    "target_page": null,
+    "label": "Cathedra"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A7%D7%AA%D7%93%D7%A8%D7%94_(%D7%9B%D7%AA%D7%91_%D7%A2%D7%AA)",
+    "target_page": null,
+    "label": "קתדרה\n)כתב\nעת(\n–\nויקיפדיה"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://www.ybz.org.il/?CategoryID=287&SearchParam=",
+    "target_page": null,
+    "label": "Pe’amim"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A4%D7%A2%D7%9E%D7%99%D7%9D",
+    "target_page": null,
+    "label": "פעמים\n–\nויקיפדיה"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://jewish-faculty.biu.ac.il/en/JSIJ",
+    "target_page": null,
+    "label": "Jewish Studies, an Internet Journal"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://www.ybz.org.il/?CategoryID=790",
+    "target_page": null,
+    "label": "Ginzei Qedem"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%92%D7%A0%D7%96%D7%99_%D7%A7%D7%93%D7%9D_(%D7%A9%D7%A0%D7%AA%D7%95%D7%9F)",
+    "target_page": null,
+    "label": "גנזי\nקדם\n)שנתון(\n–\nויקיפדיה"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%A6%D7%95%D7%A4%D7%94_%D7%9E%D7%90%D7%A8%D7%A5_%D7%94%D7%92%D7%A8",
+    "target_page": null,
+    "label": "הצופה"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%A6%D7%95%D7%A4%D7%94_%D7%9E%D7%90%D7%A8%D7%A5_%D7%94%D7%92%D7%A8",
+    "target_page": null,
+    "label": "מארץ\nהגר\n–\nויקיפדיה"
+  },
+  {
+    "page": 32,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%9E%D7%A7%D7%99%D7%A6%D7%99_%D7%A0%D7%A8%D7%93%D7%9E%D7%99%D7%9D",
+    "target_page": null,
+    "label": "מקיצי\nנרדמים"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://www.sefarim.fr/hamore/ref-Sifria_Magazines_Revue%20des%20%E9tudes%20juives_65_145.aspx",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%94%D7%9E%D7%A2%D7%99%D7%9F_(%D7%9B%D7%AA%D7%91_%D7%A2%D7%AA)",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "http://www.machonso.org/hamaayan/?task=list",
+    "target_page": null,
+    "label": "המעין-מכון\nשלמה\nאומן"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://daat.ac.il/he-il/kitveyet/hamayan/gilyonot",
+    "target_page": null,
+    "label": "Daat"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://herzogpress.herzog.ac.il/ktav.asp?id=2",
+    "target_page": null,
+    "label": "Netu’im"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "http://herzogpress.herzog.ac.il/ktav.asp?id=3",
+    "target_page": null,
+    "label": "Al Atar"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://law.tau.ac.il/dine_israel/published",
+    "target_page": null,
+    "label": "Dinei Yisra’el"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://jewish-faculty.biu.ac.il/node/669",
+    "target_page": null,
+    "label": "Masechet"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://orot.ac.il/%D7%98%D7%9C%D7%9C%D7%99-%D7%90%D7%95%D7%A8%D7%95%D7%AA",
+    "target_page": null,
+    "label": "Tallelei Orot"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://daat.ac.il/he-il/kitveyet/taleley_orot",
+    "target_page": null,
+    "label": "Daat"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://orot.ac.il/%D7%90%D7%95%D7%A8%D7%A9%D7%AA",
+    "target_page": null,
+    "label": "Oreshet"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://www.ariel.ac.il/wp/moreshet-israel-jurnal/",
+    "target_page": null,
+    "label": "Moreshet Israel"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "http://www.oqimta.org.il/PrevPublic.aspx",
+    "target_page": null,
+    "label": "Oqimta"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%90%D7%95%D7%A7%D7%99%D7%9E%D7%AA%D7%90_(%D7%9B%D7%AA%D7%91_%D7%A2%D7%AA)",
+    "target_page": null,
+    "label": "אוקימתא\n)כתב\nעת\n)"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://traditiononline.org/archives/",
+    "target_page": null,
+    "label": "Tradition"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://hakirah.org/Archieve.htm",
+    "target_page": null,
+    "label": "Hakira"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/%E1%B8%A4akirah_(journal)",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://www.cantors.org/journal-of-synagogue-music/",
+    "target_page": null,
+    "label": "Journal of Synagogue Music Archive - Cantors Assembly"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources",
+    "target_page": null,
+    "label": "https://huc.edu/libraries/free-online-resources/?table=Bible/Early%20Resources\nPrevious issues of Dinei Yisra’el available at Nevo ()נבוwith subscription, years a"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://www.nevo.co.il/Books.aspx?Type=1",
+    "target_page": null,
+    "label": "s/?tab\nNevo\nn of ho"
+  },
+  {
+    "page": 33,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?f=7&t=22946#p229554",
+    "target_page": null,
+    "label": "ious issues of Dinei Yisra’\nOtzar HaHochama forum"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://www.hebrewbooks.org/journals",
+    "target_page": null,
+    "label": "HebrewBooks"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A6%D7%A4%D7%95%D7%A0%D7%95%D7%AA",
+    "target_page": null,
+    "label": "צפונות"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://forum.otzar.org/viewtopic.php?t=25426",
+    "target_page": null,
+    "label": "Otzar Hachochma’s forum"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%97%D7%A1%D7%99%D7%93%D7%95%D7%AA_%D7%A7%D7%A8%D7%9C%D7%99%D7%9F#%D7%A7%D7%95%D7%91%D7%A5_%D7%91%D7%99%D7%AA_%D7%90%D7%94%D7%A8%D7%9F_%D7%95%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+    "target_page": null,
+    "label": "קובץ_בית_אהרן_וישראל#חסידות_קרלין"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%99%D7%A9%D7%95%D7%A8%D7%95%D7%9F_(%D7%9E%D7%90%D7%A1%D7%A3_%D7%AA%D7%95%D7%A8%D7%A0%D7%99)",
+    "target_page": null,
+    "label": "ישורון"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%99%D7%A9%D7%95%D7%A8%D7%95%D7%9F_(%D7%9E%D7%90%D7%A1%D7%A3_%D7%AA%D7%95%D7%A8%D7%A0%D7%99)",
+    "target_page": null,
+    "label": ")מאסף\nתורני\n)"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%99%D7%A8%D7%95%D7%A9%D7%AA%D7%A0%D7%95",
+    "target_page": null,
+    "label": "ירושתנו"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://www.jstor.org/subject/jewishstudies",
+    "target_page": null,
+    "label": "JSTOR"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://www.nevo.co.il/Books.aspx?Type=1",
+    "target_page": null,
+    "label": "Nevo"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://www.nevo.co.il/Books.aspx?Type=1",
+    "target_page": null,
+    "label": "Nevo \nרי"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%90%D7%A8%D7%A9%D7%AA:_%D7%A1%D7%A4%D7%A8_%D7%A9%D7%A0%D7%94_%D7%9C%D7%97%D7%A7%D7%A8_%D7%94%D7%A1%D7%A4%D7%A8_%D7%94%D7%A2%D7%91%D7%A8%D7%99",
+    "target_page": null,
+    "label": "the Wikipedia entry for the journal"
+  },
+  {
+    "page": 34,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%99%D7%A9%D7%A8%D7%90%D7%9C:_%D7%9B%D7%AA%D7%91%D7%99_%D7%A2%D7%AA_%D7%AA%D7%95%D7%A8%D7%A0%D7%99%D7%99%D7%9D",
+    "target_page": null,
+    "label": ":קטגוריה:ישראל\nכתבי\nעת\nתורניים\n–\nויקיפדיה"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Project_MUSE",
+    "target_page": null,
+    "label": "Project MUSE"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://jqr.pennpress.org/home/",
+    "target_page": null,
+    "label": "JQR"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://www.academia.edu/",
+    "target_page": null,
+    "label": "Academia.edu"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://ucsb.academia.edu/ElliotWolfson",
+    "target_page": null,
+    "label": "Elliot Wolfson has 165 articles there"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://hebrew-academy.org.il/topic/maamarim/",
+    "target_page": null,
+    "label": "Academy of Hebrew Language"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://daat.ac.il/he-il/kitveyet/",
+    "target_page": null,
+    "label": "Daat"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://lib.cet.ac.il/pages/",
+    "target_page": null,
+    "label": "Metah"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://lib.pshita.cet.ac.il/pages/frontpage.asp",
+    "target_page": null,
+    "label": "section of the website"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://lib.pshita.cet.ac.il/pages/frontpage.asp",
+    "target_page": null,
+    "label": "called “Peshita”"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://lib.cet.ac.il/pages/about.asp",
+    "target_page": null,
+    "label": "About page"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://lib.cet.ac.il/pages/sub.asp?source=139",
+    "target_page": null,
+    "label": "list"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "http://jgbherzog.jgaliciabukovina.net/index.php/he/article",
+    "target_page": null,
+    "label": "Ad Henah"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://www.chronicle.com/article/metrics-mania/",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://www.forbes.com/sites/drsarahbond/2017/01/23/dear-scholars-delete-your-account-at-academia-edu/?sh=17bc56872d62",
+    "target_page": null,
+    "label": "Th\nhere"
+  },
+  {
+    "page": 35,
+    "kind": 2,
+    "url": "https://libraries.ou.edu/content/understanding-academiaedu-and-researchgate",
+    "target_page": null,
+    "label": "re so\nhere"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "http://jgbherzog.jgaliciabukovina.net/index.php/he/node/2",
+    "target_page": null,
+    "label": "About page"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://www.tekhelet.com/library/",
+    "target_page": null,
+    "label": "Ptil Tekhelet"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://liebes.huji.ac.il/",
+    "target_page": null,
+    "label": "Yehuda Liebes"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://hcommons.org/deposits/?tag=hebrew+literature",
+    "target_page": null,
+    "label": "Humanities Commons"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/at-your-service/document-delivery-service/scans-within-library",
+    "target_page": null,
+    "label": "הזמנת"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/at-your-service/document-delivery-service/scans-within-library",
+    "target_page": null,
+    "label": "סריקות\nוהדפסות\nמאוספי\nהספרייה"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://web.nli.org.il/sites/NLI/Hebrew/library/services/interlibrary%20loan/Pages/photos_loan.aspx",
+    "target_page": null,
+    "label": "הזמנת\nצילומים\nמיוחדים"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://www.nli.org.il/he/research-and-teach/catalogs/bibliographic-databases/rambi",
+    "target_page": null,
+    "label": "RAMBI"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A8%D7%9E%D7%91%22%D7%99",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "http://rambish.org.il/",
+    "target_page": null,
+    "label": "RAMBISH"
+  },
+  {
+    "page": 36,
+    "kind": 2,
+    "url": "https://www.cotar-online.co.il/default.aspx?action=showKitveiEt",
+    "target_page": null,
+    "label": "Cotar Project - Collection of Torah Articles"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "http://www.huji.ac.il/htbin/doctors/index.cgi?tofes",
+    "target_page": null,
+    "label": "Hebrew University"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://www2.biu.ac.il/Academics/phd_heb/index-JSn.html",
+    "target_page": null,
+    "label": "Bar-Ilan University, Jewish Studies Department"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://digitalcollections.jtsa.edu/islandora/object/jts%3A617619",
+    "target_page": null,
+    "label": "Jewish Theological Seminary"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://scholar.google.com/",
+    "target_page": null,
+    "label": "Google Scholar"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "http://tiresias.haifa.ac.il/",
+    "target_page": null,
+    "label": "Tiresias: The Ancient Mediterranean Religions Source Database"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://www.lieberman-institute.com/",
+    "target_page": null,
+    "label": "Index of References Dealing with Talmudic Literature"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://www.oxfordbibliographies.com/obo/page/jewish-studies",
+    "target_page": null,
+    "label": "Oxford Bibliographies in Jewish Studies"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/node/1702",
+    "target_page": null,
+    "label": "Bar-Ilan University’s library guide"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://www.digitalhumanities.org/dhq/vol/17/1/000651/000651.html",
+    "target_page": null,
+    "label": "https://www.digitalhumanities.org/dhq/vol/17/1/000651/000651.html"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://tiresias.haifa.ac.il/?subj=burial",
+    "target_page": null,
+    "label": "https://tiresias.haifa.ac.il/?subj=burial."
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://tiresias.haifa.ac.il/?subj=synagogue",
+    "target_page": null,
+    "label": "https://tiresias.haifa.ac.il/?subj=synagogue"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://tiresias.haifa.ac.il/texts",
+    "target_page": null,
+    "label": "https://tiresias.haifa.ac.il/texts"
+  },
+  {
+    "page": 37,
+    "kind": 2,
+    "url": "https://tiresias.haifa.ac.il/?subj=ezezez:1778",
+    "target_page": null,
+    "label": "https://tiresias.haifa.ac.il/?subj=ezezez:1778"
+  },
+  {
+    "page": 38,
+    "kind": 2,
+    "url": "https://www.jewishencyclopedia.com/",
+    "target_page": null,
+    "label": "Jewish Encyclopedia"
+  },
+  {
+    "page": 38,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%A8%D7%98%D7%9C:%D7%99%D7%94%D7%93%D7%95%D7%AA",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 38,
+    "kind": 2,
+    "url": "https://www.hamichlol.org.il/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%94%D7%9E%D7%9B%D7%9C%D7%95%D7%9C:_%D7%A2%D7%A8%D7%9B%D7%99%D7%9D_%D7%A9%D7%A0%D7%95%D7%A6%D7%A8%D7%95_%D7%91%D7%9E%D7%9B%D7%9C%D7%95%D7%9C",
+    "target_page": null,
+    "label": "Hamichlol."
+  },
+  {
+    "page": 38,
+    "kind": 2,
+    "url": "https://www.yeshiva.org.il/wiki/index.php/%D7%95%D7%99%D7%A7%D7%99%D7%A9%D7%99%D7%91%D7%94:%D7%90%D7%A0%D7%A6%D7%99%D7%A7%D7%9C%D7%95%D7%A4%D7%93%D7%99%D7%94_%D7%AA%D7%9C%D7%9E%D7%95%D7%93%D7%99%D7%AA",
+    "target_page": null,
+    "label": "Encyclopedia Talmudit - Micropedia"
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/node/264",
+    "target_page": null,
+    "label": "Bar-Ilan University’s"
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://lib.biu.ac.il/en/node/264",
+    "target_page": null,
+    "label": "page"
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://www.google.com/search?q=Encyclopaedia+Judaica+site%3Ahttps%3A%2F%2Fwww.encyclopedia.com%2F&lr=&safe=images&as_qdr=all&sxsrf=AOaemvKXF14_YwN1km1VZc1A5Ydsgo3PZg%3A1643176582404&ei=huLwYeb2F_2p9u8PwNiUwAk&ved=0ahUKEwjm0fzj3c71AhX9lP0HHUAsBZgQ4dUDCA4&uact=5&oq=Encyclopaedia+Judaica+site%3Ahttps%3A%2F%2Fwww.encyclopedia.com%2F&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsANKBAhBGABKBAhGGABQ7ANYtDBg-zNoAXACeACAAWuIAdYBkgEDMC4ymAEAoAECoAEByAEDwAEB&sclient=gws-wiz",
+    "target_page": null,
+    "label": "google search \"Encyclopaedia Judaica site:https://www.encyclopedia.com/\"."
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://brill.com/view/db/ejo",
+    "target_page": null,
+    "label": "Encyclopaedia of Judaism Online"
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://brill.com/view/db/ejio",
+    "target_page": null,
+    "label": "Encyclopedia of Jews in the Islamic World Online."
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://brill.com/view/db/ejhc",
+    "target_page": null,
+    "label": "Encyclopedia of Jewish History and Culture Online"
+  },
+  {
+    "page": 39,
+    "kind": 2,
+    "url": "https://brill.com/view/db/ehhl",
+    "target_page": null,
+    "label": "Encyclopedia of Hebrew Language and Linguistics Online"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://he.wiktionary.org/wiki/%D7%A2%D7%9E%D7%95%D7%93_%D7%A8%D7%90%D7%A9%D7%99",
+    "target_page": null,
+    "label": "Wiktionary - Hebrew"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://www.sefaria.org/Jastrow",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://en.wikisource.org/wiki/A_Dictionary_of_the_Targumim,_the_Talmud_Babli_and_Yerushalmi,_and_the_Midrashic_Literature",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "http://www.tyndalearchive.com/TABS/Jastrow//",
+    "target_page": null,
+    "label": "here"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://benyehuda.org/dict/24412",
+    "target_page": null,
+    "label": "Ben-Yehuda Dictionary"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://www.sefaria.org/Sefer_HeArukh",
+    "target_page": null,
+    "label": "R’ Natan of Rome, Sefer HeArukh, ed. Lublin 1883"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://www.sefaria.org/Sefer_HeArukh",
+    "target_page": null,
+    "label": "Sefaria"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://www.sefaria.org/Hafla'ah_ShebaArakhin_on_Sefer_HeArukh",
+    "target_page": null,
+    "label": "R’ Isaiah Berlin’s Hafla'ah ShebaArakhin on Sefer HeArukh"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://hebrew-academy.org.il/%d7%94%d7%9e%d7%99%d7%9c%d7%95%d7%9f-2/",
+    "target_page": null,
+    "label": "Academy of Hebrew language’s online dictionary"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://pastebin.com/ztKwQJSU",
+    "target_page": null,
+    "label": "Zohar Dictionary by Daniel Matt"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://www.nli.org.il/en/discover/judaism/jewish-bookshelf/zohar/scholem-card-catalog",
+    "target_page": null,
+    "label": "Gershom Scholem, Lexicon to Sefer Zohar"
+  },
+  {
+    "page": 40,
+    "kind": 2,
+    "url": "https://hebrew-academy.org.il/",
+    "target_page": null,
+    "label": "Academy of Hebrew Language"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Academy_of_the_Hebrew_Language",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://thegemara.com/",
+    "target_page": null,
+    "label": "TheGemara.com"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://thegemara.com/about",
+    "target_page": null,
+    "label": "About Us"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.myjewishlearning.com/category/study/jewish-history/ancient-medieval-jewish-history/",
+    "target_page": null,
+    "label": "My Jewish Learning"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.929.org.il/p/home",
+    "target_page": null,
+    "label": "929- Tanach B’yachad"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.929.org.il/page/528/post/12882",
+    "target_page": null,
+    "label": "on the phrase"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.929.org.il/page/528/post/12882",
+    "target_page": null,
+    "label": "\"עומד\nעל\nהפרק\n\""
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.makorrishon.co.il/",
+    "target_page": null,
+    "label": "Makor Rishon"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.makorrishon.co.il/tag/%D7%9E%D7%95%D7%A1%D7%A3-%D7%A9%D7%91%D7%AA/",
+    "target_page": null,
+    "label": "Mussaf Shabbat"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Makor_Rishon",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 41,
+    "kind": 2,
+    "url": "https://www.tau.ac.il/sites/tau.ac.il.en/files/media_server/imported/508/files/2014/10/elior-25.11.2013.pdf",
+    "target_page": null,
+    "label": "in scholarly discussion, see Prof. Bezalel Bar-Kochva’s critique of Prof. Rachel Elior:\nhttps://www.tau.ac.il/sites/tau.ac.il.en/files/media_server/imported/508/files/2014/10/elior-25.11.2013.pdf\nHowever, it must be admitted that that's an unusual case."
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://www.nli.org.il/en/newspapers/haretz/",
+    "target_page": null,
+    "label": "Jpress archive"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Haaretz",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://segulamag.com/",
+    "target_page": null,
+    "label": "Segula"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://he.wikipedia.org/wiki/%D7%A1%D7%92%D7%95%D7%9C%D7%94_(%D7%9E%D7%92%D7%96%D7%99%D7%9F)",
+    "target_page": null,
+    "label": "Wikipedia - Hebrew"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://www.tabletmag.com/",
+    "target_page": null,
+    "label": "Tablet"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Tablet_(magazine)",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://jewishreviewofbooks.com/",
+    "target_page": null,
+    "label": "Jewish Review of Books"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Jewish_Review_of_Books",
+    "target_page": null,
+    "label": "Wikipedia"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://en.wikipedia.org/wiki/Closed_platfor",
+    "target_page": null,
+    "label": "\"walled gardens"
+  },
+  {
+    "page": 42,
+    "kind": 2,
+    "url": "https://www.haaretz.co.il/magazine/the-edge/mehasafa/.premium-1.2853618",
+    "target_page": null,
+    "label": "le on Hebrew linguistics, on the word “\n:”\nהמילה\nׁשַחְצָן:\nמה\nהקשר\nבין\nאריות\nלנחשים\nhttps://www.haaretz.co.il/magazine/the-edge/mehasafa/.premium-1.2853618"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://seforimblog.com/",
+    "target_page": null,
+    "label": "The Seforim Blog"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://thetalmud.blog/",
+    "target_page": null,
+    "label": "The Talmud Blog"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://www.rationalistjudaism.com/",
+    "target_page": null,
+    "label": "Rationalist Judaism"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/",
+    "target_page": null,
+    "label": "Lehrhaus"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://thelehrhaus.com/talmud-and-halakhah/",
+    "target_page": null,
+    "label": "Talmud and Halacha"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://esknowcirc.hypotheses.org/",
+    "target_page": null,
+    "label": "Knowledge in Circulation"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://kavvanah.blog/",
+    "target_page": null,
+    "label": "Kavvanah.blog- The Book of Doctrines and Opinions"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://blogs.cul.columbia.edu/jewishstudiesatcul/",
+    "target_page": null,
+    "label": "Jewish Studies @ CUL"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://edblogs.columbia.edu/footprints/",
+    "target_page": null,
+    "label": "Footprints Blog – Tracing Jewish Books Through Time and Place"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://safranim.com/",
+    "target_page": null,
+    "label": "Safranim"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://amhasefer.wordpress.com/",
+    "target_page": null,
+    "label": "Am Hasefer"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://manuscriptboy.blogspot.com/",
+    "target_page": null,
+    "label": "Hagahot"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://imhm.blogspot.com/",
+    "target_page": null,
+    "label": "Giluy Milta B'alma"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://onthemainline.blogspot.com/",
+    "target_page": null,
+    "label": "On the Main Line"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://englishhebraica.blogspot.com/",
+    "target_page": null,
+    "label": "English Hebraica"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://elucidation-not-translation.blogspot.com/",
+    "target_page": null,
+    "label": "What's Bothering Artscroll?"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://hollanderbooks.blogspot.com/",
+    "target_page": null,
+    "label": "Hollander Books Blog"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://kol-safran.blogspot.com/",
+    "target_page": null,
+    "label": "Kol Safran"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://judaicaused.blogspot.com/",
+    "target_page": null,
+    "label": "Musings of a Jewish Bookseller"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "http://notrikon.blogspot.com/",
+    "target_page": null,
+    "label": "Notrikon"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://onegshabbat.blogspot.com/",
+    "target_page": null,
+    "label": "Oneg Shabbat"
+  },
+  {
+    "page": 43,
+    "kind": 2,
+    "url": "https://blog.nli.org.il/",
+    "target_page": null,
+    "label": "HaSafranim - Blog of National Library of Israel"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://blog.nli.org.il/en/",
+    "target_page": null,
+    "label": "The Librarians."
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://7minim.wordpress.com/tag/%d7%a7%d7%91%d7%9c%d7%94/",
+    "target_page": null,
+    "label": "7minim"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "http://parsha.blogspot.com/",
+    "target_page": null,
+    "label": "Parshablog"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://scribalerror.substack.com/",
+    "target_page": null,
+    "label": "Scribal Error"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.ezrabrand.com/",
+    "target_page": null,
+    "label": "Talmud & Tech"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.ruvik.co.il/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99-%D7%9E%D7%99%D7%9C%D7%99%D7%9D.aspx",
+    "target_page": null,
+    "label": "HaZirah HaLeshonit - Ruvik Rozental"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://leshoniada.co.il/",
+    "target_page": null,
+    "label": "Leshoniada"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.safa-ivrit.org/site_map.php",
+    "target_page": null,
+    "label": "Safa Ivrit"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.balashon.com/",
+    "target_page": null,
+    "label": "Balashon"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://mosaicmagazine.com/author/philologos/",
+    "target_page": null,
+    "label": "Philologos"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://aramaiczohar.wordpress.com/",
+    "target_page": null,
+    "label": "The Aramaic Language of the Zohar"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.youtube.com/user/NLI2010/videos",
+    "target_page": null,
+    "label": "National Library of Israel"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.youtube.com/user/TheIsraelAcademy/videos",
+    "target_page": null,
+    "label": "The Israel Academy of Sciences and Humanities"
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.youtube.com/user/TheIsraelAcademy/featured",
+    "target_page": null,
+    "label": "The Israel Academy of Sciences and Humanities - YouTube\nt showed in my email inbox of youtube being used for live str\nanneling Jewish History”."
+  },
+  {
+    "page": 44,
+    "kind": 2,
+    "url": "https://www.academia.edu/94396791/List_of_some_Greek_loan_words_in_Hazalic_writings",
+    "target_page": null,
+    "label": "are a\nhere,"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/user/HebrewUniversity/videos",
+    "target_page": null,
+    "label": "Hebrew University"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/c/barilanuniversity/videos",
+    "target_page": null,
+    "label": "Bar-Ilan University"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/c/yadybenzvi/videos",
+    "target_page": null,
+    "label": "Yad Ben-Zvi"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/c/TorahinMotion/videos",
+    "target_page": null,
+    "label": "Torah in Motion"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://youtube.com/playlist?list=PLGQrWlI7O--7uHNeabUKagPJ5vcjOVoUm",
+    "target_page": null,
+    "label": "The"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://youtube.com/playlist?list=PLGQrWlI7O--7uHNeabUKagPJ5vcjOVoUm",
+    "target_page": null,
+    "label": "Changing Nature of Time in Halakha"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.seforimchatter.com/podcasts/",
+    "target_page": null,
+    "label": "Seforim Chatter"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://seforimchatter.buzzsprout.com/1218638/4566857-with-prof-marc-shapiro-discussing-his-books-rav-mazuz-rabbi-dr-yitzchak-isadore-twersky-and-more",
+    "target_page": null,
+    "label": "Prof. Marc Shapiro"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://seforimchatter.buzzsprout.com/1218638/4566965-with-rabbi-dr-jacob-j-schacter-discussing-rav-yaakov-emden-the-yaavetz",
+    "target_page": null,
+    "label": "Jacob J. Schacter"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://twitter.com/SeforimChatter",
+    "target_page": null,
+    "label": "Twitter feed"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://podcasts.apple.com/us/podcast/misfit-torah/id1399327341",
+    "target_page": null,
+    "label": "Misfit Torah"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/channel/UCZ04ugbTVoUm5W0b6j-YKGA/videos",
+    "target_page": null,
+    "label": "Channeling Jewish History"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://youtu.be/rsRBlTIdPxA",
+    "target_page": null,
+    "label": "such as Prof. Marc Shapiro"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/c/AllDaf/videos",
+    "target_page": null,
+    "label": "AllDaf"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://seforimblog.com/2022/01/daf-yomi-seforim-on-moed-katan-part-one/",
+    "target_page": null,
+    "label": "here,"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://traditiononline.org/traditionpodcast/",
+    "target_page": null,
+    "label": "Tradition Podcast."
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.youtube.com/channel/UCwLJ3A3MauDGLxLMIKuaqEQ/videos",
+    "target_page": null,
+    "label": "YouTube channel"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://youtu.be/8ey_9QBvv2w",
+    "target_page": null,
+    "label": "an interview with Prof. Eric Lawee on a new book of his"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://castbox.fm/channel/%D7%A2%D7%9D-%D7%94%D7%A1%D7%A4%D7%A8---%D7%A1%D7%A4%D7%A8%D7%99%D7%99%D7%AA-%D7%94%D7%A8%D7%9E%D7%91%22%D7%9D-%D7%91%D7%99%D7%AA-%D7%90%D7%A8%D7%99%D7%90%D7%9C%D7%94-id1922735",
+    "target_page": null,
+    "label": "Am HaSefer - Rambam Library - Beit Ariela"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://associationforjewishstudies.org/publications-research/adventures-in-jewish-studies-podcast",
+    "target_page": null,
+    "label": "AJS Adventure in Jewish Studies Podcast series"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.facebook.com/groups/2213868834/",
+    "target_page": null,
+    "label": "“Channeling Jewish History Group"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.seforimchatter.com/tweets/",
+    "target_page": null,
+    "label": "up to Twitter as they can see all the twe\nhttps://www.seforimchatter.com/tweets/\nSee the recent article about the podcas"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://mishpacha.com/one-for-the-books-3/",
+    "target_page": null,
+    "label": "One for the Books – Mishpacha\nchatter podcast”. See there this"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://mishpacha.com/one-for-the-books-3/",
+    "target_page": null,
+    "label": "See the re\nMagazine\ninteresting"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/94100918/Index_by_century_discussed_of_interviews_of_historians_on_Seforim_Chatter_podcast",
+    "target_page": null,
+    "label": "t think they’re befitting a frum podcast.”\n“Index, by century discussed, of interviews of historians"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/94100918/Index_by_century_discussed_of_interviews_of_historians_on_Seforim_Chatter_podcast",
+    "target_page": null,
+    "label": "70 Admin of the Facebook gr\nFor an index of podcast epis\non Seforim Chatter podcast"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://seforimchatter.buzzsprout.com/1218638/4587641-introduction-show",
+    "target_page": null,
+    "label": "Introduction Show, Seforimchatter,\nhttps://seforimchatter.buzzsprout.com/1218638/4587641-introduction-show\nEpisode 18. (Accessed 13-Feb-22)."
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/59622961/_Three_Lectures_on_Habad_Hasidism_Schocken_Institute_Jerusalem_November_8_15_22_2021_Poser_Video_",
+    "target_page": null,
+    "label": "(PDF) 'Three Lectures on Habad Hasidism', Schocken Institute, Jerusalem, November 8, 15, 22, 2021"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/59622961/_Three_Lectures_on_Habad_Hasidism_Schocken_Institute_Jerusalem_November_8_15_22_2021_Poser_Video_",
+    "target_page": null,
+    "label": "(Poser + Video) | Jonatan Meir - Academia.edu"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/38628191/Best_of_the_Web_for_the_Zohar_lectures_interviews_conferences_and_courses_rev_5_11_20_",
+    "target_page": null,
+    "label": "her"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/38628191/Best_of_the_Web_for_the_Zohar_lectures_interviews_conferences_and_courses_rev_5_11_20_",
+    "target_page": null,
+    "label": "Academia.edu page: \"Best of the Web for the Zohar: lectures, interviews, conferences & courses"
+  },
+  {
+    "page": 45,
+    "kind": 2,
+    "url": "https://www.academia.edu/38628191/Best_of_the_Web_for_the_Zohar_lectures_interviews_conferences_and_courses_rev_5_11_20_",
+    "target_page": null,
+    "label": "(rev.5/11/20)\""
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://mobile.twitter.com/hchesner",
+    "target_page": null,
+    "label": "Michelle Margolis (@hchesner) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://mobile.twitter.com/Footprints_Heb",
+    "target_page": null,
+    "label": "Footprints Project (@Footprints_Heb) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://twitter.com/nlisrael",
+    "target_page": null,
+    "label": "National Library of Israel (@NLIsrael) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://twitter.com/nlitorani",
+    "target_page": null,
+    "label": "נתן\nהירשNathan Hirsch (@NLITorani) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://t.me/s/NLITorani",
+    "target_page": null,
+    "label": "https://t.me/s/NLITorani"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://www.facebook.com/nathan.hirsch1",
+    "target_page": null,
+    "label": "Nathan Hirsch | Facebook"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://mobile.twitter.com/dayenupal",
+    "target_page": null,
+    "label": "DayenuPal"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://mobile.twitter.com/hashtag/dhjewish?src=hashtag_click",
+    "target_page": null,
+    "label": "#dhjewish - Twitter Search / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://twitter.com/genizalab",
+    "target_page": null,
+    "label": "Princeton Geniza Lab (@GenizaLab) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://twitter.com/mrustow",
+    "target_page": null,
+    "label": "Marina Rustow (@mrustow) / Twitter"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://www.facebook.com/NEAlibrary/?ref=aymt_homepage_panel",
+    "target_page": null,
+    "label": "Norman E. Alexander Library for Jewish Studies - Home | Facebook"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://forum.otzar.org/index.php",
+    "target_page": null,
+    "label": "Otzar HaChochma’s forum"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://daf-yomi.com/forums/forum.aspx?id=1",
+    "target_page": null,
+    "label": "Daf-yomi.com’s forum"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://podcasts.apple.com/us/podcast/good-faith-effort/id1536163226",
+    "target_page": null,
+    "label": "“Good Faith Effort"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://www.youtube.com/channel/UCR6pKCe9d3jczqrMnOls4Pw/videos",
+    "target_page": null,
+    "label": "YouTube"
+  },
+  {
+    "page": 46,
+    "kind": 2,
+    "url": "https://www.youtube.com/channel/UCR6pKCe9d3jczqrMnOls4Pw/videos",
+    "target_page": null,
+    "label": "A few \nchannel"
+  },
+  {
+    "page": 47,
+    "kind": 2,
+    "url": "https://www.bhol.co.il/forums/forum.asp?cat_id=38&forum_id=19616",
+    "target_page": null,
+    "label": "Behadrei Haredim - Forum: Seforim and Sofrim"
+  },
+  {
+    "page": 47,
+    "kind": 2,
+    "url": "https://judaism.stackexchange.com/",
+    "target_page": null,
+    "label": "Judaism.stackexchange.com"
+  },
+  {
+    "page": 47,
+    "kind": 2,
+    "url": "https://play.google.com/store/apps/details?id=org.sefaria.sefaria&hl=en&gl=US",
+    "target_page": null,
+    "label": "Sefaria"
+  },
+  {
+    "page": 47,
+    "kind": 2,
+    "url": "https://appstore.artscroll.com/",
+    "target_page": null,
+    "label": "Artscroll"
+  },
+  {
+    "page": 47,
+    "kind": 2,
+    "url": "https://play.google.com/store/apps/details?id=com.Rollep.MishneTora&hl=en&gl=US",
+    "target_page": null,
+    "label": "Rambam Plus - Mishneh Torah - Mifal Mishneh Torah."
+  }
+]

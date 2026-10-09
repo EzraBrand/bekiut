@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://associationforjewishstudies.org/publications-research/adventures-in-jewish-studies-podcast",
+    "alternativeUrl": "https://www.associationforjewishstudies.org/podcasts",
+    "note": "Current official page explicitly titled Adventures in Jewish Studies; content reviewed 2026-10-09. Appropriate replacement for the podcast landing page."
+  },
+  {
+    "url": "https://web.nli.org.il/sites/nlis/en/manuscript",
+    "alternativeUrl": "https://www.nli.org.il/en/discover/manuscripts/hebrew-manuscripts",
+    "note": "Current official Ktiv entry point; content reviewed 2026-10-09. A collection-level alternative, not proof that every function or item at the old URL survives."
+  },
+  {
+    "url": "https://web.nli.org.il/sites/nli/hebrew/collections/jewish-collection/talmud/pages/default.aspx",
+    "alternativeUrl": "https://www.nli.org.il/en/discover/manuscripts",
+    "note": "Current official manuscripts landing page; content reviewed 2026-10-09. Broader fallback only, not an exact replacement for the former Talmud collection page."
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Closed_platfor",
+    "alternativeUrl": "https://en.wikipedia.org/wiki/Closed_platform",
+    "note": "Likely truncated title in the PDF hyperlink. Suggested spelling correction only; destination content not verified in this pass."
+  }
+]
