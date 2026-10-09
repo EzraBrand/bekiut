@@ -1,39 +1,16 @@
 ---
-name: BDB symbol/letter abbreviation keys
-description: Why single-character symbol keys that double as script letters need a citation-context guard in expandAbbreviations.
+name: BDB symbol and letter keys
+description: Standalone psi means Psalms; preserve Unicode boundaries within quoted words.
 ---
 
-# BDB symbol keys that are also valid script letters
+Standalone lowercase ψ and uppercase Ψ must expand to Psalms, even without a numeric locator.
 
-When a BDB abbreviation key is a single character that is *also* a normal letter
-in some script the lexicon quotes (e.g. `ψ` = Psalms siglum, but also the Greek
-letter inside words like ψυχή), a bare `key -> expansion` mapping in
-`shared/data/lexicon-mappings/bdb.json` will corrupt those quoted words.
+**Why:** The user explicitly requested both forms. BDB refers to the book without verse numbers, as in Baer (ψ p. 115) and “at beginning or end of ψ”; requiring a following digit leaves unwanted transliterations.
 
-**Why:** BDB reuses script letters as editorial symbols. Word boundaries alone
-cannot distinguish a standalone quoted letter from a citation siglum. Earlier
-ASCII-only boundaries also corrupted letters inside foreign-script words;
-Unicode-aware boundaries now protect those words.
+**How to apply:** Use Unicode-aware word boundaries to preserve letters inside Greek words such as ψυχή, but do not restore the old numeric-citation-only guard. Verify expansion before transliteration in the rendered reader.
 
-**How to apply:** Add a per-key guard in candidate selection that only fires the expansion in the
-intended context. For `ψ`, BDB only uses it as a Psalms citation (`ψ 23`,
-`ψ 119:105`), so the guard requires the match be followed by optional space + a
-digit; otherwise return the match unchanged. Mirror this pattern for any future
-symbol-that-is-also-a-letter key.
+Never use ASCII-only word boundaries for dictionary abbreviations.
 
-## Unicode word boundaries in expandAbbreviations
+**Why:** They treat accented and non-Latin letters as boundaries, allowing short keys to corrupt multilingual words.
 
-`expandAbbreviations` must NOT rely on JS `\b` for token boundaries. `\b` only
-recognises ASCII word chars, so a key like `Pe` matched inside `Peḳaḥ` (the `ḳ` =
-U+1E33 counts as non-word, satisfying `\b`). Same risk for any key adjacent to
-accented transliteration letters, Hebrew, Greek, etc.
-
-**Why:** abbreviation keys are short; without true boundaries they match as
-prefixes/suffixes of longer multilingual words.
-
-**How to apply:** Build boundaries from Unicode property escapes
-`[\p{L}\p{N}\p{M}_]` with negative lookarounds and the `u` flag, anchoring a side
-only when the key's edge char is itself a word char. Symbol/punctuation edges
-(e.g. `(Sym`, `+.`) need no anchor. When adding the `u` flag, every regex over a
-mapping key must still escape regex metacharacters (already done) so it stays
-valid in unicode mode.
+**How to apply:** Protect neighboring Unicode letters, numbers, and combining marks; add contextual exceptions only when supported by actual source usage.

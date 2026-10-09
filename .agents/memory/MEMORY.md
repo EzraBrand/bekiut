@@ -1,5 +1,5 @@
 - [SEO crawler SSR](seo-crawler-ssr.md) — static SPA serves homepage meta on every route; a small node server injects per-page crawler meta. Internal enhance fetch must use a FIXED base URL.
-- [BDB symbol/letter keys](bdb-symbol-keys.md) — single-char keys that are also script letters (e.g. ψ) need a citation-context guard in expandAbbreviations or they corrupt quoted Greek/Hebrew words.
+- [BDB symbol/letter keys](bdb-symbol-keys.md) — standalone ψ/Ψ mean Psalms without a numeric locator; Unicode boundaries must preserve letters inside Greek words.
 - [BDB overlap policy](bdb-overlap-policy.md) — matcher collisions do not justify removing requested meanings; inspect source before changing either mapping.
 - [BDB tag splitter](bdb-tag-splitter.md) — BDB uses literal < and > as scholarly markers; expandAbbreviations must split on real tags only or abbrevs after a bare < silently never expand.
 - [Validation vs Run button](validation-runbutton.md) — registering a validation command can rewrite .replit's Project run-button workflow to only run the check; verify Run still starts the app services.

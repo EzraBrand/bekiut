@@ -72,10 +72,6 @@ function baselineExpand(text: string, map: Record<string, string>): string {
           const after = segment.slice(offset + match[0].length);
           if (/^\s+\d/.test(after)) continue;
         }
-        if (abbreviation === 'ψ') {
-          const after = segment.slice(offset + match[0].length);
-          if (!/^\s*\d/.test(after)) continue;
-        }
         if (expansion.startsWith('Rawlinson, Cuneiform Inscriptions ') &&
             ['IR', 'II. R', 'ii. R', 'III R', 'V. R', 'VR', 'V R', 'v R.'].includes(abbreviation)) {
           const after = (

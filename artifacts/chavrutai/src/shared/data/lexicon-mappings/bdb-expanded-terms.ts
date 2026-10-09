@@ -565,6 +565,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "young women",
     "pagan",
     "connected",
     "made",
@@ -985,7 +986,6 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Mark",
     "John",
     "Haggai",
-    "Psalm",
     "Ezra",
     "Daniel",
     "scribal",
@@ -1058,6 +1058,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Holiness Code ; Deuteronomy",
   ],
   "Work / journal": [
+    "Josephus (Antiquities",
     "Sprachforschungen",
     "scholia on Ḥamāsa",
     "librorum historicorum interpretatione Arabica",

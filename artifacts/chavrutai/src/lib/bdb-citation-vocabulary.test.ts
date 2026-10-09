@@ -3,6 +3,10 @@ import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format";
 
 const pairs = [
+  ["Joseph (Ant", "Josephus (Antiquities"],
+  ["maidens", "young women"],
+  ["ψ", "Psalms"],
+  ["Ψ", "Psalms"],
   ["afform.", "afformative"],
   ["heathen", "pagan"],
   ["Sprachforsch.", "Sprachforschungen"],
@@ -115,6 +119,18 @@ const pairs = [
 ];
 
 describe("BDB citation and vocabulary additions", () => {
+  it("expands standalone psi without a locator in the halal entry", () => {
+    const html = expandAbbreviations(convertSupTagsToParens(
+      'Baer<sup>ψ p. 115</sup>, & always at beginning or end of ψ (chiefly late), Ψ; ψυχή Ψυχή',
+    ), bdbData.mappings);
+    expect(html).toContain('(<span class="dict-expanded">Psalms</span> p. 115)');
+    expect(html).toContain('end of <span class="dict-expanded">Psalms</span>');
+    expect(html).toContain('<span class="dict-expanded">Psalms</span>; ψυχή Ψυχή');
+  });
+  it("expands Josephus citations after superscript conversion", () => {
+    expect(expandAbbreviations(convertSupTagsToParens('Joseph<sup>Ant 3</sup>'), bdbData.mappings))
+      .toBe('<span class="dict-expanded">Josephus (Antiquities</span> 3)');
+  });
   it("expands the Alexandrine siglum alongside other version sigla", () => {
     expect(expandAbbreviations("𝔊𝔄𝔖", bdbData.mappings)).toBe(
       '<span class="dict-expanded">LXX (Septuagint)</span><span class="dict-expanded">Alexandrine manuscript of the Septuagint</span><span class="dict-expanded">Syriac (Peshitta)</span>',

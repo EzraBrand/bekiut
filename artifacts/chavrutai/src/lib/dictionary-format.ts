@@ -759,14 +759,8 @@ export function expandAbbreviations(
           }
           if (/^\s+\d/.test(after)) continue;
         }
-        // BDB uses the Greek letter ψ both as the Psalms siglum (always a
-        // citation: "ψ 23", "ψ 119:105") and as an ordinary letter inside Greek
-        // words (e.g. ψυχή). Only expand ψ -> "Psalms" when it heads a citation
-        // (optional space + digit); otherwise leave the Greek word intact.
-        if (abbreviation === 'ψ') {
-          const after = segment.slice(offset + match[0].length);
-          if (!/^\s*\d/.test(after)) continue;
-        }
+        // Standalone ψ/Ψ mean Psalms even without a numeric locator.
+        // The compiled Unicode boundaries protect letters inside Greek words.
         // Rawlinson sigla are only citations, not general Roman numerals or
         // letters. Superscripts have already become parentheses, but a locator
         // may be inside an HTML link in the next text segment (VR<a>35:19</a>).

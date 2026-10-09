@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Psalms and Josephus Mappings (October 3)</h3>
+            <p>Added Joseph (Ant → Josephus (Antiquities and maidens → young women. Standalone ψ and Ψ now expand to Psalms even without a verse number, while Greek words remain intact.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Additional Mappings and Table Widths (October 3)</h3>
             <p>Added afform., heathen, Sprachforsch., Schol. Hamâsa, libr. hist. interpr. Arab., Mitth., Conj., cas. pend., and wast. Slightly widened mobile row-number and abbreviation columns to accommodate longer values.</p>
           </div>
