@@ -148,6 +148,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "under the word",
     "verses",
     "foregoing",
+    "preceding",
     "examples",
     "nota bene",
     "times",

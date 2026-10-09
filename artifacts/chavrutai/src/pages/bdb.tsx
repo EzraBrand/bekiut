@@ -1,6 +1,7 @@
 import { memo, useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
+import { BdbAbbreviationPanel } from "@/components/bdb-abbreviation-panel";
 import { Button } from "@/components/ui/button";
 import { PageShell, PageHeader } from "@/components/layout/page-shell";
 import { useSEO } from "@/hooks/use-seo";
@@ -96,7 +97,13 @@ export default function Bdb() {
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
-  const [splitBySemicolon, setSplitBySemicolon] = useState(true);
+  const [splitBySemicolon, setSplitBySemicolon] = useState(false);
+  const [expandInline, setExpandInline] = useState(() => {
+    try { return sessionStorage.getItem("bdb-expand-inline") === "true"; } catch { return false; }
+  });
+  useEffect(() => {
+    try { sessionStorage.setItem("bdb-expand-inline", String(expandInline)); } catch { /* Storage may be disabled. */ }
+  }, [expandInline]);
   const [openOutlineEntry, setOpenOutlineEntry] = useState<string | null>(null);
   const [activeAnchorId, setActiveAnchorId] = useState<string | null>(null);
   const [outlineExpanded, setOutlineExpanded] = useState<Record<string, boolean>>({});
@@ -351,7 +358,7 @@ export default function Bdb() {
     );
     targets.forEach((t) => observer.observe(t));
     return () => observer.disconnect();
-  }, [results, splitBySemicolon]);
+  }, [results, splitBySemicolon, expandInline]);
 
   // Close the outline overlay on Escape, move focus into the panel when it
   // opens (the close button is the first focusable target), and restore focus
@@ -534,7 +541,7 @@ export default function Bdb() {
                 )
               ),
               bdbMappings.mappings,
-              { bdbNumericContext: true },
+              { bdbNumericContext: true, bdbDisplay: expandInline ? "inline" : "original" },
             )
           )
         )
@@ -549,11 +556,12 @@ export default function Bdb() {
     () => prepareBdbEntries(results, buildOutline, classifyMarker, renderDefinition),
     // The preparation functions only close over static mappings and split mode;
     // they are intentionally recreated by Bdb without invalidating this cache.
-    [results, splitBySemicolon],
+    [results, splitBySemicolon, expandInline],
   );
 
   return (
     <PageShell mainClassName="max-w-4xl">
+        <BdbAbbreviationPanel revision={preparedEntries} />
         <style dangerouslySetInnerHTML={{ __html: dictionaryStyles }} />
 
         <PageHeader category="tanakh" className="pt-10 pb-3" title="BDB Hebrew Bible Dictionary">
@@ -744,8 +752,12 @@ export default function Bdb() {
 
         {(isLoading || lastSearchedQuery) && (
         <div className="border-t border-border pt-8">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 className="font-georgia text-xl text-foreground">Dictionary Entries</h2>
+            <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer">
+              <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" />
+              Expand abbreviations inline
+            </label>
             <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer select-none">
               <input
                 type="checkbox"
@@ -756,6 +768,9 @@ export default function Bdb() {
               Split by semicolons
             </label>
           </div>
+          <p className="mb-4 text-sm text-muted-foreground">
+            {expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}
+          </p>
 
           {isLoading ? (
             <div className="flex justify-center items-center py-8">

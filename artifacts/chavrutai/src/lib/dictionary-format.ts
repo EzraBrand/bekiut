@@ -651,10 +651,20 @@ const BDB_MILES_RE = new RegExp(
   'gu',
 );
 
+function originalBdbMatch(source: string, expansion: string, insideLink: boolean): string {
+  // Encode metadata so downstream link/transliteration transforms cannot alter it.
+  const escape = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const metadata = `data-bdb-source="${escape(encodeURIComponent(source))}" data-bdb-expansion="${escape(encodeURIComponent(expansion))}"`;
+  const visible = source.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return insideLink
+    ? `<span class="bdb-abbreviation" ${metadata}>${visible}</span>`
+    : `<button type="button" class="bdb-abbreviation" ${metadata} aria-haspopup="dialog">${visible}</button>`;
+}
+
 export function expandAbbreviations(
   text: string,
   mappings: Record<string, string>,
-  options: { bdbNumericContext?: boolean } = {},
+  options: { bdbNumericContext?: boolean; bdbDisplay?: 'original' | 'inline' } = {},
 ) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
@@ -687,8 +697,12 @@ export function expandAbbreviations(
   // tag), whereas the marker is followed by a space/punctuation. Anchoring on
   // that lets the literal `<` stay in a text segment where it belongs.
   const parts = text.split(/(<\/?[a-zA-Z][^>]*>)/);
+  let linkDepth = 0;
 
   for (let i = 0; i < parts.length; i += 2) {
+    const precedingTag = parts[i - 1] ?? '';
+    if (/^<a\b/i.test(precedingTag)) linkDepth++;
+    if (/^<\/a\b/i.test(precedingTag)) linkDepth = Math.max(0, linkDepth - 1);
     const segment = parts[i];
     if (!segment) continue;
     const candidates: { start: number; end: number; expansion: string }[] = [];
@@ -782,7 +796,9 @@ export function expandAbbreviations(
       if (candidate.start < cursor) continue;
       output.push(
         segment.slice(cursor, candidate.start),
-        `<span class="dict-expanded">${candidate.expansion}</span>`,
+        options.bdbDisplay === 'original'
+          ? originalBdbMatch(segment.slice(candidate.start, candidate.end), candidate.expansion, linkDepth > 0)
+          : `<span class="dict-expanded">${candidate.expansion}</span>`,
       );
       cursor = candidate.end;
     }
