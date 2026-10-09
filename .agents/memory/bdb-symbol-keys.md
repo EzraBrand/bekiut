@@ -1,9 +1,9 @@
 ---
 name: BDB symbol and letter keys
-description: Standalone psi means Psalms; preserve Unicode boundaries within quoted words.
+description: Standalone psi displays Psalm(s); preserve Unicode boundaries within quoted words.
 ---
 
-Standalone lowercase ψ and uppercase Ψ must expand to Psalms, even without a numeric locator.
+Standalone lowercase ψ and uppercase Ψ must expand to Psalm(s), with the parenthetical s, even without a numeric locator.
 
 **Why:** The user explicitly requested both forms. BDB refers to the book without verse numbers, as in Baer (ψ p. 115) and “at beginning or end of ψ”; requiring a following digit leaves unwanted transliterations.
 

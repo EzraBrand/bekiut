@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Psalm(s) and Pa'el (October 3)</h3>
+            <p>Changed standalone ψ and Ψ to Psalm(s), and Pa. to Pa'el (Aramaic).</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Psalms and Josephus Mappings (October 3)</h3>
             <p>Added Joseph (Ant → Josephus (Antiquities and maidens → young women. Standalone ψ and Ψ now expand to Psalms even without a verse number, while Greek words remain intact.</p>
           </div>

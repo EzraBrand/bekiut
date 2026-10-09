@@ -5,8 +5,9 @@ import { convertSupTagsToParens, expandAbbreviations } from "./dictionary-format
 const pairs = [
   ["Joseph (Ant", "Josephus (Antiquities"],
   ["maidens", "young women"],
-  ["ψ", "Psalms"],
-  ["Ψ", "Psalms"],
+  ["ψ", "Psalm(s)"],
+  ["Ψ", "Psalm(s)"],
+  ["Pa.", "Pa'el (Aramaic)"],
   ["afform.", "afformative"],
   ["heathen", "pagan"],
   ["Sprachforsch.", "Sprachforschungen"],
@@ -123,9 +124,9 @@ describe("BDB citation and vocabulary additions", () => {
     const html = expandAbbreviations(convertSupTagsToParens(
       'Baer<sup>ψ p. 115</sup>, & always at beginning or end of ψ (chiefly late), Ψ; ψυχή Ψυχή',
     ), bdbData.mappings);
-    expect(html).toContain('(<span class="dict-expanded">Psalms</span> p. 115)');
-    expect(html).toContain('end of <span class="dict-expanded">Psalms</span>');
-    expect(html).toContain('<span class="dict-expanded">Psalms</span>; ψυχή Ψυχή');
+    expect(html).toContain('(<span class="dict-expanded">Psalm(s)</span> p. 115)');
+    expect(html).toContain('end of <span class="dict-expanded">Psalm(s)</span>');
+    expect(html).toContain('<span class="dict-expanded">Psalm(s)</span>; ψυχή Ψυχή');
   });
   it("expands Josephus citations after superscript conversion", () => {
     expect(expandAbbreviations(convertSupTagsToParens('Joseph<sup>Ant 3</sup>'), bdbData.mappings))
