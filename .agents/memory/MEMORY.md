@@ -20,3 +20,4 @@
 - [Scrolling table headings](scrolling-table-headers.md) — native sticky outside horizontal overflow; scroll-driven header translation looked fine in screenshots but jumped during scrolling.
 - [BDB performance constraints](bdb-performance.md) — immutable mapping identity; search caching must distinguish upstream failures from genuine empty results.
 - [Transliteration verification](transliteration-pipeline-verification.md) — raw-string tests can miss upstream HTML boundaries; verify the affected rendered entry.
+- [BDB source metadata](bdb-source-metadata.md) — search can move headword subscripts into separate metadata; compare words and v3 text responses.

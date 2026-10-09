@@ -2,6 +2,7 @@ import { type User, type InsertUser, type Text, type InsertText, type Bookmark, 
 import { randomUUID } from "crypto";
 import bdbSupplementalData from "@workspace/shared-data/data/bdb-supplemental-entries.json";
 import { AsyncTtlLruCache } from "./lib/async-ttl-lru-cache";
+import { restoreBdbOccurrences } from "./lib/bdb-occurrences";
 
 // Reduce a Hebrew form to its bare consonant "skeleton" so user queries (typed
 // without vowels/maqaf) can be matched against voweled supplemental headwords:
@@ -304,7 +305,7 @@ export class SefariaAPI {
     language_reference: entry.language_reference,
     content: {
       ...entry.content,
-      senses: this.flattenSenses(entry.content.senses)
+      senses: restoreBdbOccurrences(entry.parent_lexicon, entry.occurrences, this.flattenSenses(entry.content.senses))
     },
     refs: entry.refs,
     prev_hw: entry.prev_hw,
