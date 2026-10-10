@@ -755,6 +755,15 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        // A lone I remains a pronoun/numeral label unless this exact comma
+        // form introduces a numeric page locator (Jastrow: "I, 27a").
+        if (abbreviation === 'I,' && expansion === '1,') {
+          const followingText = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?(?:em|i|b|strong|span|a|sup)\b[^>]*>/gi, '')
+            .replace(/&nbsp;|&#160;|&#xA0;/gi, ' ');
+          if (!/^\s*\d+(?:[a-dᵃᵇᶜᵈ])?(?![\p{L}\p{N}\p{M}_])/u.test(followingText)) continue;
+        }
         // Jastrow's ch. is a language abbreviation except before a chapter
         // number. Inspect unexpanded text so Roman-numeral mappings do not
         // affect the decision; allow inline formatting around the locator.

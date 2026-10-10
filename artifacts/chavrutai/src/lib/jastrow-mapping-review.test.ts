@@ -49,6 +49,24 @@ const examples = [
 ];
 
 describe("Jastrow corpus-reviewed additions", () => {
+  it.each(["27a", "27ᵃ", "27<sup>a</sup>", "27", '<a href="/x">27a</a>', "&nbsp;27a"])(
+    "expands I, before page locator %s",
+    page => {
+      const source = `Y. ib. I, ${page}`;
+      expect(expandAbbreviations(source, data.mappings)).toContain('>1,</span>');
+      expect(expandAbbreviations(source, data.mappings, { display: "original" }))
+        .toContain('data-bdb-source="I%2C" data-bdb-expansion="1%2C"');
+    },
+  );
+  it.each(["I,", "I, however", "I, 27words", "I, <br>27a", "I", "I.", "I, III"])(
+    "does not apply the page-locator rule to %s",
+    source => {
+      const output = expandAbbreviations(source, data.mappings);
+      expect(output).not.toContain('>1,</span>');
+      expect(output).toContain("I");
+    },
+  );
+
   it.each(["3", "29", "III", "iii", "I", "X", "XL", "<i>III</i>", '<a href="/x">III</a>', "&nbsp;III"])(
     "reads ch. before %s as chapter in both display modes",
     number => {

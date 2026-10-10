@@ -148,7 +148,9 @@ describe("cached abbreviation matcher differential", () => {
   it.each([["BDB", mappings], ["Jastrow", jastrowMappings]] as const)(
     "matches baseline for every %s key in running text and across tags",
     (_name, map) => {
-      const keys = Object.keys(map);
+      // I, now deliberately differs from the old global matcher: it expands
+      // only before page locators, covered by jastrow-mapping-review tests.
+      const keys = Object.keys(map).filter(key => key !== "I," || map[key] !== "1,");
       // Key boundaries/overlaps can change when keys appear adjacent.
       const passages = [
         keys.join('; '),
