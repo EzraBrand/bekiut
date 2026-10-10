@@ -27,7 +27,12 @@ export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<DictionaryEntry[]>([]);
-  const [extraSplits, setExtraSplits] = useState(false);
+  const [extraSplits, setExtraSplits] = useState(() => {
+    try { return sessionStorage.getItem("jastrow-extra-splits") === "true"; } catch { return false; }
+  });
+  useEffect(() => {
+    try { sessionStorage.setItem("jastrow-extra-splits", String(extraSplits)); } catch { /* Storage may be disabled. */ }
+  }, [extraSplits]);
   const [expandInline, setExpandInline] = useState(() => {
     try { return sessionStorage.getItem("jastrow-expand-inline") === "true"; } catch { return false; }
   });
