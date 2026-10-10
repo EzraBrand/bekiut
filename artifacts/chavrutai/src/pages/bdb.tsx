@@ -824,9 +824,12 @@ export default function Bdb() {
                     </h3>
                     <div className="text-foreground flex-1 prose prose-sm max-w-none min-w-0">
                       {outline && (
+                        <details className="mb-4 rounded border border-border p-3 not-prose" data-testid={`entry-index-${entryKey}`}>
+                          <summary className="cursor-pointer text-sm font-medium">Entry index ({outline.length})</summary>
                         <nav
+                          id={`outline-${entryKey}`}
                           aria-label="Sense outline"
-                          className="mb-3 not-prose text-sm text-muted-foreground border-l-2 border-border pl-3"
+                          className="mt-2 max-h-72 overflow-y-auto text-sm text-muted-foreground"
                           data-testid={`outline-${entryKey}`}
                         >
                           <ol className="list-none p-0 m-0 space-y-0.5">
@@ -872,6 +875,7 @@ export default function Bdb() {
                             </button>
                           )}
                         </nav>
+                        </details>
                       )}
                       <BdbSenses senses={senses} />
                     </div>

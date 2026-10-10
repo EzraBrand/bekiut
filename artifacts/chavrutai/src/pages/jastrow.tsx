@@ -504,11 +504,6 @@ export default function Jastrow() {
                         </a>
                       </h3>
                       <div className="text-foreground flex-1 min-w-0 w-full prose prose-sm max-w-none">
-                        {entry.rid && (
-                          <a className="text-xs text-muted-foreground" href={`/jastrow?q=${encodeURIComponent(entry.headword)}&rid=${encodeURIComponent(entry.rid)}`} aria-label={`Permanent link to ${entry.headword}`}>
-                            Entry link
-                          </a>
-                        )}
                         {morphology && <div className="mb-2 dictionary-content" data-testid="jastrow-morphology" dangerouslySetInnerHTML={{ __html: morphology }} />}
                         {origin && (
                           <div

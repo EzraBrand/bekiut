@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Dictionary Indexes and Jastrow Abbreviations (October 10)</h3>
+            <p>Made BDB’s entry index collapsible while retaining its nested-item controls and floating outline. Added 18 Jastrow abbreviation mappings after reviewing 191 source entries and comparing BDB mappings, preserving dictionary-specific meanings.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Citation and Entry Fidelity (October 10)</h3>
             <p>Preserved citation qualifiers and printed verse numbers when expanding book names, corrected superscript homograph searches, and prevented abbreviation symbols and Greek section labels from receiving unwanted transliterations.</p>
           </div>
