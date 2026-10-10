@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import { Window } from "happy-dom";
-import { jastrowOrigin, normalizeJastrowLinks, structureJastrowDefinition, restoreJastrowEtCetera } from "./jastrow-presentation";
+import { jastrowOrigin, normalizeJastrowLinks, structureJastrowDefinition, restoreJastrowEtCetera, normalizeJastrowAbbreviationMarkup } from "./jastrow-presentation";
 import { expandAbbreviations } from "./dictionary-format";
 import mappings from "@/shared/data/lexicon-mappings/jastrow.json";
 import type { DictionaryEntry } from "./dictionary-format";
@@ -14,6 +14,25 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it("recognizes fem. across italics in כּוֹבֶד K00184 in both modes", () => {
+    const source = '(<i>fem</i>.).';
+    const structured = structureJastrowDefinition(source, "K00184", false);
+    const normalized = normalizeJastrowAbbreviationMarkup(structured.html, mappings.mappings);
+    expect(normalized).toBe('(<i>fem.</i>).');
+    const expanded = expandAbbreviations(normalized, mappings.mappings);
+    expect(expanded).toBe('(<i><span class="dict-expanded">feminine</span></i>).');
+    const original = expandAbbreviations(normalized, mappings.mappings, { display: "original" });
+    const doc = new DOMParser().parseFromString(original, "text/html");
+    expect(doc.querySelector("i > button")?.textContent).toBe("fem.");
+    expect(doc.querySelector("button")?.getAttribute("data-bdb-expansion")).toBe("feminine");
+    expect(doc.body.textContent).toBe("(fem.).");
+  });
+  it("only joins known abbreviations and preserves emphasis attributes", () => {
+    expect(normalizeJastrowAbbreviationMarkup('<em class="x">fem</em>.', mappings.mappings))
+      .toBe('<em class="x">fem.</em>');
+    const source = '<i>ordinary prose</i>. <a href="/fem">fem</a>.';
+    expect(normalizeJastrowAbbreviationMarkup(source, mappings.mappings)).toBe(source);
+  });
   it("recognizes &c. with an italicized period in כָּבַשׁ K00081", () => {
     const source = '<i>to press vegetables, meat </i>&c<i>.</i>;<i> to preserve, pickle.</i>';
     for (const extraSplits of [false, true]) {

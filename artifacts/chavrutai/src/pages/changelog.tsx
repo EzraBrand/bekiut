@@ -42,7 +42,7 @@ export default function Changelog() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Added more abbreviation expansions and modernized wording in both tooltip and inline modes, including “ident.” → “identical,” “Mss.” → “manuscripts,” and “T’fillah” → “Tefillah.” Removed trailing colons from Nif’al, Nitpa’el, Pi’el, and Hif’il expansions.</li>
               <li>Added multi-letter Roman numerals through 29, plus “X,” → “10,” and “I,” → “1,” before a page number. “ch.” now means “chapter” before a number and retains “Aramaic” elsewhere.</li>
-              <li>Fixed recognition of “&amp;c.” when HTML encoding or an italicized period separates the abbreviation.</li>
+              <li>Fixed recognition of “&amp;c.” when HTML encoding or an italicized period separates the abbreviation. Also fixed known abbreviations such as “fem.” when the source places the period outside italic or bold markup, preserving the emphasis.</li>
               <li>Kept both abbreviation-display and additional-paragraph-splitting settings when navigating or reloading in the same tab. Adjusted extra paragraph breaks to use a moderate gap.</li>
               <li>Stopped search suggestions from opening automatically on direct entry links. Suggestions appear when editing the search field.</li>
               <li>Limited entry-index definition snippets to opening italicized words. Fixed index links so they no longer rerun the search, and direct section links scroll to their targets after the entry loads.</li>

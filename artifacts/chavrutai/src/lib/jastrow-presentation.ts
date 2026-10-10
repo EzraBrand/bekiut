@@ -44,6 +44,18 @@ export function restoreJastrowEtCetera(html: string): string {
     .replace(/&amp;c\./g, "&c.");
 }
 
+// Source emphasis sometimes excludes the final period: <i>fem</i>.
+// Move it inside only for known abbreviation keys; leave ordinary prose alone.
+export function normalizeJastrowAbbreviationMarkup(html: string, mappings: Record<string, string>): string {
+  return restoreJastrowEtCetera(html).replace(
+    /<(i|em|b|strong)(\s[^>]*)?>([^<>]+)<\/\1>\./gi,
+    (original, tag: string, attributes: string | undefined, text: string) =>
+      Object.prototype.hasOwnProperty.call(mappings, `${text}.`)
+        ? `<${tag}${attributes || ""}>${text}.</${tag}>`
+        : original,
+  );
+}
+
 // Work on text nodes, not raw HTML: breaks cannot cut links, emphasis, or
 // attributes in half. Original punctuation and citation grouping are retained.
 export function structureJastrowDefinition(html: string, prefix: string, extraSplits: boolean) {
