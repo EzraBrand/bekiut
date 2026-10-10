@@ -49,7 +49,9 @@ export default function Jastrow() {
   const [showAbout, setShowAbout] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const initialLoadRef = useRef(false);
-  const suppressSuggestionsRef = useRef(false);
+  // Suggestions are opt-in through typing, not through URL/index updates.
+  // Keep suppression active until an actual edit, including late index loads.
+  const suppressSuggestionsRef = useRef(true);
   const lexiconIndex = useLexiconIndex("jastrow");
   const preparedEntries = useMemo(() => results.map((entry, index) => {
     const { origin, definitions } = jastrowOrigin(entry);
@@ -112,6 +114,9 @@ export default function Jastrow() {
   const handleSearch = useCallback(async (query?: string | unknown, rid?: string) => {
     const q = typeof query === 'string' ? query : searchQuery;
     if (!q.trim()) return;
+    suppressSuggestionsRef.current = true;
+    setSuggestions([]);
+    setShowSuggestions(false);
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
     updateURLParams({ q: q.trim(), rid });
@@ -147,19 +152,14 @@ export default function Jastrow() {
       const q = params.get('q');
       const letter = params.get('letter');
       if (q) {
-        // Only suppress suggestions if the query actually changes — otherwise
-        // setSearchQuery is a no-op, the suggestions effect never runs, and
-        // the flag would silently swallow the user's next keystroke.
-        setSearchQuery((prev) => {
-          if (prev !== q) suppressSuggestionsRef.current = true;
-          return q;
-        });
+        setSearchQuery(q);
         handleSearch(q, params.get('rid') || undefined);
       } else if (letter) {
         window.location.replace(`/jastrow/headwords/${encodeURIComponent(letter)}`);
       } else {
         // Bare /jastrow (e.g. user popped back past all searches) — clear stale
         // state so the UI matches the URL.
+        suppressSuggestionsRef.current = true;
         setSearchQuery("");
         setLastSearchedQuery("");
         setResults([]);
@@ -200,10 +200,7 @@ export default function Jastrow() {
           dictionary: 'jastrow',
           interaction: 'cross_reference',
         });
-        setSearchQuery((prev) => {
-          if (prev !== q) suppressSuggestionsRef.current = true;
-          return q;
-        });
+        setSearchQuery(q);
         handleSearch(q, params.get('rid') || undefined);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -217,6 +214,7 @@ export default function Jastrow() {
       handleSearch(searchQuery);
       setShowSuggestions(false);
     } else if (e.key === 'Escape') {
+      suppressSuggestionsRef.current = true;
       setShowSuggestions(false);
     }
   };
@@ -224,7 +222,6 @@ export default function Jastrow() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (suppressSuggestionsRef.current) {
-        suppressSuggestionsRef.current = false;
         return;
       }
       const q = searchQuery.trim();
@@ -255,6 +252,7 @@ export default function Jastrow() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchInputRef.current && !searchInputRef.current.contains(event.target as Node)) {
+        suppressSuggestionsRef.current = true;
         setShowSuggestions(false);
       }
     };
@@ -373,10 +371,13 @@ export default function Jastrow() {
                 type="search"
                 placeholder="Search Hebrew/Aramaic"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  suppressSuggestionsRef.current = false;
+                  setSearchQuery(e.target.value);
+                }}
                 onKeyPress={handleKeyPress}
                 onFocus={() => {
-                  if (suggestions.length > 0) setShowSuggestions(true);
+                  if (!suppressSuggestionsRef.current && suggestions.length > 0) setShowSuggestions(true);
                 }}
                 className="pr-9 font-hebrew"
                 data-testid="input-search"
@@ -386,6 +387,7 @@ export default function Jastrow() {
                 <button
                   type="button"
                   onClick={() => {
+                    suppressSuggestionsRef.current = true;
                     setSearchQuery("");
                     setSuggestions([]);
                     setShowSuggestions(false);
