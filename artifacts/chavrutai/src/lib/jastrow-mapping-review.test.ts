@@ -4,6 +4,9 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    m: "masculine", "ab.": "above", "Var. lect.": "variant reading(s)",
+    "Lat.": "Latin", "V’zoth": "Ve-zot", therewith: "with them",
+    thee: "you", "Y’rushalmi": "Yerushalmi",
     "Frequ.": "Frequently", Ekeb: "Eikev",
     "h.": "Hebrew", "c.": "Aramaic", "Haf.": "Haf'el",
     thyself: "yourself", "neut.": "neuter", "act. verb": "action verb",
@@ -43,6 +46,12 @@ const examples = [
 ];
 
 describe("Jastrow corpus-reviewed additions", () => {
+  it("does not expand m inside words", () => {
+    const source = "time form Aramaic";
+    expect(expandAbbreviations(source, data.mappings)).toBe(source);
+    expect(expandAbbreviations("(m)", data.mappings))
+      .toBe('(<span class="dict-expanded">masculine</span>)');
+  });
   it("maps multi-letter Roman numerals through 29, preserving citation punctuation", () => {
     const numerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
       "xi", "xii", "xiii", "xiv", "xv", "xvi", "xvii", "xviii", "xix", "xx",
