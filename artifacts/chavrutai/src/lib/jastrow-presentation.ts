@@ -34,6 +34,12 @@ export function jastrowOrigin(entry: DictionaryEntry) {
 
 export interface JastrowOutlineItem { id: string; label: string; level: number }
 
+// HTML serialization encodes the ampersand. Restore this literal abbreviation
+// before matching, without decoding markup or other entities.
+export function restoreJastrowEtCetera(html: string): string {
+  return html.replace(/&amp;c\./g, "&c.");
+}
+
 // Work on text nodes, not raw HTML: breaks cannot cut links, emphasis, or
 // attributes in half. Original punctuation and citation grouping are retained.
 export function structureJastrowDefinition(html: string, prefix: string, extraSplits: boolean) {

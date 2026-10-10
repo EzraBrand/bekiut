@@ -1,6 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import { Window } from "happy-dom";
-import { jastrowOrigin, normalizeJastrowLinks, structureJastrowDefinition } from "./jastrow-presentation";
+import { jastrowOrigin, normalizeJastrowLinks, structureJastrowDefinition, restoreJastrowEtCetera } from "./jastrow-presentation";
+import { expandAbbreviations } from "./dictionary-format";
+import mappings from "@/shared/data/lexicon-mappings/jastrow.json";
 import type { DictionaryEntry } from "./dictionary-format";
 
 beforeAll(() => {
@@ -12,6 +14,16 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it("explains &c. after HTML serialization in both modes", () => {
+    const structured = structureJastrowDefinition("words &c.", "etc-test", false);
+    expect(structured.html).toContain("&amp;c.");
+    const restored = restoreJastrowEtCetera(structured.html);
+    expect(expandAbbreviations(restored, mappings.mappings)).toContain(">etc.</span>");
+    const original = expandAbbreviations(restored, mappings.mappings, { display: "original" });
+    expect(original).toContain('data-bdb-expansion="etc."');
+    expect(new DOMParser().parseFromString(original, "text/html").querySelector("button")?.textContent).toBe("&c.");
+    expect(original).not.toContain("&amp;amp;");
+  });
   it("unwraps duplicate nested links without losing words or destinations", () => {
     const html = '<a href="/Jastrow,_שלם.1"> <a dir="rtl" href="/Jastrow,_שלם.1">שָׁלַם</a>)</a>';
     const result = normalizeJastrowLinks(html);

@@ -21,7 +21,7 @@ import {
   type AutosuggestSuggestion,
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
-import { jastrowOrigin, structureJastrowDefinition } from "@/lib/jastrow-presentation";
+import { jastrowOrigin, structureJastrowDefinition, restoreJastrowEtCetera } from "@/lib/jastrow-presentation";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,7 +50,7 @@ export default function Jastrow() {
     const { origin, definitions } = jastrowOrigin(entry);
     const render = (html: string) => annotateTransliterationsInHtml(
       convertSefariaLinksToInternal(convertJastrowInternalLinks(
-        renderAbbreviations(convertSuperscriptLetters(html)),
+        renderAbbreviations(restoreJastrowEtCetera(convertSuperscriptLetters(html))),
       )),
     );
     const id = `jastrow-${entry.rid || index}`;

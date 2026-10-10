@@ -3,6 +3,10 @@ import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
+  ["Pl. אבות", "Pl.", "Plural"],
+  ["K’doshim", "K’doshim", "Kedoshim"],
+  ["bibl. Hebrew", "bibl.", "biblical"],
+  ["&c.", "&c.", "etc."],
   ["pl. constr. רָטְנֵי", "constr.", "construct form"],
   ["(sing. אב הנזק)", "sing.", "singular"],
   [", inf. בּוּת", "inf.", "infinitive"],
