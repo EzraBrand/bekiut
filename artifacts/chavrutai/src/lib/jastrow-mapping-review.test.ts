@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Matt.": "Matot",
     "homil.": "homiletically", "Pentat.": "Pentateuch", "the rue": "the Ruta graveolens",
     "neut. v.": "neuter verb", "act. v.": "active verb", intercourse: "sex",
     "marg.": "marginal", doest: "do", "ass-drivers": "donkey-drivers",

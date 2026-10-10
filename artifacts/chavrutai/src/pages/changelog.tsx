@@ -40,6 +40,7 @@ export default function Changelog() {
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Reader and Abbreviation Improvements (October 10)</h3>
             <ul className="list-disc pl-6 space-y-2">
+              <li>Added “Matt.” → “Matot,” preserving the longer “Matt. K.” → “Matnot Kehunah” mapping.</li>
               <li>Expanded additional grammatical, source, and wording mappings, including “homil.” → “homiletically,” “s. vv.” → “under the entries,” “O.” → “Onkelos,” “Pesh.” → “Peshitta,” and “the Day of Atonement” → “Yom Kippur.” Removed trailing colons from Hitpa’el, Pe’al, Hebrew, and Manuscript Munich expansions.</li>
               <li>Added more abbreviation expansions and modernized wording in both tooltip and inline modes, including “ident.” → “identical,” “Mss.” → “manuscripts,” “T’fillah” → “Tefillah,” and “Z’ʿera” → “Ze'ira.” Removed trailing colons from Nif’al, Nitpa’el, Pi’el, Hif’il, Pa’el, Itpa’al, and Itpe’el expansions.</li>
               <li>Added uppercase and lowercase multi-letter Roman numerals through 49, including “XXXII” → “32,” while leaving single-letter numerals unchanged. Also added “X,” → “10,” and “I,” → “1,” before a page number. “ch.” now means “chapter” before a number and retains “Aramaic” elsewhere.</li>
