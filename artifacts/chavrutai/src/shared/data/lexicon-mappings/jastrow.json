@@ -19,6 +19,11 @@
     ]
   },
   "mappings": {
+    "√": "root",
+    "s.": "section",
+    "w.": "word",
+    "V.": "See",
+    "Chaldaism": "Aramaism",
     "Palestine": "Eretz Yisrael",
     "Ab. Zar.": "Avodah Zarah",
     "Arakh.": "Arakhin",

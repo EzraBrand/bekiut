@@ -3,6 +3,11 @@ import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
+  ["√ אמר", "√", "root"],
+  ["s. 3", "s.", "section"],
+  ["w. אמר", "w.", "word"],
+  ["V. אמר", "V.", "See"],
+  ["(Chaldaism)", "Chaldaism", "Aramaism"],
   ["Pl. אבות", "Pl.", "Plural"],
   ["K’doshim", "K’doshim", "Kedoshim"],
   ["bibl. Hebrew", "bibl.", "biblical"],
@@ -36,6 +41,9 @@ describe("Jastrow corpus-reviewed additions", () => {
   });
 
   it.each([
+    ["s. v.", "under the word"],
+    ["w. fr.", "word from"],
+    ["preced. w.", "preceding word"],
     ["corr. acc.", "correct accordingly"],
     ["Rabb. D. S.", "Rabbinowicz, 'Dikdukei Sofrim'"],
     ["Sm. Ant.", "Smith, 'Dictionary of Greek and Roman Antiquities'"],
@@ -49,7 +57,7 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect.", "a.", "c.", "s."]) {
+    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect.", "a.", "c."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });
