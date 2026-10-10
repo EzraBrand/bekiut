@@ -37,7 +37,11 @@ export interface JastrowOutlineItem { id: string; label: string; level: number }
 // HTML serialization encodes the ampersand. Restore this literal abbreviation
 // before matching, without decoding markup or other entities.
 export function restoreJastrowEtCetera(html: string): string {
-  return html.replace(/&amp;c\./g, "&c.");
+  return html
+    // כָּבַשׁ (K00081) puts only the abbreviation's period in italics.
+    // Join that punctuation-only emphasis without unwrapping surrounding prose.
+    .replace(/&(?:amp;)?c<(i|em)\b[^>]*>\.<\/\1>/gi, "&c.")
+    .replace(/&amp;c\./g, "&c.");
 }
 
 // Work on text nodes, not raw HTML: breaks cannot cut links, emphasis, or

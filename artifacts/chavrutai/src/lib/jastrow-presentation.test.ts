@@ -14,6 +14,20 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it("recognizes &c. with an italicized period in כָּבַשׁ K00081", () => {
+    const source = '<i>to press vegetables, meat </i>&c<i>.</i>;<i> to preserve, pickle.</i>';
+    for (const extraSplits of [false, true]) {
+      const structured = structureJastrowDefinition(source, "K00081", extraSplits);
+      const restored = restoreJastrowEtCetera(structured.html);
+      const expanded = expandAbbreviations(restored, mappings.mappings);
+      expect(expanded).toContain('<i>to press vegetables, meat </i><span class="dict-expanded">etc.</span>;<i> to preserve, pickle.</i>');
+      const original = expandAbbreviations(restored, mappings.mappings, { display: "original" });
+      const doc = new DOMParser().parseFromString(original, "text/html");
+      expect(doc.querySelector("button")?.textContent).toBe("&c.");
+      expect(doc.querySelector("button")?.getAttribute("data-bdb-expansion")).toBe("etc.");
+      expect(doc.body.textContent).toBe(new DOMParser().parseFromString(source, "text/html").body.textContent);
+    }
+  });
   it("explains &c. after HTML serialization in both modes", () => {
     const structured = structureJastrowDefinition("words &c.", "etc-test", false);
     expect(structured.html).toContain("&amp;c.");

@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Frequ.": "Frequently", Ekeb: "Eikev",
     "h.": "Hebrew", "c.": "Aramaic", "Haf.": "Haf'el",
     thyself: "yourself", "neut.": "neuter", "act. verb": "action verb",
     "Baḥod.": "Baḥodesh", "Gramm.": "Grammatical", "X,": "10,",
