@@ -81,7 +81,8 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
     let cursor = 0;
     for (const match of matches) {
       fragment.append(value.slice(cursor, match.index));
-      fragment.append(doc.createElement("br"), doc.createElement("br"));
+      fragment.append(doc.createElement("br"));
+      if (!extraSplits) fragment.append(doc.createElement("br"));
       const heading = doc.createElement("span");
       heading.className = "font-medium";
       heading.textContent = match[0];
@@ -102,7 +103,7 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
       if (parts.length < 2) continue;
       const fragment = doc.createDocumentFragment();
       parts.forEach(part => {
-        if (/^[—–]$/.test(part)) fragment.append(doc.createElement("br"), doc.createElement("br"));
+        if (/^[—–]$/.test(part)) fragment.append(doc.createElement("br"));
         fragment.append(part);
       });
       text.replaceWith(fragment);
@@ -111,7 +112,7 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
     root.querySelectorAll("a").forEach(link => {
       if (/Jastrow|\/jastrow|BDB|\/bdb/i.test(link.getAttribute("href") || "")) return;
       if (/\.\)?\s*$/.test(link.previousSibling?.textContent || "")) {
-        link.before(doc.createElement("br"), doc.createElement("br"));
+        link.before(doc.createElement("br"));
       }
     });
   }

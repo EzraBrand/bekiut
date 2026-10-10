@@ -60,12 +60,22 @@ describe("Jastrow source fidelity", () => {
     const normal = structureJastrowDefinition(source, "x", false);
     const extra = structureJastrowDefinition(source, "x", true);
     expect(normal.html).not.toContain("<br>");
-    expect(extra.html).toContain("first<br><br>—second");
+    expect(extra.html).toContain("first<br>—second");
+    expect(extra.html).not.toContain("<br><br>");
+    expect(extra.html).toContain('. <br><a href="/Berakhot.2a">');
     expect(extra.html).toContain('<a href="/Berakhot.2a">Ber. 2ᵃ—3ᵇ</a>');
     expect(extra.html).not.toContain("<ul");
   });
   it("does not split Greek prefixes, normal hyphens, or citation links", () => {
     const source = 'αὐ-, au-, εὐ; ill-will <a href="/x">x—y</a>';
     expect(structureJastrowDefinition(source, "x", true).html).toBe(source);
+  });
+  it("keeps phrase breaks compact too when additional splitting is enabled", () => {
+    const source = "eye.—עין הרע <em>evil eye</em>.";
+    const compact = structureJastrowDefinition(source, "eye", true);
+    expect(compact.html).toContain("<br>");
+    expect(compact.html).not.toContain("<br><br>");
+    expect(compact.outline[0].label).toBe("עין הרע");
+    expect(structureJastrowDefinition(source, "eye", false).html).toContain("<br><br>");
   });
 });
