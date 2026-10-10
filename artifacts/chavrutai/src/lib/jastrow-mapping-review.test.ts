@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Z’ʿera": "Ze'ira", "Pa.": "Pa'el", "Ithpa.": "Itpa'al", "Ithpe.": "Itpe'el",
     "a.": "and", "ident.": "identical", "Mss.": "manuscripts", camest: "came",
     "T’fillah": "Tefillah", "O Lord": "O God", "fem.": "feminine",
     "an ass": "a donkey", thine: "your",
@@ -95,10 +96,12 @@ describe("Jastrow corpus-reviewed additions", () => {
     expect(expandAbbreviations("(m)", data.mappings))
       .toBe('(<span class="dict-expanded">masculine</span>)');
   });
-  it("maps multi-letter Roman numerals through 29, preserving citation punctuation", () => {
+  it("maps multi-letter Roman numerals through 49, preserving citation punctuation", () => {
     const numerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
       "xi", "xii", "xiii", "xiv", "xv", "xvi", "xvii", "xviii", "xix", "xx",
-      "xxi", "xxii", "xxiii", "xxiv", "xxv", "xxvi", "xxvii", "xxviii", "xxix"];
+      "xxi", "xxii", "xxiii", "xxiv", "xxv", "xxvi", "xxvii", "xxviii", "xxix",
+      "xxx", "xxxi", "xxxii", "xxxiii", "xxxiv", "xxxv", "xxxvi", "xxxvii", "xxxviii", "xxxix",
+      "xl", "xli", "xlii", "xliii", "xliv", "xlv", "xlvi", "xlvii", "xlviii", "xlix"];
     numerals.forEach((numeral, index) => {
       if (numeral.length === 1) return;
       for (const source of [numeral, numeral.toUpperCase()]) {
@@ -110,8 +113,8 @@ describe("Jastrow corpus-reviewed additions", () => {
     });
   });
 
-  it("does not map single-letter numerals or numerals beyond 29", () => {
-    for (const source of ["i", "v", "x", "l", "I", "V", "X", "L", "i.", "l.", "xxx", "XXX"]) {
+  it("does not map single-letter numerals or numerals beyond 49", () => {
+    for (const source of ["i", "v", "x", "l", "I", "V", "X", "L", "i.", "l.", "li", "LI"]) {
       expect(expandAbbreviations(source, data.mappings)).toBe(source);
     }
     // Existing reference abbreviation, not a numeral.

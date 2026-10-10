@@ -40,8 +40,8 @@ export default function Changelog() {
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Reader and Abbreviation Improvements (October 10)</h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Added more abbreviation expansions and modernized wording in both tooltip and inline modes, including “ident.” → “identical,” “Mss.” → “manuscripts,” and “T’fillah” → “Tefillah.” Removed trailing colons from Nif’al, Nitpa’el, Pi’el, and Hif’il expansions.</li>
-              <li>Added multi-letter Roman numerals through 29, plus “X,” → “10,” and “I,” → “1,” before a page number. “ch.” now means “chapter” before a number and retains “Aramaic” elsewhere.</li>
+              <li>Added more abbreviation expansions and modernized wording in both tooltip and inline modes, including “ident.” → “identical,” “Mss.” → “manuscripts,” “T’fillah” → “Tefillah,” and “Z’ʿera” → “Ze'ira.” Removed trailing colons from Nif’al, Nitpa’el, Pi’el, Hif’il, Pa’el, Itpa’al, and Itpe’el expansions.</li>
+              <li>Added uppercase and lowercase multi-letter Roman numerals through 49, including “XXXII” → “32,” while leaving single-letter numerals unchanged. Also added “X,” → “10,” and “I,” → “1,” before a page number. “ch.” now means “chapter” before a number and retains “Aramaic” elsewhere.</li>
               <li>Fixed recognition of “&amp;c.” when HTML encoding or an italicized period separates the abbreviation. Also fixed known abbreviations such as “fem.” when the source places the period outside italic or bold markup, preserving the emphasis.</li>
               <li>Kept both abbreviation-display and additional-paragraph-splitting settings when navigating or reloading in the same tab. Adjusted extra paragraph breaks to use a moderate gap.</li>
               <li>Stopped search suggestions from opening automatically on direct entry links. Suggestions appear when editing the search field.</li>
