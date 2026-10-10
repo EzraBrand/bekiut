@@ -3,6 +3,12 @@ import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
+  ...Object.entries({
+    hereafter: "afterlife", dost: "do", "thou art": "you are",
+    "Ittaf.": "Ittafal", "Ithaf.": "Ithafal", "Matt. K.": "Matnot Kehunah",
+    "T’rumah": "Terumah", "Sh’mʿa": "Shema", infra: "below",
+    Rab: "Rav", "Af.": "Af'el", mayest: "may",
+  }).map(([source, expansion]) => [source, source, expansion]),
   ["√ אמר", "√", "root"],
   ["s. 3", "s.", "section"],
   ["w. אמר", "w.", "word"],
@@ -33,6 +39,29 @@ const examples = [
 ];
 
 describe("Jastrow corpus-reviewed additions", () => {
+  it("maps multi-letter Roman numerals through 29, preserving citation punctuation", () => {
+    const numerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
+      "xi", "xii", "xiii", "xiv", "xv", "xvi", "xvii", "xviii", "xix", "xx",
+      "xxi", "xxii", "xxiii", "xxiv", "xxv", "xxvi", "xxvii", "xxviii", "xxix"];
+    numerals.forEach((numeral, index) => {
+      if (numeral.length === 1) return;
+      for (const source of [numeral, numeral.toUpperCase()]) {
+        expect(expandAbbreviations(`${source}.`, data.mappings))
+          .toBe(`<span class="dict-expanded">${index + 1}</span>.`);
+        expect(expandAbbreviations(source, data.mappings, { display: "original" }))
+          .toContain(`data-bdb-expansion="${index + 1}"`);
+      }
+    });
+  });
+
+  it("does not map single-letter numerals or numerals beyond 29", () => {
+    for (const source of ["i", "v", "x", "l", "I", "V", "X", "L", "i.", "l.", "xxx", "XXX"]) {
+      expect(expandAbbreviations(source, data.mappings)).toBe(source);
+    }
+    // Existing reference abbreviation, not a numeral.
+    expect(data.mappings["V."]).toBe("See");
+  });
+
   it.each(examples)("explains source context %s in both display modes", (source, abbreviation, expansion) => {
     const original = expandAbbreviations(source, data.mappings, { display: "original" });
     expect(original).toContain(`data-bdb-source="${encodeURIComponent(abbreviation)}"`);
