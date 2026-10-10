@@ -4,6 +4,17 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "homil.": "homiletically", "Pentat.": "Pentateuch", "the rue": "the Ruta graveolens",
+    "neut. v.": "neuter verb", "act. v.": "active verb", intercourse: "sex",
+    "marg.": "marginal", doest: "do", "ass-drivers": "donkey-drivers",
+    "O.": "Onkelos", "Pesh.": "Peshitta", "Holy Day": "Holiday",
+    "Fem.": "Feminine", "Syr.": "Syriac", "Joḥ.": "Yoḥanan",
+    "esp.": "especially", "Ges.": "Gesenius", "s. vv.": "under the entries",
+    "perf.": "perfect", "the Day of Atonement": "Yom Kippur",
+    "interpret.": "interpretations", "Thou art": "You are", Nitsabim: "Nitzavim",
+    "Hithpa.": "Hitpa'el", "Pe.": "Pe'al", "Peal.": "Pe'al",
+    "Ms. M.": "Manuscript Munich", " h. ": " Hebrew",
+    "ch. = h.": "Aramaic, equivalent to Hebrew",
     "Z’ʿera": "Ze'ira", "Pa.": "Pa'el", "Ithpa.": "Itpa'al", "Ithpe.": "Itpe'el",
     "a.": "and", "ident.": "identical", "Mss.": "manuscripts", camest: "came",
     "T’fillah": "Tefillah", "O Lord": "O God", "fem.": "feminine",
