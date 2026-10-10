@@ -50,6 +50,8 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "@workspace/api-client-react": "workspace:*",
+    "@workspace/shared-data": "workspace:*",
+    "@workspace/text-processing": "workspace:*",
     "autoprefixer": "^10.5.2",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
@@ -58,6 +60,7 @@
     "embla-carousel-react": "^8.6.0",
     "esbuild": "0.27.3",
     "framer-motion": "catalog:",
+    "happy-dom": "^20.14.6",
     "input-otp": "^1.4.2",
     "lucide-react": "catalog:",
     "next-themes": "^0.4.6",
@@ -76,9 +79,7 @@
     "vaul": "^1.1.2",
     "vite": "catalog:",
     "wouter": "^3.3.5",
-    "zod": "catalog:",
-    "@workspace/text-processing": "workspace:*",
-    "@workspace/shared-data": "workspace:*"
+    "zod": "catalog:"
   },
   "dependencies": {
     "@types/dompurify": "^3.2.0",

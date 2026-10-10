@@ -77,7 +77,9 @@ export function DictionaryAbbreviationPanel({ revision, categories = {} }: {
       }
     };
     const scroll = (e: Event) => {
-      if (!panel.current?.contains(e.target as Node)) close(!!panel.current?.contains(document.activeElement));
+      if (!(e.target instanceof Node) || !panel.current?.contains(e.target)) {
+        close(!!panel.current?.contains(document.activeElement));
+      }
     };
     document.addEventListener("pointerover", over);
     document.addEventListener("pointerout", leave);

@@ -14,8 +14,6 @@ import {
   convertSefariaLinksToInternal,
   convertJastrowInternalLinks,
   annotateTransliterationsInHtml,
-  splitIntoParagraphs,
-  splitByPeriodAndLink,
   convertSuperscriptLetters,
   expandAbbreviations,
   useDictionaryCopyHandler,
@@ -23,18 +21,20 @@ import {
   type AutosuggestSuggestion,
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
+import { jastrowOrigin, structureJastrowDefinition } from "@/lib/jastrow-presentation";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<DictionaryEntry[]>([]);
+  const [extraSplits, setExtraSplits] = useState(false);
   const [expandInline, setExpandInline] = useState(() => {
     try { return sessionStorage.getItem("jastrow-expand-inline") === "true"; } catch { return false; }
   });
   useEffect(() => {
     try { sessionStorage.setItem("jastrow-expand-inline", String(expandInline)); } catch { /* Storage may be disabled. */ }
   }, [expandInline]);
-  const abbreviationRevision = useMemo(() => ({ results, expandInline }), [results, expandInline]);
+  const abbreviationRevision = useMemo(() => ({ results, expandInline, extraSplits }), [results, expandInline, extraSplits]);
   const renderAbbreviations = (text: string) => expandAbbreviations(
     text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original" },
   );
@@ -46,6 +46,24 @@ export default function Jastrow() {
   const initialLoadRef = useRef(false);
   const suppressSuggestionsRef = useRef(false);
   const lexiconIndex = useLexiconIndex("jastrow");
+  const preparedEntries = useMemo(() => results.map((entry, index) => {
+    const { origin, definitions } = jastrowOrigin(entry);
+    const render = (html: string) => annotateTransliterationsInHtml(
+      convertSefariaLinksToInternal(convertJastrowInternalLinks(
+        renderAbbreviations(convertSuperscriptLetters(html)),
+      )),
+    );
+    const id = `jastrow-${entry.rid || index}`;
+    const senses = definitions.map((definition, senseIndex) => {
+      const structured = structureJastrowDefinition(definition, `${id}-sense-${senseIndex}`, extraSplits);
+      return { ...structured, html: render(structured.html) };
+    });
+    return {
+      entry, id, senses, origin: render(origin),
+      morphology: render(entry.content.morphology || ""),
+      outline: senses.flatMap(sense => sense.outline),
+    };
+  }), [results, expandInline, extraSplits]);
 
   const jastrowSEO = getJastrowSEO("", searchQuery, window.location.origin);
 
@@ -75,29 +93,34 @@ export default function Jastrow() {
     },
   });
 
-  const updateURLParams = useCallback((params: { q?: string }) => {
+  const updateURLParams = useCallback((params: { q?: string; rid?: string }) => {
     const url = new URL(window.location.href);
     url.searchParams.delete('q');
     url.searchParams.delete('letter');
+    url.searchParams.delete('rid');
     if (params.q) url.searchParams.set('q', params.q);
+    if (params.rid) url.searchParams.set('rid', params.rid);
     const newPath = url.pathname + url.search;
     window.history.replaceState(null, '', newPath);
   }, []);
 
-  const handleSearch = useCallback(async (query?: string | unknown) => {
+  const handleSearch = useCallback(async (query?: string | unknown, rid?: string) => {
     const q = typeof query === 'string' ? query : searchQuery;
     if (!q.trim()) return;
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
-    updateURLParams({ q: q.trim() });
+    updateURLParams({ q: q.trim(), rid });
     try {
-      const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}`);
+      const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}`);
       if (!response.ok) throw new Error(`Search failed: ${response.status}`);
       const entries = await response.json();
       const validEntries = Array.isArray(entries) ? entries.filter((entry: DictionaryEntry) =>
         entry && entry.headword && entry.content && Array.isArray(entry.content.senses)
       ) : [];
       setResults(validEntries);
+      if (validEntries.length === 1 && validEntries[0].rid) {
+        updateURLParams({ q: validEntries[0].headword, rid: validEntries[0].rid });
+      }
       trackPublishingEvent('dictionary_search_completed', {
         dictionary: 'jastrow',
         result_count: validEntries.length,
@@ -126,7 +149,7 @@ export default function Jastrow() {
           if (prev !== q) suppressSuggestionsRef.current = true;
           return q;
         });
-        handleSearch(q);
+        handleSearch(q, params.get('rid') || undefined);
       } else if (letter) {
         window.location.replace(`/jastrow/headwords/${encodeURIComponent(letter)}`);
       } else {
@@ -176,7 +199,7 @@ export default function Jastrow() {
           if (prev !== q) suppressSuggestionsRef.current = true;
           return q;
         });
-        handleSearch(q);
+        handleSearch(q, params.get('rid') || undefined);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
@@ -427,6 +450,10 @@ export default function Jastrow() {
               <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" />
               Expand abbreviations inline
             </label>
+            <label className="flex items-center gap-2 text-sm">
+              <input type="checkbox" checked={extraSplits} onChange={e => setExtraSplits(e.target.checked)} className="accent-primary" />
+              Additional splits at dashes and citations
+            </label>
           </div>
           <p className="mb-4 text-sm text-muted-foreground">
             {expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}
@@ -461,20 +488,10 @@ export default function Jastrow() {
             </div>
           ) : (
             <div className="space-y-4">
-              {results.map((entry, index) => {
-                const formatOriginMetadata = () => {
-                  if (!entry.language_code && !entry.language_reference) return null;
-                  let originText = '';
-                  if (entry.language_code) originText = entry.language_code;
-                  if (entry.language_reference) originText += entry.language_reference;
-                  return originText.trim();
-                };
-
-                const originMetadata = formatOriginMetadata();
-
+              {preparedEntries.map(({ entry, id, origin, morphology, senses, outline }, index) => {
                 return (
-                  <div key={entry.rid || index} className="pb-4 border-b border-border last:border-b-0" data-testid={`entry-${entry.rid || index}`}>
-                    <div className="flex items-start gap-4">
+                  <div id={id} key={entry.rid || index} className="pb-4 border-b border-border last:border-b-0 scroll-mt-24" data-testid={`entry-${entry.rid || index}`}>
+                    <div className="flex flex-col sm:flex-row items-start gap-4">
                       <h3 className="text-lg font-bold font-hebrew min-w-fit">
                         <a
                           href={`https://www.sefaria.org.il/Jastrow%2C_${encodeURIComponent(entry.headword)}`}
@@ -486,18 +503,36 @@ export default function Jastrow() {
                           {entry.headword}
                         </a>
                       </h3>
-                      <div className="text-foreground flex-1 prose prose-sm max-w-none">
-                        {originMetadata && (
+                      <div className="text-foreground flex-1 min-w-0 w-full prose prose-sm max-w-none">
+                        {entry.rid && (
+                          <a className="text-xs text-muted-foreground" href={`/jastrow?q=${encodeURIComponent(entry.headword)}&rid=${encodeURIComponent(entry.rid)}`} aria-label={`Permanent link to ${entry.headword}`}>
+                            Entry link
+                          </a>
+                        )}
+                        {morphology && <div className="mb-2 dictionary-content" data-testid="jastrow-morphology" dangerouslySetInnerHTML={{ __html: morphology }} />}
+                        {origin && (
                           <div
                             className="mb-2 dictionary-content text-muted-foreground"
-                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(renderAbbreviations(originMetadata)))) }}
+                            dangerouslySetInnerHTML={{ __html: origin }}
                           />
                         )}
-                        {entry.content.senses.map((sense, senseIndex) => (
+                        {outline.length > 1 && (
+                          <details className="mb-4 rounded border border-border p-3 not-prose">
+                            <summary className="cursor-pointer text-sm font-medium">Entry index ({outline.length})</summary>
+                            <nav aria-label={`Index for ${entry.headword}`} className="mt-2 max-h-72 overflow-y-auto">
+                              <ul className="space-y-2 text-sm">
+                                {outline.map(item => <li key={item.id} className={item.level ? "pl-4" : ""}>
+                                  <a href={`#${item.id}`} className="text-primary hover:underline">{item.label}</a>
+                                </li>)}
+                              </ul>
+                            </nav>
+                          </details>
+                        )}
+                        {senses.map((sense, senseIndex) => (
                           <div
                             key={senseIndex}
                             className="mb-2 last:mb-0 dictionary-content"
-                            dangerouslySetInnerHTML={{ __html: annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(renderAbbreviations(convertSuperscriptLetters(splitByPeriodAndLink(splitIntoParagraphs(sense.definition))))))) }}
+                            dangerouslySetInnerHTML={{ __html: sense.html }}
                           />
                         ))}
                       </div>

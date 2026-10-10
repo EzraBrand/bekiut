@@ -21,4 +21,5 @@
 - [BDB performance constraints](bdb-performance.md) — immutable mapping identity; search caching must distinguish upstream failures from genuine empty results.
 - [Transliteration verification](transliteration-pipeline-verification.md) — raw-string tests can miss upstream HTML boundaries; verify the affected rendered entry.
 - [BDB source metadata](bdb-source-metadata.md) — search can move headword subscripts into separate metadata; compare words and v3 text responses.
-- [BDB experiment scope](bdb-experiment-scope.md) — BDB popovers approved for adoption; other readers remain outside scope.
+- [Dictionary popover scope](bdb-experiment-scope.md) — abbreviation popovers approved for BDB and Jastrow; other readers remain outside scope.
+- [DOM test dependency resolution](dom-test-resolution.md) — artifact-local DOM packages may need direct test imports when Vitest resolves environments from the workspace root.

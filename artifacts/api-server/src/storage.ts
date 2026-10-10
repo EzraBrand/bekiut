@@ -1,4 +1,5 @@
 import { type User, type InsertUser, type Text, type InsertText, type Bookmark, type InsertBookmark, type DictionaryEntry, type SearchRequest } from "@workspace/db";
+import { hasJastrowHomograph, jastrowLookupForm, selectJastrowHomograph } from "./lib/jastrow-homograph";
 import { randomUUID } from "crypto";
 import bdbSupplementalData from "@workspace/shared-data/data/bdb-supplemental-entries.json";
 import { AsyncTtlLruCache } from "./lib/async-ttl-lru-cache";
@@ -315,6 +316,10 @@ export class SefariaAPI {
   });
 
   private async searchEntriesForLexicon(query: string, lexiconName: string): Promise<DictionaryEntry[]> {
+    if (lexiconName === 'Jastrow Dictionary' && hasJastrowHomograph(query)) {
+      const entries = await this.searchLexiconCore(jastrowLookupForm(query), lexiconName);
+      return selectJastrowHomograph(query, entries);
+    }
     if (lexiconName === 'BDB Dictionary' && hasBdbHomograph(query)) {
       const entries = await this.searchLexiconCore(bdbLookupForm(query), lexiconName);
       return selectBdbHomograph(query, entries);

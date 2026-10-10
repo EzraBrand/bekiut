@@ -16,6 +16,7 @@ export interface DictionaryEntry {
   language_code?: string;
   language_reference?: string;
   content: {
+    morphology?: string;
     senses: Array<{
       definition: string;
     }>;
