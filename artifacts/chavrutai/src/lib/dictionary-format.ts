@@ -755,6 +755,19 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        // Jastrow's ch. is a language abbreviation except before a chapter
+        // number. Inspect unexpanded text so Roman-numeral mappings do not
+        // affect the decision; allow inline formatting around the locator.
+        if (abbreviation === 'ch.' && expansion === 'Aramaic') {
+          const followingText = (
+            segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
+          ).replace(/<\/?(?:em|i|b|strong|span|a)\b[^>]*>/gi, '')
+            .replace(/&nbsp;|&#160;|&#xA0;/gi, ' ');
+          if (/^\s+(?:\d+|[ivxlcdm]+)(?![\p{L}\p{N}\p{M}_])/iu.test(followingText)) {
+            candidates.push({ start: offset, end: offset + match[0].length, expansion: 'chapter' });
+            continue;
+          }
+        }
         // Protect literal names and English questions, including formatting
         // boundaries such as "<em>Am</em> I" in BDB הֲ.
         if ((abbreviation === 'De' && expansion === 'Delitzsch') ||

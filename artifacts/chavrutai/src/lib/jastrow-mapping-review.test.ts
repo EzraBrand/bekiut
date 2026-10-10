@@ -48,6 +48,24 @@ const examples = [
 ];
 
 describe("Jastrow corpus-reviewed additions", () => {
+  it.each(["3", "29", "III", "iii", "I", "X", "XL", "<i>III</i>", '<a href="/x">III</a>', "&nbsp;III"])(
+    "reads ch. before %s as chapter in both display modes",
+    number => {
+      const source = `Sifra K’dosh. ch. ${number}, Par. 2`;
+      expect(expandAbbreviations(source, data.mappings)).toContain('>chapter</span>');
+      const original = expandAbbreviations(source, data.mappings, { display: "original" });
+      expect(original).toContain('data-bdb-source="ch." data-bdb-expansion="chapter"');
+      expect(original).not.toContain('data-bdb-expansion="Aramaic"');
+    },
+  );
+
+  it.each(["ch.", "ch. word", "ch. mixed", "ch. <i>dialect</i>", "ch.<br> III"])(
+    "retains the language meaning in %s",
+    source => {
+      expect(expandAbbreviations(source, data.mappings)).toContain('>Aramaic</span>');
+    },
+  );
+
   it("does not expand m inside words", () => {
     const source = "time form Aramaic";
     expect(expandAbbreviations(source, data.mappings)).toBe(source);
