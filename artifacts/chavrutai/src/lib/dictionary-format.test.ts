@@ -564,7 +564,7 @@ describe("Jastrow abbreviation expansion", () => {
     },
   );
 
-  it.each(["a.", "r.", "S."])(
+  it.each(["r.", "S."])(
     "does not globally expand rejected single-letter key %s",
     (abbreviation) => {
       expect(expandAbbreviations(abbreviation, jastrowMappings)).toBe(

@@ -4,6 +4,10 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "a.": "and", "ident.": "identical", "Mss.": "manuscripts", camest: "came",
+    "T’fillah": "Tefillah", "O Lord": "O God", "fem.": "feminine",
+    "an ass": "a donkey", thine: "your",
+    "Nif.": "Nif'al", "Nithpa.": "Nitpa'el", "Pi.": "Pi'el", "Hif.": "Hif'il",
     "S’ah": "Se'ah", "Du.": "Dual", Kab: "Kav", "Pol.": "Polel",
     Akiba: "Akiva", coition: "sex", "thou wilt": "you will", Law: "Torah",
     sodomy: "homosexual sex", "Shaf.": "Shaf'el", "K’dosh.": "Kedoshim",
@@ -138,7 +142,7 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect.", "a."]) {
+    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });

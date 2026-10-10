@@ -38,6 +38,18 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Reader and Abbreviation Improvements (October 10)</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Added more abbreviation expansions and modernized wording in both tooltip and inline modes, including “ident.” → “identical,” “Mss.” → “manuscripts,” and “T’fillah” → “Tefillah.” Removed trailing colons from Nif’al, Nitpa’el, Pi’el, and Hif’il expansions.</li>
+              <li>Added multi-letter Roman numerals through 29, plus “X,” → “10,” and “I,” → “1,” before a page number. “ch.” now means “chapter” before a number and retains “Aramaic” elsewhere.</li>
+              <li>Fixed recognition of “&amp;c.” when HTML encoding or an italicized period separates the abbreviation.</li>
+              <li>Kept both abbreviation-display and additional-paragraph-splitting settings when navigating or reloading in the same tab. Adjusted extra paragraph breaks to use a moderate gap.</li>
+              <li>Stopped search suggestions from opening automatically on direct entry links. Suggestions appear when editing the search field.</li>
+              <li>Limited entry-index definition snippets to opening italicized words. Fixed index links so they no longer rerun the search, and direct section links scroll to their targets after the entry loads.</li>
+              <li>Displayed morphology before definitions, improved exact homograph selection using Roman and superscript suffixes with stable entry IDs, and cleaned up origin notes and malformed links. Exact entry URLs can be copied from the browser address bar.</li>
+            </ul>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Dictionary Indexes and Jastrow Abbreviations (October 10)</h3>
             <p>Made BDB’s entry index collapsible while retaining its nested-item controls and floating outline. Added 18 Jastrow abbreviation mappings after reviewing 191 source entries and comparing BDB mappings, preserving dictionary-specific meanings.</p>
           </div>
