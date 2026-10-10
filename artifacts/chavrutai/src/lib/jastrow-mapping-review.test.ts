@@ -4,6 +4,9 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "h.": "Hebrew", "c.": "Aramaic", "Haf.": "Haf'el",
+    thyself: "yourself", "neut.": "neuter", "act. verb": "action verb",
+    "Baḥod.": "Baḥodesh", "Gramm.": "Grammatical", "X,": "10,",
     hereafter: "afterlife", dost: "do", "thou art": "you are",
     "Ittaf.": "Ittafal", "Ithaf.": "Ithafal", "Matt. K.": "Matnot Kehunah",
     "T’rumah": "Terumah", "Sh’mʿa": "Shema", infra: "below",
@@ -86,7 +89,7 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect.", "a.", "c."]) {
+    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect.", "a."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });

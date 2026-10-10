@@ -63,12 +63,19 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
   root.querySelectorAll("strong, b").forEach(element => {
     const label = element.textContent?.trim() || "";
     if (!label || label.length > 70) return;
-    let following = "";
-    for (let sibling = element.nextSibling; sibling && following.length < 65; sibling = sibling.nextSibling) {
-      if (sibling instanceof Element && /^(STRONG|B)$/.test(sibling.tagName)) break;
-      following += sibling.textContent || "";
+    const words: string[] = [];
+    // Use the opening italicized gloss, not citations, Hebrew examples, or
+    // explanatory prose following it. Keep numbered/stem labels and anchors.
+    for (let sibling = element.nextSibling; sibling; sibling = sibling.nextSibling) {
+      if (sibling instanceof Element && /^(STRONG|B|BR|A)$/.test(sibling.tagName)) break;
+      if (sibling instanceof Element && /^(EM|I)$/.test(sibling.tagName)) {
+        words.push(sibling.textContent || "");
+      } else {
+        const text = sibling.textContent || "";
+        if (/[—–]/.test(text) || (words.length && /[\p{L}\p{N}]/u.test(text))) break;
+      }
     }
-    const gloss = following.trim().replace(/\s+/g, " ").slice(0, 65);
+    const gloss = words.join(" ").trim().replace(/\s+/g, " ").slice(0, 65);
     anchor(element, [label, gloss].filter(Boolean).join(" — "), 0);
   });
   const walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT);

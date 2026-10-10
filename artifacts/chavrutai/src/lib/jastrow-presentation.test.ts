@@ -50,6 +50,7 @@ describe("Jastrow source fidelity", () => {
     const source = "<strong>1.</strong> <em>eye</em>, sight.—עין הרע <em>evil eye</em>.";
     const result = structureJastrowDefinition(source, "P00601-s0", false);
     expect(result.outline).toHaveLength(2);
+    expect(result.outline[0].label).toBe("1. — eye");
     expect(result.outline[1]).toMatchObject({ id: "P00601-s0-1", label: "עין הרע", level: 1 });
     const parse = (html: string) => new DOMParser().parseFromString(html, "text/html").body.textContent;
     expect(parse(result.html)).toBe(parse(source));
@@ -65,6 +66,20 @@ describe("Jastrow source fidelity", () => {
     expect(extra.html).toContain('. <span class="jastrow-paragraph-break" aria-hidden="true"></span><a href="/Berakhot.2a">');
     expect(extra.html).toContain('<a href="/Berakhot.2a">Ber. 2ᵃ—3ᵇ</a>');
     expect(extra.html).not.toContain("<ul");
+  });
+  it("limits index glosses to italicized definitions while retaining source headings", () => {
+    const source = '<b>1)</b> (origin) <i>to speak</i>, <em>to say</em>, explanation ' +
+      '<a href="/Berakhot.2a">Ber. 2a</a> <i>example quotation</i>. ' +
+      '<strong>2)</strong> plain definition. <strong>Haf.</strong> <em>to tell</em> more prose.';
+    for (const extraSplits of [false, true]) {
+      const result = structureJastrowDefinition(source, "gloss", extraSplits);
+      expect(result.outline.map(item => item.label)).toEqual([
+        "1) — to speak to say", "2)", "Haf. — to tell",
+      ]);
+      const doc = new DOMParser().parseFromString(result.html, "text/html");
+      for (const item of result.outline) expect(doc.getElementById(item.id)).not.toBeNull();
+      expect(doc.body.textContent).toBe(new DOMParser().parseFromString(source, "text/html").body.textContent);
+    }
   });
   it("does not split Greek prefixes, normal hyphens, or citation links", () => {
     const source = 'αὐ-, au-, εὐ; ill-will <a href="/x">x—y</a>';
