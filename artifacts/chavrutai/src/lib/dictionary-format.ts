@@ -51,6 +51,10 @@ export const dictionaryStyles = `
   .dictionary-content {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
+  .dictionary-content .jastrow-paragraph-break {
+    display: block;
+    height: 0.45em;
+  }
   .dictionary-content span[dir="rtl"] {
     font-family: 'Assistant', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 500;

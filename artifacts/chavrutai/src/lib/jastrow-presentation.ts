@@ -47,6 +47,12 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
   if (typeof DOMParser === "undefined") return { html, outline };
   const doc = new DOMParser().parseFromString(`<div id="jastrow-root">${html}</div>`, "text/html");
   const root = doc.getElementById("jastrow-root")!;
+  const paragraphBreak = () => {
+    const gap = doc.createElement("span");
+    gap.className = "jastrow-paragraph-break";
+    gap.setAttribute("aria-hidden", "true");
+    return gap;
+  };
   const anchor = (element: Element, label: string, level: number) => {
     const id = `${prefix}-${outline.length}`;
     element.id = id;
@@ -81,7 +87,7 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
     let cursor = 0;
     for (const match of matches) {
       fragment.append(value.slice(cursor, match.index));
-      fragment.append(doc.createElement("br"));
+      fragment.append(extraSplits ? paragraphBreak() : doc.createElement("br"));
       if (!extraSplits) fragment.append(doc.createElement("br"));
       const heading = doc.createElement("span");
       heading.className = "font-medium";
@@ -103,7 +109,7 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
       if (parts.length < 2) continue;
       const fragment = doc.createDocumentFragment();
       parts.forEach(part => {
-        if (/^[—–]$/.test(part)) fragment.append(doc.createElement("br"));
+        if (/^[—–]$/.test(part)) fragment.append(paragraphBreak());
         fragment.append(part);
       });
       text.replaceWith(fragment);
@@ -112,7 +118,7 @@ export function structureJastrowDefinition(html: string, prefix: string, extraSp
     root.querySelectorAll("a").forEach(link => {
       if (/Jastrow|\/jastrow|BDB|\/bdb/i.test(link.getAttribute("href") || "")) return;
       if (/\.\)?\s*$/.test(link.previousSibling?.textContent || "")) {
-        link.before(doc.createElement("br"));
+        link.before(paragraphBreak());
       }
     });
   }

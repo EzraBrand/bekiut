@@ -60,9 +60,9 @@ describe("Jastrow source fidelity", () => {
     const normal = structureJastrowDefinition(source, "x", false);
     const extra = structureJastrowDefinition(source, "x", true);
     expect(normal.html).not.toContain("<br>");
-    expect(extra.html).toContain("first<br>—second");
+    expect(extra.html).toContain('first<span class="jastrow-paragraph-break" aria-hidden="true"></span>—second');
     expect(extra.html).not.toContain("<br><br>");
-    expect(extra.html).toContain('. <br><a href="/Berakhot.2a">');
+    expect(extra.html).toContain('. <span class="jastrow-paragraph-break" aria-hidden="true"></span><a href="/Berakhot.2a">');
     expect(extra.html).toContain('<a href="/Berakhot.2a">Ber. 2ᵃ—3ᵇ</a>');
     expect(extra.html).not.toContain("<ul");
   });
@@ -73,7 +73,7 @@ describe("Jastrow source fidelity", () => {
   it("keeps phrase breaks compact too when additional splitting is enabled", () => {
     const source = "eye.—עין הרע <em>evil eye</em>.";
     const compact = structureJastrowDefinition(source, "eye", true);
-    expect(compact.html).toContain("<br>");
+    expect(compact.html).toContain('class="jastrow-paragraph-break"');
     expect(compact.html).not.toContain("<br><br>");
     expect(compact.outline[0].label).toBe("עין הרע");
     expect(structureJastrowDefinition(source, "eye", false).html).toContain("<br><br>");
