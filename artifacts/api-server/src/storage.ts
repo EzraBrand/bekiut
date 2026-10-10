@@ -3,6 +3,8 @@ import { randomUUID } from "crypto";
 import bdbSupplementalData from "@workspace/shared-data/data/bdb-supplemental-entries.json";
 import { AsyncTtlLruCache } from "./lib/async-ttl-lru-cache";
 import { restoreBdbOccurrences } from "./lib/bdb-occurrences";
+import { bdbCitationLabel } from "./lib/bdb-citation-label";
+import { bdbLookupForm, hasBdbHomograph, selectBdbHomograph } from "./lib/bdb-homograph";
 
 // Reduce a Hebrew form to its bare consonant "skeleton" so user queries (typed
 // without vowels/maqaf) can be matched against voweled supplemental headwords:
@@ -190,7 +192,7 @@ export class MemStorage implements IStorage {
 export class SefariaAPI {
   private baseURL = "https://www.sefaria.org/api";
 
-  private flattenSenses(senses: any[]): any[] {
+  private flattenSenses(senses: any[], bdb = false): any[] {
     const flattenedSenses: any[] = [];
     
     for (const sense of senses) {
@@ -203,13 +205,13 @@ export class SefariaAPI {
         }
         const numberPrefix = cleanNumber ? `<strong>${cleanNumber}</strong> ` : '';
         flattenedSenses.push({
-          definition: numberPrefix + this.transformHyperlinks(sense.definition),
+          definition: numberPrefix + this.transformHyperlinks(sense.definition, bdb),
           grammar: sense.grammar
         });
       }
       
       if (Array.isArray(sense.senses)) {
-        const nestedFlattened = this.flattenSenses(sense.senses);
+        const nestedFlattened = this.flattenSenses(sense.senses, bdb);
         for (const [idx, nestedSense] of nestedFlattened.entries()) {
           const grammarInfo = sense.grammar || nestedSense.grammar;
           let prefix = '';
@@ -241,7 +243,7 @@ export class SefariaAPI {
     return flattenedSenses;
   }
 
-  private transformHyperlinks(htmlContent: string): string {
+  private transformHyperlinks(htmlContent: string, bdb = false): string {
     // Handle undefined or null content
     if (!htmlContent || typeof htmlContent !== 'string') {
       console.log('DEBUG: transformHyperlinks received invalid content:', htmlContent);
@@ -257,7 +259,7 @@ export class SefariaAPI {
     transformed = transformed.replace(
       /<a([^>]*?)href="(Jerusalem_Talmud_[^"]+)"([^>]*?)data-ref="([^"]*)"([^>]*)>([^<]+)<\/a>/g,
       (match, before, url, middle, dataRef, after, text) => {
-        return `<a${before}href="https://www.sefaria.org/${url}"${middle}data-ref="${dataRef}"${after}>${dataRef}</a>`;
+        return `<a${before}href="https://www.sefaria.org/${url}"${middle}data-ref="${dataRef}"${after}>${bdb ? bdbCitationLabel(text, dataRef) : dataRef}</a>`;
       }
     );
 
@@ -265,7 +267,7 @@ export class SefariaAPI {
     transformed = transformed.replace(
       /<a([^>]*?)data-ref="([^"]*)"([^>]*?)href="(Jerusalem_Talmud_[^"]+)"([^>]*)>([^<]+)<\/a>/g,
       (match, before, dataRef, middle, url, after, text) => {
-        return `<a${before}data-ref="${dataRef}"${middle}href="https://www.sefaria.org/${url}"${after}>${dataRef}</a>`;
+        return `<a${before}data-ref="${dataRef}"${middle}href="https://www.sefaria.org/${url}"${after}>${bdb ? bdbCitationLabel(text, dataRef) : dataRef}</a>`;
       }
     );
 
@@ -282,7 +284,7 @@ export class SefariaAPI {
     transformed = transformed.replace(
       /<a([^>]*?)href="\/([^"\/][^"]*\.[^"]+)"([^>]*?)data-ref="([^"]*)"([^>]*)>([^<]+)<\/a>/g,
       (match, before, url, middle, dataRef, after, text) => {
-        return `<a${before}href="https://www.sefaria.org/${url}"${middle}data-ref="${dataRef}"${after}>${dataRef}</a>`;
+        return `<a${before}href="https://www.sefaria.org/${url}"${middle}data-ref="${dataRef}"${after}>${bdb ? bdbCitationLabel(text, dataRef) : dataRef}</a>`;
       }
     );
 
@@ -290,7 +292,7 @@ export class SefariaAPI {
     transformed = transformed.replace(
       /<a([^>]*?)data-ref="([^"]*)"([^>]*?)href="\/([^"\/][^"]*\.[^"]+)"([^>]*)>([^<]+)<\/a>/g,
       (match, before, dataRef, middle, url, after, text) => {
-        return `<a${before}data-ref="${dataRef}"${middle}href="https://www.sefaria.org/${url}"${after}>${dataRef}</a>`;
+        return `<a${before}data-ref="${dataRef}"${middle}href="https://www.sefaria.org/${url}"${after}>${bdb ? bdbCitationLabel(text, dataRef) : dataRef}</a>`;
       }
     );
 
@@ -305,7 +307,7 @@ export class SefariaAPI {
     language_reference: entry.language_reference,
     content: {
       ...entry.content,
-      senses: restoreBdbOccurrences(entry.parent_lexicon, entry.occurrences, this.flattenSenses(entry.content.senses))
+      senses: restoreBdbOccurrences(entry.parent_lexicon, entry.occurrences, this.flattenSenses(entry.content.senses, entry.parent_lexicon === "BDB Dictionary"))
     },
     refs: entry.refs,
     prev_hw: entry.prev_hw,
@@ -313,6 +315,10 @@ export class SefariaAPI {
   });
 
   private async searchEntriesForLexicon(query: string, lexiconName: string): Promise<DictionaryEntry[]> {
+    if (lexiconName === 'BDB Dictionary' && hasBdbHomograph(query)) {
+      const entries = await this.searchLexiconCore(bdbLookupForm(query), lexiconName);
+      return selectBdbHomograph(query, entries);
+    }
     const results = await this.searchLexiconCore(query, lexiconName);
     if (lexiconName === 'BDB Dictionary') {
       return this.mergeBdbSupplementalParticles(query, results);

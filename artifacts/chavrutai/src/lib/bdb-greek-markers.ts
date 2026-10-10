@@ -14,8 +14,8 @@ export function wrapBdbGreekMarkers(html: string, idPrefix: string): string {
     const occ = (occCount[letter] = (occCount[letter] ?? -1) + 1);
     const id = `${idPrefix}-greek-${letter}-${occ}`;
     if (trailer === '.') {
-      return `${lead}<span id="${id}" class="scroll-mt-20">${letter}.</span>`;
+      return `${lead}<span id="${id}" class="scroll-mt-20" data-bdb-greek-marker>${letter}.</span>`;
     }
-    return `${lead}<span id="${id}" class="scroll-mt-20">${letter}</span>)`;
+    return `${lead}<span id="${id}" class="scroll-mt-20" data-bdb-greek-marker>${letter}</span>)`;
   });
 }

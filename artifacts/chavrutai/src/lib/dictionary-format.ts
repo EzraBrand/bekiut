@@ -417,6 +417,9 @@ export function annotateTransliterationsInHtml(html: string): string {
       const t = n as Text;
       const parentTag = t.parentElement?.tagName;
       if (parentTag && TRANSLIT_SKIP_PARENT_TAGS.has(parentTag)) continue;
+      // Abbreviation sigla (ψ = Psalm(s)) and outline letters are editorial
+      // tokens, not foreign-language words. Preserve their visible originals.
+      if (t.parentElement?.closest('[data-bdb-expansion], [data-bdb-greek-marker]')) continue;
       const orig = t.nodeValue || '';
       const annotated = annotateAllTransliterations(orig);
       if (annotated !== orig) updates.push({ node: t, value: annotated });

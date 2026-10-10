@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Citation and Entry Fidelity (October 10)</h3>
+            <p>Preserved citation qualifiers and printed verse numbers when expanding book names, corrected superscript homograph searches, and prevented abbreviation symbols and Greek section labels from receiving unwanted transliterations.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: On-Demand Abbreviation Explanations (October 9)</h3>
             <p>Abbreviations stay visible with on-demand explanations. “Expand abbreviations inline” restores the expanded reading mode. “Split by semicolons” is off by default. Added “preced.” → “preceding”.</p>
           </div>
