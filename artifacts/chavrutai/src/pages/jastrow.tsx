@@ -49,6 +49,7 @@ export default function Jastrow() {
   const [showAbout, setShowAbout] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const initialLoadRef = useRef(false);
+  const entryUrlRef = useRef(window.location.pathname + window.location.search);
   // Suggestions are opt-in through typing, not through URL/index updates.
   // Keep suppression active until an actual edit, including late index loads.
   const suppressSuggestionsRef = useRef(true);
@@ -71,6 +72,17 @@ export default function Jastrow() {
       outline: senses.flatMap(sense => sense.outline),
     };
   }), [results, expandInline, extraSplits]);
+
+  // Direct fragment URLs load before the asynchronously fetched target exists.
+  useEffect(() => {
+    if (isLoading || !preparedEntries.length || !window.location.hash) return;
+    const frame = requestAnimationFrame(() => {
+      let id: string;
+      try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+      if (id.startsWith("jastrow-")) document.getElementById(id)?.scrollIntoView({ block: "start" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [preparedEntries, isLoading]);
 
   const jastrowSEO = getJastrowSEO("", searchQuery, window.location.origin);
 
@@ -100,14 +112,16 @@ export default function Jastrow() {
     },
   });
 
-  const updateURLParams = useCallback((params: { q?: string; rid?: string }) => {
+  const updateURLParams = useCallback((params: { q?: string; rid?: string }, clearHash = false) => {
     const url = new URL(window.location.href);
     url.searchParams.delete('q');
     url.searchParams.delete('letter');
     url.searchParams.delete('rid');
     if (params.q) url.searchParams.set('q', params.q);
     if (params.rid) url.searchParams.set('rid', params.rid);
-    const newPath = url.pathname + url.search;
+    if (clearHash) url.hash = "";
+    entryUrlRef.current = url.pathname + url.search;
+    const newPath = entryUrlRef.current + url.hash;
     window.history.replaceState(null, '', newPath);
   }, []);
 
@@ -119,7 +133,9 @@ export default function Jastrow() {
     setShowSuggestions(false);
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
-    updateURLParams({ q: q.trim(), rid });
+    const currentParams = new URLSearchParams(window.location.search);
+    const differentEntry = currentParams.get("q") !== q.trim() || (currentParams.get("rid") || undefined) !== rid;
+    updateURLParams({ q: q.trim(), rid }, differentEntry);
     try {
       const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}`);
       if (!response.ok) throw new Error(`Search failed: ${response.status}`);
@@ -148,6 +164,7 @@ export default function Jastrow() {
   // URLs redirect to the headword index page (which superseded inline browse).
   useEffect(() => {
     const runFromUrl = () => {
+      entryUrlRef.current = window.location.pathname + window.location.search;
       const params = new URLSearchParams(window.location.search);
       const q = params.get('q');
       const letter = params.get('letter');
@@ -173,7 +190,11 @@ export default function Jastrow() {
       runFromUrl();
     }
 
-    const onPopState = () => runFromUrl();
+    const onPopState = () => {
+      // Fragment-only history changes use native anchor navigation, not search.
+      if (entryUrlRef.current === window.location.pathname + window.location.search) return;
+      runFromUrl();
+    };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);

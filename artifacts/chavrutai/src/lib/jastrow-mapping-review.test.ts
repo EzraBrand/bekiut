@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "S’ah": "Se'ah", "Du.": "Dual", Kab: "Kav", "Pol.": "Polel",
     Akiba: "Akiva", coition: "sex", "thou wilt": "you will", Law: "Torah",
     sodomy: "homosexual sex", "Shaf.": "Shaf'el", "K’dosh.": "Kedoshim",
     m: "masculine", "ab.": "above", "Var. lect.": "variant reading(s)",
