@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: More Mappings (October 12)</h3>
+            <p>Added 18 abbreviation and wording mappings in tooltip and inline modes, including “Amst.” → “Amsterdam,” “Dehr.” → “Dyhernfurth,” “Or Zar.” → “Or Zarua,” “K’thib” → “Ketiv,” and additional Torah-portion names.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Reader and Abbreviation Improvements (October 10)</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Added “Matt.” → “Matot,” preserving the longer “Matt. K.” → “Matnot Kehunah” mapping.</li>
