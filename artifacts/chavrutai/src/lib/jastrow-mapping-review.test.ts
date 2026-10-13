@@ -4,6 +4,19 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Zolk.": "Zolkiew", "Hof.": "Hof'al", "Kor.": "Korach",
+    matrix: "womb", indited: "declared", "K’ri": "Qere", Masé: "Masei",
+    "B’huck.": "Bechukotai", "V,": "5,", swine: "pig",
+    "Dial.": "Dialectal", "metaph.": "metaphorically", "Ruth. R.": "Ruth Rabbah",
+    Babel: "Babylon", "Bal.": "Balak", "Pu.": "Pu'al",
+    "imperat.": "imperative", "suff.": "suffix", "phras.": "phraseology",
+    ye: "you (plural)", proselyte: "convert", proselytes: "converts",
+    Israelitish: "Israelite", "ed. Koh.": "edition Kohut", "art thou": "are you",
+    "Luzz. Philox.": "Luzzatto, Philoxenus", "sec. r.": "secondary root",
+    "Sh’mini": "Shemini", gentiles: "non-Jews", "Sm.": "Smith", ass: "donkey",
+    "Differ.": "Different", "eds.": "editions", "Rab. D. S.": "Rabbinovicz, 'Dikdukei Soferim'",
+    "collect.": "collective", "Naḥ.": "Naḥamu", "perh.": "perhaps",
+    "explain.": "explaining", standest: "stand",
     "Amst.": "Amsterdam", Ekha: "Eikhah", gheber: "Zoroastrian",
     "Ithpol.": "Ithpolel", "Dehr.": "Dyhernfurth", "Saf.": "Saf'el",
     Vaëra: "Va'era", Dioclet: "Diocletian", "Euphem.": "Euphemism",
@@ -163,7 +176,7 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    for (const key of ["acc.", "Rabb.", "Sm.", "Ant.", "defect."]) {
+    for (const key of ["acc.", "Rabb.", "Ant.", "defect."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });
