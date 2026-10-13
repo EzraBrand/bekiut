@@ -126,3 +126,17 @@ mtime_ms = 1790860825056
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/7e9e52e8-9e07-430f-b8f1-8cf16d5fdce4/eb162b02-76bc-48f9-9f03-46263acce58f"
 storage_version_token = "1790860826747428"
 content_type = "text/html;profile=replit-chart"
+
+[[outputs]]
+id = "lVxBVQ_RZ3eCG1mQKbckc"
+uri = "file://docs/bdb-jastrow-readers-blog-draft-2026-10.md"
+type = "text"
+title = "BDB and Jastrow Readers — Blog Draft"
+description = "Sober overview of recent reader improvements: approximately 1,350 words plus a 380-word appendix, based on the changelog, commit history, and QA documentation."
+logical_id = "d15f82d5-f4d8-4d3e-b723-78378a73f59f"
+content_hash = "sha256:e687190fa3b5e4d61c7ca030f16892590f38b7b7e6bbbaa445068354fa7ae32f"
+size = 13156
+mtime_ms = 1791872590006
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/d15f82d5-f4d8-4d3e-b723-78378a73f59f/d9c4945c-92b7-457a-9366-6d224768fc1f"
+storage_version_token = "1791872642728646"
+content_type = "text/markdown"
