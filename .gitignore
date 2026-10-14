@@ -51,3 +51,7 @@ Thumbs.db
 # Personal uploads / scratch assets (not used by the app)
 attached_assets/
 docs/reviews/
+
+# Unpublished Places feature draft and generated companion data
+/scripts/ancient-places-blogpost.md
+/scripts/ancient-places-results.csv
