@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Answ.": "Answer", "betw.": "between", "Mick.": "Miketz",
     "Zolk.": "Zolkiew", "Hof.": "Hof'al", "Kor.": "Korach",
     matrix: "womb", indited: "declared", "K’ri": "Qere", Masé: "Masei",
     "B’huck.": "Bechukotai", "V,": "5,", swine: "pig",

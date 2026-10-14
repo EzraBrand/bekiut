@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Three More Abbreviations (October 14)</h3>
+            <p>Added “Answ.” → “Answer,” “betw.” → “between,” and “Mick.” → “Miketz” in tooltip and inline modes.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Abbreviations and Modernized Wording (October 13)</h3>
             <p>Added 39 mappings in tooltip and inline modes, including grammatical terms, Torah-portion names, scholarly references, “V,” → “5,” and modernized wording such as “proselyte” → “convert.” Preserved longer contextual mappings such as “Sm. Ant.” alongside “Sm.” → “Smith.”</p>
           </div>

@@ -19,6 +19,9 @@
     ]
   },
   "mappings": {
+    "Answ.": "Answer",
+    "betw.": "between",
+    "Mick.": "Miketz",
     "Zolk.": "Zolkiew",
     "Hof.": "Hof'al",
     "Kor.": "Korach",
