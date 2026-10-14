@@ -196,3 +196,45 @@ mtime_ms = 1791970472625
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/3d071206-352a-4103-8a97-bed3761d9798/8bb0fd39-19b7-4318-a20a-e05406be660b"
 storage_version_token = "1791970509578751"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "zcli-IvpUe7f6h32NuTRu"
+uri = "file://docs/llmdan/bava-batra-164b-draft.md"
+type = "text"
+title = "Bava Batra 164b — private interpretation draft"
+description = "Four-paragraph addition with source notes and an explicit bibliography gap."
+logical_id = "c5e786cd-7a08-42dd-a866-94ed460f67f4"
+content_hash = "sha256:5ac02aecad2b4dfce26b409201e3d8b90cc23a915f16b8c9e6fa1164d4025c12"
+size = 4695
+mtime_ms = 1791981601600
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c5e786cd-7a08-42dd-a866-94ed460f67f4/50623dee-8fe2-4e3d-ad69-c7434b973cf0"
+storage_version_token = "1791981668744793"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "gmRtwhxALS8uK8eKIqe9a"
+uri = "file://docs/llmdan/shabbat-156b-draft.md"
+type = "text"
+title = "Shabbat 156b — private interpretation draft"
+description = "Four-paragraph addition restoring omitted context, with a verified passage-specific bibliography entry."
+logical_id = "fdf59e55-a80a-467a-9893-faf12f79ac2d"
+content_hash = "sha256:80dd45c25a876c75b9d4a254f0c56850a5669d79f92ced1d092722e10745310b"
+size = 5595
+mtime_ms = 1791981618020
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/fdf59e55-a80a-467a-9893-faf12f79ac2d/a9804aba-3eec-4543-b0f4-334bc9e6ec91"
+storage_version_token = "1791981670278421"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "d2rdrWQcp8HnEdYmh1Iv2"
+uri = "file://docs/llmdan/research-and-method.md"
+type = "text"
+title = "Research, bibliography checks, and review notes"
+description = "Evidence, access limitations, model provenance, and corrections made after critical review."
+logical_id = "c55bded2-8334-48ec-b23a-179f9c3e7ed0"
+content_hash = "sha256:b847451063cccdf691ead3dddde2ed261a081a5c114e4bc945ca030fabd9c44c"
+size = 12206
+mtime_ms = 1791981625444
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c55bded2-8334-48ec-b23a-179f9c3e7ed0/a185256e-85ba-4c3c-8b54-d0d9850f8ee2"
+storage_version_token = "1791981671556643"
+content_type = "text/markdown"

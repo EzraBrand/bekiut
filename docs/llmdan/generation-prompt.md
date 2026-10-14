@@ -1,0 +1,13 @@
+# Private interpretation generation prompt
+
+Read the two complete source posts and surrounding primary texts in the supplied packet. Produce two separate AI-generated additions, each 350–600 words in 3–5 substantial paragraphs, suitable for insertion after the existing overview and before the passage. Label them unreviewed by the author; do not impersonate him. Use restrained, direct prose, no hype, no em-dash asides, no repetitive “not X but Y” constructions, and no bullets in the interpretation. Literary close reading is expressly requested here.
+
+Add explanatory insights beyond the existing overview. Ground each in words, omissions, repetitions, objections, or legal distinctions. Distinguish textual observation, interpretation, and speculation. Never invent manuscripts or references.
+
+Bava Batra: examine 164b.5–13, especially the repeated appeal to local custom, the two objections to dating by archon, the lexical connection through digon, the difference between numeral and geometric uses, and the four-wall scriptural derivation. The source says “this nation”; Rome is an editorial gloss. Hina means one in the vow list; do not invent a one-sided polygon. Greek archon has independently attested eponymous usage (LSJ, ἄρχων II), but this does not verify the Bavli’s archon/digon convention. LSJ τρίγωνος confirms triangular terminology. Keep these limitations explicit.
+
+Shabbat: use 156a.12–14 and 156b.1–6. Restore the two omitted charitable acts and repeated sermons as additional source context. Examine the dead snakes, repeated “What did you do?”, the worker’s prevention of humiliation, and the daughter hearing the beggar others miss. The masculine “הוה דאיג” refers naturally to Rabbi Akiva, not his daughter. Neither her foreknowledge nor pure altruistic motivation is established. The final story ends in a lapse, not a rescue; the text does not explicitly state ownership of the tree. Distinguish absence of inexorable destiny from a modern scientific rejection of astrology.
+
+Checked comparators: Tobit 12:8–9 says almsgiving saves from death; comparison supports an older Jewish association, not direct dependence. Ptolemy, Tetrabiblos I.3 (Robbins translation, Loeb 1940, pp. 23–33) discusses predictions avertible through countervailing causes; his account remains naturalistic and also admits unavoidable events. No claim of rabbinic borrowing is warranted. Proverbs 10:2 and 11:4 share the clause about righteousness delivering from death.
+
+Return just the two titled interpretations with source links where useful. Bibliography will be supplied separately by the researcher. Do not generate citations from memory.

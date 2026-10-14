@@ -3,3 +3,6 @@
 
 # No need to store the pnpm store twice.
 .local
+
+# Private research drafts; tracked for delivery, never deployed.
+/docs/llmdan/
