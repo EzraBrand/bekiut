@@ -23,6 +23,13 @@ afterAll(async () => {
 });
 
 describe("production-style sitemap routing", () => {
+  it("includes the public Places page at both sitemap endpoints", async () => {
+    for (const prefix of ["", "/api"]) {
+      const response = await fetch(`${baseUrl}${prefix}/sitemap-main.xml`);
+      expect(response.status).toBe(200);
+      expect(await response.text()).toContain("/places</loc>");
+    }
+  });
   it("serves every child advertised by the sitemap index at root and /api", async () => {
     const indexResponse = await fetch(`${baseUrl}/sitemap.xml`);
     expect(indexResponse.status).toBe(200);

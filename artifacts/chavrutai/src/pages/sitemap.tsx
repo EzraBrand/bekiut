@@ -112,6 +112,9 @@ export default function Sitemap() {
           Main Pages
         </SectionHeading>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <Link href="/places" className="block border border-border rounded bg-background p-2 text-primary dark:text-[#5b9fc5] hover:bg-secondary">
+              Places — Biblical &amp; Talmudic Map
+            </Link>
             <Link href="/" className="block border border-border rounded bg-background p-2 text-primary dark:text-[#5b9fc5] hover:bg-secondary">
               Home
             </Link>

@@ -94,6 +94,13 @@ export function Footer() {
           <div>
             <h3 className="font-georgia text-base text-foreground mb-4">Study Resources</h3>
             <nav className="flex flex-col gap-3">
+              <Link
+                href="/places"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                data-testid="footer-link-places"
+              >
+                Places — Biblical &amp; Talmudic Map
+              </Link>
               <Link 
                 href="/sugya-viewer"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"

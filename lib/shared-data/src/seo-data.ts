@@ -28,11 +28,11 @@ export type SEOResult = SEOEntry & { canonical: string };
 
 const STATIC_MAP: Record<string, SEOEntry> = {
   "/places": {
-    title: "Ancient Places — Experimental Map | Bekiut",
-    description: "Explore a curated, cited sample of biblical and Talmudic places. Experimental map with approximate locations and identification notes.",
-    ogTitle: "Ancient Places — Experimental Map",
+    title: "Biblical & Talmudic Places Map | Bekiut",
+    description: "Explore biblical and Talmudic places on an interactive map, with searchable ancient names, coordinate sources, and notes on uncertain identifications.",
+    ogTitle: "Biblical & Talmudic Places Map",
     ogDescription: "A curated sample of ancient places, with coordinate sources and identification notes.",
-    robots: "noindex, follow",
+    robots: "index, follow",
   },
   "/": {
     title: "Study Classical Jewish Texts Online Free | Bekiut",

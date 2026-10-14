@@ -53,14 +53,14 @@ describe("reviewed places", () => {
     expect(places.find(p => p.id === "sura")!.coordinateNote).toContain("discrepancy");
     expect(filterPlaces("Mata Mehasya", "all")).toEqual([]);
   });
-  it("keeps direct navigation valid and browser/server metadata identical and noindex", () => {
+  it("keeps direct navigation valid and browser/server metadata identical and indexable", () => {
     expect(isKnownAppPath("/places")).toBe(true);
     expect(isKnownAppPath("/places/")).toBe(true);
     expect(isKnownAppPath("/places/unknown")).toBe(false);
     const browser = getStaticSEO("/places", "https://example.com");
     expect(browser).toEqual(getPageSEO("/places", new URLSearchParams(), "https://example.com"));
-    expect(browser?.robots).toBe("noindex, follow");
-    expect(browser?.title).toContain("Experimental");
+    expect(browser?.robots).toBe("index, follow");
+    expect(browser?.title).toContain("Biblical & Talmudic Places Map");
     expect(getPageSEO("/places/", new URLSearchParams(), "https://example.com")).toEqual(browser);
   });
 });

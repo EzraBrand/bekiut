@@ -672,6 +672,13 @@ async function generateCrawlerBodyContent(
       `<li><a href="/search">Search</a></li>` +
       `<li><a href="/about">About</a></li>` +
       `</ul></nav>`;
+  } else if (urlPath === '/places' || urlPath === '/places/') {
+    heading = 'Biblical & Talmudic Places Map';
+    breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; Places</nav>`;
+    body = `<p>Explore a curated selection of biblical and Talmudic places on an interactive map. Search ancient names and spelling variants, filter by corpus, and view coordinate sources and identification notes.</p>
+<p>Locations may be approximate or disputed; the map explains uncertainty rather than treating every marker as an exact ancient site.</p>
+<p>The place-name lists come from the <a href="https://github.com/EzraBrand/talmud-nlp-indexer">Talmud NLP Indexer gazetteers</a>.</p>
+<p>Related texts: <a href="/bible">Hebrew Bible</a> and <a href="/talmud">Babylonian Talmud</a>.</p>`;
   } else if (urlPath === '/talmud') {
     heading = 'Babylonian Talmud — All Tractates';
     breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; Talmud</nav>`;

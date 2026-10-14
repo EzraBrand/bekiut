@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Places: Navigation and Search Discovery (October 14)</h3>
+            <p>The Places map is now linked from the footer and site map, included in the XML sitemap, and available for search-engine indexing.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Places: Babylonian Jewish Centers (October 14)</h3>
             <p>The curated map now includes 34 places, with Rome, Athens, Antioch on the Orontes, Shechem, and Beit She’arim added with coordinate citations and identification notes. Landscape (color) is the default; all alternative backgrounds remain available.</p>
             <p>Added Landscape, Soft color and Outdoor backgrounds for comparison. Switching styles preserves the selected place and map view; the grayscale and modern reference options remain available.</p>

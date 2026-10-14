@@ -104,6 +104,12 @@ export function generateMainSitemap(req: Request, res: Response) {
     <lastmod>${currentDate}</lastmod>
   </url>
   <url>
+    <loc>${baseUrl}/places</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>${currentDate}</lastmod>
+  </url>
+  <url>
     <loc>${baseUrl}/search</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
