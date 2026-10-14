@@ -38,6 +38,18 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Places: Babylonian Jewish Centers (October 14)</h3>
+            <p>The curated map now includes 34 places, with Rome, Athens, Antioch on the Orontes, Shechem, and Beit She’arim added with coordinate citations and identification notes. Landscape (color) is the default; all alternative backgrounds remain available.</p>
+            <p>Added Landscape, Soft color and Outdoor backgrounds for comparison. Switching styles preserves the selected place and map view; the grayscale and modern reference options remain available.</p>
+            <p>Ancient-place labels now appear where space permits. Added regional views, a quiet terrain background with a modern reference option, a label toggle, metric scale and identification-certainty legend.</p>
+            <p>The map uses MapTiler image tiles with its default labels, avoiding the vector-rendering failure that left only markers visible. The searchable list and reset controls are retained.</p>
+            <p>Added Sura, Pumbedita, Nehardea, and Meḥoza, bringing the trial to 29 places. Disputed locations are labeled in the list and details, with separate historical references and coordinate notes explaining proposed-area pins.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Experimental Ancient Places Map (October 14)</h3>
+            <p>Added a direct-access trial at <code>/places</code> with 25 curated gazetteer places, cited coordinates, identification notes, search, corpus filters, and external map links. A visible “Reset map” button returns to all places and clears the selection, search, and filters. The sample is not frequency-ranked. Kept out of navigation and the sitemap, with noindex metadata pending review.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Three More Abbreviations (October 14)</h3>
             <p>Added “Answ.” → “Answer,” “betw.” → “between,” and “Mick.” → “Miketz” in tooltip and inline modes.</p>
           </div>

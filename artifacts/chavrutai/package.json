@@ -83,8 +83,10 @@
   },
   "dependencies": {
     "@types/dompurify": "^3.2.0",
+    "@types/leaflet": "^1.9.22",
     "dompurify": "^3.4.11",
     "express": "^5.2.1",
+    "leaflet": "^1.9.4",
     "posthog-js": "^1.393.5",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",

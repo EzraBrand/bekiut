@@ -154,3 +154,31 @@ mtime_ms = 1791873236478
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/e2f95900-eb39-454a-ac96-21d45a499796/8a452531-ed7d-466c-94eb-cf956e24c79c"
 storage_version_token = "1791873264883823"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "M0OL7i7n8RfZrmCzuxO2S"
+uri = "file://scripts/ancient-places-blogpost.md"
+type = "text"
+title = "Blog draft: Putting Biblical and Talmudic Places on a Map"
+description = "First-person Talmud & Tech draft, with technical and data appendices. Unpublished."
+logical_id = "d503c447-ab3c-4ef7-aab5-12d442106070"
+content_hash = "sha256:6160804ca186adff6d459f4d978d77c4f39f548fc1f28a026972bb827fd16dd7"
+size = 10480
+mtime_ms = 1791968850653
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/d503c447-ab3c-4ef7-aab5-12d442106070/8e9b1799-35a0-49f6-b261-439d3e2b1854"
+storage_version_token = "1791968938342061"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "blMyPYaQmIj7nIr0Pzt-2"
+uri = "file://scripts/ancient-places-results.csv"
+type = "table"
+title = "Ancient Places — 34-record dataset"
+description = "Dataset exported from the app, including aliases, coordinates, certainty, source membership and citations."
+logical_id = "5a54f17f-52a0-4a48-8fed-1612db0620e1"
+content_hash = "sha256:88c7dd76e3d416494d5cb9a82fea5de2ba58eb6e2c56b417d4bfd224ebcebc70"
+size = 19871
+mtime_ms = 1791968907781
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5a54f17f-52a0-4a48-8fed-1612db0620e1/b20d6e62-c6b2-4dc8-9136-0828e05395b3"
+storage_version_token = "1791968939748177"
+content_type = "text/csv"

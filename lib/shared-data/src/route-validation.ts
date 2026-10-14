@@ -30,6 +30,7 @@ const STATIC_PATHS = new Set<string>([
   "/suggested-pages",
   "/biblical-index",
   "/mishnah-map",
+  "/places",
   "/blog-posts",
   "/blog-reader",
   "/jastrow",

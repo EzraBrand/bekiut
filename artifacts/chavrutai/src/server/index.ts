@@ -370,6 +370,20 @@ app.get(SITEMAP_PATH_RE, async (req, res) => {
 
 // Crawler interceptor: serve per-page meta/JSON-LD/body for bots only. Human
 // visitors fall through to static assets + the SPA shell unchanged.
+// The experimental trial must be noindex even before JavaScript loads.
+app.get(["/places", "/places/"], async (_req, res, next) => {
+  res.setHeader("X-Robots-Tag", "noindex, follow");
+  try {
+    const template = await fs.promises.readFile(indexHtmlPath, "utf-8");
+    res.type("html").send(injectMeta(
+      template,
+      getPageSEO("/places", new URLSearchParams(), CANONICAL_BASE_URL),
+    ));
+  } catch {
+    next();
+  }
+});
+
 app.use(async (req, res, next) => {
   if (req.method !== "GET" && req.method !== "HEAD") return next();
 

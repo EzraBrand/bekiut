@@ -1,0 +1,30 @@
+.places-map-frame { isolation: isolate; z-index: 0; position: relative; }
+.places-map-frame .leaflet-container { background: var(--muted); font: inherit; }
+.places-map-frame .leaflet-control-attribution { font-size: 11px; }
+.places-name-label { font: 600 12px/1.25 Georgia, serif; color: #243e48; background: #fffdf5; border: 1px solid #b8b5a8; box-shadow: 0 1px 3px #0002; padding: 3px 6px; }
+
+.places-pin {
+  display: block; width: 14px; height: 14px; margin: 4px;
+  border-radius: 9999px; background: var(--category-talmud-bavli);
+  border: 2px solid var(--background);
+  box-shadow: 0 1px 3px hsl(25 20% 15% / 0.35);
+  transition: transform 160ms ease;
+}
+.places-pin-approximate { background: var(--category-mishneh-torah); }
+.places-pin-disputed { background: var(--category-mishnah); border-style: dashed; }
+.leaflet-marker-icon:hover .places-pin,
+.leaflet-marker-icon:focus-visible .places-pin { transform: scale(1.25); }
+.leaflet-marker-icon:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 9999px; }
+.places-pin.is-selected {
+  transform: scale(1.45);
+  background: var(--primary);
+  border-color: var(--background);
+  box-shadow: 0 0 0 3px hsl(203 30% 26% / 0.25);
+}
+
+.places-details { animation: places-in 220ms ease-out; }
+@keyframes places-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .places-details { animation: none; }
+  .places-pin { transition: none; }
+}

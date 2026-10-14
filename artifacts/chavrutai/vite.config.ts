@@ -115,6 +115,10 @@ const legacyRedirectDev = () => ({
 });
 
 export default defineConfig({
+  // Intentionally public, domain-restricted browser key; never expose other secrets.
+  define: {
+    "import.meta.env.VITE_MAPTILER_API_KEY": JSON.stringify(process.env.MAPTILER_API_KEY || ""),
+  },
   base: basePath,
   plugins: [
     react(),

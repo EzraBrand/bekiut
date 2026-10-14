@@ -118,6 +118,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/bible/:book/:chapter', servePageWithMeta);
   app.get('/sugya-viewer', servePageWithMeta);
   app.get('/mishnah-map', servePageWithMeta);
+  app.get('/places', servePageWithMeta);
   app.get('/mishnah', servePageWithMeta);
   app.get('/mishnah/:tractate', servePageWithMeta);
   app.get('/mishnah/:tractate/:chapter', servePageWithMeta);

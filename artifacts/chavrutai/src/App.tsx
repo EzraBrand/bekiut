@@ -41,6 +41,7 @@ const ExternalLinksPage = lazy(() => import("@/pages/external-links"));
 const SearchPage = lazy(() => import("@/pages/search"));
 const Home = lazy(() => import("@/pages/home"));
 const BlogReader = lazy(() => import("@/pages/blog-reader"));
+const PlacesPage = lazy(() => import("@/pages/places"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 const TermIndexPage = lazy(() => import("@/pages/term-index"));
 const MishnahContents = lazy(() => import("@/pages/mishnah-contents"));
@@ -152,6 +153,7 @@ function Router() {
       <Route path="/sugya-viewer" component={SugyaViewerPage} />
       <Route path="/external-links" component={ExternalLinksPage} />
       <Route path="/search" component={SearchPage} />
+      <Route path="/places" component={PlacesPage} />
       <Route path="/term-index" component={TermIndexPage} />
       <Route path="/talmud" component={Contents} />
       <Route path="/talmud/:tractate" component={TractateContentsRoute} />

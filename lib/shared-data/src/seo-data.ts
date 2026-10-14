@@ -27,6 +27,13 @@ export type SEOResult = SEOEntry & { canonical: string };
 // All strings are plain text (no HTML entities).
 
 const STATIC_MAP: Record<string, SEOEntry> = {
+  "/places": {
+    title: "Ancient Places — Experimental Map | Bekiut",
+    description: "Explore a curated, cited sample of biblical and Talmudic places. Experimental map with approximate locations and identification notes.",
+    ogTitle: "Ancient Places — Experimental Map",
+    ogDescription: "A curated sample of ancient places, with coordinate sources and identification notes.",
+    robots: "noindex, follow",
+  },
   "/": {
     title: "Study Classical Jewish Texts Online Free | Bekiut",
     description:
@@ -623,7 +630,7 @@ export function getPageSEO(
   }
 
   // Static pages
-  const staticResult = getStaticSEO(pathname, baseUrl);
+  const staticResult = getStaticSEO(pathname === "/places/" ? "/places" : pathname, baseUrl);
   if (staticResult) return staticResult;
 
   // Headword browser letter page: /jastrow/headwords/:letter, /bdb/headwords/:letter
