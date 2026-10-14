@@ -146,13 +146,13 @@ id = "hSUzZXjheEl_ohYYpNj7Q"
 uri = "file://scripts/bdb-jastrow-readers-revised-blogpost.md"
 type = "text"
 title = "BDB and Jastrow Readers — Revised Blog Draft"
-description = "First-person, sober prose following the restored writing skill: 1,246 words plus a 398-word technical appendix. Clean Markdown for import into Google Docs."
+description = "The latest draft, following your recovered writing skill: first-person prose with a technical appendix."
 logical_id = "e2f95900-eb39-454a-ac96-21d45a499796"
 content_hash = "sha256:5bcbf033bc98ce523c2737afa2842a8bc0bab01360a91290ea2afd12a29163e2"
 size = 11550
 mtime_ms = 1791873236478
-storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/e2f95900-eb39-454a-ac96-21d45a499796/8a452531-ed7d-466c-94eb-cf956e24c79c"
-storage_version_token = "1791873264883823"
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/e2f95900-eb39-454a-ac96-21d45a499796/4153197d-11d8-400a-be4d-35c4f6ee2526"
+storage_version_token = "1791970197588367"
 content_type = "text/markdown"
 
 [[outputs]]
