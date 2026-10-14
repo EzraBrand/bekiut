@@ -1,0 +1,126 @@
+{
+  "objectPrefix": ".private/bekiut-demo",
+  "note": "bucket from PRIVATE_OBJECT_DIR",
+  "files": [
+    {
+      "path": "public/audio/bg_music.mp3",
+      "object": ".private/bekiut-demo/public/audio/bg_music.mp3",
+      "bytes": 480697,
+      "sha256": "2b04e970102ed3fc70831af7bc6d7ef9f61d30f86377a24d3ccaaeb8fccb3f1c"
+    },
+    {
+      "path": "public/audio/composite_audio.mp3",
+      "object": ".private/bekiut-demo/public/audio/composite_audio.mp3",
+      "bytes": 721650,
+      "sha256": "d5ad1beb319e355dfc7c1bfec6710e17553638d8a14d761657f39df6673272f9"
+    },
+    {
+      "path": "public/audio/sfx_lockup.mp3",
+      "object": ".private/bekiut-demo/public/audio/sfx_lockup.mp3",
+      "bytes": 24702,
+      "sha256": "cc24cc6f6088010280aac3a0b8b8553cda65d66645d409207052732db7a0a9e8"
+    },
+    {
+      "path": "public/audio/vo1.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo1.mp3",
+      "bytes": 65662,
+      "sha256": "29c708d0033666d52483bf8874f0f1a2c665a230e87ce340960e9bc3f78e4437"
+    },
+    {
+      "path": "public/audio/vo2.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo2.mp3",
+      "bytes": 104532,
+      "sha256": "7e6b471ace09b339d6eb9bc91fc5644af660c28fabddf22aae3b39ff1d3ed85f"
+    },
+    {
+      "path": "public/audio/vo3.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo3.mp3",
+      "bytes": 51452,
+      "sha256": "d46496a73e61448978eafb16f875ecb0c3fcc65d859124e411cd6fd9e245a81c"
+    },
+    {
+      "path": "public/audio/vo4.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo4.mp3",
+      "bytes": 81127,
+      "sha256": "d5259f58365d445ad2a0a2e6eca900c7df7a65291249fbb21e7c5e930c72a132"
+    },
+    {
+      "path": "public/audio/vo5.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo5.mp3",
+      "bytes": 38077,
+      "sha256": "ca9d8d1404c03361da7233fd83e1265f498fbb5899b54681db9fb60c111f4612"
+    },
+    {
+      "path": "public/audio/vo6.mp3",
+      "object": ".private/bekiut-demo/public/audio/vo6.mp3",
+      "bytes": 41838,
+      "sha256": "8a115a5a0b4d01994080991509c31175aba96135b1050ea21594fdc16871059b"
+    },
+    {
+      "path": "public/images/bdb.png",
+      "object": ".private/bekiut-demo/public/images/bdb.png",
+      "bytes": 134316,
+      "sha256": "4cac669730b1e4ae8d4beb0c50842021a18153e809d6c4919b7d14b4af888c9a"
+    },
+    {
+      "path": "public/images/bibindex.png",
+      "object": ".private/bekiut-demo/public/images/bibindex.png",
+      "bytes": 169344,
+      "sha256": "9a6a2d911defa0007108835509acd2caf8db55a69f387276c04b67c42617214f"
+    },
+    {
+      "path": "public/images/bible.png",
+      "object": ".private/bekiut-demo/public/images/bible.png",
+      "bytes": 121796,
+      "sha256": "941fe51c8af2e08cad69ed2d86f05ca735b6120299dfcd419cfce356132270ba"
+    },
+    {
+      "path": "public/images/home.png",
+      "object": ".private/bekiut-demo/public/images/home.png",
+      "bytes": 152961,
+      "sha256": "0612b2d1e4020bb1aebb81961b0c6d14f155d90ae7849e7936e1e880eac9bdfb"
+    },
+    {
+      "path": "public/images/jastrow.png",
+      "object": ".private/bekiut-demo/public/images/jastrow.png",
+      "bytes": 119073,
+      "sha256": "d0a7f2bfb95667f8af7d832c7e740db8500431e62e8973f3442ba54bb3da0319"
+    },
+    {
+      "path": "public/images/logo.png",
+      "object": ".private/bekiut-demo/public/images/logo.png",
+      "bytes": 12151,
+      "sha256": "7341352dac19ce2857d424fd6183cb4a93639c8e2ae2700079fff5fa14fafe34"
+    },
+    {
+      "path": "public/images/mishmap.png",
+      "object": ".private/bekiut-demo/public/images/mishmap.png",
+      "bytes": 184542,
+      "sha256": "7f820ab83c604d124e2bce058057973891b7454874efc5d8f6c47640f1742979"
+    },
+    {
+      "path": "public/images/places.png",
+      "object": ".private/bekiut-demo/public/images/places.png",
+      "bytes": 640046,
+      "sha256": "c211dab27d158a79d30208f61f2151cdcab7586e18530dba70503cd972623d48"
+    },
+    {
+      "path": "public/images/sugya.png",
+      "object": ".private/bekiut-demo/public/images/sugya.png",
+      "bytes": 132749,
+      "sha256": "4603e4bbd12573471d7757363316fcb7a4224a6db1844cee4751fd3c56b001ec"
+    },
+    {
+      "path": "public/images/talmud.png",
+      "object": ".private/bekiut-demo/public/images/talmud.png",
+      "bytes": 172898,
+      "sha256": "8b303244edd6448ea5582965c6a0d5646f2e8441f09ef3236e40cb9284a55404"
+    },
+    {
+      "path": "exports/bekiut-demo-30s.mp4",
+      "object": ".private/bekiut-demo/exports/bekiut-demo-30s.mp4",
+      "bytes": 9998435,
+      "sha256": "11b523c4ce0ed94cba04817ecc71f9414cdc4e806c2ff3dc043a73f169522f77"
+    }
+  ]
+}

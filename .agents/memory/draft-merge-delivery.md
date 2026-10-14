@@ -8,3 +8,9 @@ For writing delivered by an isolated task, ensure the user receives a downloadab
 **Why:** A Places blog draft was registered as an asset but excluded from Git. After the task merged, its metadata remained while the local document was absent, and the user could not find the Library item.
 
 **How to apply:** Do not assume an asset metadata record means the local file exists. Verify the delivered path, avoid explicit ignore rules for the sole copy of requested writing, and present the actual document again when the user asks for it.
+
+For editable media artifacts, keep large playback assets in durable storage with a tracked checksum manifest and automatic post-merge restoration. A downloadable export alone does not preserve the editable preview.
+
+**Why:** Ignoring media without restoring it leaves the merged preview missing its images and soundtrack. A manual recovery command is insufficient for a working handoff.
+
+**How to apply:** Restore before workflows restart, skip checksum-matching files, and fail setup explicitly if required media cannot be restored.

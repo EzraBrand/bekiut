@@ -27,3 +27,4 @@
 - [DOM test dependency resolution](dom-test-resolution.md) — artifact-local DOM packages may need direct test imports when Vitest resolves environments from the workspace root.
 - [Basemap provider terms](basemap-provider-terms.md) — old keyless CARTO recipes are stale; English localization can still retain non-Latin fallback labels.
 - [LLMdan research scope](llmdan-research-scope.md) — private AI-labeled drafts; academic bibliography must have verified discussion of the specific passage.
+- [Bekiut pronunciation](bekiut-pronunciation.md) — user-specified be-KEE-oot and mish-NEH to-RAH for narration.

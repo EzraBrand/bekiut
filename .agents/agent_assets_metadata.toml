@@ -238,3 +238,31 @@ mtime_ms = 1791981625444
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/c55bded2-8334-48ec-b23a-179f9c3e7ed0/a185256e-85ba-4c3c-8b54-d0d9850f8ee2"
 storage_version_token = "1791981671556643"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "Y28cTKEFA9BDnWuxEnNJs"
+uri = "file://artifacts/bekiut-demo/exports/bekiut-demo-30s.mp4"
+type = "video"
+title = "Bekiut demo — English terminology"
+description = "30-second 1080p film with Hebrew Bible and Maimonides in narration and matching captions."
+logical_id = "ede9404a-9d31-4377-aedb-70ff940573a0"
+content_hash = "sha256:11b523c4ce0ed94cba04817ecc71f9414cdc4e806c2ff3dc043a73f169522f77"
+size = 9998435
+mtime_ms = 1791981940346
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/ede9404a-9d31-4377-aedb-70ff940573a0/fc2240b1-d0a0-496a-98b1-90ae8f758f0a"
+storage_version_token = "1791982181359896"
+content_type = "video/mp4"
+
+[[outputs]]
+id = "wQqL22Hb4fIZqHsvBEqzz"
+uri = "file://artifacts/bekiut-demo/SCRIPT.md"
+type = "text"
+title = "Bekiut demo — current script"
+description = "Final narration, caption wording, audio specification and spending ledger."
+logical_id = "44f1846e-41ee-48ce-a610-ae689b17ceda"
+content_hash = "sha256:1f3ea5ee92a1bc540bfa6045bce142d6f10bbc2368eb60fbd0bcbf9d23a277e8"
+size = 7233
+mtime_ms = 1791982162297
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/44f1846e-41ee-48ce-a610-ae689b17ceda/dce53c57-3d42-40d4-bc6d-e6bb27f51681"
+storage_version_token = "1791982182679340"
+content_type = "text/markdown"

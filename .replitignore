@@ -6,3 +6,5 @@
 
 # Private research drafts; tracked for delivery, never deployed.
 /docs/llmdan/
+# Generated video exports (restored from App Storage when needed)
+artifacts/bekiut-demo/exports/
