@@ -61,7 +61,12 @@ describe("places page with real Leaflet and no network", () => {
     expect(get("select-map-background").querySelectorAll("option")).toHaveLength(5);
     await click("button-region-babylonia");
     expect(get("button-region-babylonia").getAttribute("aria-pressed")).toBe("true");
-    expect(get("text-result-count").textContent).toContain("54 of 54");
+    expect(get("text-result-count").textContent).toContain("57 of 57");
+    for (const region of ["judea", "galilee", "syria", "anatolia"]) {
+      await click(`button-region-${region}`);
+      expect(get(`button-region-${region}`).getAttribute("aria-pressed")).toBe("true");
+      expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
+    }
     await click("button-region-israel");
     expect(get("button-region-israel").getAttribute("aria-pressed")).toBe("true");
     await click("toggle-place-labels");
@@ -72,14 +77,14 @@ describe("places page with real Leaflet and no network", () => {
       background.dispatchEvent(new Event("change", { bubbles: true }));
     });
     expect(background.value).toBe("modern");
-    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
+    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
     await click("button-reset-map");
     expect(get("button-region-all").getAttribute("aria-pressed")).toBe("true");
     await click("toggle-place-labels");
   });
   it("synchronizes list, real marker selection, filters, failures and reset", async () => {
     expect(get("map-places")).toBeTruthy();
-    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
+    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
     await click("button-place-shiloh");
     expect(get("details-place-shiloh")).toBeTruthy();
     expect(get("link-google-maps").getAttribute("href")).toContain("32.0556,35.2895");
@@ -90,7 +95,7 @@ describe("places page with real Leaflet and no network", () => {
     expect(get("details-empty")).toBeTruthy();
     expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(6);
     await click("button-reset");
-    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
+    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
     // Dispatch tile failure without requesting any real remote tiles.
     const tile = host.querySelector("img.leaflet-tile");
     expect(tile).toBeTruthy();
@@ -104,7 +109,7 @@ describe("places page with real Leaflet and no network", () => {
     expect(get("details-place-bethel")).toBeTruthy();
     await click("button-reset-map");
     expect(get("details-empty")).toBeTruthy();
-    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
+    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
     expect(host.querySelectorAll(".leaflet-marker-icon[aria-pressed='true']")).toHaveLength(0);
   });
   it("searches aliases and Hebrew and provides empty results", async () => {
@@ -116,7 +121,7 @@ describe("places page with real Leaflet and no network", () => {
       });
     };
     await setQuery("Sepphoris");
-    expect(get("text-result-count").textContent).toContain("1 of 54");
+    expect(get("text-result-count").textContent).toContain("1 of 57");
     expect(get("button-place-tzippori")).toBeTruthy();
     await setQuery("ירושלים");
     expect(get("button-place-jerusalem")).toBeTruthy();
@@ -125,7 +130,7 @@ describe("places page with real Leaflet and no network", () => {
     expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(0);
     await click("button-reset");
     expect(input.value).toBe("");
-    expect(get("text-result-count").textContent).toContain("54 of 54");
+    expect(get("text-result-count").textContent).toContain("57 of 57");
   });
   it("places the list after the map and omits generic entry caveats", async () => {
     const map = host.querySelector(".places-map-frame")!;
@@ -147,6 +152,6 @@ describe("places page with real Leaflet and no network", () => {
     await click("button-place-pumbedita");
     expect(get("details-place-pumbedita").textContent).toContain("modern Fallujah's coordinates");
     await click("button-reset-map");
-    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
+    expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(57);
   });
 });

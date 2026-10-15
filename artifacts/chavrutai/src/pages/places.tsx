@@ -7,6 +7,7 @@ import { filterPlaces, gazetteerSources, places } from "@/lib/places";
 import { PlaceDetails, googleMapsUrl } from "@/components/places/place-details";
 import "@/components/places/places.css";
 import { mapBackgrounds, type MapBackground } from "@/components/places/map-backgrounds";
+import { mapRegions, type MapRegion } from "@/components/places/map-regions";
 
 type Corpus = "all" | "biblical" | "talmudic";
 type MapProblem = null | "tileerror" | "timeout" | "import" | "webgl";
@@ -39,7 +40,7 @@ export default function PlacesPage() {
   const [attempt, setAttempt] = useState(0);
   const [background, setBackground] = useState<MapBackground>("landscape");
   const [labels, setLabels] = useState(true);
-  const [region, setRegion] = useState<"all" | "israel" | "babylonia">("all");
+  const [region, setRegion] = useState<MapRegion>("all");
   const detailsRef = useRef<HTMLDivElement>(null);
   const mapAnchorRef = useRef<HTMLDivElement>(null);
 
@@ -197,20 +198,20 @@ export default function PlacesPage() {
           </div>
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <div role="group" aria-label="Regional map view" className="flex flex-wrap gap-1">
-              {([["all", "All places"], ["israel", "Land of Israel"], ["babylonia", "Babylonia"]] as const).map(([value, label]) => (
+              {(Object.keys(mapRegions) as MapRegion[]).map(value => (
                 <button key={value} type="button" data-testid={`button-region-${value}`} aria-pressed={region === value}
                   onClick={() => { setRegion(value); setSelectedId(null); setFitToken(t => t + 1); }}
-                  className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{label}</button>
+                  className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{mapRegions[value].label}</button>
               ))}
             </div>
-            <label className="flex items-center gap-2">Background
+            <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
+            <label className="ml-auto flex items-center gap-2">Background
               <select aria-label="Map background" data-testid="select-map-background" value={background}
                 onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
                 className="rounded border bg-background px-2 py-1.5">
                 {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
               </select>
             </label>
-            <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
           </div>
           <p className="text-xs text-muted-foreground" aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
           <p className="text-xs text-muted-foreground">Labels appear where space permits; zoom in for more. Regional views move the map without filtering the list. These are viewing areas, not ancient borders.</p>
@@ -266,7 +267,7 @@ export default function PlacesPage() {
           <p>A place's Biblical or Talmudic label means only that it appears in the supplied gazetteer lists (<a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>). It is not an exhaustive record of every attestation in either corpus.</p>
           <p>Each marker is a reference point for a modern identification. It does not depict ancient boundaries, extent, or settlement history. “Established” means the identification is widely accepted, not that the pin locates every historical use of the name. “Approximate” marks city-level or less precise locations; “Disputed” flags competing identifications.</p>
           <p>The Babylonian Jewish centers Sura, Pumbedita, Nehardea, and Meḥoza are included. Sura, Pumbedita, and Nehardea have disputed locations: their pins show cited proposals or nearby reference points, not verified academy sites. Read each place’s coordinate note before interpreting its marker.</p>
-          <p>Regions (such as Babylonia), sites with no usable location proposal, and non-geographic terms (such as Sheol and “Truth”) are excluded. Hebrew aliases are editorial search aids, not transcriptions from the English gazetteers.</p>
+          <p>Regional entries, such as Cappadocia and Adiabene, use a reference point within the region and are labeled accordingly. Sites with no usable location proposal and non-geographic terms (such as Sheol and “Truth”) are excluded. Hebrew aliases are editorial search aids.</p>
           <p>The modern basemap is provided by <a className="underline" href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">MapTiler</a>, using OpenStreetMap and other credited data. Requests send your IP address and page referrer to MapTiler and count against the site’s MapTiler allowance. Labels prefer English; names without a translation may use a local-language fallback. This is not a map of ancient borders.</p>
         </div>
       </PageSection>

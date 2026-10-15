@@ -27,6 +27,9 @@ type Row = [id: string, name: string, aliases: string[], biblical: string[], tal
 const site = "";
 const city = "";
 const rows: Row[] = [
+  ["cappadocia", "Cappadocia (region)", ["Cappadocia", "Kapadokya", "קפדוקיה", "קפוטקיא"], [], ["Cappadocia"], 38.670556, 34.839167, "Cappadocia", "Historic region of central Anatolia, in present-day Turkey, known in rabbinic sources as Kaputkia. The marker locates the Göreme area in the region's western part.", "Approximate", "Regional reference point from the Hebrew Wikipedia article."],
+  ["adiabene", "Adiabene (region)", ["Adiabene", "Ḥadyab", "Hadyab", "חדייב", "חדיאב"], [], ["Adiabene", "Ḥadyab"], 36.3333333333333, 44.0166666666667, "Adiabene", "Ancient kingdom in northern Mesopotamia, associated with Queen Helena and her family's conversion to Judaism. Its capital was Arbela, modern Erbil.", "Approximate", "Regional reference point at the capital, Arbela/Erbil."],
+  ["hamadan", "Hamadan", ["Ḥamadan", "Hamedan", "Ecbatana", "המדאן", "אחמתא"], [], ["Ḥamadan"], 34.79833, 48.51472, "Hamadan", "City in western Iran on the site of ancient Ecbatana, a major center of Media. Known as Ḥamadan in the Talmudic gazetteer.", "Approximate", city],
   ["usha", "Usha", ["אושא"], [], ["Usha"], 32.799414, 35.146701, "Usha_(ancient_city)", "Ancient Lower Galilean town associated with the Sanhedrin and the ordinances of Usha. The marker locates the ancient town.", "Established", site],
   ["shefaram", "Shefaram", ["Shefa-Amr", "Shfar'am", "שפרעם"], [], ["Shefaram"], 32.80556, 35.16944, "Shefa-Amr", "Galilean town named among the successive seats of the Sanhedrin, identified with present-day Shefa-Amr.", "Approximate", city],
   ["beitar", "Beitar", ["Betar", "Bethar", "ביתר"], [], ["Beitar"], 31.73, 35.135556, "Betar_(ancient_city)", "Ancient fortified settlement near Battir, associated with the end of the Bar Kokhba revolt and rabbinic accounts of its destruction.", "Established", site],
@@ -91,6 +94,7 @@ const identificationSources: Record<string, NonNullable<Place["identificationSou
 };
 
 const hebrewArticles: Record<string, string> = {
+  cappadocia: "קפדוקיה", adiabene: "חדייב", hamadan: "המדאן",
   usha: "אושא", shefaram: "שפרעם", beitar: "ביתר", haifa: "חיפה", sidon: "צידון",
   gaza: "עזה", antipatris: "תל אפק (אנטיפטריס)", nisibis: "נציבין", sikhnei: "סחנין",
   "gush-halav": "גוש חלב", yodfat: "יודפת (יישוב עתיק)", gamla: "גמלא (יישוב עתיק)",
@@ -109,7 +113,7 @@ export const places: Place[] = rows.map(([id, name, aliases, biblical, talmudic,
     ? [...(identificationSources[id] ?? []), hebrewReference(hebrewArticles[id])]
     : identificationSources[id],
   sources: [...biblical.map(name => ({ corpus: "biblical" as const, name })), ...talmudic.map(name => ({ corpus: "talmudic" as const, name }))],
-  coordinateSource: id === "yodfat" || id === "gaza"
+  coordinateSource: ["yodfat", "gaza", "cappadocia", "adiabene"].includes(id)
     ? { ...hebrewReference(hebrewArticles[id]), title: `Hebrew Wikipedia: ${hebrewArticles[id]} (coordinate field)` }
     : { title: `Wikipedia: ${decodeURIComponent(article).replaceAll("_", " ")} (coordinate field)`, url: `https://en.wikipedia.org/wiki/${article}` },
 })).sort((a, b) => a.name.localeCompare(b.name));

@@ -14,3 +14,9 @@ Keep generic accuracy disclaimers in the page-level explanation, not repeated in
 **Why:** The user finds repeated generic disclaimers excessive for this non-specialist map.
 
 **How to apply:** Favor concise historical descriptions; do not add boilerplate about exact buildings or ancient boundaries to each record. The user reiterated that distinctions should be phrased positively (e.g. the city as opposed to the empire), rather than hedging about everything a record does not mean.
+
+Regional toponyms may be included as explicitly labeled regional reference points.
+
+**Why:** The user requested Cappadocia, expanding the original settlement-only selection.
+
+**How to apply:** Clearly name regions as regions and describe what the point represents, such as a capital or an identifiable location within the region.

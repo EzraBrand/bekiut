@@ -34,7 +34,7 @@ export function addPlacesBasemap(
     if (!key) throw new Error("MapTiler browser key not configured");
     const style = mapBackgrounds[background].style;
     raster = L.tileLayer(`https://api.maptiler.com/maps/${style}/{z}/{x}/{y}.png?key=${encodeURIComponent(key)}`, {
-      tileSize: 512, zoomOffset: -1, maxZoom: 19, attribution,
+      tileSize: 512, zoomOffset: -1, maxZoom: 19, attribution, className: "places-raster-tiles",
     });
     const loading = () => {
       if (!timer && !failed) timer = setTimeout(() => {

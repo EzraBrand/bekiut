@@ -5,11 +5,12 @@ import type { Place } from "@/lib/places";
 import { addPlacesBasemap } from "./places-basemap";
 import { updatePlaceLabels } from "./place-labels";
 import type { MapBackground } from "./map-backgrounds";
+import { mapRegions, type MapRegion } from "./map-regions";
 
 export interface PlacesMapProps {
   background?: MapBackground;
   labels?: boolean;
-  region?: "all" | "israel" | "babylonia";
+  region?: MapRegion;
   places: Place[];
   selectedId: string | null;
   /** Increments on every selection so repeated selection re-focuses. */
@@ -164,10 +165,9 @@ export default function PlacesMap({
     const map = mapRef.current;
     if (!map || places.length === 0) return;
     const selected = places.find((p) => p.id === selectedId);
-    if (region === "israel") {
-      map.fitBounds([[30.8, 34.1], [33.4, 36.1]], { padding: [24, 24] });
-    } else if (region === "babylonia") {
-      map.fitBounds([[31.3, 43.1], [34, 45.2]], { padding: [24, 24] });
+    const bounds = mapRegions[region].bounds;
+    if (bounds) {
+      map.fitBounds(bounds, { padding: [24, 24] });
     } else if (selected) {
       map.setView([selected.latitude, selected.longitude], 9);
     } else {

@@ -1,5 +1,13 @@
 .places-map-frame { isolation: isolate; z-index: 0; position: relative; }
 .places-map-frame .leaflet-container { background: var(--muted); font: inherit; }
+/* Overlap our 512px raster tiles by one pixel to cover browser rounding seams.
+   Keep Leaflet's position transforms and grid spacing unchanged. */
+.places-map-frame .places-raster-tiles .leaflet-tile {
+  width: 513px !important;
+  height: 513px !important;
+  /* Leaflet's additive blending turns overlapping edges into bright lines. */
+  mix-blend-mode: normal;
+}
 .places-map-frame .leaflet-control-attribution { font-size: 11px; }
 .places-name-label { font: 600 12px/1.25 Georgia, serif; color: #243e48; background: #fffdf5; border: 1px solid #b8b5a8; box-shadow: 0 1px 3px #0002; padding: 3px 6px; }
 

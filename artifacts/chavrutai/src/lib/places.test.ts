@@ -4,9 +4,9 @@ import { isKnownAppPath } from "@workspace/shared-data/route-validation";
 import { getPageSEO, getStaticSEO } from "@workspace/shared-data/seo-data";
 
 describe("reviewed places", () => {
-  it("contains 54 unique, cited, valid points", () => {
-    expect(places).toHaveLength(54);
-    expect(new Set(places.map(p => p.id)).size).toBe(54);
+  it("contains 57 unique, cited, valid points", () => {
+    expect(places).toHaveLength(57);
+    expect(new Set(places.map(p => p.id)).size).toBe(57);
     for (const p of places) {
       expect(p.latitude).toBeGreaterThanOrEqual(-90);
       expect(p.latitude).toBeLessThanOrEqual(90);
@@ -33,7 +33,7 @@ describe("reviewed places", () => {
   });
   it("filters by documented gazetteer membership, not inferred attestation", () => {
     expect(filterPlaces("", "biblical")).toHaveLength(6);
-    expect(filterPlaces("", "talmudic")).toHaveLength(50);
+    expect(filterPlaces("", "talmudic")).toHaveLength(53);
     expect(filterPlaces("Jerusalem", "biblical")).toEqual([]);
     expect(filterPlaces("Samaria", "talmudic")[0].id).toBe("samaria");
     expect(filterPlaces("nonsense-not-a-place", "all")).toEqual([]);
@@ -53,9 +53,12 @@ describe("reviewed places", () => {
     expect(places.find(p => p.id === "sura")!.coordinateNote).toContain("farther south");
     expect(filterPlaces("Mata Mehasya", "all")).toEqual([]);
   });
-  it("links all twenty additions to reviewed Hebrew articles and distinguishes ancient sites", () => {
+  it("links additions to reviewed Hebrew articles and distinguishes ancient sites", () => {
     const additions = places.filter(p => p.identificationSources?.some(s => s.url.startsWith("https://he.wikipedia.org/wiki/")));
-    expect(additions).toHaveLength(20);
+    expect(additions).toHaveLength(23);
+    expect(filterPlaces("קפדוקיה", "talmudic")[0].name).toBe("Cappadocia (region)");
+    expect(filterPlaces("Ḥadyab", "talmudic")[0].coordinateNote).toContain("Arbela/Erbil");
+    expect(filterPlaces("Hamadan", "talmudic")[0].latitude).toBe(34.79833);
     expect(filterPlaces("נציבין", "talmudic")[0].id).toBe("nisibis");
     const yodfat = places.find(p => p.id === "yodfat")!;
     expect(yodfat.latitude).toBe(32.83194444);
