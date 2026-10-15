@@ -50,7 +50,7 @@ describe("reviewed places", () => {
     }
     expect(places.find(p => p.id === "pumbedita")!.coordinateNote).toContain("modern Fallujah");
     expect(places.find(p => p.id === "nehardea")!.coordinateNote).toContain("conflicting coordinates");
-    expect(places.find(p => p.id === "sura")!.coordinateNote).toContain("discrepancy");
+    expect(places.find(p => p.id === "sura")!.coordinateNote).toContain("farther south");
     expect(filterPlaces("Mata Mehasya", "all")).toEqual([]);
   });
   it("links all twenty additions to reviewed Hebrew articles and distinguishes ancient sites", () => {

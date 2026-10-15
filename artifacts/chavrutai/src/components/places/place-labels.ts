@@ -2,7 +2,7 @@ import type L from "leaflet";
 import type { Place } from "@/lib/places";
 
 // Editorial visibility priority, not frequency or historical importance ranking.
-const priority = ["jerusalem", "sura", "pumbedita", "mehoza", "nehardea", "alexandria", "shushan", "nineveh", "damascus", "tadmor", "tiberias"];
+const priority = ["jerusalem", "rome", "sura", "pumbedita", "mehoza", "nehardea", "alexandria", "shushan", "nineveh", "damascus", "tadmor", "tiberias"];
 export function updatePlaceLabels(map: L.Map, markers: Map<string, L.Marker>, places: Place[], selectedId: string | null, enabled: boolean) {
   const occupied: { x: number; y: number; w: number; h: number }[] = [];
   const size = map.getSize();

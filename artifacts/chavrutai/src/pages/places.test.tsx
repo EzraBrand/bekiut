@@ -145,7 +145,7 @@ describe("places page with real Leaflet and no network", () => {
       expect(get("link-google-maps").getAttribute("href")).toContain("query=");
     }
     await click("button-place-pumbedita");
-    expect(get("details-place-pumbedita").textContent).toContain("NOT coordinates of a verified ancient site");
+    expect(get("details-place-pumbedita").textContent).toContain("modern Fallujah's coordinates");
     await click("button-reset-map");
     expect(host.querySelectorAll(".leaflet-marker-icon")).toHaveLength(54);
   });
