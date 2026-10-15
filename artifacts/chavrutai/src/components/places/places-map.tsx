@@ -24,13 +24,17 @@ export interface PlacesMapProps {
 
 const TILE_TIMEOUT_MS = 12000;
 
-function markerIcon(selected: boolean, certainty: Place["certainty"]) {
+function markerIcon(selected: boolean, certainty: Place["identificationCertainty"]) {
   return L.divIcon({
     className: "",
     iconSize: [22, 22],
     iconAnchor: [11, 11],
     html: `<span class="places-pin${selected ? " is-selected" : ""} places-pin-${certainty.toLowerCase()}"></span>`,
   });
+}
+
+export function markerText(p: Place) {
+  return `${p.name}, ${p.identificationCertainty.toLowerCase()} identification, ${p.coordinatePrecision.toLowerCase()} pin`;
 }
 
 export default function PlacesMap({
@@ -83,10 +87,10 @@ export default function PlacesMap({
     markersRef.current.clear();
     places.forEach((p) => {
       const m = L.marker([p.latitude, p.longitude], {
-        icon: markerIcon(p.id === selectedId, p.certainty),
+        icon: markerIcon(p.id === selectedId, p.identificationCertainty),
         keyboard: true,
         title: p.name,
-        alt: `${p.name} (${p.certainty})`,
+        alt: markerText(p),
         riseOnHover: true,
       });
       m.on("click", () => cb.current.onSelect(p.id));
@@ -94,7 +98,7 @@ export default function PlacesMap({
       m.addTo(map);
       const el = m.getElement();
       if (el) {
-        el.setAttribute("aria-label", `${p.name}, ${p.certainty.toLowerCase()} location. Show details`);
+        el.setAttribute("aria-label", `${markerText(p)}. Show details`);
         el.setAttribute("role", "button");
         // Leaflet already translates Enter to click; add Space without page scrolling.
         el.addEventListener("keydown", (event) => {
@@ -114,11 +118,11 @@ export default function PlacesMap({
     places.forEach((p) => {
       const m = markersRef.current.get(p.id);
       if (!m) return;
-      m.setIcon(markerIcon(p.id === selectedId, p.certainty));
+      m.setIcon(markerIcon(p.id === selectedId, p.identificationCertainty));
       m.setZIndexOffset(p.id === selectedId ? 1000 : 0);
       const el = m.getElement();
       if (el) {
-        el.setAttribute("aria-label", `${p.name}, ${p.certainty.toLowerCase()} location. Show details`);
+        el.setAttribute("aria-label", `${markerText(p)}. Show details`);
         el.setAttribute("role", "button");
         el.setAttribute("aria-pressed", String(p.id === selectedId));
       }

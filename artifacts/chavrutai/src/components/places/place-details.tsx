@@ -1,16 +1,15 @@
 import { forwardRef } from "react";
 import { ExternalLink, MapPin } from "lucide-react";
-import { gazetteerSources, type Place } from "@/lib/places";
-
-const corpusLabel = { biblical: "Biblical", talmudic: "Talmudic" } as const;
+import type { Place } from "@/lib/places";
+import { PlacePassages } from "./place-passages";
 
 export function googleMapsUrl(p: Place) {
   return `https://www.google.com/maps/search/?api=1&query=${p.latitude},${p.longitude}`;
 }
 
-const certaintyTone: Record<Place["certainty"], string> = {
-  Established: "border-[var(--category-tanakh)] text-[var(--category-tanakh)]",
-  Approximate: "border-[var(--category-mishneh-torah)] text-[var(--category-mishneh-torah)]",
+const certaintyTone: Record<Place["identificationCertainty"], string> = {
+  Established: "border-[var(--category-talmud-bavli)] text-[var(--category-talmud-bavli)]",
+  Uncertain: "border-[var(--category-mishneh-torah)] text-[var(--category-mishneh-torah)]",
   Disputed: "border-[var(--category-mishnah)] text-[var(--category-mishnah)]",
 };
 
@@ -21,11 +20,10 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
     return (
       <div ref={ref} tabIndex={-1} className="border border-dashed border-border rounded p-6 text-sm text-muted-foreground" data-testid="details-empty">
         <MapPin className="h-5 w-5 mb-2 opacity-60" aria-hidden="true" />
-        Choose a place from the list or a marker on the map to read its sources, identification and coordinate citation.
+        Choose a place from the list or a marker on the map to read its identification, Talmud passages and coordinate citation.
       </div>
     );
   }
-  const corpora = Array.from(new Set(place.sources.map((s) => s.corpus)));
   return (
     <article
       ref={ref}
@@ -37,10 +35,14 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
         <h2 className="font-georgia text-2xl" data-testid="text-place-name"><bdi>{place.name}</bdi></h2>
-        <span className={`text-xs uppercase tracking-wider border rounded px-1.5 py-0.5 ${certaintyTone[place.certainty]}`} data-testid="text-place-certainty">
-          {place.certainty}
-        </span>
-      </div>
+        <span className="flex flex-wrap gap-1.5">
+          <span className={`text-xs uppercase tracking-wider border rounded px-1.5 py-0.5 ${certaintyTone[place.identificationCertainty]}`} data-testid="text-place-certainty">
+            {place.identificationCertainty} identification
+          </span>
+          <span className="text-xs uppercase tracking-wider border border-border text-muted-foreground rounded px-1.5 py-0.5" data-testid="text-place-precision">
+            Pin: {place.coordinatePrecision}
+          </span>
+        </span>      </div>
       {place.aliases.length > 0 && (
         <p className="text-sm text-muted-foreground mb-4">
           Also: {place.aliases.map((a, i) => (
@@ -68,19 +70,6 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
           )}
         </div>
         <div>
-          <dt className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Appears in supplied lists</dt>
-          <dd>
-            <ul className="space-y-1">
-              {place.sources.map((s, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="h-[2px] w-3 mt-[0.6rem] shrink-0" style={{ backgroundColor: `var(--category-${s.corpus === "biblical" ? "tanakh" : "talmud-bavli"})` }} aria-hidden="true" />
-                  <span><span className="text-muted-foreground">{corpusLabel[s.corpus]}:</span> <bdi>{s.name}</bdi></span>
-                </li>
-              ))}
-            </ul>
-          </dd>
-        </div>
-        <div>
           <dt className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Coordinates</dt>
           <dd className="space-y-1">
             <p className="font-mono text-[0.8rem]" data-testid="text-place-coords">
@@ -100,17 +89,10 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
             </p>
           </dd>
         </div>
-        <div>
-          <dt className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Gazetteer lists</dt>
-          <dd className="flex flex-wrap gap-x-4 gap-y-1">
-            {corpora.map((c) => (
-              <a key={c} href={gazetteerSources[c]} target="_blank" rel="noopener noreferrer" className={linkCls} data-testid={`link-gazetteer-${c}`}>
-                {corpusLabel[c]} list<ExternalLink className="h-3 w-3" aria-hidden="true" />
-              </a>
-            ))}
-          </dd>
-        </div>
       </dl>
+      <div className="mt-5 pt-4 border-t border-border">
+        <PlacePassages place={place} />
+      </div>
     </article>
   );
 });

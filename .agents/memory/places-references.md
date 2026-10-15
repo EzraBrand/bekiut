@@ -20,3 +20,9 @@ Regional toponyms may be included as explicitly labeled regional reference point
 **Why:** The user requested Cappadocia, expanding the original settlement-only selection.
 
 **How to apply:** Clearly name regions as regions and describe what the point represents, such as a capital or an identifiable location within the region.
+
+Keep identification certainty independent of coordinate precision, and make region selection filter entries as well as moving the map.
+
+**Why:** The user noted that an approximate city-level pin for Jerusalem must not imply uncertainty about Jerusalem's identity, and expects region buttons to filter the list.
+
+**How to apply:** Treat well-identified cities as established even with broad pin precision. Use curated geographic membership rather than inferring historical regions from a viewport rectangle.

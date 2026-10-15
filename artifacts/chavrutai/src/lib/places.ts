@@ -3,6 +3,8 @@
  * Coordinates transcribed from each cited article's coordinate field; not geocoded.
  */
 export type Corpus = "biblical" | "talmudic";
+import type { MapRegion } from "@/components/places/map-regions";
+import { regionsForPlace } from "./place-regions";
 export interface Place {
   id: string;
   name: string;
@@ -11,7 +13,9 @@ export interface Place {
   latitude: number;
   longitude: number;
   identification: string;
-  certainty: "Established" | "Approximate" | "Disputed";
+  identificationCertainty: "Established" | "Disputed" | "Uncertain";
+  coordinatePrecision: "Archaeological site" | "City-level" | "Regional reference" | "Proposed area" | "Landmark reference";
+  regions: Exclude<MapRegion, "all">[];
   coordinateSource: { title: string; url: string };
   coordinateNote: string;
   identificationSources?: { title: string; url: string }[];
@@ -22,11 +26,21 @@ export const gazetteerSources = {
   talmudic: "https://raw.githubusercontent.com/EzraBrand/talmud-nlp-indexer/main/data/talmud_toponyms_gazetteer.txt",
 };
 
-type Row = [id: string, name: string, aliases: string[], biblical: string[], talmudic: string[], lat: number, lon: number, article: string, identification: string, certainty: Place["certainty"], note: string];
+// Legacy row field describes pin specificity as well as identification.
+// The exported model separates these concepts for display and marker styling.
+type Row = [id: string, name: string, aliases: string[], biblical: string[], talmudic: string[], lat: number, lon: number, article: string, identification: string, legacyCertainty: "Established" | "Approximate" | "Disputed", note: string];
 // General coordinate limitations are explained once in the page footer.
 const site = "";
 const city = "";
 const rows: Row[] = [
+  ["temple-mount", "Temple Mount", ["Har HaBayit", "הר הבית"], [], ["Temple Mount"], 31.77806, 35.23583, "Temple_Mount", "Jerusalem's Temple enclosure, central to rabbinic discussions of worship, purity, pilgrimage, and the dimensions of the Temple courts.", "Established", site],
+  ["gibeon", "Gibeon", ["El Jib", "גבעון"], [], ["Gibeon"], 31.84750, 35.18639, "Gibeon_(ancient_city)", "Ancient Gibeon at al-Jib, northwest of Jerusalem. Its sanctuary and the Gibeonites feature in rabbinic discussions of biblical history.", "Established", site],
+  ["ono", "Ono", ["Kafr Ana", "אונו"], [], ["Ono"], 32.02722, 34.86806, "Ono,_Benjamin", "Ancient town identified with Kafr Ana in present-day Or Yehuda. Listed among ancient walled cities in Mishnah Arakhin.", "Approximate", city],
+  ["beit-horon", "Beit Ḥoron", ["Bethoron", "Beit Horon", "בית חורון"], [], ["Beit Ḥoron"], 31.87722, 35.11861, "Bethoron", "Upper and Lower Bethoron on the ascent from the coastal plain into the hills northwest of Jerusalem. Rabbinic texts refer to the narrow ascent and events along this route.", "Approximate", "The marker follows Upper Bethoron, at Beit Ur al-Fauqa."],
+  ["hammat-tiberias", "Hot springs of Tiberias", ["Hammat Tiberias", "Ḥamat Tiberias", "חמת טבריה", "חמי טבריה"], [], ["hot springs of Tiberias"], 32.76861, 35.54833, "Hammat_Tiberias", "Thermal springs and ancient settlement immediately south of Tiberias, discussed in rabbinic laws of bathing and Shabbat. The site includes a late-antique synagogue.", "Established", site],
+  ["mount-gerizim", "Mount Gerizim", ["Har Gerizim", "הר גריזים"], [], ["Mount Gerizim"], 32.200861, 35.2732583, "Mount_Gerizim", "Mountain south of Shechem and sacred center of the Samaritans. Discussed in rabbinic accounts of the blessings and curses and relations with the Samaritans.", "Established", site],
+  ["sea-of-galilee", "Sea of Tiberias", ["Sea of Galilee", "Kinneret", "כינרת", "כנרת"], [], ["Sea of Tiberias"], 32.833, 35.583, "Sea_of_Galilee", "Freshwater lake in the Jordan Valley, also called Kinneret. Rabbinic passages discuss fishing rights, its shores, and the surrounding settlements.", "Approximate", "Lake reference point."],
+  ["borsippa", "Borsippa", ["Bursif", "Birs Nimrud", "בורסיף", "בורסיפה"], [], ["Bursif"], 32.3919972, 44.3416889, "Borsippa", "Ancient Babylonian city southwest of Babylon, known as Bursif in the Talmud. The site preserves the ruins of a monumental ziggurat.", "Established", site],
   ["cappadocia", "Cappadocia (region)", ["Cappadocia", "Kapadokya", "קפדוקיה", "קפוטקיא"], [], ["Cappadocia"], 38.670556, 34.839167, "Cappadocia", "Historic region of central Anatolia, in present-day Turkey, known in rabbinic sources as Kaputkia. The marker locates the Göreme area in the region's western part.", "Approximate", "Regional reference point from the Hebrew Wikipedia article."],
   ["adiabene", "Adiabene (region)", ["Adiabene", "Ḥadyab", "Hadyab", "חדייב", "חדיאב"], [], ["Adiabene", "Ḥadyab"], 36.3333333333333, 44.0166666666667, "Adiabene", "Ancient kingdom in northern Mesopotamia, associated with Queen Helena and her family's conversion to Judaism. Its capital was Arbela, modern Erbil.", "Approximate", "Regional reference point at the capital, Arbela/Erbil."],
   ["hamadan", "Hamadan", ["Ḥamadan", "Hamedan", "Ecbatana", "המדאן", "אחמתא"], [], ["Ḥamadan"], 34.79833, 48.51472, "Hamadan", "City in western Iran on the site of ancient Ecbatana, a major center of Media. Known as Ḥamadan in the Talmudic gazetteer.", "Approximate", city],
@@ -94,6 +108,8 @@ const identificationSources: Record<string, NonNullable<Place["identificationSou
 };
 
 const hebrewArticles: Record<string, string> = {
+  "temple-mount": "הר הבית", gibeon: "גבעון", ono: "אונו (עיר מקראית)", "beit-horon": "בית חורון (עיר מקראית)",
+  "hammat-tiberias": "חמת טבריה", "mount-gerizim": "הר גריזים", "sea-of-galilee": "הכנרת", borsippa: "בורסיפה",
   cappadocia: "קפדוקיה", adiabene: "חדייב", hamadan: "המדאן",
   usha: "אושא", shefaram: "שפרעם", beitar: "ביתר", haifa: "חיפה", sidon: "צידון",
   gaza: "עזה", antipatris: "תל אפק (אנטיפטריס)", nisibis: "נציבין", sikhnei: "סחנין",
@@ -107,8 +123,15 @@ const hebrewReference = (title: string) => ({
   url: `https://he.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`,
 });
 
-export const places: Place[] = rows.map(([id, name, aliases, biblical, talmudic, latitude, longitude, article, identification, certainty, coordinateNote]) => ({
-  id, name, aliases, latitude, longitude, identification, certainty, coordinateNote,
+export const places: Place[] = rows.map<Place>(([id, name, aliases, biblical, talmudic, latitude, longitude, article, identification, certainty, coordinateNote]) => ({
+  id, name, aliases, latitude, longitude, identification, coordinateNote,
+  identificationCertainty: certainty === "Disputed" ? "Disputed" : "Established",
+  coordinatePrecision: (["cappadocia", "adiabene"].includes(id) ? "Regional reference"
+    : ["temple-mount", "mount-gerizim", "sea-of-galilee"].includes(id) ? "Landmark reference"
+    : certainty === "Disputed" ? "Proposed area"
+    : certainty === "Established" || ["meron", "zorah"].includes(id) ? "Archaeological site"
+    : "City-level") as Place["coordinatePrecision"],
+  regions: regionsForPlace(id),
   identificationSources: hebrewArticles[id]
     ? [...(identificationSources[id] ?? []), hebrewReference(hebrewArticles[id])]
     : identificationSources[id],
@@ -122,10 +145,10 @@ export function normalizePlaceSearch(value: string): string {
   return value.normalize("NFKD").replace(/\p{M}/gu, "").toLocaleLowerCase("en").replace(/[’‘'ʼʻʿʾ־–-]/gu, "").replace(/\s+/g, " ").trim();
 }
 
-export function filterPlaces(query: string, corpus: Corpus | "all"): Place[] {
+export function filterPlaces(query: string, region: MapRegion = "all"): Place[] {
   const needle = normalizePlaceSearch(query);
   return places.filter(place =>
-    (corpus === "all" || place.sources.some(source => source.corpus === corpus)) &&
+    (region === "all" || place.regions.includes(region)) &&
     [place.name, ...place.aliases, ...place.sources.map(source => source.name)].some(name => normalizePlaceSearch(name).includes(needle)),
   );
 }

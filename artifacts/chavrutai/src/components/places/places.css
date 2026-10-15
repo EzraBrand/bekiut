@@ -18,7 +18,8 @@
   box-shadow: 0 1px 3px hsl(25 20% 15% / 0.35);
   transition: transform 160ms ease;
 }
-.places-pin-approximate { background: var(--category-mishneh-torah); }
+.places-pin-established { background: var(--category-talmud-bavli); }
+.places-pin-uncertain { background: var(--category-mishneh-torah); border-style: dotted; }
 .places-pin-disputed { background: var(--category-mishnah); border-style: dashed; }
 .leaflet-marker-icon:hover .places-pin,
 .leaflet-marker-icon:focus-visible .places-pin { transform: scale(1.25); }

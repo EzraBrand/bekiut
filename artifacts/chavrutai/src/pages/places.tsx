@@ -1,15 +1,14 @@
 import { Component, lazy, Suspense, useCallback, useMemo, useRef, useState, type ReactNode } from "react";
-import { AlertTriangle, RotateCcw, Search, X } from "lucide-react";
+import { AlertTriangle, ChevronDown, RotateCcw, Search, X } from "lucide-react";
 import { useSEO } from "@/hooks/use-seo";
 import { getStaticSEO } from "@workspace/shared-data/seo-data";
-import { PageShell, PageHeader, PageSection, SectionHeading } from "@/components/layout";
+import { PageShell, PageHeader } from "@/components/layout";
 import { filterPlaces, gazetteerSources, places } from "@/lib/places";
 import { PlaceDetails, googleMapsUrl } from "@/components/places/place-details";
 import "@/components/places/places.css";
 import { mapBackgrounds, type MapBackground } from "@/components/places/map-backgrounds";
 import { mapRegions, type MapRegion } from "@/components/places/map-regions";
 
-type Corpus = "all" | "biblical" | "talmudic";
 type MapProblem = null | "tileerror" | "timeout" | "import" | "webgl";
 
 const loadMap = () => import("@/components/places/places-map");
@@ -32,7 +31,6 @@ export default function PlacesPage() {
   useSEO(getStaticSEO("/places", window.location.origin)!);
 
   const [query, setQuery] = useState("");
-  const [corpus, setCorpus] = useState<Corpus>("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [focusToken, setFocusToken] = useState(0);
   const [fitToken, setFitToken] = useState(0);
@@ -46,18 +44,21 @@ export default function PlacesPage() {
 
   const LazyMap = useMemo(() => lazy(loadMap), [attempt]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const visible = useMemo(() => filterPlaces(query, corpus), [query, corpus]);
+  const visible = useMemo(() => filterPlaces(query, region), [query, region]);
   const selected = useMemo(() => visible.find((p) => p.id === selectedId) ?? null, [visible, selectedId]);
 
-  const applyFilter = (q: string, c: Corpus) => {
-    setRegion("all");
-    const next = filterPlaces(q, c);
+  const applyFilter = (q: string, r: MapRegion) => {
+    const next = filterPlaces(q, r);
     if (selectedId && !next.some((p) => p.id === selectedId)) setSelectedId(null);
     setFitToken((t) => t + 1);
   };
 
+  const chooseRegion = (r: MapRegion) => {
+    setRegion(r);
+    applyFilter(query, r);
+  };
+
   const select = useCallback((id: string, from: "list" | "map") => {
-    setRegion("all");
     setSelectedId(id);
     setFocusToken((t) => t + 1);
     if (from === "list") {
@@ -73,7 +74,6 @@ export default function PlacesPage() {
   const reset = () => {
     setRegion("all");
     setQuery("");
-    setCorpus("all");
     setSelectedId(null);
     setFitToken((t) => t + 1);
   };
@@ -82,12 +82,6 @@ export default function PlacesPage() {
     setProblem(null);
     setAttempt((a) => a + 1);
   };
-
-  const corpusOptions: { value: Corpus; label: string }[] = [
-    { value: "all", label: "All" },
-    { value: "biblical", label: "Biblical" },
-    { value: "talmudic", label: "Talmudic" },
-  ];
 
   const placeList = (
         <div className="min-w-0" data-testid="places-list-section">
@@ -100,32 +94,18 @@ export default function PlacesPage() {
                 type="search"
                 dir="auto"
                 value={query}
-                onChange={(e) => { setQuery(e.target.value); applyFilter(e.target.value, corpus); }}
+                onChange={(e) => { setQuery(e.target.value); applyFilter(e.target.value, region); }}
                 placeholder="Search, e.g. Shiloh or ירושלים"
                 className="w-full h-10 pl-8 pr-8 rounded border border-border bg-background text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 data-testid="input-place-search"
               />
               {query && (
-                <button type="button" onClick={() => { setQuery(""); applyFilter("", corpus); }} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground" aria-label="Clear search" data-testid="button-clear-search">
+                <button type="button" onClick={() => { setQuery(""); applyFilter("", region); }} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground" aria-label="Clear search" data-testid="button-clear-search">
                   <X className="h-4 w-4" />
                 </button>
               )}
             </label>
             <div className="flex items-center gap-2">
-              <div role="group" aria-label="Filter by corpus" className="inline-flex border border-border rounded overflow-hidden text-sm">
-                {corpusOptions.map((o) => (
-                  <button
-                    key={o.value}
-                    type="button"
-                    aria-pressed={corpus === o.value}
-                    onClick={() => { setCorpus(o.value); applyFilter(query, o.value); }}
-                    className={`px-3 h-9 transition-colors active:scale-[0.97] ${corpus === o.value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}
-                    data-testid={`button-filter-${o.value}`}
-                  >
-                    {o.label}
-                  </button>
-                ))}
-              </div>
               <button type="button" onClick={reset} className="ml-auto inline-flex items-center gap-1 h-9 px-2 text-sm text-muted-foreground hover:text-foreground active:scale-[0.97] transition" data-testid="button-reset">
                 <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" /> Reset
               </button>
@@ -136,7 +116,7 @@ export default function PlacesPage() {
           </div>
           {visible.length === 0 ? (
             <div className="border border-dashed border-border rounded p-5 text-sm text-muted-foreground" data-testid="list-empty">
-              No curated place matches “<bdi>{query}</bdi>”. Try an alias or another spelling, or{" "}
+              No curated place matches{query ? <> “<bdi>{query}</bdi>”</> : ""}{region !== "all" ? <> in {mapRegions[region].label}</> : ""}. Try an alias, another spelling or region, or{" "}
               <button type="button" onClick={reset} className="underline underline-offset-2">reset</button>.
             </div>
           ) : (
@@ -153,9 +133,8 @@ export default function PlacesPage() {
                       data-testid={`button-place-${p.id}`}
                     >
                       <span className="block font-georgia"><bdi>{p.name}</bdi></span>
-                      {p.certainty === "Disputed" && <span className="block text-xs text-muted-foreground">Disputed identification</span>}
                       <span className="block text-xs text-muted-foreground truncate">
-                        {Array.from(new Set(p.sources.map((s) => s.corpus))).map((c) => (c === "biblical" ? "Biblical" : "Talmudic")).join(" · ")}
+                        {p.identificationCertainty} identification · {p.coordinatePrecision}
                         {p.aliases.length > 0 && <> · <bdi>{p.aliases.slice(0, 2).join(", ")}</bdi></>}
                       </span>
                     </button>
@@ -176,7 +155,7 @@ export default function PlacesPage() {
         titleTestId="text-page-title"
       >
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          Explore {places.length} biblical and Talmudic places. Choose a marker on the map or a name from the list below to see its location, history, and sources.
+          {places.length} places from Talmudic and biblical geography. Choose a marker or a name to see its identification, sources, and passages.
         </p>
       </PageHeader>
 
@@ -189,35 +168,13 @@ export default function PlacesPage() {
               type="button"
               onClick={reset}
               className="inline-flex items-center gap-2 rounded border border-border bg-background px-3 py-2 text-sm font-medium hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              title="Show all places and clear the selection, search, and filters"
+              title="Show all places and clear the selection, search, and region"
               data-testid="button-reset-map"
             >
               <RotateCcw className="h-4 w-4" aria-hidden="true" />
               Reset map
             </button>
           </div>
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <div role="group" aria-labelledby="places-regions-label" className="flex flex-wrap items-center gap-1">
-              <span id="places-regions-label" className="mr-2">Regions</span>
-              {(Object.keys(mapRegions) as MapRegion[]).map(value => (
-                <button key={value} type="button" data-testid={`button-region-${value}`} aria-pressed={region === value}
-                  onClick={() => { setRegion(value); setSelectedId(null); setFitToken(t => t + 1); }}
-                  className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{mapRegions[value].label}</button>
-              ))}
-            </div>
-            <label className="ml-auto flex items-center gap-2">Background
-              <select aria-label="Map background" data-testid="select-map-background" value={background}
-                onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
-                className="rounded border bg-background px-2 py-1.5">
-                {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
-              </select>
-            </label>
-            <div className="flex w-full justify-end">
-              <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
-            </div>
-          </div>
-          <p className="text-xs text-muted-foreground" aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
-          <p className="text-xs text-muted-foreground">Labels appear where space permits; zoom in for more. Regional views move the map without filtering the list. These are viewing areas, not ancient borders.</p>
           <div className="places-map-frame h-[24rem] sm:h-[32rem] lg:h-[38rem] border border-border rounded overflow-hidden bg-muted">
             {problem !== "import" && (
               <MapBoundary key={attempt} onError={() => setProblem("import")}>
@@ -240,12 +197,34 @@ export default function PlacesPage() {
             )}
             {problem === "import" && <div className="h-full w-full flex items-center justify-center text-sm text-muted-foreground p-6 text-center">Map unavailable. The list and details remain fully usable.</div>}
           </div>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground" aria-label="Identification certainty legend">
-            {(["Established", "Approximate", "Disputed"] as const).map(certainty => (
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground" aria-label="Marker colour shows identification certainty">
+            <span>Marker colour: identification certainty</span>
+            {(["Established", "Disputed", "Uncertain"] as const).map(certainty => (
               <span key={certainty} className="inline-flex items-center gap-1">
                 <span aria-hidden="true" className={`places-pin places-pin-${certainty.toLowerCase()}`} />{certainty}
               </span>
             ))}
+            <span>Pin precision (site, city, region, proposed area) is noted in each entry.</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <div role="group" aria-labelledby="places-regions-label" className="flex flex-wrap items-center gap-1">
+              <span id="places-regions-label" className="mr-2">Regions</span>
+              {(Object.keys(mapRegions) as MapRegion[]).map(value => (
+                <button key={value} type="button" data-testid={`button-region-${value}`} aria-pressed={region === value}
+                  onClick={() => chooseRegion(value)}
+                  className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{mapRegions[value].label}</button>
+              ))}
+            </div>
+            <label className="ml-auto flex items-center gap-2">Background
+              <select aria-label="Map background" data-testid="select-map-background" value={background}
+                onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
+                className="rounded border bg-background px-2 py-1.5">
+                {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
+              </select>
+            </label>
+            <div className="flex w-full justify-end">
+              <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
+            </div>
           </div>
           {problem && (
             <div role="alert" className="flex flex-wrap items-start gap-3 border border-[var(--category-mishneh-torah)] rounded p-3 text-sm" data-testid="alert-map-problem">
@@ -263,17 +242,20 @@ export default function PlacesPage() {
         {placeList}
       </div>
 
-      <PageSection>
-        <SectionHeading className="mb-3">About this list</SectionHeading>
-        <div className="space-y-3 text-sm leading-relaxed text-muted-foreground max-w-3xl">
-          <p>These {places.length} places are a curated selection of well-known sites. They are not ranked by how often they are mentioned and are not a frequency list.</p>
-          <p>A place's Biblical or Talmudic label means only that it appears in the supplied gazetteer lists (<a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>). It is not an exhaustive record of every attestation in either corpus.</p>
-          <p>Each marker is a reference point for a modern identification. It does not depict ancient boundaries, extent, or settlement history. “Established” means the identification is widely accepted, not that the pin locates every historical use of the name. “Approximate” marks city-level or less precise locations; “Disputed” flags competing identifications.</p>
-          <p>The Babylonian Jewish centers Sura, Pumbedita, Nehardea, and Meḥoza are included. Sura, Pumbedita, and Nehardea have disputed locations: their pins show cited proposals or nearby reference points, not verified academy sites. Read each place’s coordinate note before interpreting its marker.</p>
-          <p>Regional entries, such as Cappadocia and Adiabene, use a reference point within the region and are labeled accordingly. Sites with no usable location proposal and non-geographic terms (such as Sheol and “Truth”) are excluded. Hebrew aliases are editorial search aids.</p>
-          <p>The modern basemap is provided by <a className="underline" href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener noreferrer">MapTiler</a>, using OpenStreetMap and other credited data. Requests send your IP address and page referrer to MapTiler and count against the site’s MapTiler allowance. Labels prefer English; names without a translation may use a local-language fallback. This is not a map of ancient borders.</p>
+      <details className="group mb-10 border border-border rounded" data-testid="details-about-map">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 font-georgia text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          About this map
+          <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
+        </summary>
+        <div className="space-y-3 px-4 pb-4 text-sm leading-relaxed text-muted-foreground max-w-3xl">
+          <p aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
+          <p>Labels appear where space permits; zoom in for more. Choosing a region filters both the map and the list.</p>
+          <p>A curated selection of {places.length} well-known sites, not a frequency list. Names were drawn from these gazetteers: <a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>.</p>
+          <p>Marker colour shows identification certainty: whether scholars agree which place is meant. Pin precision is separate: an archaeological site, a city-level point, a regional reference, or a proposed area. Jerusalem, for example, is established but pinned at city level.</p>
+          <p>Markers do not depict ancient boundaries or extent. Regions are modern viewing areas, not ancient borders. Sura, Pumbedita, and Nehardea show cited proposals, not verified academy sites. Hebrew aliases are editorial search aids.</p>
+          <p>MapTiler requests send your IP address and referrer to MapTiler. Labels prefer English and may fall back to local names.</p>
         </div>
-      </PageSection>
+      </details>
     </PageShell>
   );
 }
