@@ -205,7 +205,6 @@ export default function PlacesPage() {
                   className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{mapRegions[value].label}</button>
               ))}
             </div>
-            <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
             <label className="ml-auto flex items-center gap-2">Background
               <select aria-label="Map background" data-testid="select-map-background" value={background}
                 onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
@@ -213,6 +212,9 @@ export default function PlacesPage() {
                 {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
               </select>
             </label>
+            <div className="flex w-full justify-end">
+              <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
+            </div>
           </div>
           <p className="text-xs text-muted-foreground" aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
           <p className="text-xs text-muted-foreground">Labels appear where space permits; zoom in for more. Regional views move the map without filtering the list. These are viewing areas, not ancient borders.</p>
