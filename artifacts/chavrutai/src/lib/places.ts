@@ -26,6 +26,26 @@ type Row = [id: string, name: string, aliases: string[], biblical: string[], tal
 const site = "Representative archaeological-site point, not a precise building or ancient boundary.";
 const city = "Approximate city reference point; ancient occupation shifted and this is not an excavated building location.";
 const rows: Row[] = [
+  ["usha", "Usha", ["אושא"], [], ["Usha"], 32.799414, 35.146701, "Usha_(ancient_city)", "Ancient Lower Galilean town associated with the Sanhedrin and the ordinances of Usha. Not the modern kibbutz.", "Established", site],
+  ["shefaram", "Shefaram", ["Shefa-Amr", "Shfar'am", "שפרעם"], [], ["Shefaram"], 32.80556, 35.16944, "Shefa-Amr", "Galilean town named among the successive seats of the Sanhedrin. The pin locates the present town, not a verified meeting house.", "Approximate", city],
+  ["beitar", "Beitar", ["Betar", "Bethar", "ביתר"], [], ["Beitar"], 31.73, 35.135556, "Betar_(ancient_city)", "Ancient fortified settlement near Battir, associated with the end of the Bar Kokhba revolt and rabbinic accounts of its destruction. Not modern Beitar Illit.", "Established", site],
+  ["haifa", "Haifa", ["Ḥaifa", "חיפה"], [], ["Haifa", "Ḥaifa"], 32.81917, 34.99917, "Haifa", "Coastal city at Mount Carmel. Rabbinic Haifa predates the modern city's expansion; this city-level point does not locate a particular ancient neighborhood.", "Approximate", city],
+  ["sidon", "Sidon", ["Saida", "צידון"], [], ["Sidon"], 33.56056, 35.37583, "Sidon", "Phoenician coastal city in present-day Lebanon, also named in rabbinic narratives. Similar forms such as Tzaidan are not automatically merged.", "Approximate", city],
+  ["gaza", "Gaza (city)", ["Gaza", "עזה"], [], ["Gaza"], 31.5075, 34.459722222222, "Gaza_City", "Historic coastal city of Gaza, mentioned in rabbinic discussions of travel and its marketplace. This record means the city, not the Gaza Strip or desert of Gaza.", "Approximate", city],
+  ["antipatris", "Antipatris", ["Tel Afek", "אנטיפטריס"], [], ["Antipatris"], 32.105, 34.930417, "Antipatris", "Herodian city at Tel Afek near the Yarkon springs, appearing in rabbinic travel and boundary discussions. Not the other Tel Afek near Haifa.", "Established", site],
+  ["nisibis", "Nisibis", ["Nusaybin", "Netzivin", "Nesibin", "נציבין"], [], ["Nesibin", "Netzivin"], 37.075, 41.21528, "Nusaybin", "Ancient Nisibis at modern Nusaybin, associated in rabbinic tradition with Rabbi Yehuda ben Beteira. The point is for the city, not his academy.", "Approximate", city],
+  ["sikhnei", "Sikhnei", ["Sakhnin", "Sikhnin", "סכנין", "סחנין"], [], ["Sikhnei"], 32.867, 35.3, "Sakhnin", "Galilean settlement identified with modern Sakhnin. Related rabbinic village names require contextual judgment; the wider Sikhnei Valley is not this point.", "Approximate", city],
+  ["gush-halav", "Gush Ḥalav", ["Gush Halav", "Gischala", "Jish", "גוש חלב"], [], ["Gush Ḥalav"], 33.02611, 35.44528, "Jish", "Ancient Gush Halav at Jish in Upper Galilee, known for olive oil and listed among ancient walled cities in Mishnah Arakhin. City-level location, not a tomb identification.", "Approximate", city],
+  ["yodfat", "Yodfat (ancient)", ["Yodfat", "Jotapata", "יודפת"], [], ["Yodfat", "ancient Yodfat"], 32.83194444, 35.27813889, "Yodfat", "Ancient Jotapata in Lower Galilee, listed in Mishnah Arakhin and known for the siege described by Josephus. This pin is the ancient site, south of the modern village.", "Established", site],
+  ["gamla", "Gamla", ["Gamala", "גמלא"], [], ["Gamla"], 32.90278, 35.74056, "Gamla", "Ancient settlement in the Golan, named among walled cities in Mishnah Arakhin. This is the archaeological site, not the modern village of Ma'ale Gamla.", "Established", site],
+  ["ein-gedi", "Ein Gedi", ["En Gedi", "עין גדי"], [], ["Ein Gedi"], 31.46139, 35.3925, "Ein_Gedi_(archaeological_site)", "Ancient Dead Sea oasis settlement associated with balsam cultivation and a late-antique synagogue. The pin represents the archaeological site, not the modern kibbutz.", "Established", site],
+  ["kefar-sava", "Kefar Sava", ["Kfar Saba", "Kafr Saba", "כפר סבא"], [], ["Kefar Sava"], 32.18111, 34.93722, "Kafr_Saba", "Ancient Kefar Sava is associated with the later Kafr Saba site, east of the modern city center. Mentioned in rabbinic agricultural and boundary discussions.", "Approximate", "Reference point for the later Kafr Saba village area; not the center of modern Kfar Saba or a precisely located rabbinic building."],
+  ["meron", "Meron", ["Meiron", "מירון"], [], ["Meron"], 32.98222, 35.43806, "Meiron", "Ancient Upper Galilean settlement with synagogue remains, associated with sheep and olive oil in rabbinic sources. Tomb traditions do not establish the location of individual burials.", "Approximate", site],
+  ["pamyas", "Pamyas (Banias)", ["Pamyas", "Paneas", "Caesarea Philippi", "בניאס", "פמיאס"], [], ["Pamyas"], 33.24861, 35.69444, "Banias", "Ancient Paneas at the springs below Mount Hermon. Distinct from Caesarea Maritima and from the Syrian coastal city Baniyas.", "Established", site],
+  ["emmaus", "Emmaus (Nicopolis)", ["Emmaus", "Nicopolis", "אמאוס", "אמאוס ניקופוליס"], [], ["Emmaus"], 31.83917, 34.98944, "Emmaus_Nicopolis", "Emmaus-Nicopolis at Latrun, discussed in Palestinian rabbinic geography. This record does not resolve the separate debate about the Emmaus of Luke's Gospel.", "Established", site],
+  ["carthage", "Carthage", ["קרתגו"], [], ["Carthage"], 36.8528, 10.3233, "Carthage", "Ancient North African city near Tunis, including its Roman-period successor. This record means the city, not its former empire or every similarly named rabbinic place.", "Established", site],
+  ["ctesiphon", "Ctesiphon", ["Akteisfon", "Akistefon", "קטסיפון"], [], ["Akteisfon", "Akistefon"], 33.09361, 44.58056, "Ctesiphon", "Parthian and Sasanian capital on the Tigris. Kept separate from Mehoza/Veh-Ardashir on the opposite bank, although both belonged to the wider metropolitan area.", "Established", site],
+  ["puteoli", "Puteoli", ["Pozzuoli", "פוטאולי", "פוצואולי"], [], ["Puteoli"], 40.84444, 14.09333, "Pozzuoli", "Ancient Roman port on the Bay of Naples, now Pozzuoli. This is a general city point, not a locator for a particular rabbinic encounter or ancient harbor structure.", "Approximate", city],
   ["rome", "Rome", ["Roma", "רומי"], [], ["Rome", "city of Rome"], 41.89333, 12.48278, "Rome", "Rome in Italy, the city on the Tiber. This record represents the city, not the Roman Empire or every symbolic use of Rome in rabbinic literature.", "Approximate", city],
   ["athens", "Athens", ["Athinai", "Athina", "אתונה"], [], ["Athens"], 37.98417, 23.72806, "Athens", "Athens in Attica, Greece. The marker is a general city reference point, not a specific ancient school, monument or location of a rabbinic narrative.", "Approximate", city],
   ["antioch", "Antioch on the Orontes", ["Antioch", "Antakya", "אנטיוכיה"], [], ["Antioch"], 36.20472, 36.18167, "Antioch", "Ancient Antioch on the Orontes at modern Antakya in southern Turkey. This curated interpretation of Antioch excludes Antioch in Pisidia and other cities with the same name.", "Approximate", city],
@@ -69,11 +89,28 @@ const identificationSources: Record<string, NonNullable<Place["identificationSou
   mehoza: [{ title: "Michael G. Morony, Encyclopaedia Iranica: Beh-Ardašīr", url: "https://www.iranicaonline.org/articles/beh-ardasir-mid/" }, { title: "Encyclopaedia Judaica: Pumbedita and the move to Mahoza under Rava", url: "https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/pumbedita" }],
 };
 
+const hebrewArticles: Record<string, string> = {
+  usha: "אושא", shefaram: "שפרעם", beitar: "ביתר", haifa: "חיפה", sidon: "צידון",
+  gaza: "עזה", antipatris: "תל אפק (אנטיפטריס)", nisibis: "נציבין", sikhnei: "סחנין",
+  "gush-halav": "גוש חלב", yodfat: "יודפת (יישוב עתיק)", gamla: "גמלא (יישוב עתיק)",
+  "ein-gedi": "עין גדי (יישוב עתיק)", "kefar-sava": "כפר סבא", meron: "מירון הקדומה",
+  pamyas: "בניאס (אתר ארכאולוגי)", emmaus: "אמאוס ניקופוליס", carthage: "קרתגו",
+  ctesiphon: "קטסיפון", puteoli: "פוצואולי",
+};
+const hebrewReference = (title: string) => ({
+  title: `Hebrew Wikipedia: ${title}`,
+  url: `https://he.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`,
+});
+
 export const places: Place[] = rows.map(([id, name, aliases, biblical, talmudic, latitude, longitude, article, identification, certainty, coordinateNote]) => ({
   id, name, aliases, latitude, longitude, identification, certainty, coordinateNote,
-  identificationSources: identificationSources[id],
+  identificationSources: hebrewArticles[id]
+    ? [...(identificationSources[id] ?? []), hebrewReference(hebrewArticles[id])]
+    : identificationSources[id],
   sources: [...biblical.map(name => ({ corpus: "biblical" as const, name })), ...talmudic.map(name => ({ corpus: "talmudic" as const, name }))],
-  coordinateSource: { title: `Wikipedia: ${decodeURIComponent(article).replaceAll("_", " ")} (coordinate field; reviewed October 14, 2026)`, url: `https://en.wikipedia.org/wiki/${article}` },
+  coordinateSource: id === "yodfat" || id === "gaza"
+    ? { ...hebrewReference(hebrewArticles[id]), title: `Hebrew Wikipedia: ${hebrewArticles[id]} (coordinate field)` }
+    : { title: `Wikipedia: ${decodeURIComponent(article).replaceAll("_", " ")} (coordinate field)`, url: `https://en.wikipedia.org/wiki/${article}` },
 })).sort((a, b) => a.name.localeCompare(b.name));
 
 export function normalizePlaceSearch(value: string): string {

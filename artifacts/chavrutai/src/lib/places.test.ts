@@ -4,9 +4,9 @@ import { isKnownAppPath } from "@workspace/shared-data/route-validation";
 import { getPageSEO, getStaticSEO } from "@workspace/shared-data/seo-data";
 
 describe("reviewed places", () => {
-  it("contains 34 unique, cited, valid points", () => {
-    expect(places).toHaveLength(34);
-    expect(new Set(places.map(p => p.id)).size).toBe(34);
+  it("contains 54 unique, cited, valid points", () => {
+    expect(places).toHaveLength(54);
+    expect(new Set(places.map(p => p.id)).size).toBe(54);
     for (const p of places) {
       expect(p.latitude).toBeGreaterThanOrEqual(-90);
       expect(p.latitude).toBeLessThanOrEqual(90);
@@ -14,7 +14,7 @@ describe("reviewed places", () => {
       expect(p.longitude).toBeLessThanOrEqual(180);
       expect(p.sources.length).toBeGreaterThan(0);
       expect(p.identification.length).toBeGreaterThan(30);
-      expect(p.coordinateSource.url).toMatch(/^https:\/\/en.wikipedia.org\/wiki\/.+/);
+      expect(p.coordinateSource.url).toMatch(/^https:\/\/(?:en|he).wikipedia.org\/wiki\/.+/);
       expect(p.coordinateNote.length).toBeGreaterThan(30);
     }
   });
@@ -33,7 +33,7 @@ describe("reviewed places", () => {
   });
   it("filters by documented gazetteer membership, not inferred attestation", () => {
     expect(filterPlaces("", "biblical")).toHaveLength(6);
-    expect(filterPlaces("", "talmudic")).toHaveLength(30);
+    expect(filterPlaces("", "talmudic")).toHaveLength(50);
     expect(filterPlaces("Jerusalem", "biblical")).toEqual([]);
     expect(filterPlaces("Samaria", "talmudic")[0].id).toBe("samaria");
     expect(filterPlaces("nonsense-not-a-place", "all")).toEqual([]);
@@ -52,6 +52,15 @@ describe("reviewed places", () => {
     expect(places.find(p => p.id === "nehardea")!.coordinateNote).toContain("conflicting coordinates");
     expect(places.find(p => p.id === "sura")!.coordinateNote).toContain("discrepancy");
     expect(filterPlaces("Mata Mehasya", "all")).toEqual([]);
+  });
+  it("links all twenty additions to reviewed Hebrew articles and distinguishes ancient sites", () => {
+    const additions = places.filter(p => p.identificationSources?.some(s => s.url.startsWith("https://he.wikipedia.org/wiki/")));
+    expect(additions).toHaveLength(20);
+    expect(filterPlaces("נציבין", "talmudic")[0].id).toBe("nisibis");
+    const yodfat = places.find(p => p.id === "yodfat")!;
+    expect(yodfat.latitude).toBe(32.83194444);
+    expect(yodfat.coordinateSource.url).toContain("he.wikipedia.org");
+    expect(places.find(p => p.id === "ctesiphon")!.identification).toContain("separate from Mehoza");
   });
   it("keeps direct navigation valid and browser/server metadata identical and indexable", () => {
     expect(isKnownAppPath("/places")).toBe(true);
