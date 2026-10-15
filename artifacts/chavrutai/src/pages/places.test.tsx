@@ -169,6 +169,8 @@ describe("places page with real Leaflet and no network", () => {
     expect(map.compareDocumentPosition(list) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(map.compareDocumentPosition(get("button-region-israel")) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(get("details-about-map").hasAttribute("open")).toBe(false);
+    expect(host.textContent).not.toContain("Map overview");
+    expect(get("details-about-map").querySelector('a[href="https://www.ezrabrand.com/p/biblical-talmudic-places-toponyms-map"]')).toBeTruthy();
     expect(get("button-filter-biblical")).toBeNull();
     for (const url of Object.values(gazetteerSources)) {
       const links = [...host.querySelectorAll(`a[href="${url}"]`)];

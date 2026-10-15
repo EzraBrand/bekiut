@@ -162,8 +162,7 @@ export default function PlacesPage() {
       <div className="space-y-8 pb-10">
         {/* Map and details precede the list in both visual and keyboard order. */}
         <div className="min-w-0 space-y-4">
-          <div ref={mapAnchorRef} className="flex items-center justify-between gap-3">
-            <p className="text-sm text-muted-foreground">Map overview</p>
+          <div ref={mapAnchorRef} className="flex items-center justify-end gap-3">
             <button
               type="button"
               onClick={reset}
@@ -248,6 +247,7 @@ export default function PlacesPage() {
           <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
         </summary>
         <div className="space-y-3 px-4 pb-4 text-sm leading-relaxed text-muted-foreground max-w-3xl">
+          <p>For background on this project, read <a className="underline" href="https://www.ezrabrand.com/p/biblical-talmudic-places-toponyms-map" target="_blank" rel="noopener noreferrer">Ezra Brand’s blog post about mapping biblical and Talmudic places</a>.</p>
           <p aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
           <p>Labels appear where space permits; zoom in for more. Choosing a region filters both the map and the list.</p>
           <p>A curated selection of {places.length} well-known sites, not a frequency list. Names were drawn from these gazetteers: <a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>.</p>

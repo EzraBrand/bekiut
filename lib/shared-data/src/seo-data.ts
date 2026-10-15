@@ -31,7 +31,7 @@ const STATIC_MAP: Record<string, SEOEntry> = {
     title: "Biblical & Talmudic Places Map | Bekiut",
     description: "Explore biblical and Talmudic places on an interactive map, with searchable ancient names, coordinate sources, and notes on uncertain identifications.",
     ogTitle: "Biblical & Talmudic Places Map",
-    ogDescription: "A curated sample of ancient places, with coordinate sources and identification notes.",
+    ogDescription: "A curated selection of ancient places, with coordinate sources and identification notes.",
     robots: "index, follow",
   },
   "/": {

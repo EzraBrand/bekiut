@@ -90,6 +90,8 @@ describe("reviewed places", () => {
     expect(browser).toEqual(getPageSEO("/places", new URLSearchParams(), "https://example.com"));
     expect(browser?.robots).toBe("index, follow");
     expect(browser?.title).toContain("Biblical & Talmudic Places Map");
+    expect(JSON.stringify(browser)).not.toMatch(/sample/i);
+    expect(browser?.ogDescription).toContain("curated selection");
     expect(getPageSEO("/places/", new URLSearchParams(), "https://example.com")).toEqual(browser);
   });
 });
