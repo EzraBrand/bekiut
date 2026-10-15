@@ -197,7 +197,8 @@ export default function PlacesPage() {
             </button>
           </div>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <div role="group" aria-label="Regional map view" className="flex flex-wrap gap-1">
+            <div role="group" aria-labelledby="places-regions-label" className="flex flex-wrap items-center gap-1">
+              <span id="places-regions-label" className="mr-2">Regions</span>
               {(Object.keys(mapRegions) as MapRegion[]).map(value => (
                 <button key={value} type="button" data-testid={`button-region-${value}`} aria-pressed={region === value}
                   onClick={() => { setRegion(value); setSelectedId(null); setFitToken(t => t + 1); }}
