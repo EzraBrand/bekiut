@@ -30,7 +30,7 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
       tabIndex={-1}
       key={place.id}
       aria-live="polite"
-      className="places-details border border-border rounded bg-card p-5 md:p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="places-details scroll-mt-24 border border-border rounded bg-card p-5 md:p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       data-testid={`details-place-${place.id}`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">

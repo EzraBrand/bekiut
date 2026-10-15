@@ -26,3 +26,9 @@ Keep identification certainty independent of coordinate precision, and make regi
 **Why:** The user noted that an approximate city-level pin for Jerusalem must not imply uncertainty about Jerusalem's identity, and expects region buttons to filter the list.
 
 **How to apply:** Treat well-identified cities as established even with broad pin precision. Use curated geographic membership rather than inferring historical regions from a viewport rectangle.
+
+Selecting a map place must visibly reveal its information.
+
+**Why:** User feedback reported not discovering the information below the map until scrolling manually.
+
+**How to apply:** Do not rely on invisible focus changes or instructions alone when details are off-screen; retain a clear transition to the selected entry.

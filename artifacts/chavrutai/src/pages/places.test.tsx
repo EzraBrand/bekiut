@@ -53,7 +53,7 @@ beforeAll(async () => {
   }
   vi.stubGlobal("requestAnimationFrame", (callback: () => void) => setTimeout(callback, 0));
   vi.stubGlobal("IS_REACT_ACT_ENVIRONMENT", true);
-  window.HTMLElement.prototype.scrollIntoView = () => {};
+  window.HTMLElement.prototype.scrollIntoView = vi.fn();
   // happy-dom has no layout; Leaflet fitBounds/scale need a nonzero viewport.
   Object.defineProperty(window.HTMLElement.prototype, "clientWidth", { configurable: true, get: () => 640 });
   Object.defineProperty(window.HTMLElement.prototype, "clientHeight", { configurable: true, get: () => 416 });
@@ -113,6 +113,11 @@ describe("places page with real Leaflet and no network", () => {
     expect(host.querySelector(".leaflet-marker-icon[title='Shiloh']")?.getAttribute("aria-pressed")).toBe("true");
     await act(async () => host.querySelector<HTMLElement>(".leaflet-marker-icon[title='Jerusalem']")!.click());
     expect(get("details-place-jerusalem")).toBeTruthy();
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 30)); });
+    const scrollMock = vi.mocked(window.HTMLElement.prototype.scrollIntoView);
+    expect(scrollMock.mock.contexts).toContain(get("details-place-jerusalem"));
+    expect(scrollMock).toHaveBeenLastCalledWith({ block: "start", behavior: "smooth" });
+    expect(document.activeElement).toBe(get("details-place-jerusalem"));
     expect(get("text-place-certainty").textContent).toBe("Established identification");
     expect(get("text-place-precision").textContent).toBe("Pin: City-level");
     await click("button-region-galilee");

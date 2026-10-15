@@ -64,7 +64,15 @@ export default function PlacesPage() {
     if (from === "list") {
       mapAnchorRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     } else {
-      requestAnimationFrame(() => detailsRef.current?.focus({ preventScroll: true }));
+      requestAnimationFrame(() => {
+        const details = detailsRef.current;
+        if (!details) return;
+        details.focus({ preventScroll: true });
+        details.scrollIntoView({
+          block: "start",
+          behavior: window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+        });
+      });
     }
   }, []);
   const onMapSelect = useCallback((id: string) => select(id, "map"), [select]);

@@ -266,3 +266,17 @@ mtime_ms = 1791982162297
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/44f1846e-41ee-48ce-a610-ae689b17ceda/dce53c57-3d42-40d4-bc6d-e6bb27f51681"
 storage_version_token = "1791982182679340"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "mBrOLpUeEVlVJC0AXXXuX"
+uri = "file://docs/places-comparative-research.md"
+type = "text"
+title = "Historical maps: comparative research and recommendations"
+description = "Ten related resources, verified feature notes, prioritized improvements, linking recommendations, and an outline for a comparative blog post."
+logical_id = "e7015efd-603f-4338-8f8c-79a0d57e9981"
+content_hash = "sha256:26ee9e983afab59944fc60d0408a7e6080a777b410b6ae4154e6f4e8a980ef46"
+size = 9928
+mtime_ms = 1792060277566
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/e7015efd-603f-4338-8f8c-79a0d57e9981/e302711d-dee1-46d6-aae1-1bc687bb54c1"
+storage_version_token = "1792060318369459"
+content_type = "text/markdown"

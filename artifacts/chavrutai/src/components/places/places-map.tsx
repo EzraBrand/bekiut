@@ -94,7 +94,8 @@ export default function PlacesMap({
         riseOnHover: true,
       });
       m.on("click", () => cb.current.onSelect(p.id));
-      m.bindTooltip(p.name, { direction: "top", offset: [0, -10], permanent: true, className: "places-name-label" });
+      m.bindTooltip(p.name, { direction: "top", offset: [0, -10], permanent: true, interactive: true, className: "places-name-label" });
+      m.getTooltip()?.on("click", () => cb.current.onSelect(p.id));
       m.addTo(map);
       const el = m.getElement();
       if (el) {
