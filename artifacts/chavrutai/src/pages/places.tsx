@@ -88,22 +88,9 @@ export default function PlacesPage() {
     { value: "talmudic", label: "Talmudic" },
   ];
 
-  return (
-    <PageShell mainClassName="max-w-6xl">
-      <PageHeader
-        category="tanakh"
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Places" }]}
-        title={<span className="inline-flex flex-wrap items-baseline gap-3">Places <span className="text-xs font-sans uppercase tracking-widest border border-border text-muted-foreground rounded px-1.5 py-0.5" data-testid="badge-experimental">Experimental</span></span>}
-        titleTestId="text-page-title"
-      >
-        <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          A curated set of {places.length} biblical and Talmudic places with approximate modern coordinates. Choose a name from the list or a marker on the map to see its location, historical identification, and sources.
-        </p>
-      </PageHeader>
-
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] pb-10">
-        {/* List */}
-        <div className="order-2 lg:order-1 min-w-0">
+  const placeList = (
+        <div className="min-w-0" data-testid="places-list-section">
+          <h2 className="font-georgia text-2xl mb-4">Explore places</h2>
           <div className="space-y-3 mb-3">
             <label className="relative block">
               <span className="sr-only">Search places by name or alias</span>
@@ -152,11 +139,11 @@ export default function PlacesPage() {
               <button type="button" onClick={reset} className="underline underline-offset-2">reset</button>.
             </div>
           ) : (
-            <ul className="border border-border rounded divide-y divide-border max-h-[28rem] lg:max-h-[34rem] overflow-y-auto" aria-label="Places">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 border border-border rounded max-h-[28rem] overflow-y-auto" aria-label="Places">
               {visible.map((p) => {
                 const active = p.id === selectedId;
                 return (
-                  <li key={p.id}>
+                  <li key={p.id} className="border-b border-border">
                     <button
                       type="button"
                       aria-pressed={active}
@@ -177,9 +164,24 @@ export default function PlacesPage() {
             </ul>
           )}
         </div>
+  );
 
-        {/* Map + details */}
-        <div className="order-1 lg:order-2 min-w-0 space-y-4">
+  return (
+    <PageShell mainClassName="max-w-7xl">
+      <PageHeader
+        category="tanakh"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Places" }]}
+        title={<span className="inline-flex flex-wrap items-baseline gap-3">Places <span className="text-xs font-sans uppercase tracking-widest border border-border text-muted-foreground rounded px-1.5 py-0.5" data-testid="badge-experimental">Experimental</span></span>}
+        titleTestId="text-page-title"
+      >
+        <p className="text-muted-foreground max-w-3xl leading-relaxed">
+          Explore {places.length} biblical and Talmudic places. Choose a marker on the map or a name from the list below to see its location, history, and sources.
+        </p>
+      </PageHeader>
+
+      <div className="space-y-8 pb-10">
+        {/* Map and details precede the list in both visual and keyboard order. */}
+        <div className="min-w-0 space-y-4">
           <div ref={mapAnchorRef} className="flex items-center justify-between gap-3">
             <p className="text-sm text-muted-foreground">Map overview</p>
             <button
@@ -212,7 +214,7 @@ export default function PlacesPage() {
           </div>
           <p className="text-xs text-muted-foreground" aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
           <p className="text-xs text-muted-foreground">Labels appear where space permits; zoom in for more. Regional views move the map without filtering the list. These are viewing areas, not ancient borders.</p>
-          <div className="places-map-frame h-[18rem] sm:h-[24rem] lg:h-[26rem] border border-border rounded overflow-hidden bg-muted">
+          <div className="places-map-frame h-[24rem] sm:h-[32rem] lg:h-[38rem] border border-border rounded overflow-hidden bg-muted">
             {problem !== "import" && (
               <MapBoundary key={attempt} onError={() => setProblem("import")}>
                 <Suspense fallback={<div className="h-full w-full animate-pulse bg-muted" data-testid="map-loading" />}>
@@ -254,6 +256,7 @@ export default function PlacesPage() {
           )}
           <PlaceDetails ref={detailsRef} place={selected} />
         </div>
+        {placeList}
       </div>
 
       <PageSection>

@@ -127,6 +127,15 @@ describe("places page with real Leaflet and no network", () => {
     expect(input.value).toBe("");
     expect(get("text-result-count").textContent).toContain("54 of 54");
   });
+  it("places the list after the map and omits generic entry caveats", async () => {
+    const map = host.querySelector(".places-map-frame")!;
+    const list = get("places-list-section");
+    expect(map.compareDocumentPosition(list) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    await click("button-place-beitar");
+    expect(get("details-place-beitar").textContent).not.toContain("Representative archaeological-site point");
+    expect(get("link-coordinate-source")).toBeTruthy();
+    expect(get("details-place-beitar").textContent).toContain("Battir");
+  });
   it("shows Babylonian centers with their coordinate caveats and historical citations", async () => {
     for (const id of ["sura", "pumbedita", "nehardea", "mehoza"]) {
       await click(`button-place-${id}`);

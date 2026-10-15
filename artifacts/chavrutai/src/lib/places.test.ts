@@ -15,7 +15,7 @@ describe("reviewed places", () => {
       expect(p.sources.length).toBeGreaterThan(0);
       expect(p.identification.length).toBeGreaterThan(30);
       expect(p.coordinateSource.url).toMatch(/^https:\/\/(?:en|he).wikipedia.org\/wiki\/.+/);
-      expect(p.coordinateNote.length).toBeGreaterThan(30);
+      expect(typeof p.coordinateNote).toBe("string");
     }
   });
   it("finds every source spelling and editorial alias", () => {

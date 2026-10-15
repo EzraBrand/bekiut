@@ -86,7 +86,7 @@ export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(
             <p className="font-mono text-[0.8rem]" data-testid="text-place-coords">
               {place.latitude.toFixed(4)}, {place.longitude.toFixed(4)}
             </p>
-            <p>{place.coordinateNote}</p>
+            {place.coordinateNote && <p>{place.coordinateNote}</p>}
             <p>
               Source:{" "}
               <a href={place.coordinateSource.url} target="_blank" rel="noopener noreferrer" className={linkCls} data-testid="link-coordinate-source">
