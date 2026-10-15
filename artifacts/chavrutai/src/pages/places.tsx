@@ -87,7 +87,8 @@ export default function PlacesPage() {
         <div className="min-w-0" data-testid="places-list-section">
           <h2 className="font-georgia text-2xl mb-4">Explore places</h2>
           <div className="space-y-3 mb-3">
-            <label className="relative block">
+            <div className="flex items-center gap-2">
+            <label className="relative block min-w-0 flex-1">
               <span className="sr-only">Search places by name or alias</span>
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
               <input
@@ -105,8 +106,7 @@ export default function PlacesPage() {
                 </button>
               )}
             </label>
-            <div className="flex items-center gap-2">
-              <button type="button" onClick={reset} className="ml-auto inline-flex items-center gap-1 h-9 px-2 text-sm text-muted-foreground hover:text-foreground active:scale-[0.97] transition" data-testid="button-reset">
+              <button type="button" onClick={reset} className="shrink-0 inline-flex items-center gap-1 h-9 px-2 text-sm text-muted-foreground hover:text-foreground active:scale-[0.97] transition" data-testid="button-reset">
                 <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" /> Reset
               </button>
             </div>
@@ -151,7 +151,7 @@ export default function PlacesPage() {
       <PageHeader
         category="tanakh"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Places" }]}
-        title={<span className="inline-flex flex-wrap items-baseline gap-3">Places <span className="text-xs font-sans uppercase tracking-widest border border-border text-muted-foreground rounded px-1.5 py-0.5" data-testid="badge-experimental">Experimental</span></span>}
+        title="Places"
         titleTestId="text-page-title"
       >
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
@@ -162,7 +162,15 @@ export default function PlacesPage() {
       <div className="space-y-8 pb-10">
         {/* Map and details precede the list in both visual and keyboard order. */}
         <div className="min-w-0 space-y-4">
-          <div ref={mapAnchorRef} className="flex items-center justify-end gap-3">
+          <div ref={mapAnchorRef} className="flex flex-wrap items-center justify-end gap-3 text-sm">
+            <label className="flex items-center gap-2">Background
+              <select aria-label="Map background" data-testid="select-map-background" value={background}
+                onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
+                className="rounded border bg-background px-2 py-1.5">
+                {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
+              </select>
+            </label>
+            <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
             <button
               type="button"
               onClick={reset}
@@ -214,16 +222,6 @@ export default function PlacesPage() {
                   className={`rounded border px-2 py-1.5 ${region === value ? "bg-primary text-primary-foreground" : "hover:bg-accent"}`}>{mapRegions[value].label}</button>
               ))}
             </div>
-            <label className="ml-auto flex items-center gap-2">Background
-              <select aria-label="Map background" data-testid="select-map-background" value={background}
-                onChange={e => { setBackground(e.target.value as MapBackground); setProblem(null); }}
-                className="rounded border bg-background px-2 py-1.5">
-                {Object.entries(mapBackgrounds).map(([value, option]) => <option key={value} value={value}>{option.label}</option>)}
-              </select>
-            </label>
-            <div className="flex w-full justify-end">
-              <label className="flex items-center gap-2"><input type="checkbox" data-testid="toggle-place-labels" checked={labels} onChange={e => setLabels(e.target.checked)} />Place labels</label>
-            </div>
           </div>
           {problem && (
             <div role="alert" className="flex flex-wrap items-start gap-3 border border-[var(--category-mishneh-torah)] rounded p-3 text-sm" data-testid="alert-map-problem">
@@ -247,10 +245,10 @@ export default function PlacesPage() {
           <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
         </summary>
         <div className="space-y-3 px-4 pb-4 text-sm leading-relaxed text-muted-foreground max-w-3xl">
-          <p>For background on this project, read <a className="underline" href="https://www.ezrabrand.com/p/biblical-talmudic-places-toponyms-map" target="_blank" rel="noopener noreferrer">Ezra Brand’s blog post about mapping biblical and Talmudic places</a>.</p>
+          <p>For background on this project, read <a className="underline" href="https://www.ezrabrand.com/p/biblical-talmudic-places-toponyms-map" target="_blank" rel="noopener noreferrer">the blog post about mapping biblical and Talmudic places</a>.</p>
           <p aria-live="polite">{mapBackgrounds[background].description} All backgrounds show modern geography.</p>
           <p>Labels appear where space permits; zoom in for more. Choosing a region filters both the map and the list.</p>
-          <p>A curated selection of {places.length} well-known sites, not a frequency list. Names were drawn from these gazetteers: <a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>.</p>
+          <p>A curated selection of {places.length} well-known sites. Names were drawn from these gazetteers: <a className="underline" href={gazetteerSources.biblical} target="_blank" rel="noopener noreferrer">biblical</a>, <a className="underline" href={gazetteerSources.talmudic} target="_blank" rel="noopener noreferrer">Talmudic</a>.</p>
           <p>Marker colour shows identification certainty: whether scholars agree which place is meant. Pin precision is separate: an archaeological site, a city-level point, a regional reference, or a proposed area. Jerusalem, for example, is established but pinned at city level.</p>
           <p>Markers do not depict ancient boundaries or extent. Regions are modern viewing areas, not ancient borders. Sura, Pumbedita, and Nehardea show cited proposals, not verified academy sites. Hebrew aliases are editorial search aids.</p>
           <p>MapTiler requests send your IP address and referrer to MapTiler. Labels prefer English and may fall back to local names.</p>

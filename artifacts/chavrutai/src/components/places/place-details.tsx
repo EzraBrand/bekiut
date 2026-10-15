@@ -18,9 +18,9 @@ const linkCls = "inline-flex items-center gap-1 underline underline-offset-2 dec
 export const PlaceDetails = forwardRef<HTMLDivElement, { place: Place | null }>(function PlaceDetails({ place }, ref) {
   if (!place) {
     return (
-      <div ref={ref} tabIndex={-1} className="border border-dashed border-border rounded p-6 text-sm text-muted-foreground" data-testid="details-empty">
-        <MapPin className="h-5 w-5 mb-2 opacity-60" aria-hidden="true" />
-        Choose a place from the list or a marker on the map to read its identification, Talmud passages and coordinate citation.
+      <div ref={ref} tabIndex={-1} className="flex items-center gap-2 text-sm text-muted-foreground" data-testid="details-empty">
+        <MapPin className="h-4 w-4 shrink-0 opacity-60" aria-hidden="true" />
+        Choose a marker or place below for details and passages.
       </div>
     );
   }
