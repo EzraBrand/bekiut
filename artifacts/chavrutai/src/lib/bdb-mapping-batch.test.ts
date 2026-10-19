@@ -2,7 +2,29 @@ import { describe, expect, it } from "vitest";
 import bdbData from "@/shared/data/lexicon-mappings/bdb.json";
 import { expandAbbreviations, convertSupTagsToParens, splitIntoParagraphsBdb } from "./dictionary-format";
 
+it("leaves To unchanged in both abbreviation display modes", () => {
+  expect(bdbData.mappings).not.toHaveProperty("To");
+  for (const display of ["inline", "original"] as const) {
+    expect(expandAbbreviations("To", bdbData.mappings, { display })).toBe("To");
+  }
+});
+
 const additions = {
+  "dat. commodi": "dativus commodi",
+  "dat. comm.": "dativus commodi",
+  "dat. incommodi": "dativus incommodi",
+  "paraphr.": "paraphrase",
+  "1 pers.": "1st-person",
+  "tert. compar.": "tertium comparationis",
+  "periphr.": "periphrastic",
+  "Hif.": "Hif'il",
+  "st. c.": "status constructus (construct state)",
+  "P": "Priestly source",
+  "Dav": "Davidson",
+  "idiom.": "idiomatic",
+  "sf.": "suffix",
+  "anom.": "anomalous(ly)",
+  "freq.": "frequen(tly|cy)",
   "subjunct.": "subjunctive",
   "tr.": "translated",
   "repres.": "represented",

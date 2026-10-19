@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Reference Mappings</h3>
+            <p>Added dative, grammatical, Priestly-source, and Davidson expansions. Revised idiom., sf., anom., and freq.; removed the ambiguous “To” expansion to prevent false positives.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Complete Headwords and Copy Formatting</h3>
             <p>Entries now show alternate headword forms supplied by Sefaria. Copying an entry preserves the additional paragraph splits in both plain-text and formatted paste. Added twelve abbreviation and wording mappings.</p>
           </div>
