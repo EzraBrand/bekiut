@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Talmud English: Sexual Terminology</h3>
+            <p>Added conversions for forbidden relations, prohibited sexual relations, intimate relations, forbidden intercourse, and conjugated forms of “sodomize.” Verified the existing “engage in intimacy” conversions across verb forms.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Reference Mappings</h3>
             <p>Added dative, grammatical, Priestly-source, and Davidson expansions. Revised idiom., sf., anom., and freq.; removed the ambiguous “To” expansion to prevent false positives.</p>
           </div>

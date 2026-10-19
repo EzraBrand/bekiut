@@ -301,6 +301,13 @@
     "sexual_base": {
       "description": "Base sexual relation terms",
       "terms": {
+        "forbidden relations": "having forbidden sex",
+        "engaging in prohibited sexual relations": "having prohibited sex",
+        "intimate relations": "sex",
+        "forbidden intercourse": "forbidden sex",
+        "sodomize": "anally penetrate",
+        "sodomized": "anally penetrated",
+        "sodomizes": "anally penetrates",
         "cohabit": "have sex",
         "cohabits": "has sex",
         "cohabiting": "having sex",

@@ -799,6 +799,17 @@ describe('Term Replacement', () => {
       ['has relations', 'has sex'],
       ['having relations', 'having sex'],
       ['had relations', 'had sex'],
+      ['engage in intimacy', 'have sex'],
+      ['engaged in intimacy', 'had sex'],
+      ['engages in intimacy', 'has sex'],
+      ['engaging in intimacy', 'having sex'],
+      ['forbidden relations', 'having forbidden sex'],
+      ['engaging in prohibited sexual relations', 'having prohibited sex'],
+      ['intimate relations', 'sex'],
+      ['forbidden intercourse', 'forbidden sex'],
+      ['sodomize', 'anally penetrate'],
+      ['sodomized', 'anally penetrated'],
+      ['sodomizes', 'anally penetrates'],
     ])('should replace %s with %s', (source, expected) => {
       expect(replaceTerms(`${source} with her`)).toBe(`${expected} with her`);
       expect(replaceTerms(`<b>${source}</b>`)).toBe(`<b>${expected}</b>`);
@@ -806,6 +817,23 @@ describe('Term Replacement', () => {
 
     it('should not replace cohabit within longer words', () => {
       expect(replaceTerms('cohabitation cohabitant')).toBe('cohabitation cohabitant');
+    });
+
+    it('preserves source formatting around the supplied passage phrases', () => {
+      const examples = [
+        ['<b>engaging in prohibited sexual relations,</b>', '<b>having prohibited sex,</b>'],
+        ['the prohibition of forbidden relations.', 'the prohibition of having forbidden sex.'],
+        ['having <b>intimate relations,</b>', 'having <b>sex,</b>'],
+        ['<b>a matter of forbidden intercourse presented itself</b>', '<b>a matter of forbidden sex presented itself</b>'],
+        ['seeks to sodomize <b>an animal</b>', 'seeks to anally penetrate <b>an animal</b>'],
+        ['<b>willingly</b> sodomized by so-and-so', '<b>willingly</b> anally penetrated by so-and-so'],
+        ['<b>a <i>tereifa</i> who sodomizes</b> a male', '<b>a <i>tereifa</i> who anally penetrates</b> a male'],
+      ];
+      for (const [source, expected] of examples) {
+        expect(replaceTerms(source)).toBe(expected);
+      }
+      expect(processEnglishText('It involves <b>engaging in prohibited sexual relations,</b> as stated.'))
+        .toContain('having prohibited sex');
     });
 
     it('should replace engage in intercourse with have sex', () => {
