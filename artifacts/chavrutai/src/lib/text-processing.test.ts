@@ -808,6 +808,7 @@ describe('Term Replacement', () => {
       ['intimate relations', 'sex'],
       ['forbidden intercourse', 'forbidden sex'],
       ['sodomize', 'anally penetrate'],
+      ['sodomy', 'anal sex'],
       ['sodomized', 'anally penetrated'],
       ['sodomizes', 'anally penetrates'],
     ])('should replace %s with %s', (source, expected) => {
