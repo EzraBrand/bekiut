@@ -1,5 +1,9 @@
 import type { DictionaryEntry } from "./dictionary-format";
 
+export function jastrowDisplayHeadword(entry: Pick<DictionaryEntry, "headword" | "alt_headwords">): string {
+  return [...new Set([entry.headword, ...(entry.alt_headwords ?? [])].filter(Boolean))].join(", ");
+}
+
 // Sefaria sometimes repeats the same anchor inside itself. Remove the duplicate
 // wrapper before HTML parsing (which would otherwise repair it as sibling links).
 export function normalizeJastrowLinks(html: string): string {

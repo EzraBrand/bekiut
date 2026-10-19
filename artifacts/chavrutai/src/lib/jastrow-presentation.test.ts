@@ -1,7 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import { Window } from "happy-dom";
 import { jastrowOrigin, normalizeJastrowLinks, structureJastrowDefinition, restoreJastrowEtCetera, normalizeJastrowAbbreviationMarkup } from "./jastrow-presentation";
-import { expandAbbreviations } from "./dictionary-format";
+import { expandAbbreviations, preserveDictionaryCopyBreaks } from "./dictionary-format";
+import { jastrowDisplayHeadword } from "./jastrow-presentation";
 import mappings from "@/shared/data/lexicon-mappings/jastrow.json";
 import type { DictionaryEntry } from "./dictionary-format";
 
@@ -14,6 +15,24 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it("displays the complete comma-separated headword without changing lookup identity", () => {
+    expect(jastrowDisplayHeadword({ headword: "תִּ", alt_headwords: ["כְבּוֹסֶת"] })).toBe("תִּ, כְבּוֹסֶת");
+    expect(jastrowDisplayHeadword({ headword: "חָ", alt_headwords: ["רַ", "ת"] })).toBe("חָ, רַ, ת");
+    expect(jastrowDisplayHeadword({ headword: "אָב" })).toBe("אָב");
+  });
+  it("copies additional splits as portable breaks, retaining inline expansions and emphasis", () => {
+    const html = structureJastrowDefinition("<i>first</i> tradit. — <i>second</i> pronunc.", "copy", true).html;
+    const doc = new DOMParser().parseFromString(expandAbbreviations(html, mappings.mappings), "text/html");
+    expect(doc.querySelector(".jastrow-paragraph-break")).toBeTruthy();
+    preserveDictionaryCopyBreaks(doc.body);
+    expect(doc.querySelector(".jastrow-paragraph-break")).toBeNull();
+    expect(doc.body.innerHTML).toContain("<br><br>");
+    expect(doc.body.textContent).toContain("traditional");
+    expect(doc.querySelectorAll("i")).toHaveLength(2);
+    const unsplit = new DOMParser().parseFromString("<i>one continuous line</i>", "text/html");
+    preserveDictionaryCopyBreaks(unsplit.body);
+    expect(unsplit.querySelector("br")).toBeNull();
+  });
   it("recognizes fem. across italics in כּוֹבֶד K00184 in both modes", () => {
     const source = '(<i>fem</i>.).';
     const structured = structureJastrowDefinition(source, "K00184", false);

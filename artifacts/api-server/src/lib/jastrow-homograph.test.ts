@@ -26,6 +26,7 @@ describe("Jastrow homographs", () => {
   it("normalizes upstream lookup and preserves morphology through the real API mapper", async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => entries.map(e => ({
       ...e, parent_lexicon: "Jastrow Dictionary",
+      alt_headwords: ["כְבּוֹסֶת"],
       content: { morphology: "pr. n. f.", senses: [{ definition: "definition" }] },
     })) });
     vi.stubGlobal("fetch", fetchMock);
@@ -33,6 +34,7 @@ describe("Jastrow homographs", () => {
     expect(fetchMock.mock.calls[0][0]).toContain(encodeURIComponent("אב"));
     expect(result).toHaveLength(1);
     expect(result[0].rid).toBe("A00015");
+    expect(result[0].alt_headwords).toEqual(["כְבּוֹסֶת"]);
     expect(result[0].content).toMatchObject({ morphology: "pr. n. f." });
   });
 });

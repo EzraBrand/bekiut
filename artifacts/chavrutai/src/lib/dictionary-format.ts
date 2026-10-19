@@ -11,6 +11,7 @@ export { HEBREW_ALPHABET } from "@shared/hebrew-alphabet";
 
 export interface DictionaryEntry {
   headword: string;
+  alt_headwords?: string[];
   rid?: string;
   parent_lexicon: string;
   language_code?: string;
@@ -839,8 +840,16 @@ export function expandAbbreviations(
   return parts.join('');
 }
 
-// Copy-paste handler that preserves formatting (bold, italic, RTL) and rewrites
-// internal hrefs to absolute chavrutai.com URLs. Attaches to `containerSelector`.
+// CSS-only paragraph gaps need actual breaks outside the reader stylesheet.
+export function preserveDictionaryCopyBreaks(element: HTMLElement): void {
+  element.querySelectorAll(".jastrow-paragraph-break").forEach(gap => {
+    const doc = element.ownerDocument;
+    gap.replaceWith(doc.createElement("br"), doc.createElement("br"));
+  });
+}
+
+// Preserve formatting and rewrite internal hrefs to absolute site URLs.
+// Attaches to `containerSelector`.
 export function useDictionaryCopyHandler(containerSelector: string, deps: any[]) {
   useEffect(() => {
     const container = document.querySelector(containerSelector);
@@ -855,6 +864,7 @@ export function useDictionaryCopyHandler(containerSelector: string, deps: any[])
 
       const tempDiv = document.createElement('div');
       tempDiv.appendChild(fragment);
+      preserveDictionaryCopyBreaks(tempDiv);
 
       // Remove the external link arrow symbol (↗) from the copy
       const removeExternalLinkArrow = (element: HTMLElement): void => {

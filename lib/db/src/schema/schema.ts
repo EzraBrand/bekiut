@@ -132,6 +132,7 @@ export type Bookmark = typeof bookmarks.$inferSelect;
 // Jastrow Dictionary Entry Types
 export const dictionaryEntrySchema = z.object({
   headword: z.string(),
+  alt_headwords: z.array(z.string()).optional(),
   rid: z.string().optional(),
   parent_lexicon: z.string(),
   language_code: z.string().optional(),

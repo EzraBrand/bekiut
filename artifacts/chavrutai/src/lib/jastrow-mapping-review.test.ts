@@ -4,6 +4,10 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Haăz.": "Ha'azinu", sub: "under (the entry)", "M’tsorʿa": "Metzora",
+    "tradit.": "traditional", "pronunc.": "pronunciation", "b.  h.": "biblical Hebrew",
+    "Thes.": "Thesaurus", whosoever: "whoever", voluptuousness: "licentiousness",
+    "Kirchh.": "Kirchheim", harlot: "prostitute", "Krot.": "Krotoschin",
     "Answ.": "Answer", "betw.": "between", "Mick.": "Miketz",
     "Zolk.": "Zolkiew", "Hof.": "Hof'al", "Kor.": "Korach",
     matrix: "womb", indited: "declared", "K’ri": "Qere", Masé: "Masei",

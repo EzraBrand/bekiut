@@ -302,6 +302,7 @@ export class SefariaAPI {
 
   private mapEntry = (entry: any): DictionaryEntry => ({
     headword: entry.headword,
+    alt_headwords: entry.alt_headwords,
     rid: entry.rid,
     parent_lexicon: entry.parent_lexicon,
     language_code: entry.language_code,

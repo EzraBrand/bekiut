@@ -21,7 +21,7 @@ import {
   type AutosuggestSuggestion,
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
-import { jastrowOrigin, structureJastrowDefinition, normalizeJastrowAbbreviationMarkup } from "@/lib/jastrow-presentation";
+import { jastrowOrigin, jastrowDisplayHeadword, structureJastrowDefinition, normalizeJastrowAbbreviationMarkup } from "@/lib/jastrow-presentation";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -528,7 +528,7 @@ export default function Jastrow() {
                           className="text-primary hover:underline"
                           title="View this entry on Sefaria"
                         >
-                          {entry.headword}
+                          {jastrowDisplayHeadword(entry)}
                         </a>
                       </h3>
                       <div className="text-foreground flex-1 min-w-0 w-full prose prose-sm max-w-none">
