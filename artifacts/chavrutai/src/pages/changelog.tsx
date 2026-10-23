@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Security and Dependency Updates (October 23)</h3>
+            <p>Strengthened AI chat abuse protections and request validation, updated vulnerable dependencies, and added a protective patch for a build-tool dependency. Follow-up security scans and targeted regression tests checked these changes.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Talmud English: Sexual Terminology</h3>
             <p>Added conversions for forbidden relations, prohibited sexual relations, intimate relations, forbidden intercourse, and conjugated forms of “sodomize.” Verified the existing “engage in intimacy” conversions across verb forms.</p>
           </div>
