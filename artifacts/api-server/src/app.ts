@@ -1,5 +1,5 @@
 import express, { type Express } from "express";
-import cors from "cors";
+import { apiCors, enforceApiOrigin } from "./lib/api-origin";
 import pinoHttp from "pino-http";
 import healthRouter from "./routes/health";
 import { logger } from "./lib/logger";
@@ -28,7 +28,8 @@ app.use(
   }),
 );
 app.use(requestTelemetry);
-app.use(cors());
+app.use(enforceApiOrigin);
+app.use(apiCors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

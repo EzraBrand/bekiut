@@ -42,8 +42,13 @@ export function useChat(context?: ChatContext) {
     setMessages(newMessages);
 
     try {
+      // Keep a bounded, complete recent history; always begin with a user turn.
+      let history = newMessages.slice(-15);
+      while (history.length > 1 && history.reduce((n, m) => n + m.content.length, 0) > 12000) {
+        history = history.slice(2);
+      }
       const res = await apiRequest('POST', '/api/chat', {
-        messages: newMessages,
+        messages: history,
         context
       });
 
@@ -57,6 +62,8 @@ export function useChat(context?: ChatContext) {
         tool_call_count: response.toolCalls.length,
       });
     } catch (err) {
+      // A failed turn must not leave consecutive user messages on retry.
+      setMessages(messages);
       setError(err instanceof Error ? err.message : 'Failed to send message');
     } finally {
       setIsLoading(false);

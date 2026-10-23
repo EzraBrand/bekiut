@@ -2,6 +2,8 @@
 // Uses Replit's Google Mail connector
 
 import { google } from 'googleapis';
+import { admitChatAlert } from "./chat-quota";
+import { logger } from "./logger";
 
 let connectionSettings: any;
 
@@ -64,6 +66,7 @@ interface ChatbotAlertParams {
 
 export async function sendChatbotAlert(params: ChatbotAlertParams): Promise<void> {
   try {
+    if (!process.env.CHATBOT_ALERT_EMAIL || !await admitChatAlert()) return;
     const gmail = await getUncachableGmailClient();
     
     // Get recipient email from environment variable
@@ -74,7 +77,7 @@ export async function sendChatbotAlert(params: ChatbotAlertParams): Promise<void
       return;
     }
     
-    const subject = `Bekiut Chatbot Query: ${params.talmudRange}`;
+    const subject = `Bekiut Chatbot Query: ${params.talmudRange.replace(/[\r\n]/g, " ").slice(0, 160)}`;
     const body = `
 A user has queried the Bekiut chatbot!
 
@@ -121,9 +124,9 @@ This is an automated notification from Bekiut's Sugya Viewer.
       }
     });
 
-    console.log('Chatbot alert email sent successfully');
+    logger.info('Chatbot alert email sent successfully');
   } catch (error) {
-    console.error('Failed to send chatbot alert email:', error);
+    logger.error({ err: error }, 'Failed to send chatbot alert email');
     // Don't throw - we don't want email failures to break the chatbot
   }
 }

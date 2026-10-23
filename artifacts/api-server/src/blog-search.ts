@@ -148,6 +148,7 @@ export class BlogPostSearch {
     
     keywords.forEach(keyword => {
       const lowerKeyword = keyword.toLowerCase();
+      if (!lowerKeyword) return;
       
       // Title match (high score)
       if (post.title.toLowerCase().includes(lowerKeyword)) {
@@ -159,8 +160,16 @@ export class BlogPostSearch {
         score += 3;
       }
       
-      // Content match (low score)
-      const contentMatches = (searchText.match(new RegExp(lowerKeyword, 'gi')) || []).length;
+      // Keywords are untrusted literal text, never regular expressions. Stop
+      // counting at the score ceiling instead of allocating every match.
+      let contentMatches = 0;
+      let offset = 0;
+      while (contentMatches < 5) {
+        const index = searchText.indexOf(lowerKeyword, offset);
+        if (index === -1) break;
+        contentMatches++;
+        offset = index + lowerKeyword.length;
+      }
       score += Math.min(contentMatches, 5);
     });
     
