@@ -280,3 +280,17 @@ mtime_ms = 1792060277566
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/e7015efd-603f-4338-8f8c-79a0d57e9981/e302711d-dee1-46d6-aae1-1bc687bb54c1"
 storage_version_token = "1792060318369459"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "Z7WfIiKp6_P4maFVzmA3Q"
+uri = "file://docs/codebase-review-2026-10.md"
+type = "text"
+title = "Codebase maintenance review — October 2026"
+description = "Prioritized findings, cleanup candidates, verification results, and a suggested low-risk implementation batch."
+logical_id = "923a948b-802d-49d0-abe3-3f5e4a94560b"
+content_hash = "sha256:281316cba1187ad226c7dfa43dec4bd28bbe013ec8b94a3fae98195b027d0949"
+size = 7812
+mtime_ms = 1792735090712
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/923a948b-802d-49d0-abe3-3f5e4a94560b/b42a3c84-9906-4bb2-9dcd-52fb68f42dc5"
+storage_version_token = "1792735101635868"
+content_type = "text/markdown"
