@@ -30,6 +30,11 @@ export default defineConfig({
       clean: true,
       prettier: true,
       override: {
+        // The workspace declares this dependency via catalog:, which Orval
+        // cannot reliably infer as React Query v5.
+        query: {
+          version: 5,
+        },
         fetch: {
           includeHttpResponseReturnType: false,
         },

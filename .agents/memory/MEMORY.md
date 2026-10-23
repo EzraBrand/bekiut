@@ -30,3 +30,4 @@
 - [LLMdan research scope](llmdan-research-scope.md) — private AI-labeled drafts; academic bibliography must have verified discussion of the specific passage.
 - [Bekiut pronunciation](bekiut-pronunciation.md) — user-specified be-KEE-oot and mish-NEH to-RAH for narration.
 - [Anonymous chat boundary](chat-abuse-boundary.md) — persistent shared quotas fail closed; forwarded IPs need a verified ingress trust contract.
+- [Dependency remediation scope](dependency-remediation-scope.md) — keep the local braces fix until upstream patches it; avoid a CSS framework migration or misleading scanner suppression.
