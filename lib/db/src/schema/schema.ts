@@ -195,8 +195,8 @@ export const BibleQuerySchema = z.object({
 // Text Search Schemas
 export const textSearchRequestSchema = z.object({
   query: z.string().min(1, "Search query is required"),
-  page: z.coerce.number().min(1).default(1),
-  pageSize: z.coerce.number().min(1).max(50).default(15),
+  page: z.coerce.number().int().min(1).default(1),
+  pageSize: z.coerce.number().int().min(1).max(50).default(15),
   type: z.enum(["all", "talmud", "bible"]).default("all"),
   exact: z.preprocess((val) => String(val) === 'true', z.boolean()),
 });
@@ -218,6 +218,7 @@ export type SearchResult = z.infer<typeof searchResultSchema>;
 export const textSearchResponseSchema = z.object({
   results: z.array(searchResultSchema),
   total: z.number(),
+  totalIsApproximate: z.boolean().optional(),
   page: z.number(),
   pageSize: z.number(),
   totalPages: z.number(),

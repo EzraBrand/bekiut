@@ -166,6 +166,7 @@ export type SearchResult = z.infer<typeof searchResultSchema>;
 export const textSearchResponseSchema = z.object({
   results: z.array(searchResultSchema),
   total: z.number(),
+  totalIsApproximate: z.boolean().optional(),
   page: z.number(),
   pageSize: z.number(),
   totalPages: z.number(),

@@ -74,6 +74,12 @@ export default function SearchPage() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isUserTyping, setIsUserTyping] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const resultsTopRef = useRef<HTMLDivElement>(null);
+  const pendingPageScroll = useRef(false);
+  const changePage = (page: number) => {
+    pendingPageScroll.current = true;
+    setCurrentPage(page);
+  };
   const [, navigate] = useLocation();
   const pageSize = 15;
 
@@ -131,6 +137,13 @@ export default function SearchPage() {
     enabled: submittedQuery.length > 0,
   });
   const lastTrackedSearchRef = useRef("");
+
+  useEffect(() => {
+    if (!pendingPageScroll.current || isLoading) return;
+    pendingPageScroll.current = false;
+    resultsTopRef.current?.focus({ preventScroll: true });
+    resultsTopRef.current?.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [currentPage, isLoading, searchResults, error]);
 
   useEffect(() => {
     if (!searchResults || !submittedQuery) return;
@@ -527,6 +540,7 @@ export default function SearchPage() {
           </section>
         )}
 
+        <div ref={resultsTopRef} tabIndex={-1} aria-label="Search results" className="scroll-mt-24 outline-none" />
         {error && (
           <div className="border border-destructive rounded py-4 px-4 text-destructive">
             Failed to search. Please try again.
@@ -543,7 +557,7 @@ export default function SearchPage() {
           <div className="space-y-4">
             <div className="flex items-center justify-between text-sm text-muted-foreground">
               <span>
-                {filteredResults.total.toLocaleString()} results for "{filteredResults.query}"
+                {filteredResults.totalIsApproximate ? "Approximately " : ""}{filteredResults.total.toLocaleString()} results for "{filteredResults.query}"
                 {exactMatch && (
                   <span className="ml-2 text-xs text-muted-foreground">
                     (exact)
@@ -649,7 +663,7 @@ export default function SearchPage() {
               <div className="flex items-center justify-center gap-4 pt-4 text-sm">
                 <button
                   type="button"
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                  onClick={() => changePage(Math.max(1, currentPage - 1))}
                   disabled={currentPage <= 1}
                   data-testid="button-prev-page"
                   className="text-primary hover:underline disabled:text-muted-foreground disabled:no-underline disabled:cursor-not-allowed"
@@ -661,7 +675,7 @@ export default function SearchPage() {
                 </span>
                 <button
                   type="button"
-                  onClick={() => setCurrentPage((p) => Math.min(filteredResults.totalPages, p + 1))}
+                  onClick={() => changePage(Math.min(filteredResults.totalPages, currentPage + 1))}
                   disabled={currentPage >= filteredResults.totalPages}
                   data-testid="button-next-page"
                   className="text-primary hover:underline disabled:text-muted-foreground disabled:no-underline disabled:cursor-not-allowed"

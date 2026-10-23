@@ -9,8 +9,7 @@ export function createSearchRouter(): Router {
     try {
       const { query, page, pageSize, type, exact } = textSearchRequestSchema.parse(req.query);
       
-      const fetchSize = pageSize * 2;
-      const from = (page - 1) * fetchSize;
+      const from = (page - 1) * pageSize;
       
       const pathFilters: any[] = [];
       if (type === "all" || type === "talmud") {
@@ -23,8 +22,12 @@ export function createSearchRouter(): Router {
       }
       
       const esQuery = {
-        size: fetchSize,
+        size: pageSize,
         from: from,
+        collapse: { field: "ref.keyword" },
+        aggs: {
+          unique_refs: { cardinality: { field: "ref.keyword", precision_threshold: 40000 } }
+        },
         query: {
           bool: {
             must: {
@@ -71,7 +74,9 @@ export function createSearchRouter(): Router {
         },
         sort: [
           { comp_date: {} },
-          { order: {} }
+          { order: {} },
+          { "ref.keyword": {} },
+          { version_priority: { missing: "_last" } }
         ]
       };
 
@@ -82,7 +87,8 @@ export function createSearchRouter(): Router {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(esQuery)
+        body: JSON.stringify(esQuery),
+        signal: AbortSignal.timeout(30000)
       });
 
       if (!response.ok) {
@@ -93,8 +99,10 @@ export function createSearchRouter(): Router {
 
       const data: any = await response.json();
       
-      const hitsTotal = data.hits?.total;
-      const total = typeof hitsTotal === 'object' ? (hitsTotal?.value ?? 0) : (hitsTotal ?? 0);
+      if (data.timed_out || data._shards?.failed || !Number.isFinite(data.aggregations?.unique_refs?.value)) {
+        res.status(502).json({ error: "Search returned incomplete results. Please try again." });
+        return;
+      }
       const hits = data.hits?.hits || [];
       
       const allResults: SearchResult[] = hits.map((hit: any) => {
@@ -124,23 +132,16 @@ export function createSearchRouter(): Router {
         };
       });
 
-      const seenRefs = new Set<string>();
-      const deduped = allResults.filter(result => {
-        if (seenRefs.has(result.ref)) {
-          return false;
-        }
-        seenRefs.add(result.ref);
-        return true;
-      });
-      
-      const results: SearchResult[] = deduped.slice(0, pageSize);
-      
-      const uniqueTotal = total <= fetchSize ? deduped.length : Math.ceil(total / 2);
+      // Collapse happens upstream, before from/size. Never discard hits after
+      // pagination: doing so skips valid passages on subsequent pages.
+      const results = allResults;
+      const uniqueTotal = data.aggregations.unique_refs.value;
       const totalPages = Math.ceil(uniqueTotal / pageSize);
 
       const searchResponse: TextSearchResponse = {
         results,
         total: uniqueTotal,
+        totalIsApproximate: true,
         page,
         pageSize,
         totalPages,

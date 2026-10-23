@@ -48,6 +48,7 @@ interface SearchResult {
 interface SearchResponse {
   results: SearchResult[];
   total: number;
+  totalIsApproximate?: boolean;
   totalPages: number;
 }
 
@@ -167,6 +168,7 @@ function HighlightedText({ result }: { result: SearchResult }) {
 function DetailPanel({ row, onClose }: { row: GlossaryRow; onClose: () => void }) {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [total, setTotal] = useState(0);
+  const [totalIsApproximate, setTotalIsApproximate] = useState(false);
   const [searching, setSearching] = useState(false);
   const [searchError, setSearchError] = useState(false);
 
@@ -178,7 +180,7 @@ function DetailPanel({ row, onClose }: { row: GlossaryRow; onClose: () => void }
     const params = new URLSearchParams({ query: row.term, page: "1", pageSize: "10", type: "talmud", exact: "false" });
     fetch(`/api/search/text?${params}`)
       .then(r => { if (!r.ok) throw new Error(); return r.json() as Promise<SearchResponse>; })
-      .then(data => { if (!cancelled) { setResults(data.results); setTotal(data.total); setSearching(false); } })
+      .then(data => { if (!cancelled) { setResults(data.results); setTotal(data.total); setTotalIsApproximate(!!data.totalIsApproximate); setSearching(false); } })
       .catch(() => { if (!cancelled) { setSearchError(true); setSearching(false); } });
     return () => { cancelled = true; };
   }, [row.term]);
@@ -322,7 +324,7 @@ function DetailPanel({ row, onClose }: { row: GlossaryRow; onClose: () => void }
               Corpus passages
               {!searching && !searchError && (
                 <span className="normal-case tracking-normal font-normal text-muted-foreground ml-1.5">
-                  ({total.toLocaleString()} total)
+                  ({totalIsApproximate ? "approximately " : ""}{total.toLocaleString()} total)
                 </span>
               )}
             </p>
