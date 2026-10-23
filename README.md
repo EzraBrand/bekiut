@@ -16,6 +16,14 @@ Bekiut is featured in the official [Sefaria Powered-By directory](https://develo
 
 Bekiut is listed in the [JewishAI Internet Index](https://jewishai.me/table.html), the AI and Judaism Resource Library's curated index of tools, scholarship, and discussions at the intersection of Jewish tradition and modern artificial intelligence.
 
+Bekiut is also listed in the [Israel Digital Humanities Index](https://idh-index.org/entities/idhi%253Aproject%253A8zdbdjc6).
+
+### See also
+
+- My [2026 Guide to Online Resources for Scholarly Jewish Study and Research](https://ezrabrand.github.io/jewish-online-resources/).
+- My AI conference talk, [Automating Talmudic Research Assistance](https://ai-workshop.talmudyerushalmi.com/talks/automating-talmudic-research-assistance/).
+- The talk's [recording, transcription, and slides](https://ai-workshop.talmudyerushalmi.com/players/automating-talmudic-research-assistance/).
+
 ## Demo Video and Screenshot
 
 https://github.com/user-attachments/assets/74f50af2-9971-4076-b253-abb73ef0b46e
