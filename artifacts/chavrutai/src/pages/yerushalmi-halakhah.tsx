@@ -714,11 +714,11 @@ export default function YerushalmiHalakhah() {
                                 : `Notes (${section.sectionFootnotes.length})`}
                             </button>
                             {expandedNotes.has(index) && (
-                              <div className="reader-footnotes mt-3 space-y-2 text-muted-foreground max-w-prose">
+                              <div className="mt-3 space-y-2 text-muted-foreground max-w-prose leading-relaxed">
                                 {section.sectionFootnotes.map((fn, fnIdx) => (
                                   <div key={fnIdx} id={`note-${index}-${fn.num}`} className="flex gap-2 scroll-mt-24">
                                     <sup className="text-[10px] leading-5 flex-shrink-0 font-medium">{fn.num}</sup>
-                                    <span className="reader-note-body english-text min-w-0" dangerouslySetInnerHTML={{ __html: fn.noteHtml }} />
+                                    <span className="english-text min-w-0 [overflow-wrap:anywhere]" dangerouslySetInnerHTML={{ __html: fn.noteHtml }} />
                                   </div>
                                 ))}
                               </div>

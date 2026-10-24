@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Yerushalmi Footnote Text Size</h3>
+            <p>Yerushalmi footnotes now follow the main English text-size setting exactly, matching the Bavli reader.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Search Pagination (October 23)</h3>
             <p>Search now groups duplicate passages before pagination, preventing results from being skipped between pages. Estimated totals are labeled, and Previous/Next navigation returns to the top of the results.</p>
           </div>
