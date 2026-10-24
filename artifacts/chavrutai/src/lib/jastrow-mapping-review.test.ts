@@ -2,6 +2,25 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands the new phrases and contextual Parsha references without trailing colons", () => {
+  for (const [key, value] of Object.entries({
+    "Eth Korb.": "Et Korbani", "redupl.": "reduplication",
+    "Ki Thetsé": "Ki Teitzei", "Var. Lect.": "variant reading",
+    Japho: "Jaffa", "ed. Const.": "ed. Constantinople", "dict.": "diction",
+    "R’eh": "Re'eh", boughtest: "bought", calumny: "slander",
+    hither: "to here", puttest: "put", bot: "bottom (of page)",
+    wherefore: "for what reason", bashful: "shy", thereon: "on it",
+    "Tanḥ.": "Tanhuma", "Y'lamd.": "Yelamdenu", "Y’lamd.": "Yelamdenu",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toContain(`>${value}</span>`);
+  }
+  expect(Object.values(data.mappings).filter(value => /:\s*$/.test(value))).toEqual([]);
+  for (const locator of ["2", "III", "<i>IV</i>"]) {
+    expect(expandAbbreviations(`Par. ${locator}`, data.mappings)).toContain(">Parsha</span>");
+  }
+  expect(expandAbbreviations("Par.", data.mappings)).toContain(">Parah</span>");
+});
+
 it("contains no unchanged mappings and leaves Balak unannotated", () => {
   expect(Object.entries(data.mappings).filter(([key, value]) => key.trim() === value.trim())).toEqual([]);
   expect(expandAbbreviations("Balak", data.mappings)).toBe("Balak");
@@ -191,7 +210,7 @@ describe("Jastrow corpus-reviewed additions", () => {
     ["ed. Lag.", "Lagarde edition"],
     ["Ges. H. Dict.", "Gesenius, 'Hebrew Dictionary'"],
     ["Part. pass.", "passive participle"],
-    ["Ms. Oxf.", "Manuscript Oxford:"],
+    ["Ms. Oxf.", "Manuscript Oxford"],
   ])("preserves the longer contextual mapping %s", (source, expansion) => {
     expect(expandAbbreviations(source, data.mappings)).toBe(`<span class="dict-expanded">${expansion}</span>`);
   });

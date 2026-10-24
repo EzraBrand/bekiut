@@ -768,13 +768,14 @@ export function expandAbbreviations(
         // Jastrow's ch. is a language abbreviation except before a chapter
         // number. Inspect unexpanded text so Roman-numeral mappings do not
         // affect the decision; allow inline formatting around the locator.
-        if (abbreviation === 'ch.' && expansion === 'Aramaic') {
+        if ((abbreviation === 'ch.' && expansion === 'Aramaic') ||
+            (abbreviation === 'Par.' && expansion === 'Parah')) {
           const followingText = (
             segment.slice(offset + match[0].length) + parts.slice(i + 1).join('')
           ).replace(/<\/?(?:em|i|b|strong|span|a)\b[^>]*>/gi, '')
             .replace(/&nbsp;|&#160;|&#xA0;/gi, ' ');
           if (/^\s+(?:\d+|[ivxlcdm]+)(?![\p{L}\p{N}\p{M}_])/iu.test(followingText)) {
-            candidates.push({ start: offset, end: offset + match[0].length, expansion: 'chapter' });
+            candidates.push({ start: offset, end: offset + match[0].length, expansion: abbreviation === 'Par.' ? 'Parsha' : 'chapter' });
             continue;
           }
         }

@@ -482,7 +482,7 @@ describe("Jastrow abbreviation expansion", () => {
     ["trnsp.", "transposed or transposition"],
     ["vers.", "version"],
     ["ws.", "words"],
-    ["Y’lamd.", "Y'lamdenu"],
+    ["Y’lamd.", "Yelamdenu"],
     ["sq.", "and following"],
     ["Part. pass.", "passive participle"],
     ["Part.", "participle"],

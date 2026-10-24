@@ -47,6 +47,9 @@ export default function Jastrow() {
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showBrowse, setShowBrowse] = useState(() => !new URLSearchParams(window.location.search).get("q"));
+  const pendingEntryScroll = useRef(false);
+  const resultsRef = useRef<HTMLElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const initialLoadRef = useRef(false);
   const entryUrlRef = useRef(window.location.pathname + window.location.search);
@@ -73,13 +76,15 @@ export default function Jastrow() {
     };
   }), [results, expandInline, extraSplits]);
 
-  // Direct fragment URLs load before the asynchronously fetched target exists.
+  // Entry navigation lands at the results once loading finishes, even when an
+  // incoming URL has a fragment. Subsequent in-page index links remain native.
   useEffect(() => {
-    if (isLoading || !preparedEntries.length || !window.location.hash) return;
+    if (isLoading || !preparedEntries.length) return;
     const frame = requestAnimationFrame(() => {
-      let id: string;
-      try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
-      if (id.startsWith("jastrow-")) document.getElementById(id)?.scrollIntoView({ block: "start" });
+      if (pendingEntryScroll.current) {
+        pendingEntryScroll.current = false;
+        resultsRef.current?.scrollIntoView({ block: "start" });
+      }
     });
     return () => cancelAnimationFrame(frame);
   }, [preparedEntries, isLoading]);
@@ -131,6 +136,8 @@ export default function Jastrow() {
     suppressSuggestionsRef.current = true;
     setSuggestions([]);
     setShowSuggestions(false);
+    setShowBrowse(false);
+    pendingEntryScroll.current = true;
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
     const currentParams = new URLSearchParams(window.location.search);
@@ -223,7 +230,6 @@ export default function Jastrow() {
         });
         setSearchQuery(q);
         handleSearch(q, params.get('rid') || undefined);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
     document.addEventListener('click', handler);
@@ -447,6 +453,10 @@ export default function Jastrow() {
 
         <section className="py-8 border-t border-border">
           <h2 className="font-georgia text-xl mb-4">Browse by Letter</h2>
+          <button type="button" className="text-sm mb-3" aria-expanded={showBrowse} aria-controls="jastrow-browse-grid" onClick={() => setShowBrowse(value => !value)}>
+            {showBrowse ? "▾" : "▸"} Browse by letter
+          </button>
+          <div id="jastrow-browse-grid" hidden={!showBrowse}>
           <div className="grid grid-cols-8 sm:grid-cols-12 gap-2">
             {HEBREW_ALPHABET.map((letter) => {
               const count = lexiconIndex?.perLetterCounts[letter];
@@ -467,10 +477,11 @@ export default function Jastrow() {
               );
             })}
           </div>
+          </div>
         </section>
 
         {(isLoading || lastSearchedQuery) && (
-        <section className="py-8 border-t border-border">
+        <section ref={resultsRef} className="py-8 border-t border-border scroll-mt-20">
           <DictionaryAbbreviationPanel revision={abbreviationRevision} />
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 className="font-georgia text-xl">Dictionary Entries</h2>

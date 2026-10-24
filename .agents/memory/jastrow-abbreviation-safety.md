@@ -8,3 +8,17 @@ Reconcile candidates against Jastrow’s own digitized abbreviation list, but do
 **Why:** The printed abbreviation list contains forms such as a single letter followed by a period. In browser text replacement, these can collide with ordinary prose or unrelated citation notation even when token boundaries are enforced. Existing reader-facing expansions may also intentionally modernize or shorten the source wording.
 
 **How to apply:** For each new batch, classify authoritative-list gaps and conflicts, scan real definitions for frequency and context, prefer longer contextual keys, retain intentional modernized expansions, and add formatter tests using representative source snippets.
+
+Jastrow expansion targets should not introduce trailing colons.
+
+**Why:** The user requested removal of all trailing colons from mapped expansions,
+not just selected verb forms.
+
+**How to apply:** Keep punctuation from the source text, but do not add a colon
+as part of new mapping targets.
+
+Entry navigation should collapse the browse grid and land at the first result,
+including incoming external links. The grid can be reopened manually.
+
+**Why:** The user wants immediate access to definitions rather than the browsing
+controls when following an entry link.
