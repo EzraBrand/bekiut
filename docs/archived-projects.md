@@ -12,7 +12,9 @@ media manifests remain usable; this is an in-place archive, not deletion.
 - `jewish-research-guide/`: standalone guide source and supporting research.
   Also archived locally, with automatic push-triggered Pages publication removed
   from its local workflow. The existing remote GitHub Pages website is unchanged;
-  local archiving does not unpublish it.
+  local archiving does not unpublish it. The owner explicitly confirmed that
+  the live site should stay online; do not change the remote repository or Pages
+  settings as part of this cleanup.
 - `artifacts/mockup-sandbox/`: favicon options and social-image experiments,
   plus the shared preview scaffold. Existing canvas data is retained locally,
   but live sandbox previews are inactive until restored.
