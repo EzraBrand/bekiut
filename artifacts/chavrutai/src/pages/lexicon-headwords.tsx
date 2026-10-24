@@ -3,6 +3,7 @@ import { Link, Redirect } from "wouter";
 import { useSEO } from "@/hooks/use-seo";
 import { HEBREW_ALPHABET, isHebrewLetter } from "@shared/hebrew-alphabet";
 import { PageShell, SectionHeading } from "@/components/layout";
+import { sortJastrowHeadwords } from "@/lib/lexicon-headword-sort";
 import {
   useLexiconIndex,
   normalizeHebrew,
@@ -60,8 +61,8 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
         out.push(index.headwords[i]);
       }
     }
-    return out;
-  }, [index, activeLetter]);
+    return lexiconKey === "jastrow" ? sortJastrowHeadwords(out) : out;
+  }, [index, activeLetter, lexiconKey]);
 
   const totalCount = index?.total ?? 0;
 
