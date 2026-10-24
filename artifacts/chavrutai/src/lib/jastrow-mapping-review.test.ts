@@ -2,6 +2,30 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands the Chovah, historical references, wording, and contextual V additions", () => {
+  for (const [key, value] of Object.entries({
+    "Ḥobah": "Chovah",
+    wherewith: "with what",
+    antepast: "appetizer",
+    luncheon: "meal",
+    "Gesch. d. Jud.": "Geschichte der Juden",
+    "Gr.": "Greek",
+    "Aeth.": "Ethiopic (Ge'ez)",
+    "‘Ăbadim": "Avadim",
+    "ed. Lehm.": "ed. Lehmann",
+    "Hashsh'mini": "Ha-shemini",
+    "ed. Fr.": "ed. Friedmann",
+    "V (": "5 (",
+    "omitt.": "omitted to",
+    "Vayesh.": "Vayeshev",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+  expect(expandAbbreviations("V (27a)", data.mappings))
+    .toBe('<span class="dict-expanded">5 (</span>27a)');
+  expect(expandAbbreviations("V", data.mappings)).toBe("V");
+});
+
 it("expands Gesammelte Abhandlungen, infinitive, and Penei Moshe", () => {
   for (const [key, value] of Object.entries({
     "Ges. Abh.": "Gesammelte Abhandlungen",
