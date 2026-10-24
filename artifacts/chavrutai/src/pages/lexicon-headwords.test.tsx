@@ -45,10 +45,20 @@ it("defaults details off, toggles local metadata, and supports every Jastrow let
     expect(host.textContent).toContain("See");
     expect(host.querySelector('a[href*="rid=L00679"]')).not.toBeNull();
     expect(host.querySelector(`a[href="/jastrow?q=${encodeURIComponent("לאי")}"]`)).not.toBeNull();
+    expect(window.localStorage.getItem("jastrow-show-entry-details")).toBe("true");
+    // Leaving the reader unmounts it; returning must restore the saved choice.
+    await act(async () => root.render(<div>Another page</div>));
+    await act(async () => root.render(<Page lexiconKey="jastrow" letter="מ" />));
+    expect((host.querySelector('input[type="checkbox"]') as HTMLInputElement).checked).toBe(true);
+    await act(async () => root.render(<Page lexiconKey="jastrow" letter="ל" />));
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 50)); });
     await act(async () => (host.querySelector('input[type="checkbox"]') as HTMLElement).click());
+    expect(window.localStorage.getItem("jastrow-show-entry-details")).toBe("false");
     expect(host.textContent).not.toContain("133 words");
     expect(host.querySelector('a[href*="rid=L00679"]')).not.toBeNull();
+    await act(async () => root.render(<div>Another page</div>));
     await act(async () => root.render(<Page lexiconKey="jastrow" letter="מ" />));
+    expect((host.querySelector('input[type="checkbox"]') as HTMLInputElement).checked).toBe(false);
     expect(host.textContent).toContain("Show entry details");
     await act(async () => root.render(<Page lexiconKey="bdb" letter="ל" />));
     expect(host.textContent).not.toContain("Show entry details");

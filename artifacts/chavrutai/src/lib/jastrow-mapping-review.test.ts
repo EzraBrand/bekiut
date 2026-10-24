@@ -2,6 +2,16 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands Gesammelte Abhandlungen, infinitive, and Penei Moshe", () => {
+  for (const [key, value] of Object.entries({
+    "Ges. Abh.": "Gesammelte Abhandlungen",
+    "infin.": "infinitive",
+    "P’né Mosh.": "Penei Moshe",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+});
+
 it("expands tense, Frankel, Hanina, and wording additions", () => {
   for (const [key, value] of Object.entries({
     "fut.": "future (tense)", "Fr. M’bo": "Frankel, Introduction to the Jerusalem Talmud",

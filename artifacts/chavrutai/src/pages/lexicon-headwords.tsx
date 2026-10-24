@@ -58,7 +58,21 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
   const invalidLetter = letter !== undefined && !isHebrewLetter(letter);
   const activeLetter = !invalidLetter && letter && isHebrewLetter(letter) ? letter : "";
   const detailsAvailable = lexiconKey === "jastrow" && !!activeLetter;
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(() => {
+    try {
+      return window.localStorage.getItem("jastrow-show-entry-details") === "true";
+    } catch {
+      return false;
+    }
+  });
+  const changeShowDetails = (checked: boolean) => {
+    setShowDetails(checked);
+    try {
+      window.localStorage.setItem("jastrow-show-entry-details", String(checked));
+    } catch {
+      // Browsers that block storage can still use the toggle for this visit.
+    }
+  };
   const [details, setDetails] = useState<Record<string, EntryDetail | { status: string }> | null>(null);
   const [detailsError, setDetailsError] = useState(false);
   useEffect(() => {
@@ -182,7 +196,7 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
             {detailsAvailable && (
               <div className="mb-5 rounded border border-border p-3 text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={showDetails} onChange={event => setShowDetails(event.target.checked)} className="accent-primary" />
+                  <input type="checkbox" checked={showDetails} onChange={event => changeShowDetails(event.target.checked)} className="accent-primary" />
                   Show entry details
                 </label>
                 {showDetails && (

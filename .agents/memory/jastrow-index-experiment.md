@@ -3,7 +3,8 @@ name: Jastrow index details
 description: Scope and measurement rules for word counts and pointer labels.
 ---
 
-Entry details are approved for all 22 Jastrow letters, off by default, without
+Entry details are approved for all 22 Jastrow letters, off on first visit but
+remembering the user's checkbox choice across page changes, without
 an experimental or preview label. Approximate word counts are acceptable.
 Distinguish cross-reference-only entries from short substantive definitions.
 Count original definition words independently of reader expansion settings.
