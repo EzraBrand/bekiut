@@ -1,14 +1,15 @@
 ---
-name: Jastrow index details experiment
-description: Scope and measurement rules for the entry-length and pointer-label experiment.
+name: Jastrow index details
+description: Scope and measurement rules for word counts and pointer labels.
 ---
 
-Keep entry-detail badges limited to Jastrow ל until the user approves expansion.
+Entry details are approved for all 22 Jastrow letters, off by default, without
+an experimental or preview label. Approximate word counts are acceptable.
 Distinguish cross-reference-only entries from short substantive definitions.
 Count original definition words independently of reader expansion settings.
 
-**Why:** The user approved a limited experiment to make substantive entries
-easier to find without cluttering the entire index or mislabeling short entries.
+**Why:** After reviewing the ל trial, the user approved dictionary-wide rollout
+and explicitly said word counts do not have to be perfect.
 
 **How to apply:** Precompute metadata rather than fetching entries in the browser;
 preserve exact homograph identities, label uncertain matches unavailable, and

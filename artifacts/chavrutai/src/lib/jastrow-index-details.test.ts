@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import { buildEntryDetail, selectExactEntry, type SourceEntry } from "@workspace/shared-data/jastrow-index-details";
-import snapshot from "@/shared/data/lexicon-headwords/jastrow-lamed-details.json";
+import snapshot from "@/shared/data/lexicon-headwords/jastrow-entry-details/ל.json";
 import index from "@/shared/data/lexicon-headwords/jastrow.json";
 
 it("accounts for every ל headword without merging homographs", () => {
@@ -8,6 +8,16 @@ it("accounts for every ל headword without merging homographs", () => {
   expect(snapshot.entries["לֶקֶט"].rid).toBe("L00679");
   expect(snapshot.entries["לֶקֶט ²"].rid).toBe("L00680");
   expect(snapshot.entries["לֶקֶט"].words).not.toBe(snapshot.entries["לֶקֶט ²"].words);
+});
+
+it("covers all 22 letters and all alphabetic headwords", () => {
+  const files = import.meta.glob<{ default: { entries: Record<string, { status: string }> } }>(
+    "../shared/data/lexicon-headwords/jastrow-entry-details/*.json", { eager: true },
+  );
+  expect(Object.keys(files)).toHaveLength(22);
+  const keys = Object.values(files).flatMap(file => Object.keys(file.default.entries));
+  const expected = index.headwords.filter(word => /^[א-ת]/.test(word.replace(/[\u0591-\u05c7]/g, "")));
+  expect(keys.sort()).toEqual(expected.sort());
 });
 
 const entry = (definition: string, headword = "לֶקֶט"): SourceEntry => ({

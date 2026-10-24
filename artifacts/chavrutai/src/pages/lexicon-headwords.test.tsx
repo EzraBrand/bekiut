@@ -20,7 +20,7 @@ vi.mock("@/components/layout", () => ({
 }));
 afterAll(() => vi.unstubAllGlobals());
 
-it("shows local metadata, preserves entry links, toggles details, and limits the experiment to Jastrow ל", async () => {
+it("defaults details off, toggles local metadata, and supports every Jastrow letter but not BDB", async () => {
   const window = new Window({ url: "https://example.org/jastrow/headwords/ל" });
   for (const key of ["window", "document", "navigator", "HTMLElement", "Node", "Event", "MouseEvent"]) {
     vi.stubGlobal(key, key === "window" ? window : (window as any)[key]);
@@ -37,6 +37,10 @@ it("shows local metadata, preserves entry links, toggles details, and limits the
       root.render(<Page lexiconKey="jastrow" letter="ל" />);
     });
     await act(async () => { await new Promise(resolve => setTimeout(resolve, 50)); });
+    expect((host.querySelector('input[type="checkbox"]') as HTMLInputElement).checked).toBe(false);
+    expect(host.textContent).not.toContain("preview");
+    expect(host.textContent).not.toContain("133 words");
+    await act(async () => (host.querySelector('input[type="checkbox"]') as HTMLElement).click());
     expect(host.textContent).toContain("133 words");
     expect(host.textContent).toContain("See");
     expect(host.querySelector('a[href*="rid=L00679"]')).not.toBeNull();
@@ -45,7 +49,7 @@ it("shows local metadata, preserves entry links, toggles details, and limits the
     expect(host.textContent).not.toContain("133 words");
     expect(host.querySelector('a[href*="rid=L00679"]')).not.toBeNull();
     await act(async () => root.render(<Page lexiconKey="jastrow" letter="מ" />));
-    expect(host.textContent).not.toContain("Show entry details");
+    expect(host.textContent).toContain("Show entry details");
     await act(async () => root.render(<Page lexiconKey="bdb" letter="ל" />));
     expect(host.textContent).not.toContain("Show entry details");
   } finally {

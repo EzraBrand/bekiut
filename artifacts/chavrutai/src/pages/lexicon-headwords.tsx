@@ -43,6 +43,10 @@ interface Props {
   letter?: string;
 }
 
+const detailFiles = import.meta.glob<{ default: { entries: Record<string, EntryDetail | { status: string }> } }>(
+  "../shared/data/lexicon-headwords/jastrow-entry-details/*.json",
+);
+
 export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
   const meta = LEXICON_META[lexiconKey];
   const index = useLexiconIndex(lexiconKey);
@@ -53,18 +57,22 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
   // after all hooks have run so the call order stays stable across renders.
   const invalidLetter = letter !== undefined && !isHebrewLetter(letter);
   const activeLetter = !invalidLetter && letter && isHebrewLetter(letter) ? letter : "";
-  const detailsExperiment = lexiconKey === "jastrow" && activeLetter === "ל";
-  const [showDetails, setShowDetails] = useState(true);
+  const detailsAvailable = lexiconKey === "jastrow" && !!activeLetter;
+  const [showDetails, setShowDetails] = useState(false);
   const [details, setDetails] = useState<Record<string, EntryDetail | { status: string }> | null>(null);
   const [detailsError, setDetailsError] = useState(false);
   useEffect(() => {
-    if (!detailsExperiment) return;
+    setDetails(null);
+    setDetailsError(false);
+    if (!detailsAvailable) return;
     let cancelled = false;
-    import("@shared/data/lexicon-headwords/jastrow-lamed-details.json")
+    const load = detailFiles[`../shared/data/lexicon-headwords/jastrow-entry-details/${activeLetter}.json`];
+    if (!load) { setDetailsError(true); return; }
+    load()
       .then(data => { if (!cancelled) setDetails(data.default.entries); })
       .catch(() => { if (!cancelled) setDetailsError(true); });
     return () => { cancelled = true; };
-  }, [detailsExperiment]);
+  }, [detailsAvailable, activeLetter]);
 
   const letterHeadwords = useMemo(() => {
     if (!index || !activeLetter) return [];
@@ -171,16 +179,15 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
 
         {activeLetter && (
           <div className="pb-12">
-            {detailsExperiment && (
+            {detailsAvailable && (
               <div className="mb-5 rounded border border-border p-3 text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={showDetails} onChange={event => setShowDetails(event.target.checked)} className="accent-primary" />
                   Show entry details
-                  <span className="text-xs text-muted-foreground">ל preview</span>
                 </label>
                 {showDetails && (
                   <p className="mt-2 text-xs text-muted-foreground">
-                    Word counts include definitions, quotations, and citations in the original text.
+                    Approximate word counts include definitions, quotations, and citations in the original text.
                     {" "}“See” marks clear cross-reference-only entries; its link opens the referenced headword.
                     {detailsError ? " Entry details could not be loaded." : !details ? " Loading details…" : ""}
                   </p>
@@ -197,10 +204,10 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
                 dir="rtl"
               >
                 {letterHeadwords.map((hw, i) => {
-                  const record = detailsExperiment ? details?.[hw] : undefined;
+                  const record = detailsAvailable ? details?.[hw] : undefined;
                   const detail = record?.status === "ready" ? record as EntryDetail : undefined;
                   return (
-                  <li key={`${hw}-${i}`} className={detailsExperiment && showDetails ? "mb-2 leading-relaxed" : "mb-1"}>
+                  <li key={`${hw}-${i}`} className={detailsAvailable && showDetails ? "mb-2 leading-relaxed" : "mb-1"}>
                     <Link
                       href={`${meta.routePrefix}?q=${encodeURIComponent(hw)}${detail ? `&rid=${encodeURIComponent(detail.rid)}` : ""}`}
                       className="font-hebrew text-base text-primary dark:text-[#5b9fc5] hover:underline"
@@ -208,7 +215,7 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
                     >
                       {hw}
                     </Link>
-                    {detailsExperiment && showDetails && (
+                    {detailsAvailable && showDetails && (
                       <span dir="ltr" className="inline-block align-baseline text-xs text-muted-foreground mr-2">
                         {detail?.see ? (
                           <>· See <Link

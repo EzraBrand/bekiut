@@ -16,7 +16,7 @@
 - [Trusted internal telemetry](trusted-internal-telemetry.md) — internal SSR/proxy traffic must use signed attribution; never classify it from a caller-controlled user-agent alone.
 - [RTL dash split wrapping](rtl-inline-dash-wrapping.md) — preserve dash paragraph splits; NBSP plus word joiner before the dash prevents RTL visual isolation without wrapper-induced reordering.
 - [Jastrow abbreviation safety](jastrow-abbreviation-safety.md) — reconcile against Jastrow’s source list, but require corpus evidence and reject ambiguous global single-letter forms.
-- [Jastrow index experiment](jastrow-index-experiment.md) — details limited to ל; precompute original-text counts and classify pointers conservatively.
+- [Jastrow index details](jastrow-index-experiment.md) — all letters, off by default; approximate counts acceptable, pointer classification conservative.
 - [Sefaria bulk-export fidelity](sefaria-export-fidelity.md) — use edition-specific GCS exports, not merged files, for reader-matching snapshots; preserve licenses and validate segment alignment.
 - [Superscript hit areas](superscript-hit-areas.md) — superscript buttons can look visible yet have zero-height click targets; verify pointer activation, not only keyboard.
 - [Commentary block boundaries](commentary-block-boundaries.md) — clause-linked blocks must distinguish translation continuations from adjacent independent explanations.
