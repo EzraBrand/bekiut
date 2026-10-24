@@ -2,6 +2,40 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands the Pekudei, grammatical, reference, and archaic-word additions", () => {
+  for (const [key, value] of Object.entries({
+    "P’kudé": "Pekudei",
+    "ed. pr.": "editio princeps",
+    "Ki Thetse": "Ki Teitzei",
+    "T’bul": "Tevul",
+    "Semit.": "Semitic",
+    "k’ri": "qere",
+    milt: "spleen",
+    "Lydd.": "Liddell",
+    heathen: "pagan",
+    "B’haăl.": "Behaalotecha",
+    "Aḥăre": "Acharei Mot",
+    "anoth.": "another",
+    "G’onim": "Geonim",
+    "Tshub.": "Teshuvot",
+    "cler.": "clerical",
+    "Ispe.": "Ispe'el",
+    "Freit.": "Freytag",
+    makest: "make",
+    "part. pass.": "passive participle",
+    "M’ah": "Ma'ah",
+    "Vayigg.": "Vayigash",
+    "Adv.": "Adverb",
+    "Rashb.": "Rashbam",
+    wert: "were",
+    "cacophem.": "cacophemistic (dysphemism)",
+    "nom. gent.": "gentilic noun (demonym)",
+    "Zuck. Talm. Münz.": "Zuckermann, 'Talmudische Münzen'",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+});
+
 it("expands the Chovah, historical references, wording, and contextual V additions", () => {
   for (const [key, value] of Object.entries({
     "Ḥobah": "Chovah",
