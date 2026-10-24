@@ -114,10 +114,14 @@ export default function JastrowAbbreviations() {
         </div>
 
         <div className="overflow-x-auto border-t border-border mb-12">
-          <table className="w-full text-sm" data-testid="abbreviations-table">
+          <table className="w-full table-fixed text-sm" data-testid="abbreviations-table">
+            <colgroup>
+              <col className="w-[144px] sm:w-[21%]" />
+              <col />
+            </colgroup>
             <thead className="text-left">
               <tr>
-                <th className="px-4 py-2 font-medium w-1/3">
+                <th className="px-2 sm:px-4 py-2 font-medium">
                   <button
                     type="button"
                     onClick={() => toggleSort("abbr")}
@@ -127,7 +131,7 @@ export default function JastrowAbbreviations() {
                     Abbreviation{arrow("abbr")}
                   </button>
                 </th>
-                <th className="px-4 py-2 font-medium">
+                <th className="px-2 sm:px-4 py-2 font-medium">
                   <button
                     type="button"
                     onClick={() => toggleSort("expansion")}
@@ -146,10 +150,10 @@ export default function JastrowAbbreviations() {
                   className="border-t border-border hover:bg-secondary"
                   data-testid={`row-${i}`}
                 >
-                  <td className="px-4 py-2 font-mono align-top whitespace-pre">
+                  <td className="px-2 sm:px-4 py-2 font-mono align-top whitespace-pre-wrap [overflow-wrap:anywhere]">
                     {row.abbr}
                   </td>
-                  <td className="px-4 py-2 align-top">{row.expansion}</td>
+                  <td className="px-2 sm:px-4 py-2 align-top [overflow-wrap:anywhere]">{row.expansion}</td>
                 </tr>
               ))}
               {filtered.length === 0 && (

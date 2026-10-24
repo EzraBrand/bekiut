@@ -2,6 +2,12 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("contains no unchanged mappings and leaves Balak unannotated", () => {
+  expect(Object.entries(data.mappings).filter(([key, value]) => key.trim() === value.trim())).toEqual([]);
+  expect(expandAbbreviations("Balak", data.mappings)).toBe("Balak");
+  expect(expandAbbreviations("Bal.", data.mappings)).toContain(">Balak</span>");
+});
+
 const examples = [
   ...Object.entries({
     "Leipz.": "Leipzig", "Shir.": "Shirata", booty: "spoils", canst: "can",
