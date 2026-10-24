@@ -2,6 +2,22 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands Pirkei d'Rabbi Eliezer and the latest accented and grammatical forms", () => {
+  for (const [key, value] of Object.entries({
+    "Pirké́ d’R. El.": "Pirkei d'Rabbi Eliezer",
+    "Nithpalp.": "Nithpalpel",
+    "Ḥull.": "Ḥullin",
+    "s. lit.": "under the letter",
+    "Holy Days": "Holidays",
+    "format.": "formation",
+    Chaldean: "Aramaic",
+    "Arakḥ.": "Arakḥin",
+    "Abbrev.": "Abbreviation",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+});
+
 it("expands the divinity, bibliography, and wording additions", () => {
   for (const [key, value] of Object.entries({
     "X.": "10.", godhead: "divinity", genius: "deity", Thy: "Your",
