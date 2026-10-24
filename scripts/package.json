@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "@workspace/shared-data": "workspace:*",
     "tsx": "catalog:"
   }
 }

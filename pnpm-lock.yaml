@@ -555,6 +555,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.4
+      '@workspace/shared-data':
+        specifier: workspace:*
+        version: link:../lib/shared-data
       tsx:
         specifier: 'catalog:'
         version: 4.22.4

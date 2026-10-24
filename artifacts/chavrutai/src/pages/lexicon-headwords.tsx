@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, Redirect } from "wouter";
 import { useSEO } from "@/hooks/use-seo";
 import { HEBREW_ALPHABET, isHebrewLetter } from "@shared/hebrew-alphabet";
 import { PageShell, SectionHeading } from "@/components/layout";
 import { sortJastrowHeadwords } from "@/lib/lexicon-headword-sort";
+import type { EntryDetail } from "@workspace/shared-data/jastrow-index-details";
 import {
   useLexiconIndex,
   normalizeHebrew,
@@ -52,6 +53,18 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
   // after all hooks have run so the call order stays stable across renders.
   const invalidLetter = letter !== undefined && !isHebrewLetter(letter);
   const activeLetter = !invalidLetter && letter && isHebrewLetter(letter) ? letter : "";
+  const detailsExperiment = lexiconKey === "jastrow" && activeLetter === "ל";
+  const [showDetails, setShowDetails] = useState(true);
+  const [details, setDetails] = useState<Record<string, EntryDetail | { status: string }> | null>(null);
+  const [detailsError, setDetailsError] = useState(false);
+  useEffect(() => {
+    if (!detailsExperiment) return;
+    let cancelled = false;
+    import("@shared/data/lexicon-headwords/jastrow-lamed-details.json")
+      .then(data => { if (!cancelled) setDetails(data.default.entries); })
+      .catch(() => { if (!cancelled) setDetailsError(true); });
+    return () => { cancelled = true; };
+  }, [detailsExperiment]);
 
   const letterHeadwords = useMemo(() => {
     if (!index || !activeLetter) return [];
@@ -158,6 +171,22 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
 
         {activeLetter && (
           <div className="pb-12">
+            {detailsExperiment && (
+              <div className="mb-5 rounded border border-border p-3 text-sm">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" checked={showDetails} onChange={event => setShowDetails(event.target.checked)} className="accent-primary" />
+                  Show entry details
+                  <span className="text-xs text-muted-foreground">ל preview</span>
+                </label>
+                {showDetails && (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Word counts include definitions, quotations, and citations in the original text.
+                    {" "}“See” marks clear cross-reference-only entries; its link opens the referenced headword.
+                    {detailsError ? " Entry details could not be loaded." : !details ? " Loading details…" : ""}
+                  </p>
+                )}
+              </div>
+            )}
             {!index ? (
               <p className="text-sm text-muted-foreground">Loading headwords…</p>
             ) : letterHeadwords.length === 0 ? (
@@ -167,17 +196,34 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
                 className="columns-2 sm:columns-3 md:columns-4 gap-x-6 [&>li]:break-inside-avoid"
                 dir="rtl"
               >
-                {letterHeadwords.map((hw, i) => (
-                  <li key={`${hw}-${i}`} className="mb-1">
+                {letterHeadwords.map((hw, i) => {
+                  const record = detailsExperiment ? details?.[hw] : undefined;
+                  const detail = record?.status === "ready" ? record as EntryDetail : undefined;
+                  return (
+                  <li key={`${hw}-${i}`} className={detailsExperiment && showDetails ? "mb-2 leading-relaxed" : "mb-1"}>
                     <Link
-                      href={`${meta.routePrefix}?q=${encodeURIComponent(hw)}`}
+                      href={`${meta.routePrefix}?q=${encodeURIComponent(hw)}${detail ? `&rid=${encodeURIComponent(detail.rid)}` : ""}`}
                       className="font-hebrew text-base text-primary dark:text-[#5b9fc5] hover:underline"
                       data-testid={`headword-${i}`}
                     >
                       {hw}
                     </Link>
+                    {detailsExperiment && showDetails && (
+                      <span dir="ltr" className="inline-block align-baseline text-xs text-muted-foreground mr-2">
+                        {detail?.see ? (
+                          <>· See <Link
+                            href={`/jastrow?q=${encodeURIComponent(detail.see.headword)}${detail.see.rid ? `&rid=${encodeURIComponent(detail.see.rid)}` : ""}`}
+                            className="underline underline-offset-2 hover:text-foreground"
+                          ><bdi dir="rtl">{detail.see.headword}</bdi></Link></>
+                        ) : detail ? (
+                          <span title={`${detail.words.toLocaleString()} words in the original entry`}>
+                            · {detail.words >= 1000 ? `${(detail.words / 1000).toFixed(1)}k` : detail.words} {detail.words === 1 ? "word" : "words"}
+                          </span>
+                        ) : <span>· {details ? "Details unavailable" : detailsError ? "Details unavailable" : "…"}</span>}
+                      </span>
+                    )}
                   </li>
-                ))}
+                ); })}
               </ul>
             )}
           </div>

@@ -1,0 +1,4010 @@
+{
+  "generatedAt": "2026-10-24T11:58:01.281Z",
+  "source": "https://www.sefaria.org/api/words/",
+  "letter": "ל",
+  "counting": "Original definition text including quotations and citations; HTML and headwords excluded. Unicode word segments.",
+  "entries": {
+    "ל": {
+      "status": "ready",
+      "rid": "L00000",
+      "words": 36
+    },
+    "לָא I": {
+      "status": "ready",
+      "rid": "L00004",
+      "words": 45
+    },
+    "לְ־": {
+      "status": "ready",
+      "rid": "L00002",
+      "words": 158
+    },
+    "לֹא": {
+      "status": "ready",
+      "rid": "L00003",
+      "words": 112
+    },
+    "לָא II": {
+      "status": "ready",
+      "rid": "L00005",
+      "words": 21
+    },
+    "לָא III": {
+      "status": "ready",
+      "rid": "L00006",
+      "words": 10
+    },
+    "לאגרא": {
+      "status": "ready",
+      "rid": "L00007",
+      "words": 21
+    },
+    "לאי": {
+      "status": "ready",
+      "rid": "L00014",
+      "words": 29
+    },
+    "לָאָה": {
+      "status": "ready",
+      "rid": "L00008",
+      "words": 2,
+      "see": {
+        "headword": "לאי"
+      }
+    },
+    "לֵאוּ": {
+      "status": "ready",
+      "rid": "L00010",
+      "words": 2,
+      "see": {
+        "headword": "לֵיאוּ"
+      }
+    },
+    "לַאו": {
+      "status": "ready",
+      "rid": "L00009",
+      "words": 404
+    },
+    "לָטוֹמְיָא": {
+      "status": "ready",
+      "rid": "L00383",
+      "words": 66
+    },
+    "לֵאוּתָא": {
+      "status": "ready",
+      "rid": "L00012",
+      "words": 2,
+      "see": {
+        "headword": "לֵיאוּ"
+      }
+    },
+    "לַאי": {
+      "status": "ready",
+      "rid": "L00016",
+      "words": 161
+    },
+    "לַאוְטוּמְיָא": {
+      "status": "ready",
+      "rid": "L00011",
+      "words": 2,
+      "see": {
+        "headword": "לָטוֹמְיָא"
+      }
+    },
+    "לְאִי": {
+      "status": "ready",
+      "rid": "L00015",
+      "words": 79
+    },
+    "לְאֵי": {
+      "status": "ready",
+      "rid": "L00013",
+      "words": 3,
+      "see": {
+        "headword": "אֵי III"
+      }
+    },
+    "לָאִיט": {
+      "status": "ready",
+      "rid": "L00017",
+      "words": 3
+    },
+    "לַאיי": {
+      "status": "ready",
+      "rid": "L00019",
+      "words": 2,
+      "see": {
+        "headword": "לַאי"
+      }
+    },
+    "לָאִית": {
+      "status": "ready",
+      "rid": "L00020",
+      "words": 2,
+      "see": {
+        "headword": "לַיִת"
+      }
+    },
+    "לאכסן": {
+      "status": "ready",
+      "rid": "L00023",
+      "words": 2,
+      "see": {
+        "headword": "*לָאכִיסִין"
+      }
+    },
+    "לְאַלְתַּר": {
+      "status": "ready",
+      "rid": "L00024",
+      "words": 2,
+      "see": {
+        "headword": "אַלְתַּר"
+      }
+    },
+    "לְאָן": {
+      "status": "ready",
+      "rid": "L00025",
+      "words": 2,
+      "see": {
+        "headword": "אָן"
+      }
+    },
+    "לָאעִי": {
+      "status": "ready",
+      "rid": "L00026",
+      "words": 3
+    },
+    "לאפוסיא": {
+      "status": "ready",
+      "rid": "L00027",
+      "words": 17
+    },
+    "לאקאי": {
+      "status": "ready",
+      "rid": "L00029",
+      "words": 2,
+      "see": {
+        "headword": "לִוְוקָאֵי"
+      }
+    },
+    "לְאַפְרַשׁ": {
+      "status": "ready",
+      "rid": "L00028",
+      "words": 2,
+      "see": {
+        "headword": "אַפְרַשׁ"
+      }
+    },
+    "לֵב": {
+      "status": "ready",
+      "rid": "L00030",
+      "words": 296
+    },
+    "לְבָא": {
+      "status": "ready",
+      "rid": "L00034",
+      "words": 7
+    },
+    "לַבָּא": {
+      "status": "ready",
+      "rid": "L00033",
+      "words": 3
+    },
+    "לֵב ²": {
+      "status": "ready",
+      "rid": "L00031",
+      "words": 197
+    },
+    "לְבָאֵי": {
+      "status": "ready",
+      "rid": "L00036",
+      "words": 49
+    },
+    "לָבַב": {
+      "status": "ready",
+      "rid": "L00039",
+      "words": 318
+    },
+    "לְבָאִים": {
+      "status": "ready",
+      "rid": "L00037",
+      "words": 2,
+      "see": {
+        "headword": "לָבִיא"
+      }
+    },
+    "לֵבָב": {
+      "status": "ready",
+      "rid": "L00038",
+      "words": 186
+    },
+    "לְבָבָא": {
+      "status": "ready",
+      "rid": "L00040",
+      "words": 2,
+      "see": {
+        "headword": "לֵב ²"
+      }
+    },
+    "לֶבֶד": {
+      "status": "ready",
+      "rid": "L00043",
+      "words": 61
+    },
+    "לָבַד": {
+      "status": "ready",
+      "rid": "L00042",
+      "words": 10
+    },
+    "לְבַד": {
+      "status": "ready",
+      "rid": "L00041",
+      "words": 3,
+      "see": {
+        "headword": "בַּד III"
+      }
+    },
+    "לַבַּדָּא": {
+      "status": "ready",
+      "rid": "L00045",
+      "words": 11
+    },
+    "לבדניא": {
+      "status": "ready",
+      "rid": "L00046",
+      "words": 2,
+      "see": {
+        "headword": "לְבָרְנַיָּא"
+      }
+    },
+    "לִבְדָּא": {
+      "status": "ready",
+      "rid": "L00044",
+      "words": 47
+    },
+    "לִבְדְּקִין": {
+      "status": "ready",
+      "rid": "L00047",
+      "words": 18
+    },
+    "לבדקס": {
+      "status": "ready",
+      "rid": "L00048",
+      "words": 2,
+      "see": {
+        "headword": "לִיבְדְּקוֹס"
+      }
+    },
+    "לבי": {
+      "status": "ready",
+      "rid": "L00066",
+      "words": 320
+    },
+    "לָבוּד": {
+      "status": "ready",
+      "rid": "L00050",
+      "words": 167
+    },
+    "לָבָה": {
+      "status": "ready",
+      "rid": "L00049",
+      "words": 2,
+      "see": {
+        "headword": "לבי"
+      }
+    },
+    "לִיבּוּי": {
+      "status": "ready",
+      "rid": "L00411",
+      "words": 12
+    },
+    "לִבּוּי": {
+      "status": "ready",
+      "rid": "L00051",
+      "words": 2,
+      "see": {
+        "headword": "לִיבּוּי"
+      }
+    },
+    "לְבוּטִים": {
+      "status": "ready",
+      "rid": "L00052",
+      "words": 2,
+      "see": {
+        "headword": "לָבַט"
+      }
+    },
+    "לִבּוּן": {
+      "status": "ready",
+      "rid": "L00053",
+      "words": 2,
+      "see": {
+        "headword": "לִיבּוּן"
+      }
+    },
+    "לִבּוּנָא": {
+      "status": "ready",
+      "rid": "L00054",
+      "words": 6
+    },
+    "לְבוֹנָה": {
+      "status": "ready",
+      "rid": "L00055",
+      "words": 36
+    },
+    "לְבוּנְתָּא": {
+      "status": "ready",
+      "rid": "L00056",
+      "words": 14
+    },
+    "לבוצין": {
+      "status": "ready",
+      "rid": "L00057",
+      "words": 2,
+      "see": {
+        "headword": "לְבֵיצִין"
+      }
+    },
+    "לְבוּשׁ": {
+      "status": "ready",
+      "rid": "L00059",
+      "words": 64
+    },
+    "לְבִזְבֵּז": {
+      "status": "ready",
+      "rid": "L00061",
+      "words": 166
+    },
+    "לְבוּשׁ ²": {
+      "status": "ready",
+      "rid": "L00060",
+      "words": 101
+    },
+    "לִבְזָה": {
+      "status": "ready",
+      "rid": "L00062",
+      "words": 11
+    },
+    "לֶבֶט": {
+      "status": "ready",
+      "rid": "L00064",
+      "words": 49
+    },
+    "לְבֵי": {
+      "status": "ready",
+      "rid": "L00065",
+      "words": 2,
+      "see": {
+        "headword": "*לְבָא"
+      }
+    },
+    "לָבַט": {
+      "status": "ready",
+      "rid": "L00063",
+      "words": 139
+    },
+    "לַבְיא": {
+      "status": "ready",
+      "rid": "L00068",
+      "words": 33
+    },
+    "לָבִיא": {
+      "status": "ready",
+      "rid": "L00067",
+      "words": 72
+    },
+    "לְבִידִין": {
+      "status": "ready",
+      "rid": "L00070",
+      "words": 2,
+      "see": {
+        "headword": "לִבְדָּא"
+      }
+    },
+    "לְבִיאָה": {
+      "status": "ready",
+      "rid": "L00069",
+      "words": 17
+    },
+    "לְבִיזְבֵּז": {
+      "status": "ready",
+      "rid": "L00071",
+      "words": 2
+    },
+    "לבילדין": {
+      "status": "ready",
+      "rid": "L00072",
+      "words": 2,
+      "see": {
+        "headword": "לִבְלָר ²"
+      }
+    },
+    "לְבֵינָה": {
+      "status": "ready",
+      "rid": "L00074",
+      "words": 2,
+      "see": {
+        "headword": "לְבֵנָה"
+      }
+    },
+    "לְבֵינְתָא": {
+      "status": "ready",
+      "rid": "L00075",
+      "words": 64
+    },
+    "לְבִיסַיָּא": {
+      "status": "ready",
+      "rid": "L00076",
+      "words": 8
+    },
+    "לבין": {
+      "status": "ready",
+      "rid": "L00073",
+      "words": 6
+    },
+    "לְבִיסִים": {
+      "status": "ready",
+      "rid": "L00077",
+      "words": 2,
+      "see": {
+        "headword": "*לֶבֶס"
+      }
+    },
+    "לְבֵיצִין": {
+      "status": "ready",
+      "rid": "L00078",
+      "words": 4
+    },
+    "לְבֵשׁ": {
+      "status": "ready",
+      "rid": "L00119",
+      "words": 232
+    },
+    "לְבֵישׁ": {
+      "status": "ready",
+      "rid": "L00079",
+      "words": 2,
+      "see": {
+        "headword": "לְבֵשׁ"
+      }
+    },
+    "לְבִישָׁא": {
+      "status": "ready",
+      "rid": "L00080",
+      "words": 3
+    },
+    "לְבִישָׁה": {
+      "status": "ready",
+      "rid": "L00081",
+      "words": 72
+    },
+    "לְבַךְ": {
+      "status": "ready",
+      "rid": "L00082",
+      "words": 11
+    },
+    "לְבַֹל": {
+      "status": "ready",
+      "rid": "L00083",
+      "words": 3,
+      "see": {
+        "headword": "לַבְלֵב II"
+      }
+    },
+    "לִבְלֵב": {
+      "status": "ready",
+      "rid": "L00084",
+      "words": 55
+    },
+    "לַבְלֵב I": {
+      "status": "ready",
+      "rid": "L00085",
+      "words": 30
+    },
+    "לַבְלֵב II": {
+      "status": "ready",
+      "rid": "L00086",
+      "words": 56
+    },
+    "לַבְלְבָא": {
+      "status": "ready",
+      "rid": "L00087",
+      "words": 45
+    },
+    "לַבְלֵו": {
+      "status": "ready",
+      "rid": "L00089",
+      "words": 3,
+      "see": {
+        "headword": "לַבְלֵב II"
+      }
+    },
+    "לַבְלוֹנִית": {
+      "status": "ready",
+      "rid": "L00090",
+      "words": 12
+    },
+    "לבלין": {
+      "status": "ready",
+      "rid": "L00091",
+      "words": 6
+    },
+    "לִבְלָר": {
+      "status": "ready",
+      "rid": "L00092",
+      "words": 120
+    },
+    "לִבְלָר ²": {
+      "status": "ready",
+      "rid": "L00093",
+      "words": 41
+    },
+    "לוֹבֶן": {
+      "status": "ready",
+      "rid": "L00182",
+      "words": 93
+    },
+    "לֹבֶן": {
+      "status": "ready",
+      "rid": "L00101",
+      "words": 2,
+      "see": {
+        "headword": "לוֹבֶן"
+      }
+    },
+    "לְבָן": {
+      "status": "ready",
+      "rid": "L00100",
+      "words": 16
+    },
+    "לָבָן": {
+      "status": "ready",
+      "rid": "L00099",
+      "words": 26
+    },
+    "לְבַן": {
+      "status": "ready",
+      "rid": "L00096",
+      "words": 106
+    },
+    "לָבָן I": {
+      "status": "ready",
+      "rid": "L00097",
+      "words": 45
+    },
+    "לָבָן II": {
+      "status": "ready",
+      "rid": "L00098",
+      "words": 221
+    },
+    "לָבַן I": {
+      "status": "ready",
+      "rid": "L00094",
+      "words": 82
+    },
+    "לָבַן II": {
+      "status": "ready",
+      "rid": "L00095",
+      "words": 581
+    },
+    "לִבְנָא": {
+      "status": "ready",
+      "rid": "L00102",
+      "words": 6
+    },
+    "לְבָנָה": {
+      "status": "ready",
+      "rid": "L00105",
+      "words": 80
+    },
+    "לִבְנָה": {
+      "status": "ready",
+      "rid": "L00104",
+      "words": 2,
+      "see": {
+        "headword": "עַרְקַת"
+      }
+    },
+    "לְבֵנָה": {
+      "status": "ready",
+      "rid": "L00103",
+      "words": 153
+    },
+    "לַבְנוֹ": {
+      "status": "ready",
+      "rid": "L00106",
+      "words": 2,
+      "see": {
+        "headword": "*לַבְלָבוֹ"
+      }
+    },
+    "לְבָנוֹן": {
+      "status": "ready",
+      "rid": "L00107",
+      "words": 62
+    },
+    "לַבְנוּנִית": {
+      "status": "ready",
+      "rid": "L00108",
+      "words": 61
+    },
+    "לִבְנִין": {
+      "status": "ready",
+      "rid": "L00110",
+      "words": 3
+    },
+    "לַבְקָן": {
+      "status": "ready",
+      "rid": "L00113",
+      "words": 2,
+      "see": {
+        "headword": "לַוְקָן"
+      }
+    },
+    "לבְנָן": {
+      "status": "ready",
+      "rid": "L00111",
+      "words": 14
+    },
+    "לַבְנוּת": {
+      "status": "ready",
+      "rid": "L00109",
+      "words": 2,
+      "see": {
+        "headword": "לַבְנוּנִית"
+      }
+    },
+    "לבריון": {
+      "status": "ready",
+      "rid": "L00116",
+      "words": 5
+    },
+    "לָבַשׁ": {
+      "status": "ready",
+      "rid": "L00118",
+      "words": 355
+    },
+    "לוֹג": {
+      "status": "ready",
+      "rid": "L00183",
+      "words": 73
+    },
+    "לְבָרְנַיָּא": {
+      "status": "ready",
+      "rid": "L00117",
+      "words": 48
+    },
+    "לֹג": {
+      "status": "ready",
+      "rid": "L00120",
+      "words": 3
+    },
+    "לוּגָּא": {
+      "status": "ready",
+      "rid": "L00184",
+      "words": 100
+    },
+    "לגדקס": {
+      "status": "ready",
+      "rid": "L00122",
+      "words": 7
+    },
+    "לגא": {
+      "status": "ready",
+      "rid": "L00121",
+      "words": 2,
+      "see": {
+        "headword": "לָגְיָא"
+      }
+    },
+    "לוגמיא": {
+      "status": "ready",
+      "rid": "L00189",
+      "words": 23
+    },
+    "לגומיא": {
+      "status": "ready",
+      "rid": "L00123",
+      "words": 2,
+      "see": {
+        "headword": "לוגמיא"
+      }
+    },
+    "לֶגְטוֹן": {
+      "status": "ready",
+      "rid": "L00125",
+      "words": 82
+    },
+    "לָגַז": {
+      "status": "ready",
+      "rid": "L00124",
+      "words": 33
+    },
+    "לָגְיָא": {
+      "status": "ready",
+      "rid": "L00126",
+      "words": 33
+    },
+    "לִגְיוֹן": {
+      "status": "ready",
+      "rid": "L00127",
+      "words": 203
+    },
+    "לִגְיוֹן ²": {
+      "status": "ready",
+      "rid": "L00128",
+      "words": 78
+    },
+    "לגיטיין": {
+      "status": "ready",
+      "rid": "L00129",
+      "words": 2,
+      "see": {
+        "headword": "לֶגְטוֹן"
+      }
+    },
+    "לְגִימָא": {
+      "status": "ready",
+      "rid": "L00130",
+      "words": 3,
+      "see": {
+        "headword": "לְגִימָה"
+      }
+    },
+    "לְגִימָה": {
+      "status": "ready",
+      "rid": "L00131",
+      "words": 209
+    },
+    "לָגִין": {
+      "status": "ready",
+      "rid": "L00133",
+      "words": 251
+    },
+    "לגין": {
+      "status": "ready",
+      "rid": "L00132",
+      "words": 10
+    },
+    "לַגְלֵג I": {
+      "status": "ambiguous"
+    },
+    "לִגִלֵג": {
+      "status": "ready",
+      "rid": "L00135",
+      "words": 80
+    },
+    "לָיִין": {
+      "status": "ready",
+      "rid": "L00134",
+      "words": 61
+    },
+    "לִגְלוּג": {
+      "status": "ready",
+      "rid": "L00138",
+      "words": 21
+    },
+    "לַגְלוֹג": {
+      "status": "ready",
+      "rid": "L00139",
+      "words": 38
+    },
+    "לַגְלֵג II": {
+      "status": "ready",
+      "rid": "L00137",
+      "words": 56
+    },
+    "לגמן": {
+      "status": "ready",
+      "rid": "L00140",
+      "words": 11
+    },
+    "לִגְנָה": {
+      "status": "ready",
+      "rid": "L00142",
+      "words": 8
+    },
+    "לגס": {
+      "status": "ready",
+      "rid": "L00144",
+      "words": 7
+    },
+    "לֶגֶשׁ": {
+      "status": "ready",
+      "rid": "L00145",
+      "words": 2,
+      "see": {
+        "headword": "לֶכֶשׁ"
+      }
+    },
+    "לְדוּקְיָא": {
+      "status": "ready",
+      "rid": "L00146",
+      "words": 2,
+      "see": {
+        "headword": "לוּדְקְיָא"
+      }
+    },
+    "לְדִיקִי": {
+      "status": "ready",
+      "rid": "L00147",
+      "words": 14
+    },
+    "לְדָנָא": {
+      "status": "ready",
+      "rid": "L00148",
+      "words": 24
+    },
+    "לִדְקִי": {
+      "status": "ready",
+      "rid": "L00149",
+      "words": 2,
+      "see": {
+        "headword": "לְדִיקִי"
+      }
+    },
+    "לִדְקְיָא": {
+      "status": "ready",
+      "rid": "L00150",
+      "words": 2,
+      "see": {
+        "headword": "לוּדְקְיָא"
+      }
+    },
+    "לְהִי": {
+      "status": "ready",
+      "rid": "L00165",
+      "words": 65
+    },
+    "לְהָא": {
+      "status": "ready",
+      "rid": "L00151",
+      "words": 2,
+      "see": {
+        "headword": "לְהִי"
+      }
+    },
+    "לַהַב": {
+      "status": "ready",
+      "rid": "L00153",
+      "words": 27
+    },
+    "לְהַב": {
+      "status": "ready",
+      "rid": "L00152",
+      "words": 7
+    },
+    "לַהֲבָא": {
+      "status": "ready",
+      "rid": "L00154",
+      "words": 14
+    },
+    "לֶהָבָה": {
+      "status": "ready",
+      "rid": "L00155",
+      "words": 12
+    },
+    "לַהֲבוּתָא": {
+      "status": "ready",
+      "rid": "L00156",
+      "words": 4
+    },
+    "לַהַג": {
+      "status": "ready",
+      "rid": "L00157",
+      "words": 38
+    },
+    "לְהֶגְיוֹנָא": {
+      "status": "ready",
+      "rid": "L00158",
+      "words": 6
+    },
+    "לְהוֹב": {
+      "status": "ready",
+      "rid": "L00159",
+      "words": 22
+    },
+    "לְהַט": {
+      "status": "ready",
+      "rid": "L00161",
+      "words": 18
+    },
+    "לָהַט": {
+      "status": "ready",
+      "rid": "L00160",
+      "words": 201
+    },
+    "להטייה": {
+      "status": "ready",
+      "rid": "L00162",
+      "words": 6
+    },
+    "לְהָטִים": {
+      "status": "ready",
+      "rid": "L00163",
+      "words": 41
+    },
+    "להטמייא": {
+      "status": "ready",
+      "rid": "L00164",
+      "words": 2,
+      "see": {
+        "headword": "לָטוֹמְיָא"
+      }
+    },
+    "להל": {
+      "status": "ready",
+      "rid": "L00166",
+      "words": 4
+    },
+    "לָהַם": {
+      "status": "ready",
+      "rid": "L00167",
+      "words": 4
+    },
+    "לָהֵן": {
+      "status": "ready",
+      "rid": "L00168",
+      "words": 15
+    },
+    "לְהַת": {
+      "status": "ready",
+      "rid": "L00169",
+      "words": 26
+    },
+    "לוּ": {
+      "status": "ready",
+      "rid": "L00171",
+      "words": 42
+    },
+    "לוֹ": {
+      "status": "ready",
+      "rid": "L00170",
+      "words": 4
+    },
+    "לְוִי": {
+      "status": "ready",
+      "rid": "L00248",
+      "words": 143
+    },
+    "לְוָא": {
+      "status": "ready",
+      "rid": "L00172",
+      "words": 2,
+      "see": {
+        "headword": "לְוִי"
+      }
+    },
+    "לֵוָיָא": {
+      "status": "ready",
+      "rid": "L00252",
+      "words": 34
+    },
+    "לֵוָאָה": {
+      "status": "ready",
+      "rid": "L00173",
+      "words": 2,
+      "see": {
+        "headword": "לֵוָיָא"
+      }
+    },
+    "לְוַאי": {
+      "status": "ready",
+      "rid": "L00175",
+      "words": 2,
+      "see": {
+        "headword": "אַלְוַאי"
+      }
+    },
+    "לְוָאי": {
+      "status": "ready",
+      "rid": "L00174",
+      "words": 2,
+      "see": {
+        "headword": "לְוָוי"
+      }
+    },
+    "לוּב": {
+      "status": "ready",
+      "rid": "L00176",
+      "words": 28
+    },
+    "לוּבָא": {
+      "status": "ready",
+      "rid": "L00177",
+      "words": 32
+    },
+    "לובדקים": {
+      "status": "ready",
+      "rid": "L00178",
+      "words": 2,
+      "see": {
+        "headword": "לִיבְדְּקוֹס"
+      }
+    },
+    "לוּבִי": {
+      "status": "ready",
+      "rid": "L00179",
+      "words": 92
+    },
+    "לובירים": {
+      "status": "ready",
+      "rid": "L00180",
+      "words": 5
+    },
+    "לובלניות": {
+      "status": "ready",
+      "rid": "L00181",
+      "words": 2,
+      "see": {
+        "headword": "לוֹנְכִי"
+      }
+    },
+    "לוֹגָא": {
+      "status": "ready",
+      "rid": "L00185",
+      "words": 22
+    },
+    "לוֹגִיסְטֵיס": {
+      "status": "ready",
+      "rid": "L00186",
+      "words": 33
+    },
+    "לוֹגְלְגָן": {
+      "status": "ready",
+      "rid": "L00187",
+      "words": 11
+    },
+    "לוּגְמָא": {
+      "status": "ready",
+      "rid": "L00188",
+      "words": 140
+    },
+    "לוּגְשָׁא": {
+      "status": "ready",
+      "rid": "L00191",
+      "words": 9
+    },
+    "לוגסטוס": {
+      "status": "ready",
+      "rid": "L00190",
+      "words": 2,
+      "see": {
+        "headword": "לוֹגִיסְטֵיס"
+      }
+    },
+    "לוּד": {
+      "status": "ready",
+      "rid": "L00193",
+      "words": 55
+    },
+    "לוֹד": {
+      "status": "ready",
+      "rid": "L00192",
+      "words": 77
+    },
+    "לוּדָא": {
+      "status": "ready",
+      "rid": "L00194",
+      "words": 39
+    },
+    "לוּדָאָה": {
+      "status": "ready",
+      "rid": "L00195",
+      "words": 151
+    },
+    "לוּדָה": {
+      "status": "ready",
+      "rid": "L00196",
+      "words": 2,
+      "see": {
+        "headword": "לוּדָא"
+      }
+    },
+    "לוֹדִי": {
+      "status": "ready",
+      "rid": "L00197",
+      "words": 20
+    },
+    "לוּדָיָיא": {
+      "status": "ready",
+      "rid": "L00198",
+      "words": 10
+    },
+    "לוּדִים": {
+      "status": "ready",
+      "rid": "L00199",
+      "words": 75
+    },
+    "לוּדִית": {
+      "status": "ready",
+      "rid": "L00201",
+      "words": 48
+    },
+    "לוֹדִית": {
+      "status": "ready",
+      "rid": "L00200",
+      "words": 2,
+      "see": {
+        "headword": "לוֹדִי"
+      }
+    },
+    "לוּדָנָא": {
+      "status": "ready",
+      "rid": "L00202",
+      "words": 21
+    },
+    "לוּדָנִין": {
+      "status": "ready",
+      "rid": "L00203",
+      "words": 8
+    },
+    "לוּדְקְיָא": {
+      "status": "ready",
+      "rid": "L00204",
+      "words": 76
+    },
+    "לוּדָר": {
+      "status": "ready",
+      "rid": "L00205",
+      "words": 55
+    },
+    "לוי": {
+      "status": "ready",
+      "rid": "L00247",
+      "words": 523
+    },
+    "לָוָה": {
+      "status": "ready",
+      "rid": "L00206",
+      "words": 2,
+      "see": {
+        "headword": "לוי"
+      }
+    },
+    "לַוו": {
+      "status": "ready",
+      "rid": "L00207",
+      "words": 2,
+      "see": {
+        "headword": "לַאו"
+      }
+    },
+    "לְוַואי": {
+      "status": "ready",
+      "rid": "L00209",
+      "words": 2,
+      "see": {
+        "headword": "אַלְוַאי"
+      }
+    },
+    "לְוָואֵי": {
+      "status": "ready",
+      "rid": "L00208",
+      "words": 57
+    },
+    "לוודין": {
+      "status": "ready",
+      "rid": "L00210",
+      "words": 2,
+      "see": {
+        "headword": "לִבְדְּקִין"
+      }
+    },
+    "לָוַוח": {
+      "status": "ready",
+      "rid": "L00211",
+      "words": 3
+    },
+    "לוּחַ": {
+      "status": "ready",
+      "rid": "L00234",
+      "words": 55
+    },
+    "לְוָט": {
+      "status": "ready",
+      "rid": "L00240",
+      "words": 35
+    },
+    "לוּט ²": {
+      "status": "ready",
+      "rid": "L00239",
+      "words": 187
+    },
+    "לְוָוט": {
+      "status": "ready",
+      "rid": "L00212",
+      "words": 2,
+      "see": {
+        "headword": "לְוָט"
+      }
+    },
+    "לווטין": {
+      "status": "ready",
+      "rid": "L00213",
+      "words": 14
+    },
+    "לווטס": {
+      "status": "ready",
+      "rid": "L00214",
+      "words": 16
+    },
+    "לַוְוטָתָא": {
+      "status": "ready",
+      "rid": "L00215",
+      "words": 4
+    },
+    "לְוָוי": {
+      "status": "ready",
+      "rid": "L00217",
+      "words": 56
+    },
+    "לְוַוי": {
+      "status": "ready",
+      "rid": "L00216",
+      "words": 2,
+      "see": {
+        "headword": "אַלְוַאי"
+      }
+    },
+    "לַוְולֵו": {
+      "status": "ready",
+      "rid": "L00219",
+      "words": 2,
+      "see": {
+        "headword": "לַבְלֵב I"
+      }
+    },
+    "לְוַונְטִי": {
+      "status": "ready",
+      "rid": "L00220",
+      "words": 2,
+      "see": {
+        "headword": "לִיוֹנְטִי"
+      }
+    },
+    "לְוָויָה": {
+      "status": "ready",
+      "rid": "L00218",
+      "words": 3
+    },
+    "לִוְוקָאֵי": {
+      "status": "ready",
+      "rid": "L00221",
+      "words": 2
+    },
+    "לַוְוקְיָאָנָא": {
+      "status": "ready",
+      "rid": "L00222",
+      "words": 3
+    },
+    "לווקרין": {
+      "status": "ready",
+      "rid": "L00223",
+      "words": 2,
+      "see": {
+        "headword": "לִבְדְּקִין"
+      }
+    },
+    "לְוָת": {
+      "status": "ready",
+      "rid": "L00327",
+      "words": 68
+    },
+    "לְוַות": {
+      "status": "ready",
+      "rid": "L00224",
+      "words": 2,
+      "see": {
+        "headword": "וַת"
+      }
+    },
+    "לוּז": {
+      "status": "ready",
+      "rid": "L00227",
+      "words": 26
+    },
+    "לוּז I": {
+      "status": "ready",
+      "rid": "L00225",
+      "words": 133
+    },
+    "לוּז II": {
+      "status": "ready",
+      "rid": "L00226",
+      "words": 170
+    },
+    "לוּז III": {
+      "status": "ready",
+      "rid": "L00228",
+      "words": 61
+    },
+    "לוּזָא": {
+      "status": "ready",
+      "rid": "L00230",
+      "words": 4
+    },
+    "לוזה": {
+      "status": "ready",
+      "rid": "L00231",
+      "words": 2,
+      "see": {
+        "headword": "לִיזָה"
+      }
+    },
+    "לוּחַ I": {
+      "status": "ready",
+      "rid": "L00232",
+      "words": 43
+    },
+    "לוּחַ II": {
+      "status": "ready",
+      "rid": "L00233",
+      "words": 180
+    },
+    "לוֹחָא": {
+      "status": "ready",
+      "rid": "L00235",
+      "words": 47
+    },
+    "לוֹט I": {
+      "status": "ready",
+      "rid": "L00236",
+      "words": 58
+    },
+    "לוֹט II": {
+      "status": "ready",
+      "rid": "L00237",
+      "words": 10
+    },
+    "לוּט": {
+      "status": "ready",
+      "rid": "L00238",
+      "words": 46
+    },
+    "לוטוס": {
+      "status": "ready",
+      "rid": "L00241",
+      "words": 12
+    },
+    "לוטריא": {
+      "status": "ready",
+      "rid": "L00245",
+      "words": 2,
+      "see": {
+        "headword": "*לַבְרָטוֹן"
+      }
+    },
+    "לוטם": {
+      "status": "ready",
+      "rid": "L00243",
+      "words": 2,
+      "see": {
+        "headword": "לְטוֹם"
+      }
+    },
+    "לוּטָסָאֵי": {
+      "status": "ready",
+      "rid": "L00244",
+      "words": 26
+    },
+    "לוטת": {
+      "status": "ready",
+      "rid": "L00246",
+      "words": 2,
+      "see": {
+        "headword": "לְטוֹם"
+      }
+    },
+    "לֵוִי": {
+      "status": "ready",
+      "rid": "L00251",
+      "words": 156
+    },
+    "לְוָי": {
+      "status": "ready",
+      "rid": "L00250",
+      "words": 2,
+      "see": {
+        "headword": "לְוָוי"
+      }
+    },
+    "לְוַי": {
+      "status": "ready",
+      "rid": "L00249",
+      "words": 2,
+      "see": {
+        "headword": "אַלְוַאי"
+      }
+    },
+    "לִוְיָאנוֹס": {
+      "status": "ready",
+      "rid": "L00253",
+      "words": 11
+    },
+    "לְוָיָה": {
+      "status": "ready",
+      "rid": "L00256",
+      "words": 105
+    },
+    "לְוִיָּה": {
+      "status": "ready",
+      "rid": "L00255",
+      "words": 66
+    },
+    "לִוִיָּה": {
+      "status": "ready",
+      "rid": "L00254",
+      "words": 123
+    },
+    "לְוִיטָס": {
+      "status": "ready",
+      "rid": "L00257",
+      "words": 6
+    },
+    "לוינטי": {
+      "status": "ready",
+      "rid": "L00259",
+      "words": 2,
+      "see": {
+        "headword": "לִיוֹנְטִי"
+      }
+    },
+    "לְוָיְיתָא": {
+      "status": "ready",
+      "rid": "L00258",
+      "words": 97
+    },
+    "לויקן": {
+      "status": "ready",
+      "rid": "L00260",
+      "words": 2,
+      "see": {
+        "headword": "לַוְקָן"
+      }
+    },
+    "לִוְיָתָא": {
+      "status": "ready",
+      "rid": "L00261",
+      "words": 2,
+      "see": {
+        "headword": "לְוָיְיתָא"
+      }
+    },
+    "לוכידין": {
+      "status": "ready",
+      "rid": "L00263",
+      "words": 2,
+      "see": {
+        "headword": "לוּפָר"
+      }
+    },
+    "לִוְיָתָן": {
+      "status": "ready",
+      "rid": "L00262",
+      "words": 55
+    },
+    "לוֹכְסוֹן": {
+      "status": "ready",
+      "rid": "L00264",
+      "words": 3,
+      "see": {
+        "headword": "לוֹכְסָן"
+      }
+    },
+    "לוֹכְסָן": {
+      "status": "ready",
+      "rid": "L00265",
+      "words": 107
+    },
+    "לוּל": {
+      "status": "ready",
+      "rid": "L00267",
+      "words": 282
+    },
+    "לול": {
+      "status": "ready",
+      "rid": "L00266",
+      "words": 12
+    },
+    "לוּלָא": {
+      "status": "ready",
+      "rid": "L00268",
+      "words": 43
+    },
+    "לוּלָאוֹת": {
+      "status": "ready",
+      "rid": "L00269",
+      "words": 2,
+      "see": {
+        "headword": "לוּלַי"
+      }
+    },
+    "לוּלָבָא": {
+      "status": "ready",
+      "rid": "L00271",
+      "words": 124
+    },
+    "לוּלָב": {
+      "status": "ready",
+      "rid": "L00270",
+      "words": 305
+    },
+    "לוּלְבָנָא": {
+      "status": "ready",
+      "rid": "L00272",
+      "words": 17
+    },
+    "לולגין": {
+      "status": "ready",
+      "rid": "L00273",
+      "words": 10
+    },
+    "לולוטוס": {
+      "status": "ready",
+      "rid": "L00274",
+      "words": 11
+    },
+    "לוּלַי": {
+      "status": "ready",
+      "rid": "L00275",
+      "words": 32
+    },
+    "לוּלְיָאנוֹס": {
+      "status": "ready",
+      "rid": "L00276",
+      "words": 3
+    },
+    "לוּלֵיבָא I": {
+      "status": "ready",
+      "rid": "L00277",
+      "words": 2,
+      "see": {
+        "headword": "לוּלָבָא"
+      }
+    },
+    "לוליון": {
+      "status": "ready",
+      "rid": "L00279",
+      "words": 9
+    },
+    "לוּלְיָינוֹס": {
+      "status": "ready",
+      "rid": "L00280",
+      "words": 93
+    },
+    "לוּלְיָינִי": {
+      "status": "ready",
+      "rid": "L00281",
+      "words": 57
+    },
+    "לוּלְיָינִית": {
+      "status": "ready",
+      "rid": "L00282",
+      "words": 56
+    },
+    "לוליתא": {
+      "status": "ready",
+      "rid": "L00283",
+      "words": 2,
+      "see": {
+        "headword": "לִילִיתָא"
+      }
+    },
+    "לולניאות": {
+      "status": "ready",
+      "rid": "L00284",
+      "words": 2,
+      "see": {
+        "headword": "לוֹנְכִי"
+      }
+    },
+    "לוּלְשָׁפָט": {
+      "status": "ready",
+      "rid": "L00285",
+      "words": 2,
+      "see": {
+        "headword": "בֵּלְשָׁפָט"
+      }
+    },
+    "לוּמָּא": {
+      "status": "ready",
+      "rid": "L00286",
+      "words": 134
+    },
+    "לומה": {
+      "status": "ready",
+      "rid": "L00287",
+      "words": 2,
+      "see": {
+        "headword": "לוּמָּא"
+      }
+    },
+    "לומכסה": {
+      "status": "ready",
+      "rid": "L00288",
+      "words": 8
+    },
+    "לוֹן": {
+      "status": "ready",
+      "rid": "L00291",
+      "words": 10
+    },
+    "לוּן": {
+      "status": "ready",
+      "rid": "L00289",
+      "words": 289
+    },
+    "לונביאות": {
+      "status": "ready",
+      "rid": "L00292",
+      "words": 2,
+      "see": {
+        "headword": "לוֹנְכִי"
+      }
+    },
+    "לוּן II": {
+      "status": "ready",
+      "rid": "L00290",
+      "words": 53
+    },
+    "לוּנְטִית": {
+      "status": "ready",
+      "rid": "L00293",
+      "words": 49
+    },
+    "לוּנְיָא": {
+      "status": "ready",
+      "rid": "L00294",
+      "words": 2,
+      "see": {
+        "headword": "לִינְיָא"
+      }
+    },
+    "לוֹנְכָא": {
+      "status": "ready",
+      "rid": "L00295",
+      "words": 3,
+      "see": {
+        "headword": "לוֹנְכִי"
+      }
+    },
+    "לוֹנְכִי": {
+      "status": "ready",
+      "rid": "L00296",
+      "words": 90
+    },
+    "לוֹעַ": {
+      "status": "ready",
+      "rid": "L00298",
+      "words": 48
+    },
+    "לוֹעָא": {
+      "status": "ready",
+      "rid": "L00299",
+      "words": 59
+    },
+    "לוֹעֵז": {
+      "status": "ready",
+      "rid": "L00301",
+      "words": 2,
+      "see": {
+        "headword": "לָעַז"
+      }
+    },
+    "לוֹעָה": {
+      "status": "ready",
+      "rid": "L00300",
+      "words": 2,
+      "see": {
+        "headword": "לוֹעָא"
+      }
+    },
+    "לוּף": {
+      "status": "ready",
+      "rid": "L00303",
+      "words": 118
+    },
+    "לוֹף": {
+      "status": "ready",
+      "rid": "L00302",
+      "words": 185
+    },
+    "לופיז": {
+      "status": "ready",
+      "rid": "L00305",
+      "words": 2,
+      "see": {
+        "headword": "לוֹפְיָן"
+      }
+    },
+    "לוֹפֵי": {
+      "status": "ready",
+      "rid": "L00304",
+      "words": 26
+    },
+    "לוּפְיָינִי": {
+      "status": "ready",
+      "rid": "L00306",
+      "words": 15
+    },
+    "לוֹפְיָן": {
+      "status": "ready",
+      "rid": "L00307",
+      "words": 33
+    },
+    "לוּפִיר": {
+      "status": "ready",
+      "rid": "L00308",
+      "words": 2,
+      "see": {
+        "headword": "לוּפָר"
+      }
+    },
+    "לִיפַס": {
+      "status": "ready",
+      "rid": "L00511",
+      "words": 76
+    },
+    "לוֹפַס": {
+      "status": "ready",
+      "rid": "L00309",
+      "words": 2,
+      "see": {
+        "headword": "לִיפַס"
+      }
+    },
+    "לוּפָר": {
+      "status": "ready",
+      "rid": "L00310",
+      "words": 117
+    },
+    "לוֹפָתָא": {
+      "status": "ready",
+      "rid": "L00311",
+      "words": 57
+    },
+    "לוּץ": {
+      "status": "ready",
+      "rid": "L00312",
+      "words": 186
+    },
+    "לוּק": {
+      "status": "ready",
+      "rid": "L00313",
+      "words": 2,
+      "see": {
+        "headword": "לָֽקַק"
+      }
+    },
+    "לוקו": {
+      "status": "ready",
+      "rid": "L00314",
+      "words": 7
+    },
+    "לוֹקוּטִינִינְטֵיס": {
+      "status": "ready",
+      "rid": "L00315",
+      "words": 57
+    },
+    "לוּקוֹס": {
+      "status": "ready",
+      "rid": "L00316",
+      "words": 35
+    },
+    "לָקוֹט": {
+      "status": "ready",
+      "rid": "L00666",
+      "words": 165
+    },
+    "לוּקְטָא": {
+      "status": "ready",
+      "rid": "L00317",
+      "words": 70
+    },
+    "לוקטו": {
+      "status": "ready",
+      "rid": "L00318",
+      "words": 23
+    },
+    "לַוְקְיָאנֵי": {
+      "status": "ready",
+      "rid": "L00319",
+      "words": 47
+    },
+    "לוקין": {
+      "status": "ready",
+      "rid": "L00320",
+      "words": 2,
+      "see": {
+        "headword": "לַוְקָן"
+      }
+    },
+    "לוקיס": {
+      "status": "ready",
+      "rid": "L00321",
+      "words": 2,
+      "see": {
+        "headword": "לוּקוֹס"
+      }
+    },
+    "לַוְקָן": {
+      "status": "ready",
+      "rid": "L00322",
+      "words": 71
+    },
+    "לְקִינִיתָא": {
+      "status": "ready",
+      "rid": "L00692",
+      "words": 58
+    },
+    "לוּקְנִיתָא": {
+      "status": "ready",
+      "rid": "L00323",
+      "words": 2,
+      "see": {
+        "headword": "לְקִינִיתָא"
+      }
+    },
+    "לורטיא": {
+      "status": "ready",
+      "rid": "L00324",
+      "words": 2,
+      "see": {
+        "headword": "*לַבְרָטוֹן"
+      }
+    },
+    "לוּשׁ": {
+      "status": "ready",
+      "rid": "L00325",
+      "words": 157
+    },
+    "לָז": {
+      "status": "ready",
+      "rid": "L00328",
+      "words": 2,
+      "see": {
+        "headword": "הַלָּז"
+      }
+    },
+    "לִזְבֵּז": {
+      "status": "ready",
+      "rid": "L00330",
+      "words": 2,
+      "see": {
+        "headword": "לְבִזְבֵּז"
+      }
+    },
+    "לֵזוּ": {
+      "status": "ready",
+      "rid": "L00331",
+      "words": 2,
+      "see": {
+        "headword": "הַלָּז"
+      }
+    },
+    "לָזוּת": {
+      "status": "ready",
+      "rid": "L00332",
+      "words": 13
+    },
+    "לֵחַ": {
+      "status": "ready",
+      "rid": "L00334",
+      "words": 3
+    },
+    "לַח": {
+      "status": "ready",
+      "rid": "L00333",
+      "words": 170
+    },
+    "לַחֲדָא": {
+      "status": "ready",
+      "rid": "L00335",
+      "words": 3,
+      "see": {
+        "headword": "חַד II"
+      }
+    },
+    "לֵחָה": {
+      "status": "ready",
+      "rid": "L00336",
+      "words": 149
+    },
+    "לְחוֹאָתָא": {
+      "status": "ready",
+      "rid": "L00337",
+      "words": 2,
+      "see": {
+        "headword": "לִחְיָא"
+      }
+    },
+    "לחודאי": {
+      "status": "ready",
+      "rid": "L00339",
+      "words": 2,
+      "see": {
+        "headword": "לְחוֹד"
+      }
+    },
+    "לְחוֹד": {
+      "status": "ready",
+      "rid": "L00338",
+      "words": 242
+    },
+    "לְחַשׁ": {
+      "status": "ready",
+      "rid": "L00373",
+      "words": 173
+    },
+    "לָחוּשׁ": {
+      "status": "ready",
+      "rid": "L00341",
+      "words": 18
+    },
+    "לְחוֹשׁ": {
+      "status": "ready",
+      "rid": "L00340",
+      "words": 2,
+      "see": {
+        "headword": "לְחַשׁ"
+      }
+    },
+    "לֶחִי II": {
+      "status": "ready",
+      "rid": "L00343",
+      "words": 421
+    },
+    "לֶחִי I": {
+      "status": "ready",
+      "rid": "L00342",
+      "words": 29
+    },
+    "לִחְיָא": {
+      "status": "ready",
+      "rid": "L00344",
+      "words": 50
+    },
+    "לְחַיֵי": {
+      "status": "ready",
+      "rid": "L00345",
+      "words": 55
+    },
+    "לְחָיָיתָא": {
+      "status": "ready",
+      "rid": "L00346",
+      "words": 40
+    },
+    "לְחֵיךְ": {
+      "status": "ready",
+      "rid": "L00347",
+      "words": 2,
+      "see": {
+        "headword": "לְחַךְ"
+      }
+    },
+    "לְחִיכָה": {
+      "status": "ready",
+      "rid": "L00349",
+      "words": 32
+    },
+    "לְחֵם": {
+      "status": "ready",
+      "rid": "L00366",
+      "words": 95
+    },
+    "לְחֵים": {
+      "status": "ready",
+      "rid": "L00348",
+      "words": 2,
+      "see": {
+        "headword": "לְחֵם"
+      }
+    },
+    "לְחֵינְתָא": {
+      "status": "ready",
+      "rid": "L00351",
+      "words": 53
+    },
+    "לְחִישָׁא": {
+      "status": "ready",
+      "rid": "L00352",
+      "words": 2,
+      "see": {
+        "headword": "לְחָשָׁא"
+      }
+    },
+    "לְחִישָׁה": {
+      "status": "ready",
+      "rid": "L00353",
+      "words": 136
+    },
+    "לְחָשָׁא": {
+      "status": "ready",
+      "rid": "L00375",
+      "words": 55
+    },
+    "לְחַךְ": {
+      "status": "ready",
+      "rid": "L00355",
+      "words": 61
+    },
+    "לָחַךְ": {
+      "status": "ready",
+      "rid": "L00354",
+      "words": 133
+    },
+    "לִחְלוּחַ": {
+      "status": "ready",
+      "rid": "L00356",
+      "words": 28
+    },
+    "לִחְלוּחָא": {
+      "status": "ready",
+      "rid": "L00357",
+      "words": 15
+    },
+    "לִחְלוּחִית": {
+      "status": "ready",
+      "rid": "L00358",
+      "words": 92
+    },
+    "לִחְלוּחְתָּא": {
+      "status": "ready",
+      "rid": "L00359",
+      "words": 17
+    },
+    "לִחְלוּךְ": {
+      "status": "ready",
+      "rid": "L00360",
+      "words": 82
+    },
+    "לַחְלַח": {
+      "status": "ready",
+      "rid": "L00362",
+      "words": 29
+    },
+    "לִחְלֵחַ": {
+      "status": "ready",
+      "rid": "L00361",
+      "words": 62
+    },
+    "לֶחֶם": {
+      "status": "ready",
+      "rid": "L00365",
+      "words": 130
+    },
+    "לָחַם I": {
+      "status": "ready",
+      "rid": "L00363",
+      "words": 108
+    },
+    "לָחַם II": {
+      "status": "ready",
+      "rid": "L00364",
+      "words": 130
+    },
+    "לַחְמִי": {
+      "status": "ready",
+      "rid": "L00367",
+      "words": 28
+    },
+    "לַחְמָנִיּוֹת": {
+      "status": "ready",
+      "rid": "L00368",
+      "words": 16
+    },
+    "לְחֵנָה": {
+      "status": "ready",
+      "rid": "L00369",
+      "words": 3
+    },
+    "לָחַץ": {
+      "status": "ready",
+      "rid": "L00370",
+      "words": 68
+    },
+    "לַחַשׁ": {
+      "status": "ready",
+      "rid": "L00374",
+      "words": 85
+    },
+    "לָחַשׁ I": {
+      "status": "ready",
+      "rid": "L00371",
+      "words": 72
+    },
+    "לָחַשׁ II": {
+      "status": "ready",
+      "rid": "L00372",
+      "words": 304
+    },
+    "לְחַת": {
+      "status": "ready",
+      "rid": "L00377",
+      "words": 46
+    },
+    "לָחַת": {
+      "status": "ready",
+      "rid": "L00376",
+      "words": 37
+    },
+    "לִחֲתָא": {
+      "status": "ready",
+      "rid": "L00378",
+      "words": 50
+    },
+    "לָט": {
+      "status": "ready",
+      "rid": "L00379",
+      "words": 2,
+      "see": {
+        "headword": "לוּט"
+      }
+    },
+    "לְטִי": {
+      "status": "ready",
+      "rid": "L00387",
+      "words": 18
+    },
+    "לְטָא": {
+      "status": "ready",
+      "rid": "L00380",
+      "words": 2,
+      "see": {
+        "headword": "לְטִי"
+      }
+    },
+    "לְטָאָה": {
+      "status": "ready",
+      "rid": "L00381",
+      "words": 2,
+      "see": {
+        "headword": "*הַלְטָאָה"
+      }
+    },
+    "לְטוֹם": {
+      "status": "ready",
+      "rid": "L00382",
+      "words": 44
+    },
+    "לְטוֹסָאֵי": {
+      "status": "ready",
+      "rid": "L00384",
+      "words": 2,
+      "see": {
+        "headword": "לוּטָסָאֵי"
+      }
+    },
+    "לְטוּתָא": {
+      "status": "ready",
+      "rid": "L00385",
+      "words": 49
+    },
+    "לְטַט": {
+      "status": "ready",
+      "rid": "L00386",
+      "words": 26
+    },
+    "לְטֵיט": {
+      "status": "ready",
+      "rid": "L00388",
+      "words": 2,
+      "see": {
+        "headword": "לְטַט"
+      }
+    },
+    "לָטִים": {
+      "status": "ready",
+      "rid": "L00389",
+      "words": 4
+    },
+    "לטימיא": {
+      "status": "ready",
+      "rid": "L00390",
+      "words": 2,
+      "see": {
+        "headword": "לָטוֹמְיָא"
+      }
+    },
+    "לטינוס": {
+      "status": "ready",
+      "rid": "L00391",
+      "words": 2,
+      "see": {
+        "headword": "*לוּטְיָינוֹס"
+      }
+    },
+    "לטיסא": {
+      "status": "ready",
+      "rid": "L00392",
+      "words": 2,
+      "see": {
+        "headword": "לְטִישָׁה"
+      }
+    },
+    "לְטֵשׁ": {
+      "status": "ready",
+      "rid": "L00399",
+      "words": 16
+    },
+    "לְטִישׁ": {
+      "status": "ready",
+      "rid": "L00393",
+      "words": 2,
+      "see": {
+        "headword": "לְטֵשׁ"
+      }
+    },
+    "לְטִישָׁה": {
+      "status": "ready",
+      "rid": "L00394",
+      "words": 15
+    },
+    "לְטֹם": {
+      "status": "ready",
+      "rid": "L00395",
+      "words": 2,
+      "see": {
+        "headword": "לְטוֹם"
+      }
+    },
+    "לִיטְרָא": {
+      "status": "ready",
+      "rid": "L00447",
+      "words": 192
+    },
+    "לִטְרָא": {
+      "status": "ready",
+      "rid": "L00396",
+      "words": 2,
+      "see": {
+        "headword": "לִיטְרָא"
+      }
+    },
+    "לטרגיה": {
+      "status": "ready",
+      "rid": "L00397",
+      "words": 35
+    },
+    "לָטַשׁ": {
+      "status": "ready",
+      "rid": "L00398",
+      "words": 45
+    },
+    "לֵי": {
+      "status": "ready",
+      "rid": "L00400",
+      "words": 114
+    },
+    "לָיָיא": {
+      "status": "ready",
+      "rid": "L00452",
+      "words": 6
+    },
+    "לְיֵא": {
+      "status": "ready",
+      "rid": "L00403",
+      "words": 2,
+      "see": {
+        "headword": "יֵא"
+      }
+    },
+    "לַיָּא": {
+      "status": "ready",
+      "rid": "L00402",
+      "words": 20
+    },
+    "לָיָא": {
+      "status": "ready",
+      "rid": "L00401",
+      "words": 3
+    },
+    "לֵיאוּ": {
+      "status": "ready",
+      "rid": "L00404",
+      "words": 52
+    },
+    "לִיבָּא": {
+      "status": "ready",
+      "rid": "L00405",
+      "words": 4
+    },
+    "לִיבְבָא": {
+      "status": "ready",
+      "rid": "L00407",
+      "words": 3
+    },
+    "לִיבְדָּא": {
+      "status": "ready",
+      "rid": "L00408",
+      "words": 2,
+      "see": {
+        "headword": "לִבְדָּא"
+      }
+    },
+    "ליבדה": {
+      "status": "ready",
+      "rid": "L00409",
+      "words": 2,
+      "see": {
+        "headword": "לִיבְרָה"
+      }
+    },
+    "לִיבְדְּקוֹס": {
+      "status": "ready",
+      "rid": "L00410",
+      "words": 126
+    },
+    "לִיבוּי": {
+      "status": "ready",
+      "rid": "L00412",
+      "words": 39
+    },
+    "ליבון": {
+      "status": "ready",
+      "rid": "L00414",
+      "words": 4
+    },
+    "לִיבּוּן": {
+      "status": "ready",
+      "rid": "L00413",
+      "words": 135
+    },
+    "לִיבּוּנָא": {
+      "status": "ready",
+      "rid": "L00415",
+      "words": 3
+    },
+    "לִיבּוּנָאָה": {
+      "status": "ready",
+      "rid": "L00416",
+      "words": 25
+    },
+    "לִיבְלְבָא": {
+      "status": "ready",
+      "rid": "L00417",
+      "words": 2,
+      "see": {
+        "headword": "לַבְלְבָא"
+      }
+    },
+    "לִיבְלָר": {
+      "status": "ready",
+      "rid": "L00418",
+      "words": 2,
+      "see": {
+        "headword": "לִבְלָר"
+      }
+    },
+    "לִיבְנָא": {
+      "status": "ready",
+      "rid": "L00419",
+      "words": 4
+    },
+    "לִיבְנוֹס": {
+      "status": "ready",
+      "rid": "L00420",
+      "words": 20
+    },
+    "לִיבְנָן": {
+      "status": "ready",
+      "rid": "L00421",
+      "words": 2,
+      "see": {
+        "headword": "לבְנָן"
+      }
+    },
+    "לִיבְרָה": {
+      "status": "ready",
+      "rid": "L00422",
+      "words": 27
+    },
+    "לִיבָרְנִין": {
+      "status": "ready",
+      "rid": "L00423",
+      "words": 18
+    },
+    "ליגא": {
+      "status": "ready",
+      "rid": "L00424",
+      "words": 2,
+      "see": {
+        "headword": "*טוֹגָא"
+      }
+    },
+    "ליגגין": {
+      "status": "ready",
+      "rid": "L00425",
+      "words": 2,
+      "see": {
+        "headword": "*לגְנָא"
+      }
+    },
+    "ליגונין": {
+      "status": "ready",
+      "rid": "L00426",
+      "words": 8
+    },
+    "לִיגְיוֹן": {
+      "status": "ready",
+      "rid": "L00427",
+      "words": 3
+    },
+    "ליגנין": {
+      "status": "ready",
+      "rid": "L00428",
+      "words": 7
+    },
+    "לֵיד": {
+      "status": "ready",
+      "rid": "L00429",
+      "words": 4
+    },
+    "לֵידָה": {
+      "status": "ready",
+      "rid": "L00430",
+      "words": 87
+    },
+    "לִידְנָא": {
+      "status": "ready",
+      "rid": "L00431",
+      "words": 2,
+      "see": {
+        "headword": "לְדָנָא"
+      }
+    },
+    "לֵידָתָא": {
+      "status": "ready",
+      "rid": "L00432",
+      "words": 4
+    },
+    "לֵיוָאָה": {
+      "status": "ready",
+      "rid": "L00433",
+      "words": 2,
+      "see": {
+        "headword": "לֵוָיָא"
+      }
+    },
+    "לִיוְוקָאֵי": {
+      "status": "ready",
+      "rid": "L00434",
+      "words": 23
+    },
+    "לִיוְיָתָן": {
+      "status": "ready",
+      "rid": "L00435",
+      "words": 2,
+      "see": {
+        "headword": "לִוְיָתָן"
+      }
+    },
+    "לִיוֹנְטִי": {
+      "status": "ready",
+      "rid": "L00436",
+      "words": 21
+    },
+    "לִיזְבֵּז": {
+      "status": "ready",
+      "rid": "L00437",
+      "words": 2,
+      "see": {
+        "headword": "לְבִזְבֵּז"
+      }
+    },
+    "לִיזָה": {
+      "status": "ready",
+      "rid": "L00438",
+      "words": 42
+    },
+    "לֵיחָה": {
+      "status": "ready",
+      "rid": "L00439",
+      "words": 2,
+      "see": {
+        "headword": "לֵחָה"
+      }
+    },
+    "לִיחְלוּחַ": {
+      "status": "ready",
+      "rid": "L00440",
+      "words": 3
+    },
+    "לִיחֲתָא": {
+      "status": "ready",
+      "rid": "L00441",
+      "words": 2,
+      "see": {
+        "headword": "לִחֲתָא"
+      }
+    },
+    "לִיט": {
+      "status": "ready",
+      "rid": "L00442",
+      "words": 2,
+      "see": {
+        "headword": "לוּט"
+      }
+    },
+    "ליטור": {
+      "status": "ready",
+      "rid": "L00443",
+      "words": 2,
+      "see": {
+        "headword": "*יְטוּר I"
+      }
+    },
+    "לִיטוּרְגְּיָא": {
+      "status": "ready",
+      "rid": "L00444",
+      "words": 2,
+      "see": {
+        "headword": "לטרגיה"
+      }
+    },
+    "לִיטִירִין": {
+      "status": "ready",
+      "rid": "L00445",
+      "words": 34
+    },
+    "ליטמא": {
+      "status": "ready",
+      "rid": "L00446",
+      "words": 5
+    },
+    "לִיטַרְתָּא": {
+      "status": "ready",
+      "rid": "L00448",
+      "words": 36
+    },
+    "לַיי": {
+      "status": "ready",
+      "rid": "L00449",
+      "words": 2,
+      "see": {
+        "headword": "הַיי"
+      }
+    },
+    "לְיֵיא": {
+      "status": "ready",
+      "rid": "L00451",
+      "words": 2,
+      "see": {
+        "headword": "יֵא"
+      }
+    },
+    "לָיֵיף": {
+      "status": "ready",
+      "rid": "L00454",
+      "words": 2,
+      "see": {
+        "headword": "לוּף"
+      }
+    },
+    "לַיְידָּא": {
+      "status": "ready",
+      "rid": "L00453",
+      "words": 2,
+      "see": {
+        "headword": "הַיי"
+      }
+    },
+    "לַיְיצָן": {
+      "status": "ready",
+      "rid": "L00455",
+      "words": 2,
+      "see": {
+        "headword": "לֵיצָן"
+      }
+    },
+    "לִישׁ": {
+      "status": "ready",
+      "rid": "L00526",
+      "words": 78
+    },
+    "לַיִישׁ": {
+      "status": "ready",
+      "rid": "L00456",
+      "words": 58
+    },
+    "לַיִישׁ ²": {
+      "status": "ready",
+      "rid": "L00457",
+      "words": 2,
+      "see": {
+        "headword": "לִישׁ"
+      }
+    },
+    "לַיִית": {
+      "status": "ready",
+      "rid": "L00458",
+      "words": 2,
+      "see": {
+        "headword": "לַיִת"
+      }
+    },
+    "לַיְיתָא": {
+      "status": "ready",
+      "rid": "L00459",
+      "words": 3
+    },
+    "לַיָּיא": {
+      "status": "ready",
+      "rid": "L00450",
+      "words": 2,
+      "see": {
+        "headword": "לַיָּא"
+      }
+    },
+    "לִיכָּא II": {
+      "status": "ready",
+      "rid": "L00461",
+      "words": 111
+    },
+    "ליכון": {
+      "status": "ready",
+      "rid": "L00462",
+      "words": 4
+    },
+    "לִיכָּא I": {
+      "status": "ready",
+      "rid": "L00460",
+      "words": 15
+    },
+    "לִיכְלוּךְ": {
+      "status": "ready",
+      "rid": "L00463",
+      "words": 3
+    },
+    "לַיִל": {
+      "status": "ready",
+      "rid": "L00466",
+      "words": 207
+    },
+    "לֵיל": {
+      "status": "ready",
+      "rid": "L00465",
+      "words": 9
+    },
+    "ליל": {
+      "status": "ready",
+      "rid": "L00464",
+      "words": 7
+    },
+    "לֵילָא": {
+      "status": "ready",
+      "rid": "L00467",
+      "words": 142
+    },
+    "לַיְלָה": {
+      "status": "ready",
+      "rid": "L00468",
+      "words": 2,
+      "see": {
+        "headword": "לַיִל"
+      }
+    },
+    "לֵילוּ": {
+      "status": "ready",
+      "rid": "L00469",
+      "words": 23
+    },
+    "לֵילָוָאתָא": {
+      "status": "ready",
+      "rid": "L00470",
+      "words": 2,
+      "see": {
+        "headword": "לִילִית"
+      }
+    },
+    "לֵילוֹךְ": {
+      "status": "ready",
+      "rid": "L00471",
+      "words": 4
+    },
+    "לִילֵי": {
+      "status": "ready",
+      "rid": "L00473",
+      "words": 2,
+      "see": {
+        "headword": "לִילִית"
+      }
+    },
+    "לֵילֵי": {
+      "status": "ready",
+      "rid": "L00472",
+      "words": 2,
+      "see": {
+        "headword": "לֵילָא"
+      }
+    },
+    "לִילְיָינוֹס": {
+      "status": "ready",
+      "rid": "L00474",
+      "words": 2,
+      "see": {
+        "headword": "לוּלְיָינוֹס"
+      }
+    },
+    "לִילִין": {
+      "status": "ready",
+      "rid": "L00475",
+      "words": 3,
+      "see": {
+        "headword": "לִילִית"
+      }
+    },
+    "לִילִית": {
+      "status": "ready",
+      "rid": "L00476",
+      "words": 102
+    },
+    "לִילִיתָא": {
+      "status": "ready",
+      "rid": "L00477",
+      "words": 17
+    },
+    "לֵימָא": {
+      "status": "ready",
+      "rid": "L00478",
+      "words": 3,
+      "see": {
+        "headword": "אֲמָא II"
+      }
+    },
+    "לִימּוּד": {
+      "status": "ready",
+      "rid": "L00479",
+      "words": 185
+    },
+    "לִימּוּדִים": {
+      "status": "ready",
+      "rid": "L00480",
+      "words": 140
+    },
+    "לימון": {
+      "status": "ready",
+      "rid": "L00481",
+      "words": 12
+    },
+    "לְמֵין": {
+      "status": "ready",
+      "rid": "L00574",
+      "words": 141
+    },
+    "לימין": {
+      "status": "ready",
+      "rid": "L00483",
+      "words": 6
+    },
+    "לִימֵין": {
+      "status": "ready",
+      "rid": "L00482",
+      "words": 3
+    },
+    "לִין": {
+      "status": "ready",
+      "rid": "L00486",
+      "words": 2,
+      "see": {
+        "headword": "לוּן"
+      }
+    },
+    "לין": {
+      "status": "ready",
+      "rid": "L00487",
+      "words": 10
+    },
+    "לֵין": {
+      "status": "ready",
+      "rid": "L00485",
+      "words": 3
+    },
+    "לֵינָא": {
+      "status": "ready",
+      "rid": "L00488",
+      "words": 2,
+      "see": {
+        "headword": "לֵי"
+      }
+    },
+    "לִינָה": {
+      "status": "ready",
+      "rid": "L00489",
+      "words": 188
+    },
+    "לִינְיָא": {
+      "status": "ready",
+      "rid": "L00490",
+      "words": 57
+    },
+    "לינייס": {
+      "status": "ready",
+      "rid": "L00491",
+      "words": 2,
+      "see": {
+        "headword": "לִינְיָא"
+      }
+    },
+    "לינפה": {
+      "status": "ready",
+      "rid": "L00492",
+      "words": 5
+    },
+    "לִיסְטָא": {
+      "status": "ready",
+      "rid": "L00493",
+      "words": 116
+    },
+    "ליסטאות": {
+      "status": "ready",
+      "rid": "L00494",
+      "words": 2,
+      "see": {
+        "headword": "לִיסְטָא"
+      }
+    },
+    "לִיסְטוּת": {
+      "status": "ready",
+      "rid": "L00495",
+      "words": 56
+    },
+    "ליסטטירין": {
+      "status": "ready",
+      "rid": "L00496",
+      "words": 2
+    },
+    "לִיסְטָיוּתָא": {
+      "status": "ready",
+      "rid": "L00497",
+      "words": 28
+    },
+    "לִיסְטֵיס": {
+      "status": "ready",
+      "rid": "L00498",
+      "words": 124
+    },
+    "לִיסְטֵירִין": {
+      "status": "ready",
+      "rid": "L00499",
+      "words": 42
+    },
+    "ליסטר": {
+      "status": "ready",
+      "rid": "L00500",
+      "words": 8
+    },
+    "ליסטרא": {
+      "status": "ready",
+      "rid": "L00501",
+      "words": 2,
+      "see": {
+        "headword": "זוֹמָלִיסְטְרוֹן"
+      }
+    },
+    "לִיסְתָּא": {
+      "status": "ready",
+      "rid": "L00502",
+      "words": 2,
+      "see": {
+        "headword": "לִסְתָא"
+      }
+    },
+    "לֵיעוּ": {
+      "status": "ready",
+      "rid": "L00503",
+      "words": 2,
+      "see": {
+        "headword": "לֵיאוּ"
+      }
+    },
+    "לִיעֶזֶר": {
+      "status": "ready",
+      "rid": "L00505",
+      "words": 42
+    },
+    "לִיף": {
+      "status": "ready",
+      "rid": "L00506",
+      "words": 2,
+      "see": {
+        "headword": "לוּף"
+      }
+    },
+    "ליפארוס": {
+      "status": "ready",
+      "rid": "L00507",
+      "words": 2,
+      "see": {
+        "headword": "מַקְרוֹאֶלַפְרוֹס"
+      }
+    },
+    "לִיפוֹד": {
+      "status": "ready",
+      "rid": "L00508",
+      "words": 2,
+      "see": {
+        "headword": "לוֹפְיָן"
+      }
+    },
+    "לִיפּוּפָא": {
+      "status": "ready",
+      "rid": "L00509",
+      "words": 46
+    },
+    "לִיפֵיז": {
+      "status": "ready",
+      "rid": "L00510",
+      "words": 2,
+      "see": {
+        "headword": "לוֹפְיָן"
+      }
+    },
+    "לִיפְתָּא": {
+      "status": "ready",
+      "rid": "L00512",
+      "words": 3
+    },
+    "לֵץ": {
+      "status": "ready",
+      "rid": "L00659",
+      "words": 64
+    },
+    "לִיץ": {
+      "status": "ready",
+      "rid": "L00513",
+      "words": 2,
+      "see": {
+        "headword": "לוּץ"
+      }
+    },
+    "לֵיצָן": {
+      "status": "ready",
+      "rid": "L00515",
+      "words": 69
+    },
+    "לֵיצָן ²": {
+      "status": "ready",
+      "rid": "L00516",
+      "words": 47
+    },
+    "לֵיצָנוּת": {
+      "status": "ready",
+      "rid": "L00517",
+      "words": 73
+    },
+    "לֵיצָנוּתָא": {
+      "status": "ready",
+      "rid": "L00518",
+      "words": 59
+    },
+    "לִיקּוּחַ": {
+      "status": "ready",
+      "rid": "L00519",
+      "words": 190
+    },
+    "לִיקּוּט": {
+      "status": "ready",
+      "rid": "L00520",
+      "words": 134
+    },
+    "לִיקְט־": {
+      "status": "ready",
+      "rid": "L00522",
+      "words": 2,
+      "see": {
+        "headword": "לֶקֶט"
+      }
+    },
+    "לִיקוּנִין": {
+      "status": "ready",
+      "rid": "L00521",
+      "words": 2,
+      "see": {
+        "headword": "לְקִינִיתָא"
+      }
+    },
+    "לֶקֶט ²": {
+      "status": "ready",
+      "rid": "L00680",
+      "words": 22
+    },
+    "לַיִשׁ I": {
+      "status": "ready",
+      "rid": "L00523",
+      "words": 96
+    },
+    "לַיִשׁ II": {
+      "status": "ready",
+      "rid": "L00524",
+      "words": 45
+    },
+    "לַיִשׁ III": {
+      "status": "ready",
+      "rid": "L00525",
+      "words": 3
+    },
+    "לישביזין": {
+      "status": "ready",
+      "rid": "L00527",
+      "words": 2,
+      "see": {
+        "headword": "לְבִזְבֵּז"
+      }
+    },
+    "לִישָׁה": {
+      "status": "ready",
+      "rid": "L00528",
+      "words": 47
+    },
+    "לִישְׁכָּה": {
+      "status": "ready",
+      "rid": "L00529",
+      "words": 2,
+      "see": {
+        "headword": "לִשְׁכָּה"
+      }
+    },
+    "לִישְׁלוּשְׁתָּא": {
+      "status": "ready",
+      "rid": "L00530",
+      "words": 3
+    },
+    "לִישָׁן": {
+      "status": "ready",
+      "rid": "L00531",
+      "words": 322
+    },
+    "לִישְׁתָא": {
+      "status": "ready",
+      "rid": "L00532",
+      "words": 15
+    },
+    "לַיִת": {
+      "status": "ready",
+      "rid": "L00533",
+      "words": 218
+    },
+    "לֵיתָא II": {
+      "status": "ready",
+      "rid": "L00534",
+      "words": 32
+    },
+    "לְךָ": {
+      "status": "ready",
+      "rid": "L00536",
+      "words": 6
+    },
+    "לֵךְ": {
+      "status": "ready",
+      "rid": "L00535",
+      "words": 6
+    },
+    "לְכָא": {
+      "status": "ready",
+      "rid": "L00538",
+      "words": 8
+    },
+    "לַכָּא": {
+      "status": "ready",
+      "rid": "L00537",
+      "words": 48
+    },
+    "לִכְאוֹרָה": {
+      "status": "ready",
+      "rid": "L00539",
+      "words": 3,
+      "see": {
+        "headword": "אוֹרָה I"
+      }
+    },
+    "לְכַד": {
+      "status": "ready",
+      "rid": "L00541",
+      "words": 28
+    },
+    "לָכַד": {
+      "status": "ready",
+      "rid": "L00540",
+      "words": 60
+    },
+    "לְכָה": {
+      "status": "ready",
+      "rid": "L00542",
+      "words": 4
+    },
+    "לכוסין": {
+      "status": "ready",
+      "rid": "L00543",
+      "words": 2,
+      "see": {
+        "headword": "*לֶבֶס"
+      }
+    },
+    "לכין": {
+      "status": "ready",
+      "rid": "L00544",
+      "words": 4
+    },
+    "לְכִיסָא": {
+      "status": "ready",
+      "rid": "L00546",
+      "words": 8
+    },
+    "לְכַךְ": {
+      "status": "ready",
+      "rid": "L00548",
+      "words": 37
+    },
+    "לְכָךְ": {
+      "status": "ready",
+      "rid": "L00547",
+      "words": 2,
+      "see": {
+        "headword": "כָּךְ"
+      }
+    },
+    "לכל": {
+      "status": "ready",
+      "rid": "L00550",
+      "words": 7
+    },
+    "לִכְלוּךְ": {
+      "status": "ready",
+      "rid": "L00551",
+      "words": 144
+    },
+    "לַכְלוּכִית": {
+      "status": "ready",
+      "rid": "L00552",
+      "words": 62
+    },
+    "לַכְלֵךְ": {
+      "status": "ready",
+      "rid": "L00554",
+      "words": 51
+    },
+    "לִכְלֵךְ": {
+      "status": "ready",
+      "rid": "L00553",
+      "words": 327
+    },
+    "לכנון": {
+      "status": "ready",
+      "rid": "L00556",
+      "words": 7
+    },
+    "לָכֵן": {
+      "status": "ready",
+      "rid": "L00555",
+      "words": 6
+    },
+    "לֹכְסָן": {
+      "status": "ready",
+      "rid": "L00557",
+      "words": 2,
+      "see": {
+        "headword": "לוֹכְסָן"
+      }
+    },
+    "לֶכֶשׁ": {
+      "status": "ready",
+      "rid": "L00558",
+      "words": 18
+    },
+    "לֶכְתָּא": {
+      "status": "ready",
+      "rid": "L00559",
+      "words": 88
+    },
+    "לְכַתְּחִילָּה": {
+      "status": "ready",
+      "rid": "L00560",
+      "words": 2,
+      "see": {
+        "headword": "תְּחִילָּה"
+      }
+    },
+    "למ\"ד": {
+      "status": "ready",
+      "rid": "L00564",
+      "words": 49
+    },
+    "לְמָא II": {
+      "status": "ready",
+      "rid": "L00562",
+      "words": 17
+    },
+    "לְמָא I": {
+      "status": "ready",
+      "rid": "L00561",
+      "words": 3
+    },
+    "לַמְבַּרְנְיָא": {
+      "status": "ready",
+      "rid": "L00563",
+      "words": 2,
+      "see": {
+        "headword": "לְבָרְנַיָּא"
+      }
+    },
+    "לָמֵד II": {
+      "status": "ready",
+      "rid": "L00566",
+      "words": 242
+    },
+    "לָמֵד I": {
+      "status": "ready",
+      "rid": "L00565",
+      "words": 609
+    },
+    "לָמָּה": {
+      "status": "ready",
+      "rid": "L00568",
+      "words": 3
+    },
+    "לָמָה": {
+      "status": "ready",
+      "rid": "L00569",
+      "words": 92
+    },
+    "לְמוּאֵל": {
+      "status": "ready",
+      "rid": "L00570",
+      "words": 56
+    },
+    "לִמּוּד": {
+      "status": "ready",
+      "rid": "L00572",
+      "words": 3
+    },
+    "לְמָה": {
+      "status": "ready",
+      "rid": "L00567",
+      "words": 3
+    },
+    "לְמִידָה": {
+      "status": "ready",
+      "rid": "L00573",
+      "words": 29
+    },
+    "לְמֵינָה": {
+      "status": "ready",
+      "rid": "L00575",
+      "words": 5
+    },
+    "למלא": {
+      "status": "ready",
+      "rid": "L00576",
+      "words": 3,
+      "see": {
+        "headword": "לִמְלֵם"
+      }
+    },
+    "לָמוּד": {
+      "status": "ready",
+      "rid": "L00571",
+      "words": 12
+    },
+    "לִמְלֵם": {
+      "status": "ready",
+      "rid": "L00577",
+      "words": 64
+    },
+    "לְמֵן": {
+      "status": "ready",
+      "rid": "L00578",
+      "words": 2,
+      "see": {
+        "headword": "לְמֵין"
+      }
+    },
+    "לָמַס": {
+      "status": "ready",
+      "rid": "L00579",
+      "words": 108
+    },
+    "לַמְפַּד": {
+      "status": "ready",
+      "rid": "L00581",
+      "words": 44
+    },
+    "לַמְפַּדֹּס": {
+      "status": "ready",
+      "rid": "L00582",
+      "words": 2,
+      "see": {
+        "headword": "לַמְפַּד"
+      }
+    },
+    "לָנְנָן": {
+      "status": "ready",
+      "rid": "L00584",
+      "words": 32
+    },
+    "לְסוֹטָה": {
+      "status": "ready",
+      "rid": "L00585",
+      "words": 184
+    },
+    "לִסְטִין": {
+      "status": "ready",
+      "rid": "L00586",
+      "words": 3
+    },
+    "לסיטה": {
+      "status": "ready",
+      "rid": "L00588",
+      "words": 2,
+      "see": {
+        "headword": "לְסוֹטָה"
+      }
+    },
+    "לֶסֶת": {
+      "status": "ready",
+      "rid": "L00589",
+      "words": 48
+    },
+    "לִסְתָא": {
+      "status": "ready",
+      "rid": "L00590",
+      "words": 30
+    },
+    "לְעִי": {
+      "status": "ready",
+      "rid": "L00608",
+      "words": 177
+    },
+    "לְעָא": {
+      "status": "ready",
+      "rid": "L00591",
+      "words": 2,
+      "see": {
+        "headword": "לְעִי"
+      }
+    },
+    "לע\"ט": {
+      "status": "ready",
+      "rid": "L00607",
+      "words": 22
+    },
+    "לְעֵב": {
+      "status": "ready",
+      "rid": "L00594",
+      "words": 25
+    },
+    "לְעַב": {
+      "status": "ready",
+      "rid": "L00593",
+      "words": 28
+    },
+    "לָעַב": {
+      "status": "ready",
+      "rid": "L00592",
+      "words": 34
+    },
+    "לַעַג": {
+      "status": "ready",
+      "rid": "L00597",
+      "words": 30
+    },
+    "לְעַג": {
+      "status": "ready",
+      "rid": "L00596",
+      "words": 14
+    },
+    "לָעַג": {
+      "status": "ready",
+      "rid": "L00595",
+      "words": 160
+    },
+    "לֵעוּ": {
+      "status": "ready",
+      "rid": "L00602",
+      "words": 2,
+      "see": {
+        "headword": "לֵיאוּ"
+      }
+    },
+    "לָעוֹז": {
+      "status": "ready",
+      "rid": "L00599",
+      "words": 105
+    },
+    "לָעוֹזָא": {
+      "status": "ready",
+      "rid": "L00600",
+      "words": 16
+    },
+    "לְעוּנִים": {
+      "status": "ready",
+      "rid": "L00601",
+      "words": 27
+    },
+    "לַעַז": {
+      "status": "ready",
+      "rid": "L00604",
+      "words": 119
+    },
+    "לָעַז": {
+      "status": "ready",
+      "rid": "L00603",
+      "words": 57
+    },
+    "לָעְזָר": {
+      "status": "ready",
+      "rid": "L00605",
+      "words": 12
+    },
+    "לָעַט": {
+      "status": "ready",
+      "rid": "L00606",
+      "words": 124
+    },
+    "לְעֵיב": {
+      "status": "ready",
+      "rid": "L00609",
+      "words": 2,
+      "see": {
+        "headword": "לְעֵב"
+      }
+    },
+    "לְעֵיג": {
+      "status": "ready",
+      "rid": "L00610",
+      "words": 2,
+      "see": {
+        "headword": "לְעַג"
+      }
+    },
+    "לְעִיטָה": {
+      "status": "ready",
+      "rid": "L00611",
+      "words": 11
+    },
+    "לַעְיִי": {
+      "status": "ready",
+      "rid": "L00613",
+      "words": 17
+    },
+    "לָעֲיֵי": {
+      "status": "ready",
+      "rid": "L00612",
+      "words": 2,
+      "see": {
+        "headword": "לְעִי"
+      }
+    },
+    "לְעֵיל": {
+      "status": "ready",
+      "rid": "L00614",
+      "words": 2,
+      "see": {
+        "headword": "עֵיל"
+      }
+    },
+    "לעינות": {
+      "status": "ready",
+      "rid": "L00615",
+      "words": 2,
+      "see": {
+        "headword": "*לֵיעָנוּת"
+      }
+    },
+    "לְעֵינִין": {
+      "status": "ready",
+      "rid": "L00616",
+      "words": 2,
+      "see": {
+        "headword": "לְעוּנִים"
+      }
+    },
+    "לְעִיסָה": {
+      "status": "ready",
+      "rid": "L00617",
+      "words": 22
+    },
+    "לְעֵל": {
+      "status": "ready",
+      "rid": "L00619",
+      "words": 2,
+      "see": {
+        "headword": "עֵיל"
+      }
+    },
+    "לַעֲנָה I": {
+      "status": "ready",
+      "rid": "L00620",
+      "words": 20
+    },
+    "לַעֲנָה II": {
+      "status": "ready",
+      "rid": "L00621",
+      "words": 17
+    },
+    "לַעַנְתָּא": {
+      "status": "ready",
+      "rid": "L00622",
+      "words": 9
+    },
+    "לְעַס": {
+      "status": "ready",
+      "rid": "L00624",
+      "words": 4
+    },
+    "לָעַס": {
+      "status": "ready",
+      "rid": "L00623",
+      "words": 113
+    },
+    "לְפֵי": {
+      "status": "ready",
+      "rid": "L00633",
+      "words": 11
+    },
+    "לַפִּד": {
+      "status": "ready",
+      "rid": "L00626",
+      "words": 3
+    },
+    "לַפְדָּא": {
+      "status": "ready",
+      "rid": "L00627",
+      "words": 45
+    },
+    "לפוד": {
+      "status": "ready",
+      "rid": "L00629",
+      "words": 2,
+      "see": {
+        "headword": "לַפִּיד"
+      }
+    },
+    "לְפוּם": {
+      "status": "ready",
+      "rid": "L00630",
+      "words": 4
+    },
+    "לְפוּסִין": {
+      "status": "ready",
+      "rid": "L00631",
+      "words": 3
+    },
+    "לְפִי": {
+      "status": "ready",
+      "rid": "L00632",
+      "words": 5
+    },
+    "לַפִּיד": {
+      "status": "ready",
+      "rid": "L00634",
+      "words": 115
+    },
+    "לפיטטו": {
+      "status": "ready",
+      "rid": "L00636",
+      "words": 26
+    },
+    "לְפִיכָךְ": {
+      "status": "ready",
+      "rid": "L00637",
+      "words": 15
+    },
+    "לְפִיסָא": {
+      "status": "ready",
+      "rid": "L00638",
+      "words": 2,
+      "see": {
+        "headword": "לִפְסָא"
+      }
+    },
+    "לָפֵיף": {
+      "status": "ready",
+      "rid": "L00639",
+      "words": 2,
+      "see": {
+        "headword": "לְפַף"
+      }
+    },
+    "לִפְלוּף": {
+      "status": "ready",
+      "rid": "L00640",
+      "words": 26
+    },
+    "לִפְלוּפָא": {
+      "status": "ready",
+      "rid": "L00641",
+      "words": 28
+    },
+    "לִפְנַי": {
+      "status": "ready",
+      "rid": "L00642",
+      "words": 2,
+      "see": {
+        "headword": "פְּנִים"
+      }
+    },
+    "לֶפֶס": {
+      "status": "ready",
+      "rid": "L00643",
+      "words": 108
+    },
+    "לִפְסָא": {
+      "status": "ready",
+      "rid": "L00644",
+      "words": 77
+    },
+    "לַפְסָן": {
+      "status": "ready",
+      "rid": "L00645",
+      "words": 14
+    },
+    "לְפַף": {
+      "status": "ready",
+      "rid": "L00647",
+      "words": 138
+    },
+    "לָפַף": {
+      "status": "ready",
+      "rid": "L00646",
+      "words": 141
+    },
+    "לִפְצָא": {
+      "status": "ready",
+      "rid": "L00648",
+      "words": 31
+    },
+    "לפקקה": {
+      "status": "ready",
+      "rid": "L00649",
+      "words": 16
+    },
+    "לֶפֶת": {
+      "status": "ready",
+      "rid": "L00652",
+      "words": 176
+    },
+    "לְפַת": {
+      "status": "ready",
+      "rid": "L00651",
+      "words": 42
+    },
+    "לָפַת": {
+      "status": "ready",
+      "rid": "L00650",
+      "words": 84
+    },
+    "לִפְתָּא": {
+      "status": "ready",
+      "rid": "L00653",
+      "words": 38
+    },
+    "לִפְתּוּתָא": {
+      "status": "ready",
+      "rid": "L00654",
+      "words": 32
+    },
+    "לִפְתָּם": {
+      "status": "ready",
+      "rid": "L00655",
+      "words": 29
+    },
+    "לִפְתָּן": {
+      "status": "ready",
+      "rid": "L00656",
+      "words": 63
+    },
+    "לִפְתָּנָא": {
+      "status": "ready",
+      "rid": "L00657",
+      "words": 11
+    },
+    "לָץ": {
+      "status": "ready",
+      "rid": "L00658",
+      "words": 2,
+      "see": {
+        "headword": "לוּץ"
+      }
+    },
+    "לָצוּת": {
+      "status": "ready",
+      "rid": "L00660",
+      "words": 61
+    },
+    "לֵצָן": {
+      "status": "ready",
+      "rid": "L00661",
+      "words": 3
+    },
+    "לָק": {
+      "status": "ready",
+      "rid": "L00662",
+      "words": 52
+    },
+    "לְקִי": {
+      "status": "ready",
+      "rid": "L00684",
+      "words": 154
+    },
+    "לְקָא": {
+      "status": "ready",
+      "rid": "L00663",
+      "words": 2,
+      "see": {
+        "headword": "לקי"
+      }
+    },
+    "לקי": {
+      "status": "ready",
+      "rid": "L00683",
+      "words": 487
+    },
+    "לִקּוּחַ": {
+      "status": "ready",
+      "rid": "L00665",
+      "words": 2,
+      "see": {
+        "headword": "לִיקּוּחַ"
+      }
+    },
+    "לְקוּחוֹת": {
+      "status": "ready",
+      "rid": "L00664",
+      "words": 116
+    },
+    "לָקוֹטָא": {
+      "status": "ready",
+      "rid": "L00667",
+      "words": 25
+    },
+    "לְקוֹטָאֵי": {
+      "status": "ready",
+      "rid": "L00668",
+      "words": 2,
+      "see": {
+        "headword": "נְקוֹטָאֵי"
+      }
+    },
+    "לקוטינטיס": {
+      "status": "ready",
+      "rid": "L00669",
+      "words": 2,
+      "see": {
+        "headword": "לוֹקוּטִינִינְטֵיס"
+      }
+    },
+    "לְקוּנָא": {
+      "status": "ready",
+      "rid": "L00670",
+      "words": 2,
+      "see": {
+        "headword": "לְקִינָא"
+      }
+    },
+    "לַקּוּשֵׁי": {
+      "status": "ready",
+      "rid": "L00671",
+      "words": 2,
+      "see": {
+        "headword": "לְקַשׁ"
+      }
+    },
+    "לְקוּשִׁין": {
+      "status": "ready",
+      "rid": "L00672",
+      "words": 3,
+      "see": {
+        "headword": "לָקִישׁ II"
+      }
+    },
+    "לָקוּתָא": {
+      "status": "ready",
+      "rid": "L00673",
+      "words": 73
+    },
+    "לֶקַח": {
+      "status": "ready",
+      "rid": "L00676",
+      "words": 41
+    },
+    "לֶקֶט": {
+      "status": "ready",
+      "rid": "L00679",
+      "words": 133
+    },
+    "לְקַט": {
+      "status": "ready",
+      "rid": "L00678",
+      "words": 201
+    },
+    "לָקַח": {
+      "status": "ready",
+      "rid": "L00674",
+      "words": 342
+    },
+    "לָקַט": {
+      "status": "ready",
+      "rid": "L00677",
+      "words": 571
+    },
+    "לקטיות": {
+      "status": "ready",
+      "rid": "L00681",
+      "words": 10
+    },
+    "לֶקְטִיקָא": {
+      "status": "ready",
+      "rid": "L00682",
+      "words": 37
+    },
+    "לְקִיחָה": {
+      "status": "ready",
+      "rid": "L00685",
+      "words": 159
+    },
+    "לְקֵיט": {
+      "status": "ready",
+      "rid": "L00686",
+      "words": 2,
+      "see": {
+        "headword": "לְקַט"
+      }
+    },
+    "לָקִיט": {
+      "status": "ready",
+      "rid": "L00687",
+      "words": 72
+    },
+    "לָקִיט II": {
+      "status": "ready",
+      "rid": "L00689",
+      "words": 38
+    },
+    "לְקִיטָה": {
+      "status": "ready",
+      "rid": "L00690",
+      "words": 82
+    },
+    "לְקִינָא": {
+      "status": "ready",
+      "rid": "L00691",
+      "words": 94
+    },
+    "לָקִישׁ II": {
+      "status": "ready",
+      "rid": "L00694",
+      "words": 98
+    },
+    "לָקִישׁ": {
+      "status": "ready",
+      "rid": "L00693",
+      "words": 48
+    },
+    "לַקִּישׁוּתָא": {
+      "status": "ready",
+      "rid": "L00695",
+      "words": 29
+    },
+    "לָקָן": {
+      "status": "ready",
+      "rid": "L00696",
+      "words": 59
+    },
+    "לַקְנָא": {
+      "status": "ready",
+      "rid": "L00697",
+      "words": 2,
+      "see": {
+        "headword": "לְקִינָא"
+      }
+    },
+    "לַקְנִי": {
+      "status": "ready",
+      "rid": "L00698",
+      "words": 7
+    },
+    "לַקִּשׁ": {
+      "status": "ready",
+      "rid": "L00702",
+      "words": 2,
+      "see": {
+        "headword": "לָקִישׁ II"
+      }
+    },
+    "לְקַשׁ": {
+      "status": "ready",
+      "rid": "L00701",
+      "words": 51
+    },
+    "לָקַשׁ": {
+      "status": "ready",
+      "rid": "L00700",
+      "words": 120
+    },
+    "לקת": {
+      "status": "ready",
+      "rid": "L00703",
+      "words": 17
+    },
+    "לִרַע": {
+      "status": "ready",
+      "rid": "L00704",
+      "words": 64
+    },
+    "לָשׁוֹן": {
+      "status": "ready",
+      "rid": "L00705",
+      "words": 370
+    },
+    "לְשִׁישִׁית": {
+      "status": "ready",
+      "rid": "L00706",
+      "words": 24
+    },
+    "לִשְׁכָּה": {
+      "status": "ready",
+      "rid": "L00707",
+      "words": 91
+    },
+    "לִשְׁכְּתָא": {
+      "status": "ready",
+      "rid": "L00708",
+      "words": 33
+    },
+    "לִשְׁלוּשְׁתָּא": {
+      "status": "ready",
+      "rid": "L00709",
+      "words": 10
+    },
+    "לִשְׁלֶשֶׁת": {
+      "status": "ready",
+      "rid": "L00710",
+      "words": 19
+    },
+    "לְשַׁן": {
+      "status": "ready",
+      "rid": "L00712",
+      "words": 8
+    },
+    "לָשַׁן": {
+      "status": "ready",
+      "rid": "L00711",
+      "words": 72
+    },
+    "לַת": {
+      "status": "ready",
+      "rid": "L00713",
+      "words": 2,
+      "see": {
+        "headword": "לְתַת"
+      }
+    },
+    "לָתָא": {
+      "status": "ready",
+      "rid": "L00714",
+      "words": 87
+    },
+    "לְתִיתָה": {
+      "status": "ready",
+      "rid": "L00715",
+      "words": 56
+    },
+    "לֶתֶךְ": {
+      "status": "ready",
+      "rid": "L00716",
+      "words": 52
+    },
+    "לְתַת": {
+      "status": "ready",
+      "rid": "L00718",
+      "words": 77
+    },
+    "לָתַת": {
+      "status": "ready",
+      "rid": "L00717",
+      "words": 73
+    }
+  }
+}

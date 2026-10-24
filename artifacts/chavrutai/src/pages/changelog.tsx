@@ -38,6 +38,11 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Entry Details Preview (October 24)</h3>
+            <p>The ל headword index now offers a “Show entry details” toggle: original-text word counts for substantive entries and clickable “See” targets for clear cross-reference-only entries. Details are precomputed, with exact entry IDs used to keep homographs separate. Unresolved entries are labeled rather than assigned another entry’s count. This experiment is limited to ל.</p>
+            <p>Jastrow’s browse lists now sort alphabetically, keeping numbered homographs together. Added fut., Fr. M’bo, R. Ḥān., orig., gener., and seest mappings.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Entry Navigation (October 24)</h3>
             <p>Following an entry link now collapses the browse-by-letter grid and scrolls to the results after loading, including links opened from other pages or external sites. The browse grid can be reopened when needed.</p>
           </div>
