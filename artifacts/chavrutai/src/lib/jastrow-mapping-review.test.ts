@@ -2,6 +2,12 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("leaves standalone Fr. unchanged and expands the specific Frankel reference", () => {
+  expect(expandAbbreviations("Fr.", data.mappings)).toBe("Fr.");
+  expect(expandAbbreviations("Fr. Darkhé Mish.", data.mappings))
+    .toBe("<span class=\"dict-expanded\">Frankel, 'Darkhei Mishnah'</span>");
+});
+
 it("expands the new phrases and contextual Parsha references without trailing colons", () => {
   for (const [key, value] of Object.entries({
     "Eth Korb.": "Et Korbani", "redupl.": "reduplication",

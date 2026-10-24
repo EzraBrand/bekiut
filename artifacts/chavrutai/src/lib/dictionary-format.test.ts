@@ -462,7 +462,7 @@ describe("Jastrow abbreviation expansion", () => {
     ["ed.", "edition(s)"],
     ["fr.", "from"],
     ["freq.", "frequently"],
-    ["Fr.", "Friedman edition"],
+    ["Fr. Darkhé Mish.", "Frankel, 'Darkhei Mishnah'"],
     ["gen. of", "genitive of"],
     ["Hag.", "Haggai"],
     ["K.A.T.", "Keilinschriften und das Alte Testament"],
