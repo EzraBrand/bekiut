@@ -4,6 +4,17 @@ import { expandAbbreviations } from "./dictionary-format";
 
 const examples = [
   ...Object.entries({
+    "Leipz.": "Leipzig", "Shir.": "Shirata", booty: "spoils", canst: "can",
+    "Interj.": "Interjection", "Kerith.": "Keritot",
+    "Part. Pass.": "passive participle", "part. pass.": "passive participle",
+    "S'liḥ.": "Seliḥot", asses: "donkeys", Dibré: "Divrei",
+    "Metrol.": "Metrology", et: "and", "Ul'kaḥ.": "U-lekaḥtem",
+    "Meg. Taan.": "Megillat Ta'anit", wouldst: "would", hadst: "had",
+    "addit.": "additions", "Perf.": "Perfect", "wilt thou": "will you",
+    "Arabische und Hebr. in der Anat.": "Arabische und Hebräische in der Anatomie",
+    "Bxt.": "Buxtorf", "q. v.": "which see", "abbrev.": "abbreviated/abbreviation",
+    "differ.": "different (interpretation)", "interch.": "interchanged/interchangeable",
+    "Ithpalp.": "Itpalpel", "onomatop.": "onomatopoeia",
     "Haăz.": "Ha'azinu", sub: "under (the entry)", "M’tsorʿa": "Metzora",
     "tradit.": "traditional", "pronunc.": "pronunciation", "b.  h.": "biblical Hebrew",
     "Thes.": "Thesaurus", whosoever: "whoever", voluptuousness: "licentiousness",
@@ -36,7 +47,7 @@ const examples = [
     "Fem.": "Feminine", "Syr.": "Syriac", "Joḥ.": "Yoḥanan",
     "esp.": "especially", "Ges.": "Gesenius", "s. vv.": "under the entries",
     "perf.": "perfect", "the Day of Atonement": "Yom Kippur",
-    "interpret.": "interpretations", "Thou art": "You are", Nitsabim: "Nitzavim",
+    "interpret.": "interpretation(s)", "Thou art": "You are", Nitsabim: "Nitzavim",
     "Hithpa.": "Hitpa'el", "Pe.": "Pe'al", "Peal.": "Pe'al",
     "Ms. M.": "Manuscript Munich", " h. ": " Hebrew",
     "ch. = h.": "Aramaic, equivalent to Hebrew",
