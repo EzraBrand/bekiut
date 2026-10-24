@@ -18,6 +18,8 @@ Bekiut is listed in the [JewishAI Internet Index](https://jewishai.me/table.html
 
 Bekiut is also listed in the [Israel Digital Humanities Index](https://idh-index.org/entities/idhi%253Aproject%253A8zdbdjc6).
 
+Bekiut (as ChavrutAI) and my Talmud NLP Indexer are featured in [Daniel Rosehill’s Jewish AI Projects](https://github.com/danielrosehill/Jewish-AI-Projects), a directory of Jewish AI projects and tools.
+
 ### See also
 
 - My [2026 Guide to Online Resources for Scholarly Jewish Study and Research](https://ezrabrand.github.io/jewish-online-resources/).
