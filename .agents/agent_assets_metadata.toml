@@ -294,3 +294,31 @@ mtime_ms = 1792735090712
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/923a948b-802d-49d0-abe3-3f5e4a94560b/b42a3c84-9906-4bb2-9dcd-52fb68f42dc5"
 storage_version_token = "1792735101635868"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "bK2MqLAZk9rCrir8t6Jeq"
+uri = "file://docs/jastrow-citation-analysis/report.md"
+type = "text"
+title = "Jastrow citation analysis"
+description = "Rankings, methodology, source groupings, and limitations for 32,512 dictionary entries."
+logical_id = "17a771e8-ca3e-4af9-aae1-90edbecdf2b5"
+content_hash = "sha256:fa2fe157d7fca74355b1e66f8b3fa95f28724ed2510ba94ac2062d3d76799d2d"
+size = 5867
+mtime_ms = 1792863814385
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/17a771e8-ca3e-4af9-aae1-90edbecdf2b5/ffd01789-1d82-4341-ad86-79b07d1e81cc"
+storage_version_token = "1792863868417118"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "MsqZ_G_YRvh37YE0sZ-Ub"
+uri = "file://docs/jastrow-citation-analysis/counts.csv"
+type = "table"
+title = "Jastrow linked-source counts"
+description = "Full individual-title rankings with hyperlink, entry, and distinct-reference counts."
+logical_id = "b1103927-8dfb-4cc3-9b9c-b35b39a6e4d4"
+content_hash = "sha256:9da5bbaaef1de404fb9ebe461756093e7f3f2f72685b4c89693c314167e8fedc"
+size = 4117
+mtime_ms = 1792863814384
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b1103927-8dfb-4cc3-9b9c-b35b39a6e4d4/a6c4cb95-645e-4397-901a-79e66f762fa2"
+storage_version_token = "1792863869889277"
+content_type = "text/csv"

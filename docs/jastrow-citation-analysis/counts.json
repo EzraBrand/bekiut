@@ -1,0 +1,2204 @@
+{
+  "source_revision": "05c8a79bbf2408f3909151d08d71a6f3e33e9ead",
+  "generated_at": "2026-10-24T17:43:34.382648+00:00",
+  "entries": 32512,
+  "qualifying_links": 40012,
+  "entries_with_qualifying_links": 14953,
+  "excluded": {
+    "Internal Jastrow cross-references": 68095,
+    "Bavli": 33691,
+    "Bible": 6688,
+    "Mishnah": 8642,
+    "Yerushalmi": 7679
+  },
+  "unclassified": {
+    "Tosefta Ma'asrot": 68,
+    "Bereishit Rabbah": 3842,
+    "Eichah Rabbah": 687,
+    "Tosefta Ohalot": 103,
+    "Tosefta Zevahim": 20,
+    "Targum Jerusalem, Numbers": 124,
+    "Tosefta Eiruvin": 54,
+    "Targum Jerusalem, Leviticus": 54,
+    "Targum Jerusalem, Deuteronomy": 145,
+    "Tosefta Shevi'it": 203,
+    "Tosefta Kilaim": 117,
+    "Tosefta Keilim Metsia": 294,
+    "Targum Jerusalem, Exodus": 98,
+    "Tosefta Keilim Batra": 142,
+    "Tosefta Ma'aser Sheni": 45,
+    "Targum Jerusalem, Genesis": 195,
+    "Tosefta Menahot": 44,
+    "Tosefta Uktsin": 28,
+    "Tosefta Beitsah": 70,
+    "Avot D'Rabbi Natan": 122,
+    "Eichah Rabbah, Petichta": 8,
+    "Tosefta Moed Kattan": 30,
+    "Ruth Rabbah, Petichta": 22,
+    "Mekhilta d'Rabbi Yishmael": 1,
+    "Esther Rabbah, Petichta": 2
+  },
+  "works": [
+    {
+      "work": "Bereishit Rabbah",
+      "links": 3842,
+      "entries": 3039,
+      "distinct_link_targets": 867,
+      "categories": null,
+      "examples": [
+        "Bereishit Rabbah 19",
+        "Bereishit Rabbah 53:13",
+        "Bereishit Rabbah 91:9"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Psalms",
+      "links": 1916,
+      "entries": 1336,
+      "distinct_link_targets": 1183,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Psalms 41:6",
+        "Aramaic Targum to Psalms 110:3",
+        "Aramaic Targum to Psalms 119:28"
+      ]
+    },
+    {
+      "work": "Yalkut Shimoni on Torah",
+      "links": 1911,
+      "entries": 1683,
+      "distinct_link_targets": 1112,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Yalkut Shimoni on Torah 624",
+        "Yalkut Shimoni on Torah 667:7",
+        "Yalkut Shimoni on Torah 197:8"
+      ]
+    },
+    {
+      "work": "Yalkut Shimoni on Nach",
+      "links": 1779,
+      "entries": 1563,
+      "distinct_link_targets": 1045,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Yalkut Shimoni on Nach 863:8",
+        "Yalkut Shimoni on Nach 1054",
+        "Yalkut Shimoni on Nach 794:1"
+      ]
+    },
+    {
+      "work": "Vayikra Rabbah",
+      "links": 1684,
+      "entries": 1476,
+      "distinct_link_targets": 286,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Vayikra Rabbah 1:15",
+        "Vayikra Rabbah 34:12",
+        "Vayikra Rabbah 34:9"
+      ]
+    },
+    {
+      "work": "Bamidbar Rabbah",
+      "links": 1348,
+      "entries": 1136,
+      "distinct_link_targets": 291,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Bamidbar Rabbah 10:8",
+        "Bamidbar Rabbah 1:12",
+        "Bamidbar Rabbah 12:15"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Proverbs",
+      "links": 1340,
+      "entries": 935,
+      "distinct_link_targets": 661,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Proverbs 19:14",
+        "Aramaic Targum to Proverbs 28:28",
+        "Aramaic Targum to Proverbs 27:20"
+      ]
+    },
+    {
+      "work": "Onkelos Genesis",
+      "links": 1256,
+      "entries": 880,
+      "distinct_link_targets": 733,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Onkelos",
+        "Torah"
+      ],
+      "examples": [
+        "Onkelos Genesis 17:4",
+        "Onkelos Genesis 41:43",
+        "Onkelos Genesis 37:34"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Job",
+      "links": 1203,
+      "entries": 953,
+      "distinct_link_targets": 655,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Job 39:29",
+        "Aramaic Targum to Job 7:1",
+        "Aramaic Targum to Job 7:2"
+      ]
+    },
+    {
+      "work": "Shir HaShirim Rabbah",
+      "links": 1174,
+      "entries": 1020,
+      "distinct_link_targets": 285,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Shir HaShirim Rabbah 3:4:2",
+        "Shir HaShirim Rabbah 3:6:2",
+        "Shir HaShirim Rabbah 3:6"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Isaiah",
+      "links": 1158,
+      "entries": 925,
+      "distinct_link_targets": 622,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Isaiah 35:7",
+        "Targum Jonathan on Isaiah 58:5",
+        "Targum Jonathan on Isaiah 65:11"
+      ]
+    },
+    {
+      "work": "Shemot Rabbah",
+      "links": 1034,
+      "entries": 887,
+      "distinct_link_targets": 314,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Shemot Rabbah 46:5",
+        "Shemot Rabbah 21",
+        "Shemot Rabbah 1:14"
+      ]
+    },
+    {
+      "work": "Kohelet Rabbah",
+      "links": 911,
+      "entries": 808,
+      "distinct_link_targets": 261,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Kohelet Rabbah 5:8:4",
+        "Kohelet Rabbah 1:4:4",
+        "Kohelet Rabbah 10:15:1"
+      ]
+    },
+    {
+      "work": "Onkelos Exodus",
+      "links": 881,
+      "entries": 678,
+      "distinct_link_targets": 535,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Onkelos",
+        "Torah"
+      ],
+      "examples": [
+        "Onkelos Exodus 9:31",
+        "Onkelos Exodus 22:8",
+        "Onkelos Exodus 28:11"
+      ]
+    },
+    {
+      "work": "Midrash Tehillim",
+      "links": 880,
+      "entries": 761,
+      "distinct_link_targets": 423,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Midrash Tehillim 1",
+        "Midrash Tehillim 105:6",
+        "Midrash Tehillim 1:19"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Genesis",
+      "links": 856,
+      "entries": 691,
+      "distinct_link_targets": 528,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Torah"
+      ],
+      "examples": [
+        "Targum Jonathan on Genesis 7:10",
+        "Targum Jonathan on Genesis 31:46",
+        "Targum Jonathan on Genesis 18:2"
+      ]
+    },
+    {
+      "work": "Pesikta Rabbati",
+      "links": 809,
+      "entries": 716,
+      "distinct_link_targets": 76,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Pesikta Rabbati 18:1",
+        "Pesikta Rabbati 29:1",
+        "Pesikta Rabbati 30:1"
+      ]
+    },
+    {
+      "work": "Eichah Rabbah",
+      "links": 687,
+      "entries": 644,
+      "distinct_link_targets": 89,
+      "categories": null,
+      "examples": [
+        "Eichah Rabbah 4",
+        "Eichah Rabbah 4:3",
+        "Eichah Rabbah 1"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Deuteronomy",
+      "links": 631,
+      "entries": 549,
+      "distinct_link_targets": 342,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Torah"
+      ],
+      "examples": [
+        "Targum Jonathan on Deuteronomy 24:16",
+        "Targum Jonathan on Deuteronomy 28:52",
+        "Targum Jonathan on Deuteronomy 29:17"
+      ]
+    },
+    {
+      "work": "Tosefta Shabbat",
+      "links": 601,
+      "entries": 305,
+      "distinct_link_targets": 191,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Shabbat 16",
+        "Tosefta Shabbat 17:6",
+        "Tosefta Shabbat 14:16"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Exodus",
+      "links": 593,
+      "entries": 496,
+      "distinct_link_targets": 384,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Torah"
+      ],
+      "examples": [
+        "Targum Jonathan on Exodus 19:13",
+        "Targum Jonathan on Exodus 31:5",
+        "Targum Jonathan on Exodus 28:42"
+      ]
+    },
+    {
+      "work": "Onkelos Deuteronomy",
+      "links": 562,
+      "entries": 486,
+      "distinct_link_targets": 362,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Onkelos",
+        "Torah"
+      ],
+      "examples": [
+        "Onkelos Deuteronomy 26:5",
+        "Onkelos Deuteronomy 25:7",
+        "Onkelos Deuteronomy 23:25"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Ezekiel",
+      "links": 550,
+      "entries": 433,
+      "distinct_link_targets": 354,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Ezekiel 1:14",
+        "Targum Jonathan on Ezekiel 36:25",
+        "Targum Jonathan on Ezekiel 16:55"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Numbers",
+      "links": 537,
+      "entries": 470,
+      "distinct_link_targets": 287,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Torah"
+      ],
+      "examples": [
+        "Targum Jonathan on Numbers 34:8",
+        "Targum Jonathan on Numbers 19:4",
+        "Targum Jonathan on Numbers 6:19"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Jeremiah",
+      "links": 532,
+      "entries": 444,
+      "distinct_link_targets": 371,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Jeremiah 48:36",
+        "Targum Jonathan on Jeremiah 50:26",
+        "Targum Jonathan on Jeremiah 5:8"
+      ]
+    },
+    {
+      "work": "Onkelos Leviticus",
+      "links": 524,
+      "entries": 406,
+      "distinct_link_targets": 323,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Onkelos",
+        "Torah"
+      ],
+      "examples": [
+        "Onkelos Leviticus 2:14",
+        "Onkelos Leviticus 2:2",
+        "Onkelos Leviticus 1:16"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Leviticus",
+      "links": 438,
+      "entries": 367,
+      "distinct_link_targets": 262,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Torah"
+      ],
+      "examples": [
+        "Targum Jonathan on Leviticus 20:14",
+        "Targum Jonathan on Leviticus 11:20",
+        "Targum Jonathan on Leviticus 22:22"
+      ]
+    },
+    {
+      "work": "Onkelos Numbers",
+      "links": 437,
+      "entries": 355,
+      "distinct_link_targets": 299,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Onkelos",
+        "Torah"
+      ],
+      "examples": [
+        "Onkelos Numbers 11:5",
+        "Onkelos Numbers 31:22",
+        "Onkelos Numbers 19:13"
+      ]
+    },
+    {
+      "work": "Sifrei Devarim",
+      "links": 402,
+      "entries": 386,
+      "distinct_link_targets": 286,
+      "categories": [
+        "Midrash",
+        "Halakhah"
+      ],
+      "examples": [
+        "Sifrei Devarim 301",
+        "Sifrei Devarim 80",
+        "Sifrei Devarim 51"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on I Samuel",
+      "links": 377,
+      "entries": 315,
+      "distinct_link_targets": 246,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on I Samuel 9:3",
+        "Targum Jonathan on I Samuel 23:1",
+        "Targum Jonathan on I Samuel 6:20"
+      ]
+    },
+    {
+      "work": "Esther Rabbah",
+      "links": 345,
+      "entries": 323,
+      "distinct_link_targets": 63,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Esther Rabbah 5:4",
+        "Esther Rabbah 7:10",
+        "Esther Rabbah 3:2"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on I Kings",
+      "links": 336,
+      "entries": 279,
+      "distinct_link_targets": 226,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on I Kings 7:6",
+        "Targum Jonathan on I Kings 7:7",
+        "Targum Jonathan on I Kings 6:16"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Judges",
+      "links": 315,
+      "entries": 267,
+      "distinct_link_targets": 208,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Judges 6:25",
+        "Targum Jonathan on Judges 4:11",
+        "Targum Jonathan on Judges 5:6"
+      ]
+    },
+    {
+      "work": "Tosefta Keilim Metsia",
+      "links": 294,
+      "entries": 268,
+      "distinct_link_targets": 100,
+      "categories": null,
+      "examples": [
+        "Tosefta Keilim Metsia 8:6",
+        "Tosefta Keilim Metsia 2:17",
+        "Tosefta Keilim Metsia 2:12"
+      ]
+    },
+    {
+      "work": "Devarim Rabbah",
+      "links": 288,
+      "entries": 263,
+      "distinct_link_targets": 92,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Devarim Rabbah 1:16",
+        "Devarim Rabbah 3",
+        "Devarim Rabbah 6"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Esther",
+      "links": 286,
+      "entries": 255,
+      "distinct_link_targets": 96,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Esther 1:6",
+        "Aramaic Targum to Esther 1:4",
+        "Aramaic Targum to Esther 1:3"
+      ]
+    },
+    {
+      "work": "Targum of I Chronicles",
+      "links": 285,
+      "entries": 251,
+      "distinct_link_targets": 175,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jerusalem"
+      ],
+      "examples": [
+        "Targum of I Chronicles 1:2",
+        "Targum of I Chronicles 22:7",
+        "Targum of I Chronicles 1:30"
+      ]
+    },
+    {
+      "work": "Targum of II Chronicles",
+      "links": 283,
+      "entries": 249,
+      "distinct_link_targets": 197,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jerusalem"
+      ],
+      "examples": [
+        "Targum of II Chronicles 20:16",
+        "Targum of II Chronicles 3:4",
+        "Targum of II Chronicles 9:25"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on II Samuel",
+      "links": 263,
+      "entries": 238,
+      "distinct_link_targets": 181,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on II Samuel 3:29",
+        "Targum Jonathan on II Samuel 20:5",
+        "Targum Jonathan on II Samuel 1:17"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Ecclesiastes",
+      "links": 248,
+      "entries": 224,
+      "distinct_link_targets": 125,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Ecclesiastes 7:3",
+        "Aramaic Targum to Ecclesiastes 7:2",
+        "Aramaic Targum to Ecclesiastes 4:4"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Song of Songs",
+      "links": 241,
+      "entries": 217,
+      "distinct_link_targets": 94,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Song of Songs 5:11",
+        "Aramaic Targum to Song of Songs 8:6",
+        "Aramaic Targum to Song of Songs 7:3"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Lamentations",
+      "links": 222,
+      "entries": 195,
+      "distinct_link_targets": 98,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Lamentations 2:5",
+        "Aramaic Targum to Lamentations 2:8",
+        "Aramaic Targum to Lamentations 4:8"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on II Kings",
+      "links": 218,
+      "entries": 191,
+      "distinct_link_targets": 160,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on II Kings 19:18",
+        "Targum Jonathan on II Kings 21:3",
+        "Targum Jonathan on II Kings 24:14"
+      ]
+    },
+    {
+      "work": "Tosefta Shevi'it",
+      "links": 203,
+      "entries": 191,
+      "distinct_link_targets": 73,
+      "categories": null,
+      "examples": [
+        "Tosefta Shevi'it 4:11",
+        "Tosefta Shevi'it 3:4",
+        "Tosefta Shevi'it 3:3"
+      ]
+    },
+    {
+      "work": "Tosefta Avodah Zarah",
+      "links": 198,
+      "entries": 109,
+      "distinct_link_targets": 69,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Avodah Zarah 1:10",
+        "Tosefta Avodah Zarah 3:16",
+        "Tosefta Avodah Zarah 4"
+      ]
+    },
+    {
+      "work": "Targum Jerusalem, Genesis",
+      "links": 195,
+      "entries": 175,
+      "distinct_link_targets": 121,
+      "categories": null,
+      "examples": [
+        "Targum Jerusalem, Genesis 10:2",
+        "Targum Jerusalem, Genesis 35:9",
+        "Targum Jerusalem, Genesis 49:17"
+      ]
+    },
+    {
+      "work": "Sifrei Bamidbar",
+      "links": 193,
+      "entries": 172,
+      "distinct_link_targets": 95,
+      "categories": [
+        "Midrash",
+        "Halakhah"
+      ],
+      "examples": [
+        "Sifrei Bamidbar 131:2",
+        "Sifrei Bamidbar 131",
+        "Sifrei Bamidbar 18:1"
+      ]
+    },
+    {
+      "work": "Pirkei DeRabbi Eliezer",
+      "links": 170,
+      "entries": 155,
+      "distinct_link_targets": 124,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Pirkei DeRabbi Eliezer 23:1",
+        "Pirkei DeRabbi Eliezer 10:7",
+        "Pirkei DeRabbi Eliezer 26:2"
+      ]
+    },
+    {
+      "work": "Targum Jerusalem, Deuteronomy",
+      "links": 145,
+      "entries": 133,
+      "distinct_link_targets": 96,
+      "categories": null,
+      "examples": [
+        "Targum Jerusalem, Deuteronomy 26:14",
+        "Targum Jerusalem, Deuteronomy 14:18",
+        "Targum Jerusalem, Deuteronomy 27:15"
+      ]
+    },
+    {
+      "work": "Tosefta Keilim Batra",
+      "links": 142,
+      "entries": 129,
+      "distinct_link_targets": 58,
+      "categories": null,
+      "examples": [
+        "Tosefta Keilim Batra 5:4",
+        "Tosefta Keilim Batra 4:10",
+        "Tosefta Keilim Batra 4:6"
+      ]
+    },
+    {
+      "work": "Tosefta Sotah",
+      "links": 141,
+      "entries": 133,
+      "distinct_link_targets": 66,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Sotah 14:7",
+        "Tosefta Sotah 15:9",
+        "Tosefta Sotah 15:2"
+      ]
+    },
+    {
+      "work": "Ruth Rabbah",
+      "links": 137,
+      "entries": 134,
+      "distinct_link_targets": 46,
+      "categories": [
+        "Midrash",
+        "Aggadah",
+        "Midrash Rabbah"
+      ],
+      "examples": [
+        "Ruth Rabbah 2:5",
+        "Ruth Rabbah 2:10",
+        "Ruth Rabbah 5:12"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Joshua",
+      "links": 132,
+      "entries": 116,
+      "distinct_link_targets": 103,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Joshua 6:1",
+        "Targum Jonathan on Joshua 2:15",
+        "Targum Jonathan on Joshua 2:4"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Hosea",
+      "links": 131,
+      "entries": 117,
+      "distinct_link_targets": 76,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Hosea 9:10",
+        "Targum Jonathan on Hosea 2:11",
+        "Targum Jonathan on Hosea 6:2"
+      ]
+    },
+    {
+      "work": "Tosefta Terumot",
+      "links": 126,
+      "entries": 116,
+      "distinct_link_targets": 60,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Terumot 2:4",
+        "Tosefta Terumot 9:10",
+        "Tosefta Terumot 3:11"
+      ]
+    },
+    {
+      "work": "Tosefta Bava Batra",
+      "links": 125,
+      "entries": 122,
+      "distinct_link_targets": 51,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Bava Batra 3:3",
+        "Tosefta Bava Batra 5:8",
+        "Tosefta Bava Batra 3:2"
+      ]
+    },
+    {
+      "work": "Targum Jerusalem, Numbers",
+      "links": 124,
+      "entries": 107,
+      "distinct_link_targets": 77,
+      "categories": null,
+      "examples": [
+        "Targum Jerusalem, Numbers 21:20",
+        "Targum Jerusalem, Numbers 22:7",
+        "Targum Jerusalem, Numbers 12:16"
+      ]
+    },
+    {
+      "work": "Tosefta Bava Kamma",
+      "links": 122,
+      "entries": 114,
+      "distinct_link_targets": 71,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Bava Kamma 3:6",
+        "Tosefta Bava Kamma 6:28",
+        "Tosefta Bava Kamma 8:13"
+      ]
+    },
+    {
+      "work": "Avot D'Rabbi Natan",
+      "links": 122,
+      "entries": 115,
+      "distinct_link_targets": 67,
+      "categories": null,
+      "examples": [
+        "Avot D'Rabbi Natan 28:10",
+        "Avot D'Rabbi Natan 28:9",
+        "Avot D'Rabbi Natan 14"
+      ]
+    },
+    {
+      "work": "Tosefta Kilaim",
+      "links": 117,
+      "entries": 112,
+      "distinct_link_targets": 48,
+      "categories": null,
+      "examples": [
+        "Tosefta Kilaim 1:4",
+        "Tosefta Kilaim 2:15",
+        "Tosefta Kilaim 5:25"
+      ]
+    },
+    {
+      "work": "Tosefta Chullin",
+      "links": 117,
+      "entries": 89,
+      "distinct_link_targets": 58,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Chullin 3:5",
+        "Tosefta Chullin 4:27",
+        "Tosefta Chullin 1:7"
+      ]
+    },
+    {
+      "work": "Tosefta Demai",
+      "links": 107,
+      "entries": 93,
+      "distinct_link_targets": 53,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Demai 1:10",
+        "Tosefta Demai 6:4",
+        "Tosefta Demai 6:3"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Amos",
+      "links": 107,
+      "entries": 94,
+      "distinct_link_targets": 66,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Amos 4:11",
+        "Targum Jonathan on Amos 3:5",
+        "Targum Jonathan on Amos 2:15"
+      ]
+    },
+    {
+      "work": "Tosefta Kelim Kamma",
+      "links": 106,
+      "entries": 90,
+      "distinct_link_targets": 47,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Kelim Kamma 2:2",
+        "Tosefta Kelim Kamma 7:4",
+        "Tosefta Kelim Kamma 2:3"
+      ]
+    },
+    {
+      "work": "Tosefta Parah",
+      "links": 106,
+      "entries": 55,
+      "distinct_link_targets": 56,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Parah 5",
+        "Tosefta Parah 4:2",
+        "Tosefta Parah 12"
+      ]
+    },
+    {
+      "work": "Tosefta Ohalot",
+      "links": 103,
+      "entries": 97,
+      "distinct_link_targets": 62,
+      "categories": null,
+      "examples": [
+        "Tosefta Ohalot 13:3",
+        "Tosefta Ohalot 18:5",
+        "Tosefta Ohalot 5:11"
+      ]
+    },
+    {
+      "work": "Tosefta Bava Metzia",
+      "links": 101,
+      "entries": 96,
+      "distinct_link_targets": 63,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Bava Metzia 11:10",
+        "Tosefta Bava Metzia 2:1",
+        "Tosefta Bava Metzia 1:7"
+      ]
+    },
+    {
+      "work": "Tosefta Mikvaot",
+      "links": 101,
+      "entries": 72,
+      "distinct_link_targets": 50,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Mikvaot 5:7",
+        "Tosefta Mikvaot 6:1",
+        "Tosefta Mikvaot 7:14"
+      ]
+    },
+    {
+      "work": "Targum Jerusalem, Exodus",
+      "links": 98,
+      "entries": 90,
+      "distinct_link_targets": 69,
+      "categories": null,
+      "examples": [
+        "Targum Jerusalem, Exodus 28:42",
+        "Targum Jerusalem, Exodus 26:37",
+        "Targum Jerusalem, Exodus 2:3"
+      ]
+    },
+    {
+      "work": "Aramaic Targum to Ruth",
+      "links": 95,
+      "entries": 84,
+      "distinct_link_targets": 51,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Aramaic Targum",
+        "Writings"
+      ],
+      "examples": [
+        "Aramaic Targum to Ruth 1:16",
+        "Aramaic Targum to Ruth 2:7",
+        "Aramaic Targum to Ruth 2:15"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Zechariah",
+      "links": 86,
+      "entries": 77,
+      "distinct_link_targets": 61,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Zechariah 12:7",
+        "Targum Jonathan on Zechariah 10:6",
+        "Targum Jonathan on Zechariah 10:11"
+      ]
+    },
+    {
+      "work": "Tosefta Pesachim",
+      "links": 80,
+      "entries": 58,
+      "distinct_link_targets": 41,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Pesachim 7:13",
+        "Tosefta Pesachim 2",
+        "Tosefta Pesachim 3:20"
+      ]
+    },
+    {
+      "work": "Tosefta Niddah",
+      "links": 72,
+      "entries": 63,
+      "distinct_link_targets": 34,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Niddah 4:17",
+        "Tosefta Niddah 7:3",
+        "Tosefta Niddah 6:13"
+      ]
+    },
+    {
+      "work": "Tosefta Bekhorot",
+      "links": 71,
+      "entries": 65,
+      "distinct_link_targets": 33,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Bekhorot 5:8",
+        "Tosefta Bekhorot 4:2",
+        "Tosefta Bekhorot 5:4"
+      ]
+    },
+    {
+      "work": "Tosefta Negaim",
+      "links": 70,
+      "entries": 68,
+      "distinct_link_targets": 36,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Negaim 8:2",
+        "Tosefta Negaim 1:11",
+        "Tosefta Negaim 3:12"
+      ]
+    },
+    {
+      "work": "Tosefta Beitsah",
+      "links": 70,
+      "entries": 67,
+      "distinct_link_targets": 39,
+      "categories": null,
+      "examples": [
+        "Tosefta Beitsah 2:16",
+        "Tosefta Beitsah 3:20",
+        "Tosefta Beitsah 1:1"
+      ]
+    },
+    {
+      "work": "Tosefta Yoma",
+      "links": 69,
+      "entries": 55,
+      "distinct_link_targets": 30,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Yoma 1:9",
+        "Tosefta Yoma 1:8",
+        "Tosefta Yoma 1:18"
+      ]
+    },
+    {
+      "work": "Tosefta Ma'asrot",
+      "links": 68,
+      "entries": 62,
+      "distinct_link_targets": 26,
+      "categories": null,
+      "examples": [
+        "Tosefta Ma'asrot 1:4",
+        "Tosefta Ma'asrot 1:5",
+        "Tosefta Ma'asrot 2:20"
+      ]
+    },
+    {
+      "work": "Tosefta Berakhot",
+      "links": 67,
+      "entries": 62,
+      "distinct_link_targets": 47,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Berakhot 4:8",
+        "Tosefta Berakhot 4:14",
+        "Tosefta Berakhot 6"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Micah",
+      "links": 66,
+      "entries": 65,
+      "distinct_link_targets": 45,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Micah 1:6",
+        "Targum Jonathan on Micah 5:1",
+        "Targum Jonathan on Micah 1:4"
+      ]
+    },
+    {
+      "work": "Tosefta Sanhedrin",
+      "links": 66,
+      "entries": 59,
+      "distinct_link_targets": 46,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Sanhedrin 2:6",
+        "Tosefta Sanhedrin 9:8",
+        "Tosefta Sanhedrin 3:4"
+      ]
+    },
+    {
+      "work": "Tosefta Tahorot",
+      "links": 58,
+      "entries": 53,
+      "distinct_link_targets": 37,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Tahorot 7:8",
+        "Tosefta Tahorot 11:16",
+        "Tosefta Tahorot 7:12"
+      ]
+    },
+    {
+      "work": "Tosefta Ketubot",
+      "links": 57,
+      "entries": 54,
+      "distinct_link_targets": 32,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Ketubot 9:3",
+        "Tosefta Ketubot 3:8",
+        "Tosefta Ketubot 5:1"
+      ]
+    },
+    {
+      "work": "Tosefta Yevamot",
+      "links": 56,
+      "entries": 54,
+      "distinct_link_targets": 31,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Yevamot 12:11",
+        "Tosefta Yevamot 14:4",
+        "Tosefta Yevamot 10:6"
+      ]
+    },
+    {
+      "work": "Tosefta Eiruvin",
+      "links": 54,
+      "entries": 30,
+      "distinct_link_targets": 27,
+      "categories": null,
+      "examples": [
+        "Tosefta Eiruvin 5:13",
+        "Tosefta Eiruvin 4:1",
+        "Tosefta Eiruvin 8:11"
+      ]
+    },
+    {
+      "work": "Targum Jerusalem, Leviticus",
+      "links": 54,
+      "entries": 48,
+      "distinct_link_targets": 36,
+      "categories": null,
+      "examples": [
+        "Targum Jerusalem, Leviticus 10:19",
+        "Targum Jerusalem, Leviticus 26:29",
+        "Targum Jerusalem, Leviticus 7:30"
+      ]
+    },
+    {
+      "work": "Tosefta Sukkah",
+      "links": 52,
+      "entries": 51,
+      "distinct_link_targets": 29,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Sukkah 4:2",
+        "Tosefta Sukkah 4:4",
+        "Tosefta Sukkah 3:12"
+      ]
+    },
+    {
+      "work": "Midrash Mishlei",
+      "links": 48,
+      "entries": 44,
+      "distinct_link_targets": 30,
+      "categories": [
+        "Midrash",
+        "Aggadah"
+      ],
+      "examples": [
+        "Midrash Mishlei 30:1",
+        "Midrash Mishlei 30:7",
+        "Midrash Mishlei 22:3"
+      ]
+    },
+    {
+      "work": "Tosefta Ma'aser Sheni",
+      "links": 45,
+      "entries": 41,
+      "distinct_link_targets": 22,
+      "categories": null,
+      "examples": [
+        "Tosefta Ma'aser Sheni 1:4",
+        "Tosefta Ma'aser Sheni 4:10",
+        "Tosefta Ma'aser Sheni 4:11"
+      ]
+    },
+    {
+      "work": "Tosefta Menahot",
+      "links": 44,
+      "entries": 42,
+      "distinct_link_targets": 24,
+      "categories": null,
+      "examples": [
+        "Tosefta Menahot 9:2",
+        "Tosefta Menahot 9:9",
+        "Tosefta Menahot 9:5"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Nahum",
+      "links": 40,
+      "entries": 39,
+      "distinct_link_targets": 22,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Nahum 1:12",
+        "Targum Jonathan on Nahum 2:5",
+        "Targum Jonathan on Nahum 2:8"
+      ]
+    },
+    {
+      "work": "Tosefta Peah",
+      "links": 39,
+      "entries": 38,
+      "distinct_link_targets": 26,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Peah 3:8",
+        "Tosefta Peah 4:11",
+        "Tosefta Peah 1:9"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Joel",
+      "links": 39,
+      "entries": 38,
+      "distinct_link_targets": 26,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Joel 2:6",
+        "Targum Jonathan on Joel 1:17",
+        "Targum Jonathan on Joel 2:13"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Zephaniah",
+      "links": 37,
+      "entries": 36,
+      "distinct_link_targets": 22,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Zephaniah 1:5",
+        "Targum Jonathan on Zephaniah 2:13",
+        "Targum Jonathan on Zephaniah 1:12"
+      ]
+    },
+    {
+      "work": "Tosefta Kiddushin",
+      "links": 36,
+      "entries": 34,
+      "distinct_link_targets": 16,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Kiddushin 1:7",
+        "Tosefta Kiddushin 4:8",
+        "Tosefta Kiddushin 2:4"
+      ]
+    },
+    {
+      "work": "Tosefta Gittin",
+      "links": 35,
+      "entries": 19,
+      "distinct_link_targets": 17,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Gittin 7",
+        "Tosefta Gittin 5:9",
+        "Tosefta Gittin 5"
+      ]
+    },
+    {
+      "work": "Tosefta Chagigah",
+      "links": 34,
+      "entries": 31,
+      "distinct_link_targets": 18,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Chagigah 2:11",
+        "Tosefta Chagigah 3:4",
+        "Tosefta Chagigah 1:9"
+      ]
+    },
+    {
+      "work": "Tosefta Makhshirin",
+      "links": 30,
+      "entries": 30,
+      "distinct_link_targets": 20,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Makhshirin 3:8",
+        "Tosefta Makhshirin 3:4",
+        "Tosefta Makhshirin 3:6"
+      ]
+    },
+    {
+      "work": "Tosefta Moed Kattan",
+      "links": 30,
+      "entries": 29,
+      "distinct_link_targets": 15,
+      "categories": null,
+      "examples": [
+        "Tosefta Moed Kattan 1:2",
+        "Tosefta Moed Kattan 2:11",
+        "Tosefta Moed Kattan 1:1"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Malachi",
+      "links": 29,
+      "entries": 26,
+      "distinct_link_targets": 24,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Malachi 1:6",
+        "Targum Jonathan on Malachi 2:9",
+        "Targum Jonathan on Malachi 1:12"
+      ]
+    },
+    {
+      "work": "Tosefta Uktsin",
+      "links": 28,
+      "entries": 27,
+      "distinct_link_targets": 19,
+      "categories": null,
+      "examples": [
+        "Tosefta Uktsin 1:1",
+        "Tosefta Uktsin 3:6",
+        "Tosefta Uktsin 3:9"
+      ]
+    },
+    {
+      "work": "Tosefta Nedarim",
+      "links": 27,
+      "entries": 26,
+      "distinct_link_targets": 19,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Nedarim 4:3",
+        "Tosefta Nedarim 1:3",
+        "Tosefta Nedarim 4:1"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Jonah",
+      "links": 26,
+      "entries": 23,
+      "distinct_link_targets": 21,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Jonah 1:3",
+        "Targum Jonathan on Jonah 1:16",
+        "Targum Jonathan on Jonah 1:8"
+      ]
+    },
+    {
+      "work": "Tosefta Nazir",
+      "links": 26,
+      "entries": 25,
+      "distinct_link_targets": 14,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nashim"
+      ],
+      "examples": [
+        "Tosefta Nazir 4:7",
+        "Tosefta Nazir 1:3",
+        "Tosefta Nazir 1:2"
+      ]
+    },
+    {
+      "work": "Tosefta Shekalim",
+      "links": 22,
+      "entries": 18,
+      "distinct_link_targets": 16,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Shekalim 2:4",
+        "Tosefta Shekalim 2:15",
+        "Tosefta Shekalim 2:14"
+      ]
+    },
+    {
+      "work": "Ruth Rabbah, Petichta",
+      "links": 22,
+      "entries": 22,
+      "distinct_link_targets": 1,
+      "categories": null,
+      "examples": [
+        "Ruth Rabbah, Petichta 1"
+      ]
+    },
+    {
+      "work": "Tosefta Zevahim",
+      "links": 20,
+      "entries": 20,
+      "distinct_link_targets": 14,
+      "categories": null,
+      "examples": [
+        "Tosefta Zevahim 2:3",
+        "Tosefta Zevahim 13:17",
+        "Tosefta Zevahim 1:1"
+      ]
+    },
+    {
+      "work": "Tosefta Zavim",
+      "links": 17,
+      "entries": 14,
+      "distinct_link_targets": 10,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Zavim 5:9",
+        "Tosefta Zavim 2:5",
+        "Tosefta Zavim 4:4"
+      ]
+    },
+    {
+      "work": "Tosefta Challah",
+      "links": 17,
+      "entries": 17,
+      "distinct_link_targets": 10,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Challah 1:6",
+        "Tosefta Challah 1:1",
+        "Tosefta Challah 1:11"
+      ]
+    },
+    {
+      "work": "Tosefta Arakhin",
+      "links": 16,
+      "entries": 16,
+      "distinct_link_targets": 12,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Arakhin 1:9",
+        "Tosefta Arakhin 1:13",
+        "Tosefta Arakhin 1:11"
+      ]
+    },
+    {
+      "work": "Tosefta Shevuot",
+      "links": 15,
+      "entries": 15,
+      "distinct_link_targets": 8,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Shevuot 6:4",
+        "Tosefta Shevuot 5:12",
+        "Tosefta Shevuot 1:7"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Obadiah",
+      "links": 14,
+      "entries": 14,
+      "distinct_link_targets": 9,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Obadiah 1:6",
+        "Targum Jonathan on Obadiah 1:20",
+        "Targum Jonathan on Obadiah 1:5"
+      ]
+    },
+    {
+      "work": "Tosefta Makkot",
+      "links": 14,
+      "entries": 10,
+      "distinct_link_targets": 9,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Makkot 1:10",
+        "Tosefta Makkot 3",
+        "Tosefta Makkot 2:2"
+      ]
+    },
+    {
+      "work": "Targum Jonathan on Haggai",
+      "links": 13,
+      "entries": 12,
+      "distinct_link_targets": 9,
+      "categories": [
+        "Tanakh",
+        "Targum",
+        "Targum Jonathan",
+        "Prophets"
+      ],
+      "examples": [
+        "Targum Jonathan on Haggai 2:23",
+        "Targum Jonathan on Haggai 2:16",
+        "Targum Jonathan on Haggai 2:19"
+      ]
+    },
+    {
+      "work": "Tosefta Ta'anit",
+      "links": 13,
+      "entries": 10,
+      "distinct_link_targets": 8,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Ta'anit 1:2",
+        "Tosefta Ta'anit 1:7",
+        "Tosefta Ta'anit 3"
+      ]
+    },
+    {
+      "work": "Tosefta Eduyot",
+      "links": 11,
+      "entries": 11,
+      "distinct_link_targets": 6,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Eduyot 1:14",
+        "Tosefta Eduyot 2:4",
+        "Tosefta Eduyot 1:8"
+      ]
+    },
+    {
+      "work": "Tosefta Tevul Yom",
+      "links": 10,
+      "entries": 10,
+      "distinct_link_targets": 7,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Tevul Yom 1:1",
+        "Tosefta Tevul Yom 2:12",
+        "Tosefta Tevul Yom 2:2"
+      ]
+    },
+    {
+      "work": "Tosefta Megillah",
+      "links": 9,
+      "entries": 7,
+      "distinct_link_targets": 8,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Moed"
+      ],
+      "examples": [
+        "Tosefta Megillah 3:21",
+        "Tosefta Megillah 2:6",
+        "Tosefta Megillah 2:5"
+      ]
+    },
+    {
+      "work": "Eichah Rabbah, Petichta",
+      "links": 8,
+      "entries": 8,
+      "distinct_link_targets": 3,
+      "categories": null,
+      "examples": [
+        "Eichah Rabbah, Petichta 7",
+        "Eichah Rabbah, Petichta 24",
+        "Eichah Rabbah, Petichta 16"
+      ]
+    },
+    {
+      "work": "Tosefta Yadayim",
+      "links": 8,
+      "entries": 7,
+      "distinct_link_targets": 7,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Tahorot"
+      ],
+      "examples": [
+        "Tosefta Yadayim 2:16",
+        "Tosefta Yadayim 2:20",
+        "Tosefta Yadayim 1:20"
+      ]
+    },
+    {
+      "work": "Tosefta Meilah",
+      "links": 8,
+      "entries": 6,
+      "distinct_link_targets": 7,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Meilah 1:21",
+        "Tosefta Meilah 1:5",
+        "Tosefta Meilah 1:8"
+      ]
+    },
+    {
+      "work": "Tosefta Keritot",
+      "links": 6,
+      "entries": 4,
+      "distinct_link_targets": 6,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Keritot 1:20",
+        "Tosefta Keritot 3:2",
+        "Tosefta Keritot 3:7"
+      ]
+    },
+    {
+      "work": "Tosefta Bikkurim",
+      "links": 5,
+      "entries": 5,
+      "distinct_link_targets": 4,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Zeraim"
+      ],
+      "examples": [
+        "Tosefta Bikkurim 2:5",
+        "Tosefta Bikkurim 2:16",
+        "Tosefta Bikkurim 2:15"
+      ]
+    },
+    {
+      "work": "The Book of Maccabees I",
+      "links": 4,
+      "entries": 4,
+      "distinct_link_targets": 4,
+      "categories": [
+        "Second Temple",
+        "Apocrypha"
+      ],
+      "examples": [
+        "The Book of Maccabees I 15:37",
+        "The Book of Maccabees I 13:51",
+        "The Book of Maccabees I 13:39"
+      ]
+    },
+    {
+      "work": "Tosefta Horayot",
+      "links": 3,
+      "entries": 3,
+      "distinct_link_targets": 3,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Nezikin"
+      ],
+      "examples": [
+        "Tosefta Horayot 2:10",
+        "Tosefta Horayot 1:1",
+        "Tosefta Horayot 2:5"
+      ]
+    },
+    {
+      "work": "The Book of Maccabees II",
+      "links": 2,
+      "entries": 2,
+      "distinct_link_targets": 2,
+      "categories": [
+        "Second Temple",
+        "Apocrypha"
+      ],
+      "examples": [
+        "The Book of Maccabees II 6:1",
+        "The Book of Maccabees II 15:30"
+      ]
+    },
+    {
+      "work": "Esther Rabbah, Petichta",
+      "links": 2,
+      "entries": 2,
+      "distinct_link_targets": 1,
+      "categories": null,
+      "examples": [
+        "Esther Rabbah, Petichta 11"
+      ]
+    },
+    {
+      "work": "Tosefta Temurah",
+      "links": 2,
+      "entries": 2,
+      "distinct_link_targets": 2,
+      "categories": [
+        "Tosefta",
+        "Vilna Edition",
+        "Seder Kodashim"
+      ],
+      "examples": [
+        "Tosefta Temurah 4:10",
+        "Tosefta Temurah 4:8"
+      ]
+    },
+    {
+      "work": "Mekhilta d'Rabbi Yishmael",
+      "links": 1,
+      "entries": 1,
+      "distinct_link_targets": 1,
+      "categories": null,
+      "examples": [
+        "Mekhilta d'Rabbi Yishmael 1"
+      ]
+    }
+  ],
+  "grouped_works": [
+    {
+      "work": "Targum Jonathan (Prophets)",
+      "links": 4469,
+      "entries": 2483
+    },
+    {
+      "work": "Tosefta (all tractates)",
+      "links": 4290,
+      "entries": 2772
+    },
+    {
+      "work": "Bereishit Rabbah",
+      "links": 3842,
+      "entries": 3039
+    },
+    {
+      "work": "Yalkut Shimoni (Torah and Nach)",
+      "links": 3690,
+      "entries": 2886
+    },
+    {
+      "work": "Targum Onkelos (Pentateuch)",
+      "links": 3660,
+      "entries": 2050
+    },
+    {
+      "work": "Targum Pseudo-Jonathan (Pentateuch)",
+      "links": 3055,
+      "entries": 2081
+    },
+    {
+      "work": "Aramaic Targum to Psalms",
+      "links": 1916,
+      "entries": 1336
+    },
+    {
+      "work": "Vayikra Rabbah",
+      "links": 1684,
+      "entries": 1476
+    },
+    {
+      "work": "Bamidbar Rabbah",
+      "links": 1348,
+      "entries": 1136
+    },
+    {
+      "work": "Aramaic Targum to Proverbs",
+      "links": 1340,
+      "entries": 935
+    },
+    {
+      "work": "Aramaic Targum to Job",
+      "links": 1203,
+      "entries": 953
+    },
+    {
+      "work": "Shir HaShirim Rabbah",
+      "links": 1174,
+      "entries": 1020
+    },
+    {
+      "work": "Shemot Rabbah",
+      "links": 1034,
+      "entries": 887
+    },
+    {
+      "work": "Kohelet Rabbah",
+      "links": 911,
+      "entries": 808
+    },
+    {
+      "work": "Midrash Tehillim",
+      "links": 880,
+      "entries": 761
+    },
+    {
+      "work": "Pesikta Rabbati",
+      "links": 809,
+      "entries": 716
+    },
+    {
+      "work": "Eichah Rabbah",
+      "links": 695,
+      "entries": 652
+    },
+    {
+      "work": "Jerusalem Targum (Pentateuch)",
+      "links": 616,
+      "entries": 517
+    },
+    {
+      "work": "Targum to Chronicles (I and II)",
+      "links": 568,
+      "entries": 480
+    },
+    {
+      "work": "Sifrei Devarim",
+      "links": 402,
+      "entries": 386
+    },
+    {
+      "work": "Esther Rabbah",
+      "links": 347,
+      "entries": 325
+    },
+    {
+      "work": "Devarim Rabbah",
+      "links": 288,
+      "entries": 263
+    },
+    {
+      "work": "Aramaic Targum to Esther",
+      "links": 286,
+      "entries": 255
+    },
+    {
+      "work": "Aramaic Targum to Ecclesiastes",
+      "links": 248,
+      "entries": 224
+    },
+    {
+      "work": "Aramaic Targum to Song of Songs",
+      "links": 241,
+      "entries": 217
+    },
+    {
+      "work": "Aramaic Targum to Lamentations",
+      "links": 222,
+      "entries": 195
+    },
+    {
+      "work": "Sifrei Bamidbar",
+      "links": 193,
+      "entries": 172
+    },
+    {
+      "work": "Pirkei DeRabbi Eliezer",
+      "links": 170,
+      "entries": 155
+    },
+    {
+      "work": "Ruth Rabbah",
+      "links": 159,
+      "entries": 152
+    },
+    {
+      "work": "Avot D'Rabbi Natan",
+      "links": 122,
+      "entries": 115
+    },
+    {
+      "work": "Aramaic Targum to Ruth",
+      "links": 95,
+      "entries": 84
+    },
+    {
+      "work": "Midrash Mishlei",
+      "links": 48,
+      "entries": 44
+    },
+    {
+      "work": "The Book of Maccabees I",
+      "links": 4,
+      "entries": 4
+    },
+    {
+      "work": "The Book of Maccabees II",
+      "links": 2,
+      "entries": 2
+    },
+    {
+      "work": "Mekhilta d'Rabbi Yishmael",
+      "links": 1,
+      "entries": 1
+    }
+  ]
+}

@@ -2,6 +2,20 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands the divinity, bibliography, and wording additions", () => {
+  for (const [key, value] of Object.entries({
+    "X.": "10.", godhead: "divinity", genius: "deity", Thy: "Your",
+    "S’liḥ.": "Selichot", "Pu.": "Pu'al", "Sepph.": "Sepphoris",
+    "Rabbin.": "Rabbinical", "Semin.": "Seminary", "Koenigr.": "Koenigreich",
+    "m’gillah": "megillah", "En Yakob": "Ein Yaakov", "defin.": "definition",
+    tautography: "dittography", "Tana d’be El.": "Tanna Devei Eliyahu",
+    husbandman: "farmer", "equival.": "equivalent", membrum: "penis",
+    "membrum virile": "penis", "Holy day": "Holiday",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+});
+
 it("expands the Pekudei, grammatical, reference, and archaic-word additions", () => {
   for (const [key, value] of Object.entries({
     "P’kudé": "Pekudei",
