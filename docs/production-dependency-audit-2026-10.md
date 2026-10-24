@@ -63,3 +63,14 @@ directory sizes cannot be converted directly into upload-time savings.
 Recommended next batch: remove unused react-icons and perform a clean
 lockfile-based install, then validate both production builds and typechecks.
 Treat the Gmail client replacement as a separate functional change.
+
+## Completed cleanup
+
+Removed react-icons and recreated workspace dependency installations from the
+lockfile. Final root node_modules usage decreased from 1,801,936 KiB to
+779,132 KiB (about 57%). The clean install exposed undeclared Vitest and
+tailwindcss-animate dependencies; both are now declared by the frontend.
+Frozen installation, workspace typechecks, both production builds, and three
+dependency-security regression tests passed. Both development services restarted
+and the homepage rendered correctly. Actual publishing-time savings remain to
+be measured on the next publish. The Google SDK was left unchanged.
