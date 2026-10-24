@@ -7,13 +7,10 @@ import test from "node:test";
 const webRequire = createRequire(
   new URL("../../artifacts/chavrutai/package.json", import.meta.url),
 );
-const sandboxRequire = createRequire(
-  new URL("../../artifacts/mockup-sandbox/package.json", import.meta.url),
-);
 const tailwindRequire = createRequire(webRequire.resolve("tailwindcss"));
 const micromatchRequire = createRequire(tailwindRequire.resolve("micromatch"));
 const chokidarRequire = createRequire(tailwindRequire.resolve("chokidar"));
-const globRequire = createRequire(sandboxRequire.resolve("fast-glob"));
+const globRequire = createRequire(tailwindRequire.resolve("fast-glob"));
 const globMatchRequire = createRequire(globRequire.resolve("micromatch"));
 const bracesPath = micromatchRequire.resolve("braces");
 const braces = micromatchRequire("braces");

@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Publishing Cleanup (October 24)</h3>
+            <p>Archived the demo video, research-guide preview, and design experiments. Excluded archived projects and development-only files from publishing while preserving their source for future use.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Additional Mappings</h3>
             <p>Added 22 abbreviation and wording mappings, including “Leipz.” → “Leipzig,” “Meg. Taan.” → “Megillat Ta'anit,” and “asses” → “donkeys.” Revised seven existing expansions, including “q. v.” → “which see” and “Ithpalp.” → “Itpalpel,” in both inline and tooltip modes.</p>
           </div>

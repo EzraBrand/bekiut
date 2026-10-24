@@ -1,7 +1,6 @@
 name: Publish guide to GitHub Pages
 on:
-  push:
-    branches: [main]
+  # Archived: publication must be explicitly requested, not triggered by pushes.
   workflow_dispatch:
 permissions:
   contents: read

@@ -1,5 +1,10 @@
 # Jewish Research Guide — 2026 working edition
 
+> **Archived in this workspace (October 24, 2026).** Source and research are
+> retained for reference. This project is excluded from Bekiut publishing;
+> automatic GitHub Pages publishing is disabled in this local workflow.
+> These local changes do not unpublish the existing GitHub Pages site.
+
 A standalone update project for Ezra Brand’s *Guide to Online Resources for Scholarly Jewish Study and Research* (2023, v6, 4 December).
 
 **Status:** first 2026 working edition, not a completed line-by-line revision of all 47 pages. The full 2023 text and all hyperlink destinations are retained. A curated directory, AI research section, and reproducible link audit provide the new edition’s starting point. Original pricing, corpus sizes and time-sensitive claims have **not** all been revalidated.

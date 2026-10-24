@@ -1,5 +1,9 @@
 packages:
   - artifacts/*
+  # Archived projects retain their source but are not installed or built.
+  - '!artifacts/bekiut-demo'
+  - '!artifacts/research-guide-preview'
+  - '!artifacts/mockup-sandbox'
   - lib/*
   - lib/integrations/*
   - scripts

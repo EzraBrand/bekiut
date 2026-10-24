@@ -12,6 +12,4 @@ pkill -f "vite --config vite.config.ts" 2>/dev/null || true
 pnpm install --no-frozen-lockfile
 pnpm --filter db push
 
-# Restore the Bekiut demo video's Git-ignored media (audio, captures, MP4)
-# from App Storage. Skips files whose sha256 already matches; fails setup on any error.
-node artifacts/bekiut-demo/restore-media.mjs restore
+# The archived demo's media restoration is now manual; see docs/archived-projects.md.

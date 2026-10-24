@@ -1,29 +1,10 @@
 kind = "video"
 videoAspectRatio = "16:9"
 previewPath = "/bekiut-demo/"
-title = "Bekiut · 30-second demo"
+title = "Archived — Bekiut · 30-second demo"
 description = "An editable 30-second landscape product demo of Bekiut with authentic interface content, English narration, captions and music."
 version = "1.0.0"
 id = "artifacts/bekiut-demo"
 router = "path"
 
-[[services]]
-name = "web"
-paths = [ "/bekiut-demo/" ]
-localPort = 21943
-
-[services.development]
-run = "pnpm --filter @workspace/bekiut-demo run dev"
-
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/bekiut-demo", "run", "build" ]
-serve = "static"
-publicDir = "artifacts/bekiut-demo/dist/public"
-
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
-
-[services.env]
-PORT = "21943"
-BASE_PATH = "/bekiut-demo/"
+services = []

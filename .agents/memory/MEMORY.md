@@ -1,3 +1,4 @@
+- [Archived side projects](archived-projects.md) — demo, guide preview and design sandbox are retired; preserve source/media without auto-restoring or publishing.
 - [Search pagination](search-pagination.md) — group passages before offsets; Sefaria supports ref.keyword collapse, but cardinality totals are estimates.
 - [Draft delivery](draft-merge-delivery.md) — ignored drafts can disappear across task merges despite retained asset metadata; preserve a merge-visible copy and present the file.
 - [Missing custom skills](missing-custom-skills.md) — pnpm migration omitted some skills from restoration; search Git history before reporting a user-mentioned skill unavailable.
