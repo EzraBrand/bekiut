@@ -16,7 +16,7 @@ it("expands the Chovah, historical references, wording, and contextual V additio
     "Hashsh'mini": "Ha-shemini",
     "ed. Fr.": "ed. Friedmann",
     "V (": "5 (",
-    "omitt.": "omitted to",
+    "omitt.": "omitted",
     "Vayesh.": "Vayeshev",
   })) {
     expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
