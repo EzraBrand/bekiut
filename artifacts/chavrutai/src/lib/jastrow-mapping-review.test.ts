@@ -2,6 +2,15 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands tense, Frankel, Hanina, and wording additions", () => {
+  for (const [key, value] of Object.entries({
+    "fut.": "future (tense)", "Fr. M’bo": "Frankel, Introduction to the Jerusalem Talmud",
+    "R. Ḥān.": "Rabbi Hanina", "orig.": "originally", "gener.": "generation", seest: "see",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+});
+
 it("leaves standalone Fr. unchanged and expands the specific Frankel reference", () => {
   expect(expandAbbreviations("Fr.", data.mappings)).toBe("Fr.");
   expect(expandAbbreviations("Fr. Darkhé Mish.", data.mappings))
