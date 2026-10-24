@@ -52,6 +52,19 @@ describe("Jastrow source fidelity", () => {
     const source = '<i>ordinary prose</i>. <a href="/fem">fem</a>.';
     expect(normalizeJastrowAbbreviationMarkup(source, mappings.mappings)).toBe(source);
   });
+  it("recognizes Pu. at the end of a longer italic span in גָּהַץ C00259", () => {
+    const source = '<i>Part. Pu</i>. מְגיּהָץ';
+    const structured = structureJastrowDefinition(source, "C00259", false);
+    const normalized = normalizeJastrowAbbreviationMarkup(structured.html, mappings.mappings);
+    expect(normalized).toBe('<i>Part. Pu.</i> מְגיּהָץ');
+    expect(expandAbbreviations(normalized, mappings.mappings)).toContain(">Pu'al</span>");
+    const original = expandAbbreviations(normalized, mappings.mappings, { display: "original" });
+    const doc = new DOMParser().parseFromString(original, "text/html");
+    expect(doc.querySelector('button[data-bdb-expansion="Pu\'al"]')?.textContent).toBe("Pu.");
+    expect(doc.body.textContent).toBe("Part. Pu. מְגיּהָץ");
+    expect(normalizeJastrowAbbreviationMarkup("<i>notPu</i>.", mappings.mappings))
+      .toBe("<i>notPu</i>.");
+  });
   it("recognizes &c. with an italicized period in כָּבַשׁ K00081", () => {
     const source = '<i>to press vegetables, meat </i>&c<i>.</i>;<i> to preserve, pickle.</i>';
     for (const extraSplits of [false, true]) {

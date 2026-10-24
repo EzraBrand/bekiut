@@ -54,7 +54,13 @@ export function normalizeJastrowAbbreviationMarkup(html: string, mappings: Recor
   return restoreJastrowEtCetera(html).replace(
     /<(i|em|b|strong)(\s[^>]*)?>([^<>]+)<\/\1>\./gi,
     (original, tag: string, attributes: string | undefined, text: string) =>
-      Object.prototype.hasOwnProperty.call(mappings, `${text}.`)
+      Object.keys(mappings).some(key => {
+        if (!key.endsWith(".")) return false;
+        const stem = key.slice(0, -1);
+        if (!stem || !text.endsWith(stem)) return false;
+        const prefix = text.slice(0, -stem.length);
+        return !prefix || !/[\p{L}\p{N}\p{M}]$/u.test(prefix);
+      })
         ? `<${tag}${attributes || ""}>${text}.</${tag}>`
         : original,
   );
