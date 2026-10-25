@@ -44,6 +44,19 @@ const post = (body: unknown = payload, headers = {}) => fetch(base, {
 });
 
 describe("chat admission and CORS", () => {
+  it("returns clean assistant history that validates on the second turn", async () => {
+    mocks.complete.mockResolvedValueOnce({ choices: [{ message: {
+      role: "assistant", content: "First answer", refusal: null, reasoning: null,
+      annotations: [],
+    } }] });
+    const first = await post();
+    const body = await first.json() as { message: { role: string; content: string } };
+    expect(body.message).toEqual({ role: "assistant", content: "First answer" });
+    const second = await post({ messages: [
+      ...payload.messages, body.message, { role: "user", content: "Explain further" },
+    ] });
+    expect(second.status).toBe(200);
+  });
   it("uses the explicit Replit OpenRouter configuration and GPT-4o", async () => {
     expect((await post()).status).toBe(200);
     expect(mocks.configure).toHaveBeenCalledWith({

@@ -50,14 +50,15 @@ export function useChat(context?: ChatContext) {
         history = history.slice(2);
       }
       const res = await apiRequest('POST', '/api/chat', {
-        messages: history,
+        // Provider metadata (refusal/reasoning/tool_calls) is not chat history.
+        messages: history.map(({ role, content }) => ({ role, content })),
         context: preparedContext.context
       });
 
       const response: ChatResponse = await res.json();
 
       setLastToolCalls(response.toolCalls);
-      setMessages([...newMessages, response.message]);
+      setMessages([...newMessages, { role: response.message.role, content: response.message.content }]);
       trackPublishingEvent('ai_response_received', {
         has_context: Boolean(context),
         conversation_turn: newMessages.filter((message) => message.role === 'user').length,

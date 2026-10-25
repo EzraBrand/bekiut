@@ -208,7 +208,7 @@ ${context.englishText || 'N/A'}` : '';
         }
         
         res.json({
-          message: finalMessage,
+          message: { role: "assistant", content: finalMessage.content ?? finalMessage.refusal ?? "" },
           toolCalls: responseMessage.tool_calls
             .filter(tc => tc.type === 'function')
             .map((tc, i) => ({
@@ -231,7 +231,7 @@ ${context.englishText || 'N/A'}` : '';
         }
         
         res.json({
-          message: responseMessage,
+          message: { role: "assistant", content: responseMessage.content ?? responseMessage.refusal ?? "" },
           toolCalls: []
         });
       }
