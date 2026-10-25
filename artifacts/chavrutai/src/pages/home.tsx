@@ -244,16 +244,12 @@ export default function Home() {
                       {parsha.titleEn} <span aria-hidden="true">›</span>
                       <span className="block text-muted-foreground mt-1">{parsha.ref}</span>
                     </Link>
-                    <p dir="rtl" lang="he" className="text-sm text-muted-foreground mt-2 text-left">
-                      {parsha.titleHe} · {parsha.heRef}
-                    </p>
                   </>
                 ) : (
                   <p className="text-sm text-muted-foreground" role="status">
                     {parshaLoading ? "Loading this week’s portion…" : parshaError ? "Weekly portion temporarily unavailable." : "No weekly portion available."}
                   </p>
                 )}
-                <p className="text-xs text-muted-foreground mt-2">Israel schedule · Sefaria</p>
               </div>
             </div>
             <div className="md:px-8 py-4 md:py-0 border-t border-border md:border-t-0">
