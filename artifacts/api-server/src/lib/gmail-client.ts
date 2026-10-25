@@ -7,6 +7,22 @@ import { logger } from "./logger";
 
 let connectionSettings: any;
 
+// RFC 2047 encoded-words: each stays under 75 characters, without splitting
+// a UTF-8 character. Fold with CRLF + space for long Hebrew/Unicode subjects.
+function encodeSubject(subject: string): string {
+  const chunks: string[] = [];
+  let chunk = "";
+  for (const character of subject.replace(/[\r\n]/g, " ")) {
+    if (Buffer.byteLength(chunk + character, "utf8") > 42) {
+      chunks.push(chunk);
+      chunk = "";
+    }
+    chunk += character;
+  }
+  if (chunk) chunks.push(chunk);
+  return chunks.map(text => `=?UTF-8?B?${Buffer.from(text, "utf8").toString("base64")}?=`).join("\r\n ");
+}
+
 async function getAccessToken() {
   if (connectionSettings && connectionSettings.settings.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
     return connectionSettings.settings.access_token;
@@ -103,12 +119,13 @@ This is an automated notification from Bekiut's Sugya Viewer.
     // Create the email in RFC 2822 format with proper headers
     const email = [
       'Content-Type: text/plain; charset="UTF-8"',
+      'Content-Transfer-Encoding: base64',
       'MIME-Version: 1.0',
       `To: ${recipientEmail}`,
-      `Subject: ${subject}`,
+      `Subject: ${encodeSubject(subject)}`,
       '',
-      body
-    ].join('\n');
+      Buffer.from(body, "utf8").toString("base64").match(/.{1,76}/g)!.join("\r\n")
+    ].join('\r\n');
 
     // Encode as base64url
     const encodedEmail = Buffer.from(email)

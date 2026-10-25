@@ -41,5 +41,18 @@ it("sends only admitted alerts and prevents subject header injection", async () 
   await sendChatbotAlert(params);
   expect(mocks.send).toHaveBeenCalledTimes(1);
   const email = Buffer.from(mocks.send.mock.calls[0][0].requestBody.raw, "base64url").toString();
-  expect(email.split("\n\n")[0]).not.toContain("\nBcc:");
+  expect(email.split("\r\n\r\n")[0]).not.toMatch(/\r\nBcc:/);
+});
+it("round-trips Unicode subjects and bodies using MIME encodings", async () => {
+  mocks.quota.mockResolvedValue(true);
+  const range = "TEST — email alert setup · בראשית ".repeat(5);
+  await sendChatbotAlert({ ...params, talmudRange: range, userQuestion: "שלום — question" });
+  const email = Buffer.from(mocks.send.mock.calls[0][0].requestBody.raw, "base64url").toString("utf8");
+  const [headers, body] = email.split("\r\n\r\n");
+  const words = [...headers.matchAll(/=\?UTF-8\?B\?([^?]+)\?=/g)];
+  expect(words.length).toBeGreaterThan(1);
+  expect(words.map(match => Buffer.from(match[1], "base64").toString("utf8")).join(""))
+    .toBe(`Bekiut Chatbot Query: ${range.slice(0, 160)}`);
+  for (const match of words) expect(match[0].length).toBeLessThanOrEqual(75);
+  expect(Buffer.from(body, "base64").toString("utf8")).toContain("שלום — question");
 });
