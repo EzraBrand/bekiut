@@ -2,6 +2,29 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("keeps spacing and compound matches without space-prefixed keys", () => {
+  expect(Object.keys(data.mappings).filter(key => key !== key.trimStart())).toEqual([]);
+  for (const [source, target] of [["h.", "Hebrew"], ["sing.", "singular"], ["w.", "word"], ["w. fr.", "word from"]]) {
+    expect(expandAbbreviations(`before ${source} after`, data.mappings))
+      .toBe(`before <span class="dict-expanded">${target}</span> after`);
+    expect(expandAbbreviations(`before ${source} after`, data.mappings, { display: "original" }))
+      .toContain(`data-bdb-expansion="${encodeURIComponent(target)}"`);
+  }
+});
+
+it("uses the ed. prefix consistently without re-expanding the target", () => {
+  for (const [source, target] of Object.entries({
+    "ed. Berl.": "ed. Berliner", "ed. Bub.": "ed. Buber",
+    "ed. Const.": "ed. Constantinople", "ed. Fr.": "ed. Friedmann",
+    "ed. Koh.": "ed. Kohut", "ed. Lag.": "ed. Lagarde",
+    "ed. Lehm.": "ed. Lehmann", "ed. pr.": "ed. princeps",
+    "ed. Wil.": "ed. Vilna", "ed. Zuck.": "ed. Zuckermandel",
+  })) {
+    expect(expandAbbreviations(source, data.mappings))
+      .toBe(`<span class="dict-expanded">${target}</span>`);
+  }
+});
+
 it("prefers the compound passive participle mapping in דָּבַב II D00039", () => {
   const source = '<i>to speak evil, be hostile</i>, only in part. pass. <span dir="rtl">דָּבוּב</span>';
   const inline = expandAbbreviations(source, data.mappings);
@@ -60,7 +83,7 @@ it("expands the divinity, bibliography, and wording additions", () => {
 it("expands the Pekudei, grammatical, reference, and archaic-word additions", () => {
   for (const [key, value] of Object.entries({
     "P’kudé": "Pekudei",
-    "ed. pr.": "editio princeps",
+    "ed. pr.": "ed. princeps",
     "Ki Thetse": "Ki Teitzei",
     "T’bul": "Tevul",
     "Semit.": "Semitic",
@@ -190,7 +213,7 @@ const examples = [
     Babel: "Babylon", "Bal.": "Balak", "Pu.": "Pu'al",
     "imperat.": "imperative", "suff.": "suffix", "phras.": "phraseology",
     ye: "you (plural)", proselyte: "convert", proselytes: "converts",
-    Israelitish: "Israelite", "ed. Koh.": "edition Kohut", "art thou": "are you",
+    Israelitish: "Israelite", "ed. Koh.": "ed. Kohut", "art thou": "are you",
     "Luzz. Philox.": "Luzzatto, Philoxenus", "sec. r.": "secondary root",
     "Sh’mini": "Shemini", gentiles: "non-Jews", "Sm.": "Smith", ass: "donkey",
     "Differ.": "Different", "eds.": "editions", "Rab. D. S.": "Rabbinovicz, 'Dikdukei Soferim'",
@@ -212,7 +235,7 @@ const examples = [
     "perf.": "perfect", "the Day of Atonement": "Yom Kippur",
     "interpret.": "interpretation(s)", "Thou art": "You are", Nitsabim: "Nitzavim",
     "Hithpa.": "Hitpa'el", "Pe.": "Pe'al", "Peal.": "Pe'al",
-    "Ms. M.": "Manuscript Munich", " h. ": " Hebrew",
+    "Ms. M.": "Manuscript Munich",
     "ch. = h.": "Aramaic, equivalent to Hebrew",
     "Z’ʿera": "Ze'ira", "Pa.": "Pa'el", "Ithpa.": "Itpa'al", "Ithpe.": "Itpe'el",
     "a.": "and", "ident.": "identical", "Mss.": "manuscripts", camest: "came",
@@ -345,7 +368,7 @@ describe("Jastrow corpus-reviewed additions", () => {
     ["corr. acc.", "correct accordingly"],
     ["Rabb. D. S.", "Rabbinowicz, 'Dikdukei Sofrim'"],
     ["Sm. Ant.", "Smith, 'Dictionary of Greek and Roman Antiquities'"],
-    ["ed. Lag.", "Lagarde edition"],
+    ["ed. Lag.", "ed. Lagarde"],
     ["Ges. H. Dict.", "Gesenius, 'Hebrew Dictionary'"],
     ["Part. pass.", "passive participle"],
     ["Ms. Oxf.", "Manuscript Oxford"],

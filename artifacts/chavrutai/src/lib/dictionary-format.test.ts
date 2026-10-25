@@ -486,9 +486,9 @@ describe("Jastrow abbreviation expansion", () => {
     ["sq.", "and following"],
     ["Part. pass.", "passive participle"],
     ["Part.", "participle"],
-    ["ed. Lag.", "Lagarde edition"],
-    ["ed. Wil.", "Vilna edition"],
-    ["ed. Berl.", "Berliner edition"],
+    ["ed. Lag.", "ed. Lagarde"],
+    ["ed. Wil.", "ed. Vilna"],
+    ["ed. Berl.", "ed. Berliner"],
     ["oth. ed.", "other editions"],
     ["infra.", "below"],
     ["Talm. Y.", "Jerusalem Talmud"],
@@ -538,13 +538,13 @@ describe("Jastrow abbreviation expansion", () => {
       jastrowMappings,
     );
     expect(rendered).toContain('href="/search?edition=Lag."');
-    expect(rendered).toContain(">Lagarde edition</span>");
+    expect(rendered).toContain(">ed. Lagarde</span>");
   });
 
   it.each([
     [
       "Targum Jonathan on Jeremiah 8:20 ed. Lag. (ed. קִבָּא)",
-      ["Lagarde edition", "edition(s)"],
+      ["ed. Lagarde", "edition(s)"],
     ],
     [
       "דָּאִיךְ fr. דּוּךְ",

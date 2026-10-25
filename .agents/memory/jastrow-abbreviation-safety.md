@@ -11,6 +11,14 @@ Reconcile candidates against Jastrow’s own digitized abbreviation list, but do
 
 Jastrow expansion targets should not introduce trailing colons.
 
+Edition-reference expansions should consistently use `ed. ` followed by the
+expanded name (including `ed. princeps`).
+
+**Why:** The user requested consistent edition-reference formatting rather than
+mixing “edition X”, “X edition”, and “ed. X”.
+
+**How to apply:** Preserve that prefix when adding or revising edition mappings.
+
 **Why:** The user requested removal of all trailing colons from mapped expansions,
 not just selected verb forms.
 

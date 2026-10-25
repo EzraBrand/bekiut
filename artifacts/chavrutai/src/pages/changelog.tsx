@@ -39,6 +39,7 @@ export default function Changelog() {
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Additional Mappings (October 25)</h3>
+            <p>Standardized edition references to “ed.” followed by the expanded name. Removed redundant space-prefixed mappings that could disrupt spacing or block longer phrases such as “part. pass.” and “w. fr.”.</p>
             <p>Added expansions for Mikk., Mshp., Nöld., Lidd., Tos’f. Y. Tob, Ki Tsetsé, and deriv., and converted “St. John’s bread” to “carob”. The existing “part. pass.” expansion remains “passive participle”.</p>
           </div>
           <div className="text-muted-foreground mb-4">
