@@ -20,7 +20,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "drizzle-orm": "catalog:",
-    "express": "^5.2.1",
+    "express": "^5.3.0",
     "googleapis": "^173.0.0",
     "openai": "^6.45.0",
     "pino": "^9.14.0",

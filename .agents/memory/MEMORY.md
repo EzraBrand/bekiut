@@ -34,3 +34,4 @@
 - [Bekiut pronunciation](bekiut-pronunciation.md) — user-specified be-KEE-oot and mish-NEH to-RAH for narration.
 - [Anonymous chat boundary](chat-abuse-boundary.md) — persistent shared quotas fail closed; forwarded IPs need a verified ingress trust contract.
 - [Dependency remediation scope](dependency-remediation-scope.md) — keep the local braces fix until upstream patches it; avoid a CSS framework migration or misleading scanner suppression.
+- [Dependency major upgrades](dependency-major-upgrades.md) — rebuild shared TypeScript declarations before diagnosing downstream errors after a schema-library major upgrade.

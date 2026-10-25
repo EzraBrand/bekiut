@@ -43,3 +43,23 @@ regressions pass against it.
 - Check API generation and production CSS builds after toolchain changes.
 - Run the dependency scanner again; investigate new findings rather than
   suppressing them.
+
+## October 2026 dependency follow-up
+
+The workspace uses Zod 4.6.7 and Happy DOM 21.0.4 to address
+GHSA-mrhx-c7xc-m3w5 and GHSA-834v-8h66-3h79. Both are major-version updates;
+existing schema validation and DOM tests must continue to pass.
+After a Zod major upgrade, run `pnpm exec tsc --build --force` once to regenerate
+cached shared-library declarations before checking downstream consumers.
+
+Both Express consumers use 5.3.0, with body-parser 2.4.0 locked transitively
+for GHSA-27r3-jxmh-p828. Orval 8.44.0 is already the latest release, but its
+`@scalar/json-magic` dependency pins undici 7.29.1. A major-7-only override
+requires undici 7.30.1 or newer without moving consumers to Undici 8.
+This addresses GHSA-xjj6-f33q-929c, GHSA-4qv8-2p9j-2685 and
+GHSA-f72v-6w45-q472. Remove the override when upstream no longer pins an
+affected release.
+
+The dependency security tests check actual Express, AI SDK and Orval consumers,
+plus early rejection of oversized constrained Zod arrays. No advisory is
+suppressed and the existing local braces patch remains in place.
