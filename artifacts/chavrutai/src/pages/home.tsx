@@ -68,10 +68,10 @@ const TOOLS = [
   { title: "Sugya Viewer", href: "/sugya-viewer", description: "Study custom Talmud text ranges", testid: "link-tool-sugya-viewer" },
   { title: "Biblical Index", href: "/biblical-index", description: "Find where biblical verses are cited in the Talmud", testid: "link-tool-biblical-index" },
   { title: "Mishnah Map", href: "/mishnah-map", description: "Locate Mishnah passages in the Talmud", testid: "link-tool-mishnah-map" },
-  { title: "Jastrow Dictionary", href: "/jastrow", description: "Talmudic Hebrew & Aramaic", testid: "link-tool-jastrow" },
-  { title: "BDB Bible Dictionary", href: "/bdb", description: "Brown-Driver-Briggs Hebrew lexicon", testid: "link-tool-bdb" },
   { title: "J.N. Epstein's Introductions", href: "/scholarship", description: "Academic introductions to Talmudic literature", testid: "link-tool-scholarship" },
   { title: "Talmud Term Index", href: "/term-index", description: "Browse recurring Talmudic terms", testid: "link-tool-term-index" },
+  { title: "Famous Pages", href: "/suggested-pages", description: "Discover well-known passages of the Talmud", testid: "link-famous-pages" },
+  { title: "Search Texts", href: "/search", description: "Full-text search across the Talmud and Tanakh", testid: "link-search-texts" },
 ];
 
 interface DafYomiData {
@@ -253,29 +253,29 @@ export default function Home() {
               </div>
             </div>
             <div className="md:px-8 py-4 md:py-0 border-t border-border md:border-t-0">
-              <h3 className="font-georgia text-lg mb-2">Famous Pages</h3>
+              <h3 className="font-georgia text-lg mb-2">Jastrow Dictionary</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Discover well-known passages of the Talmud.
+                Talmudic Hebrew &amp; Aramaic.
               </p>
               <Link
-                href="/suggested-pages"
+                href="/jastrow"
                 className="text-sm hover:underline text-primary dark:text-[#5b9fc5]"
-                data-testid="link-famous-pages"
+                data-testid="link-tool-jastrow"
               >
-                Explore famous pages ›
+                Open Jastrow ›
               </Link>
             </div>
             <div className="md:pl-8 py-4 md:py-0 border-t border-border md:border-t-0">
-              <h3 className="font-georgia text-lg mb-2">Search Texts</h3>
+              <h3 className="font-georgia text-lg mb-2">BDB Bible Dictionary</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Full-text search across the Talmud and Tanakh.
+                Brown-Driver-Briggs Hebrew lexicon.
               </p>
               <Link
-                href="/search"
+                href="/bdb"
                 className="text-sm hover:underline text-primary dark:text-[#5b9fc5]"
-                data-testid="link-search-texts"
+                data-testid="link-tool-bdb"
               >
-                Search texts ›
+                Open BDB ›
               </Link>
             </div>
           </div>
@@ -283,7 +283,7 @@ export default function Home() {
 
         {/* Study Tools */}
         <section id="tools" className="py-12 border-t border-border" data-testid="tools-section">
-          <h2 className="font-georgia text-2xl mb-8">Study Tools</h2>
+          <h2 className="font-georgia text-2xl mb-8">Talmud Study Tools</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
             {TOOLS.map((t) => (
               <div key={t.href}>
