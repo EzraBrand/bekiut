@@ -42,6 +42,15 @@ const post = (body: unknown = payload, headers = {}) => fetch(base, {
 });
 
 describe("chat admission and CORS", () => {
+  it("reports exhausted provider credits as temporary unavailability", async () => {
+    mocks.complete.mockRejectedValueOnce(Object.assign(new Error("Provider credits exhausted"), {
+      status: 429, code: "credit_balance_exhausted",
+    }));
+    const response = await post();
+    expect(response.status).toBe(503);
+    const body = await response.json() as { error: string };
+    expect(body.error).toContain("provider credits are exhausted");
+  });
   it("rejects foreign and null origins before side effects", async () => {
     for (const origin of ["https://evil.example", "null", "https://bekiut.com.evil.example"]) {
       expect((await post(payload, { Origin: origin })).status).toBe(403);

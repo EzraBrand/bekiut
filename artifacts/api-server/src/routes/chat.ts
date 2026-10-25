@@ -232,6 +232,15 @@ ${context.englishText || 'N/A'}` : '';
       }
     } catch (error) {
       req.log.error({ err: error }, "Chat request failed");
+      const providerError = error as { code?: string; status?: number };
+      if (providerError.code === "credit_balance_exhausted" || providerError.code === "insufficient_quota") {
+        res.status(503).json({ error: "AI chat is temporarily unavailable because its provider credits are exhausted. You can continue reading; this is not a problem with your passage or question." });
+        return;
+      }
+      if (providerError.status === 429) {
+        res.status(503).json({ error: "The AI provider is temporarily limiting requests. Please try again later." });
+        return;
+      }
       res.status(500).json({ error: "Chat request failed" });
     }
   });

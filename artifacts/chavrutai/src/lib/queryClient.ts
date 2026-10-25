@@ -5,6 +5,10 @@ async function throwIfResNotOk(res: Response) {
     if (res.status === 413) {
       throw new Error("This request is too large. Please select a shorter passage or shorten your message.");
     }
+    if (res.headers.get("content-type")?.includes("application/json")) {
+      const body = await res.json().catch(() => null);
+      throw new Error(typeof body?.error === "string" ? body.error : `Request failed (${res.status}). Please try again.`);
+    }
     const text = (await res.text()) || res.statusText;
     throw new Error(`${res.status}: ${text}`);
   }
