@@ -65,13 +65,13 @@ const CORPORA = [
 ];
 
 const TOOLS = [
-  { title: "Sugya Viewer", href: "/sugya-viewer", description: "Study custom Talmud text ranges", testid: "link-tool-sugya-viewer" },
-  { title: "Biblical Index", href: "/biblical-index", description: "Find where biblical verses are cited in the Talmud", testid: "link-tool-biblical-index" },
-  { title: "Mishnah Map", href: "/mishnah-map", description: "Locate Mishnah passages in the Talmud", testid: "link-tool-mishnah-map" },
-  { title: "J.N. Epstein's Introductions", href: "/scholarship", description: "Academic introductions to Talmudic literature", testid: "link-tool-scholarship" },
   { title: "Talmud Term Index", href: "/term-index", description: "Browse recurring Talmudic terms", testid: "link-tool-term-index" },
+  { title: "Mishnah Map", href: "/mishnah-map", description: "Locate Mishnah passages in the Talmud", testid: "link-tool-mishnah-map" },
+  { title: "Biblical Index", href: "/biblical-index", description: "Find where biblical verses are cited in the Talmud", testid: "link-tool-biblical-index" },
+  { title: "Sugya Viewer", href: "/sugya-viewer", description: "Study custom Talmud text ranges", testid: "link-tool-sugya-viewer" },
+  { title: "Places — Biblical & Talmudic Map", href: "/places", description: "Explore places mentioned in biblical and Talmudic sources", testid: "link-tool-places" },
   { title: "Famous Pages", href: "/suggested-pages", description: "Discover well-known passages of the Talmud", testid: "link-famous-pages" },
-  { title: "Search Texts", href: "/search", description: "Full-text search across the Talmud and Tanakh", testid: "link-search-texts" },
+  { title: "J.N. Epstein's Introductions", href: "/scholarship", description: "Academic introductions to Talmudic literature", testid: "link-tool-scholarship" },
 ];
 
 interface DafYomiData {
