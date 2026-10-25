@@ -25,3 +25,14 @@ limits. Raising only the body limit would still fail context validation.
 
 **How to apply:** Keep the excerpt notice visible and tell the model when its
 context is partial; preserve the independent history, context, and quota limits.
+
+Use the explicitly configured Replit OpenRouter integration for chat, without
+falling back to legacy OpenAI credentials.
+
+**Why:** The legacy configuration reached a credit-exhausted provider despite
+no saved OpenAI key being visible; the user approved switching to the existing
+OpenRouter integration. A live chat response confirmed it worked.
+
+**How to apply:** Preserve explicit integration routing when changing models or
+refactoring chat. Missing integration configuration should fail clearly rather
+than silently changing the billing provider.

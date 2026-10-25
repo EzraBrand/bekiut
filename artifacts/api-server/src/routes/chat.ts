@@ -66,7 +66,7 @@ export function createChatRouter(): Router {
       return;
     }
     try {
-      if (!process.env.OPENAI_API_KEY) {
+      if (!process.env.AI_INTEGRATIONS_OPENROUTER_API_KEY || !process.env.AI_INTEGRATIONS_OPENROUTER_BASE_URL) {
         res.status(503).json({ error: "AI chat is not configured on this server." }); return;
       }
 
@@ -85,7 +85,12 @@ export function createChatRouter(): Router {
         return;
       }
       const { default: OpenAI } = await import("openai");
-      const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, maxRetries: 0, timeout: 20000 });
+      const openai = new OpenAI({
+        apiKey: process.env.AI_INTEGRATIONS_OPENROUTER_API_KEY,
+        baseURL: process.env.AI_INTEGRATIONS_OPENROUTER_BASE_URL,
+        maxRetries: 0,
+        timeout: 20000,
+      });
 
       const { messages, context } = parsed.data;
       const userMessages = messages.filter(m => m.role === 'user');
@@ -127,7 +132,7 @@ ${context.englishText || 'N/A'}` : '';
       ];
 
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "openai/gpt-4o",
         messages: allMessages,
         tools: tools as any,
         max_tokens: 1000,
@@ -183,7 +188,7 @@ ${context.englishText || 'N/A'}` : '';
         ];
 
         const finalCompletion = await openai.chat.completions.create({
-          model: "gpt-4o",
+          model: "openai/gpt-4o",
           max_tokens: 1000,
           messages: secondMessages
         });

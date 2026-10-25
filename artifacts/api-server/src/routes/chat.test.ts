@@ -3,7 +3,7 @@ import type { Server } from "node:http";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
-  admit: vi.fn(), complete: vi.fn(), alert: vi.fn(),
+  admit: vi.fn(), complete: vi.fn(), alert: vi.fn(), configure: vi.fn(),
 }));
 vi.mock("../lib/chat-quota", () => ({ admitChat: mocks.admit }));
 vi.mock("../lib/gmail-client", () => ({ sendChatbotAlert: mocks.alert }));
@@ -11,6 +11,7 @@ vi.mock("../blog-search", () => ({ getBlogPostSearch: () => ({
   search: () => [{ content: "x".repeat(20000) }], getPostById: () => null,
 }) }));
 vi.mock("openai", () => ({ default: class {
+  constructor(options: unknown) { mocks.configure(options); }
   chat = { completions: { create: mocks.complete } };
 } }));
 import { createChatRouter } from "./chat";
@@ -19,7 +20,8 @@ import { apiCors, enforceApiOrigin } from "../lib/api-origin";
 let server: Server;
 let base: string;
 beforeEach(async () => {
-  vi.stubEnv("OPENAI_API_KEY", "test-only");
+  vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_API_KEY", "test-only");
+  vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_BASE_URL", "https://integration.example/v1");
   vi.clearAllMocks();
   mocks.admit.mockResolvedValue(true);
   mocks.alert.mockResolvedValue(undefined);
@@ -42,6 +44,21 @@ const post = (body: unknown = payload, headers = {}) => fetch(base, {
 });
 
 describe("chat admission and CORS", () => {
+  it("uses the explicit Replit OpenRouter configuration and GPT-4o", async () => {
+    expect((await post()).status).toBe(200);
+    expect(mocks.configure).toHaveBeenCalledWith({
+      apiKey: "test-only", baseURL: "https://integration.example/v1",
+      maxRetries: 0, timeout: 20000,
+    });
+    expect(mocks.complete.mock.calls[0][0].model).toBe("openai/gpt-4o");
+  });
+  it("fails closed without OpenRouter configuration, even if legacy OpenAI is configured", async () => {
+    vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_API_KEY", "");
+    vi.stubEnv("OPENAI_API_KEY", "legacy-test-only");
+    expect((await post()).status).toBe(503);
+    expect(mocks.admit).not.toHaveBeenCalled();
+    expect(mocks.complete).not.toHaveBeenCalled();
+  });
   it("reports exhausted provider credits as temporary unavailability", async () => {
     mocks.complete.mockRejectedValueOnce(Object.assign(new Error("Provider credits exhausted"), {
       status: 429, code: "credit_balance_exhausted",
@@ -105,6 +122,7 @@ describe("chat admission and CORS", () => {
     } }] });
     expect((await post()).status).toBe(200);
     const second = mocks.complete.mock.calls[1][0];
+    expect(second.model).toBe("openai/gpt-4o");
     expect(second.max_tokens).toBe(1000);
     expect(second.messages.at(-1).content.length).toBeLessThanOrEqual(6000);
     expect(mocks.complete).toHaveBeenCalledTimes(2);
