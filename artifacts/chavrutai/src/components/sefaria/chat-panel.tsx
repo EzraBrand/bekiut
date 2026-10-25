@@ -55,7 +55,7 @@ export function ChatPanel({ context }: ChatPanelProps) {
             <div className="font-semibold text-blue-700 dark:text-blue-300 mb-1">
               🔧 Used tool: {tc.tool}
             </div>
-            {tc.result && Array.isArray(tc.result) && tc.result.length > 0 && (
+            {Array.isArray(tc.result) && tc.result.length > 0 && (
               <div className="space-y-1">
                 {tc.result.map((post: any, j: number) => (
                   <div key={j} className="flex items-start gap-1">
