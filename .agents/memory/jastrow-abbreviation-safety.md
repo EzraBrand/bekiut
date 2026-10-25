@@ -12,7 +12,7 @@ Reconcile candidates against Jastrow’s own digitized abbreviation list, but do
 Jastrow expansion targets should not introduce trailing colons.
 
 Edition-reference expansions should consistently use `ed. ` followed by the
-expanded name (including `ed. princeps`).
+expanded name, except `ed. pr.`, which retains `editio princeps` at the user's request.
 
 **Why:** The user requested consistent edition-reference formatting rather than
 mixing “edition X”, “X edition”, and “ed. X”.

@@ -38,13 +38,27 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Homepage: Weekly Parsha and Study Tools (October 25)</h3>
+            <p>Added the weekly Torah portion beneath Daf Yomi, using Sefaria’s Israel calendar. The widget displays the portion name and chapter/verse range and links to the opening verse in the Bible reader.</p>
+            <p>Moved the Jastrow and BDB dictionaries into the prominent quick-access row. Renamed “Study Tools” to “Talmud Study Tools” and reordered its links: Talmud Term Index, Mishnah Map, Biblical Index, Sugya Viewer, Places — Biblical &amp; Talmudic Map, Famous Pages, and J.N. Epstein’s Introductions.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Sugya Viewer: Links and Range Selection (October 25)</h3>
+            <p>The reference box now accepts Sefaria Bible links and opens the corresponding location in Bekiut’s Bible reader. Selecting a starting Talmud page also updates the ending page; the “To” dropdown begins at that starting page and offers up to ten amudim, including the starting amud.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Additional Mappings (October 25)</h3>
-            <p>Standardized edition references to “ed.” followed by the expanded name. Removed redundant space-prefixed mappings that could disrupt spacing or block longer phrases such as “part. pass.” and “w. fr.”.</p>
+            <p>Standardized edition references to “ed.” followed by the expanded name, retaining the Latin “editio princeps” for “ed. pr.”. Removed redundant space-prefixed mappings that could disrupt spacing or block longer phrases such as “part. pass.” and “w. fr.”.</p>
             <p>Added expansions for Mikk., Mshp., Nöld., Lidd., Tos’f. Y. Tob, Ki Tsetsé, and deriv., and converted “St. John’s bread” to “carob”. The existing “part. pass.” expansion remains “passive participle”.</p>
           </div>
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">AI Study Assistant: Streaming Chat (October 25)</h3>
             <p>The assistant now streams answers as they arrive, using the Vercel AI SDK with GPT-4o through Replit OpenRouter. Follow-up conversations use normalized text history, and failed requests restore your question for retrying. Passage context, blog-search tools, and existing usage limits remain in place.</p>
+            <p>Long passages now send a bounded opening excerpt with a visible notice rather than failing because the request is too large. Provider errors are shown as readable messages instead of raw error pages. Enabled rate-limited administrator email alerts and corrected Unicode encoding in their subjects and bodies.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Additional Reading Corrections (October 24)</h3>
+            <p>The “Show entry details” preference now persists when moving between letter indexes. Added further grammatical, bibliographic, and modernized-wording mappings, including Unicode spelling variants. Fixed abbreviation recognition when a source puts the final period outside italics, as in “Pu.”, and added support for the decomposed spelling of “Ḥull.”.</p>
           </div>
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Entry Details (October 24)</h3>

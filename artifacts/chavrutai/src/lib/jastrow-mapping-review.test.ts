@@ -12,12 +12,12 @@ it("keeps spacing and compound matches without space-prefixed keys", () => {
   }
 });
 
-it("uses the ed. prefix consistently without re-expanding the target", () => {
+it("uses consistent edition labels, retaining the Latin editio princeps", () => {
   for (const [source, target] of Object.entries({
     "ed. Berl.": "ed. Berliner", "ed. Bub.": "ed. Buber",
     "ed. Const.": "ed. Constantinople", "ed. Fr.": "ed. Friedmann",
     "ed. Koh.": "ed. Kohut", "ed. Lag.": "ed. Lagarde",
-    "ed. Lehm.": "ed. Lehmann", "ed. pr.": "ed. princeps",
+    "ed. Lehm.": "ed. Lehmann", "ed. pr.": "editio princeps",
     "ed. Wil.": "ed. Vilna", "ed. Zuck.": "ed. Zuckermandel",
   })) {
     expect(expandAbbreviations(source, data.mappings))
@@ -83,7 +83,7 @@ it("expands the divinity, bibliography, and wording additions", () => {
 it("expands the Pekudei, grammatical, reference, and archaic-word additions", () => {
   for (const [key, value] of Object.entries({
     "P’kudé": "Pekudei",
-    "ed. pr.": "ed. princeps",
+    "ed. pr.": "editio princeps",
     "Ki Thetse": "Ki Teitzei",
     "T’bul": "Tevul",
     "Semit.": "Semitic",
