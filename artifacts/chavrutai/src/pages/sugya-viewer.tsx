@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { bibleInputHref, rangeEndPages } from "@/lib/sugya-input";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,6 +34,7 @@ interface SefariaResponse {
 }
 
 export default function SefariaFetchPage() {
+  const [, navigate] = useLocation();
   useSEO({
     ...getStaticSEO("/sugya-viewer", window.location.origin)!,
     structuredData: {
@@ -66,6 +68,7 @@ export default function SefariaFetchPage() {
   const [rangeToSection, setRangeToSection] = useState<string>("1");
 
   const MAX_AMUDIM_RANGE = 10;
+  const endPages = rangeEndPages(pages, rangeFromPage);
   const rangeFromIdx = pages.indexOf(rangeFromPage);
   const rangeToIdx = pages.indexOf(rangeToPage);
   const amudimSpan = rangeToIdx - rangeFromIdx + 1;
@@ -199,6 +202,11 @@ export default function SefariaFetchPage() {
     if (!ref) {
       ref = buildRefFromDropdowns(tractate, page, section);
       setUrl(ref);
+    }
+    const bibleHref = bibleInputHref(ref);
+    if (bibleHref) {
+      navigate(bibleHref);
+      return;
     }
     const cleanRef = extractRef(ref);
     pushUrlParams(cleanRef);
@@ -676,6 +684,7 @@ ${cleanHtml}
               />
               <p className="text-xs text-muted-foreground">
                 Paste a Bekiut or Sefaria URL, or type a reference directly (e.g. <code className="bg-muted px-1 rounded">Shabbat/89b</code> or <code className="bg-muted px-1 rounded">Rosh_Hashanah/17a#11</code>). Ranges spanning multiple pages are also supported.
+                {" "}Sefaria Bible links open in the Bible reader at the first verse of the linked range.
               </p>
             </div>
 
@@ -793,7 +802,11 @@ ${cleanHtml}
                       <Label htmlFor="range-from-page" className="text-xs text-muted-foreground">Page</Label>
                       <Select
                         value={rangeFromPage}
-                        onValueChange={(v) => setRangeFromPage(v)}
+                        onValueChange={(v) => {
+                          setRangeFromPage(v);
+                          setRangeToPage(v);
+                          setRangeToSection(rangeFromSection);
+                        }}
                       >
                         <SelectTrigger id="range-from-page" data-testid="select-range-from-page">
                           <SelectValue />
@@ -841,7 +854,7 @@ ${cleanHtml}
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          {pages.map((p) => (
+                          {endPages.map((p) => (
                             <SelectItem key={p} value={p} data-testid={`option-range-to-page-${p}`}>
                               {p}
                             </SelectItem>
