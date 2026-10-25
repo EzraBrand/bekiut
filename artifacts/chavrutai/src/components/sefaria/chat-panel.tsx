@@ -17,7 +17,7 @@ interface ChatPanelProps {
 
 export function ChatPanel({ context }: ChatPanelProps) {
   const [inputValue, setInputValue] = useState('');
-  const { messages, isLoading, error, lastToolCalls, sendMessage, clearMessages } = useChat(context);
+  const { messages, isLoading, error, lastToolCalls, sendMessage, clearMessages, contextTrimmed } = useChat(context);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -166,6 +166,11 @@ export function ChatPanel({ context }: ChatPanelProps) {
           </Alert>
         )}
 
+        {contextTrimmed && (
+          <p className="mb-3 text-xs text-muted-foreground" role="status">
+            This passage is long. Chat receives only its opening excerpt; select a shorter range to ask about later text.
+          </p>
+        )}
         {context && (
           <div className="mb-3 flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
             <Badge variant="outline" className="text-xs">

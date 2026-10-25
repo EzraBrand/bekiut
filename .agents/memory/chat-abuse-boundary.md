@@ -16,3 +16,12 @@ Socket-peer limits intentionally group visitors behind a proxy. Only switch to
 forwarded client IPs after verifying the trusted ingress topology and stripping
 attacker-supplied headers. CORS and topic instructions do not authenticate callers
 or enforce spending limits.
+
+Long reader passages may be sent as explicitly disclosed opening excerpts;
+do not silently imply that chat sees the entire selected range.
+
+**Why:** Full Sugya Viewer ranges exceeded both HTTP body and model-context
+limits. Raising only the body limit would still fail context validation.
+
+**How to apply:** Keep the excerpt notice visible and tell the model when its
+context is partial; preserve the independent history, context, and quota limits.

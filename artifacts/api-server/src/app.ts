@@ -30,7 +30,17 @@ app.use(
 app.use(requestTelemetry);
 app.use(enforceApiOrigin);
 app.use(apiCors);
+// Character-bounded chat can exceed the default 100 KB in UTF-8.
+// Keep a finite transport limit; chat-input still enforces model/spending limits.
+app.use("/api/chat", express.json({ limit: "256kb" }));
 app.use(express.json());
+app.use(((err, _req, res, next) => {
+  if (err?.type === "entity.too.large") {
+    res.status(413).json({ error: "This request is too large. Please select a shorter passage or shorten your message." });
+    return;
+  }
+  next(err);
+}) as express.ErrorRequestHandler);
 app.use(express.urlencoded({ extended: true }));
 
 // Health check route (scaffold default)

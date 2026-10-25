@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { apiRequest } from '@/lib/queryClient';
 import { trackPublishingEvent } from '@/lib/publishing-analytics';
+import { prepareChatContext } from "@/lib/chat-context";
 
 export interface ChatMessage {
   role: 'user' | 'assistant';
@@ -28,6 +29,7 @@ export interface ChatResponse {
 }
 
 export function useChat(context?: ChatContext) {
+  const preparedContext = prepareChatContext(context);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +51,7 @@ export function useChat(context?: ChatContext) {
       }
       const res = await apiRequest('POST', '/api/chat', {
         messages: history,
-        context
+        context: preparedContext.context
       });
 
       const response: ChatResponse = await res.json();
@@ -81,6 +83,7 @@ export function useChat(context?: ChatContext) {
     isLoading,
     error,
     lastToolCalls,
+    contextTrimmed: preparedContext.trimmed,
     sendMessage,
     clearMessages
   };
