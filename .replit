@@ -83,3 +83,6 @@ packages = ["freetype", "gumbo", "harfbuzz", "jbig2dec", "libjpeg_turbo", "mupdf
 
 [userenv.shared]
 CHATBOT_ALERT_EMAIL = "ezrabrand@gmail.com "
+
+[objectStorage]
+defaultBucketID = "replit-objstore-d6d6f2c2-b183-49df-843b-4efc68b405d0"
