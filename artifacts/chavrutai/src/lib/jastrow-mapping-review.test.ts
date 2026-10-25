@@ -2,6 +2,18 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("prefers the compound passive participle mapping in דָּבַב II D00039", () => {
+  const source = '<i>to speak evil, be hostile</i>, only in part. pass. <span dir="rtl">דָּבוּב</span>';
+  const inline = expandAbbreviations(source, data.mappings);
+  expect(inline).toContain('only in <span class="dict-expanded">passive participle</span>');
+  expect(inline).not.toContain("pass.");
+  const original = expandAbbreviations(source, data.mappings, { display: "original" });
+  expect(original).toContain('data-bdb-expansion="passive%20participle"');
+  expect(original).toContain("part. pass.");
+  expect(expandAbbreviations("a part. form", data.mappings))
+    .toContain('a <span class="dict-expanded">participle</span> form');
+});
+
 it("expands the Miketz, bibliography, and carob mapping additions", () => {
   for (const [key, value] of Object.entries({
     "Mikk.": "Miketz", "Mshp.": "Mishpatim", "Nöld.": "Nöldeke",
