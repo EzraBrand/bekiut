@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
+import { useGetWeeklyParsha } from "@workspace/api-client-react";
 import { getTractateSlug } from "@workspace/shared-data/tractates";
 import { useSEO, generateSEOData } from "@/hooks/use-seo";
 import { Footer } from "@/components/footer";
@@ -95,6 +96,9 @@ export default function Home() {
   const [, navigate] = useLocation();
 
   const { data: dafYomi } = useQuery<DafYomiData>({ queryKey: ["/api/daf-yomi"] });
+  const { data: parsha, isPending: parshaLoading, isError: parshaError } = useGetWeeklyParsha({
+    query: { staleTime: 5 * 60 * 1000, refetchInterval: 5 * 60 * 1000, retry: 1 },
+  });
   const parsedDaf = dafYomi ? parseDafYomiRef(dafYomi.ref) : null;
   const dafLink = parsedDaf ? `/talmud/${parsedDaf.tractate}/${parsedDaf.folio}` : "/talmud";
 
@@ -232,6 +236,25 @@ export default function Home() {
               >
                 Today's daf ›
               </Link>
+              <div className="mt-6 pt-5 border-t border-border" data-testid="weekly-parsha-widget">
+                <h3 className="font-georgia text-lg mb-2">Weekly Parsha</h3>
+                {parsha ? (
+                  <>
+                    <Link href={parsha.href} className="text-sm hover:underline text-primary dark:text-[#5b9fc5]" data-testid="link-weekly-parsha">
+                      {parsha.titleEn} <span aria-hidden="true">›</span>
+                      <span className="block text-muted-foreground mt-1">{parsha.ref}</span>
+                    </Link>
+                    <p dir="rtl" lang="he" className="text-sm text-muted-foreground mt-2 text-left">
+                      {parsha.titleHe} · {parsha.heRef}
+                    </p>
+                  </>
+                ) : (
+                  <p className="text-sm text-muted-foreground" role="status">
+                    {parshaLoading ? "Loading this week’s portion…" : parshaError ? "Weekly portion temporarily unavailable." : "No weekly portion available."}
+                  </p>
+                )}
+                <p className="text-xs text-muted-foreground mt-2">Israel schedule · Sefaria</p>
+              </div>
             </div>
             <div className="md:px-8 py-4 md:py-0 border-t border-border md:border-t-0">
               <h3 className="font-georgia text-lg mb-2">Famous Pages</h3>

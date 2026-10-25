@@ -11,6 +11,26 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /weekly-parsha:
+    get:
+      operationId: getWeeklyParsha
+      summary: Weekly Torah portion from Sefaria's Israel calendar
+      responses:
+        "200":
+          description: Current weekly portion
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [titleEn, titleHe, ref, heRef, href]
+                properties:
+                  titleEn: { type: string }
+                  titleHe: { type: string }
+                  ref: { type: string }
+                  heRef: { type: string }
+                  href: { type: string }
+        "502":
+          description: Calendar unavailable or invalid
   /healthz:
     get:
       operationId: healthCheck

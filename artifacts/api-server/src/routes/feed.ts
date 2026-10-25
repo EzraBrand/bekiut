@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getWeeklyParsha } from "../lib/weekly-parsha";
 
 export function createFeedRouter(): Router {
   const router = Router();
@@ -96,6 +97,15 @@ export function createFeedRouter(): Router {
     } catch (error) {
       console.error("Daf Yomi fetch error:", error);
       res.status(500).json({ error: "Failed to fetch Daf Yomi" });
+    }
+  });
+
+  router.get("/api/weekly-parsha", async (_req, res) => {
+    try {
+      res.json(await getWeeklyParsha());
+    } catch (error) {
+      console.error("Weekly parsha fetch error:", error);
+      res.status(502).json({ error: "Weekly Torah portion temporarily unavailable" });
     }
   });
 
