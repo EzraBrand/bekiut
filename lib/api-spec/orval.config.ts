@@ -9,6 +9,9 @@ const apiZodSrc = path.resolve(root, "lib", "api-zod", "src");
 const titleTransformer: InputTransformerFn = (config) => {
   config.info ??= {};
   config.info.title = "Api";
+  // AI SDK consumes this SSE protocol directly; do not generate JSON hooks or
+  // duplicate request schemas for the streaming endpoint.
+  if (config.paths) delete config.paths["/chat"];
 
   return config;
 };

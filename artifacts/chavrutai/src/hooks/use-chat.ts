@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { apiRequest } from '@/lib/queryClient';
-import { trackPublishingEvent } from '@/lib/publishing-analytics';
+import { useMemo, useRef, useState } from "react";
+import { useChat as useSdkChat } from "@ai-sdk/react";
+import { DefaultChatTransport, type UIMessage } from "ai";
+import { trackPublishingEvent } from "@/lib/publishing-analytics";
 import { prepareChatContext } from "@/lib/chat-context";
+import { chatHistory, messageText, messageTools } from "@/lib/chat-messages";
 
 export interface ChatMessage {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
 }
-
 export interface ChatContext {
   tractate?: string;
   page?: string;
@@ -16,76 +17,75 @@ export interface ChatContext {
   hebrewText?: string;
   englishText?: string;
 }
-
 export interface ToolCall {
   tool: string;
-  arguments: Record<string, any>;
-  result: any;
-}
-
-export interface ChatResponse {
-  message: ChatMessage;
-  toolCalls: ToolCall[];
+  arguments: Record<string, unknown>;
+  result: unknown;
 }
 
 export function useChat(context?: ChatContext) {
   const preparedContext = prepareChatContext(context);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [lastToolCalls, setLastToolCalls] = useState<ToolCall[]>([]);
-
-  const sendMessage = async (content: string) => {
-    setIsLoading(true);
-    setError(null);
-
-    const userMessage: ChatMessage = { role: 'user', content };
-    const newMessages = [...messages, userMessage];
-    setMessages(newMessages);
-
-    try {
-      // Keep a bounded, complete recent history; always begin with a user turn.
-      let history = newMessages.slice(-15);
-      while (history.length > 1 && history.reduce((n, m) => n + m.content.length, 0) > 12000) {
-        history = history.slice(2);
+  const contextRef = useRef(preparedContext.context);
+  contextRef.current = preparedContext.context;
+  const beforeSend = useRef<UIMessage[]>([]);
+  const pendingInput = useRef("");
+  const [failedInput, setFailedInput] = useState("");
+  const transport = useMemo(() => new DefaultChatTransport({
+    api: "/api/chat",
+    credentials: "include",
+    prepareSendMessagesRequest: ({ messages }) => ({
+      body: { messages: chatHistory(messages), context: contextRef.current },
+    }),
+    fetch: async (input, init) => {
+      const response = await fetch(input, init);
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(typeof body?.error === "string" ? body.error
+          : response.status === 413 ? "This request is too large. Select a shorter passage."
+          : "Chat is temporarily unavailable. Please try again.");
       }
-      const res = await apiRequest('POST', '/api/chat', {
-        // Provider metadata (refusal/reasoning/tool_calls) is not chat history.
-        messages: history.map(({ role, content }) => ({ role, content })),
-        context: preparedContext.context
+      return response;
+    },
+  }), []);
+  const sdk = useSdkChat({
+    transport,
+    onError: () => {
+      sdk.setMessages(beforeSend.current);
+      setFailedInput(pendingInput.current);
+    },
+    onFinish: ({ messages, message, isError, isAbort }) => {
+      if (isError || isAbort) return;
+      trackPublishingEvent("ai_response_received", {
+        has_context: Boolean(contextRef.current),
+        conversation_turn: messages.filter(message => message.role === "user").length,
+        tool_call_count: messageTools(message).length,
       });
-
-      const response: ChatResponse = await res.json();
-
-      setLastToolCalls(response.toolCalls);
-      setMessages([...newMessages, { role: response.message.role, content: response.message.content }]);
-      trackPublishingEvent('ai_response_received', {
-        has_context: Boolean(context),
-        conversation_turn: newMessages.filter((message) => message.role === 'user').length,
-        tool_call_count: response.toolCalls.length,
-      });
-    } catch (err) {
-      // A failed turn must not leave consecutive user messages on retry.
-      setMessages(messages);
-      setError(err instanceof Error ? err.message : 'Failed to send message');
-    } finally {
-      setIsLoading(false);
-    }
+    },
+  });
+  const isLoading = sdk.status === "submitted" || sdk.status === "streaming";
+  const sendMessage = async (content: string) => {
+    if (isLoading) return;
+    sdk.clearError();
+    setFailedInput("");
+    beforeSend.current = sdk.messages;
+    pendingInput.current = content;
+    await sdk.sendMessage({ text: content });
   };
-
   const clearMessages = () => {
-    setMessages([]);
-    setLastToolCalls([]);
-    setError(null);
+    sdk.stop();
+    sdk.setMessages([]);
+    sdk.clearError();
+    beforeSend.current = [];
+    pendingInput.current = "";
+    setFailedInput("");
   };
-
   return {
-    messages,
-    isLoading,
-    error,
-    lastToolCalls,
+    messages: sdk.messages.map(message => ({
+      role: message.role as "user" | "assistant", content: messageText(message),
+    })),
+    isLoading, error: sdk.error?.message ?? null,
+    lastToolCalls: messageTools(sdk.messages.at(-1)),
     contextTrimmed: preparedContext.trimmed,
-    sendMessage,
-    clearMessages
+    failedInput, sendMessage, clearMessages,
   };
 }

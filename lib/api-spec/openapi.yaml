@@ -11,6 +11,45 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /chat:
+    post:
+      operationId: streamStudyChat
+      summary: Stream a study-assistant response using the AI SDK UI message protocol
+      description: Text-only alternating user/assistant history, at most 15 messages and 12000 characters. Context is limited to 26000 serialized characters. Tools execute server-side. No client-provided tool outputs are accepted.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [messages]
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    required: [role, content]
+                    properties:
+                      role: { type: string, enum: [user, assistant] }
+                      content: { type: string, maxLength: 6000 }
+                context:
+                  type: object
+                  properties:
+                    tractate: { type: string }
+                    page: { type: string }
+                    section: { oneOf: [{ type: string }, { type: integer }] }
+                    range: { type: string }
+                    hebrewText: { type: string }
+                    englishText: { type: string }
+      responses:
+        "200":
+          description: AI SDK UI message SSE stream; consume with DefaultChatTransport, not a generated JSON client.
+          content:
+            text/event-stream:
+              schema: { type: string }
+        "400": { description: Invalid input }
+        "429": { description: Usage limit reached }
+        "503": { description: Chat unavailable }
   /weekly-parsha:
     get:
       operationId: getWeeklyParsha

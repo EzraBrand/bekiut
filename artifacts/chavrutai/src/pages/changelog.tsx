@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">AI Study Assistant: Streaming Chat (October 25)</h3>
+            <p>The assistant now streams answers as they arrive, using the Vercel AI SDK with GPT-4o through Replit OpenRouter. Follow-up conversations use normalized text history, and failed requests restore your question for retrying. Passage context, blog-search tools, and existing usage limits remain in place.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Jastrow: Entry Details (October 24)</h3>
             <p>All 22 letter indexes now offer a “Show entry details” toggle, off by default: approximate original-text word counts for substantive entries and clickable “See” targets for clear cross-reference-only entries. Details are precomputed from Sefaria-derived dictionary data, with exact entry IDs used to keep homographs separate. Unresolved entries are labeled rather than assigned another entry’s count.</p>
             <p>Jastrow’s browse lists now sort alphabetically, keeping numbered homographs together. Added fut., Fr. M’bo, R. Ḥān., orig., gener., and seest mappings.</p>

@@ -17,8 +17,11 @@ interface ChatPanelProps {
 
 export function ChatPanel({ context }: ChatPanelProps) {
   const [inputValue, setInputValue] = useState('');
-  const { messages, isLoading, error, lastToolCalls, sendMessage, clearMessages, contextTrimmed } = useChat(context);
+  const { messages, isLoading, error, lastToolCalls, sendMessage, clearMessages, contextTrimmed, failedInput } = useChat(context);
   const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (failedInput) setInputValue(failedInput);
+  }, [failedInput]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -55,7 +58,7 @@ export function ChatPanel({ context }: ChatPanelProps) {
             <div className="font-semibold text-blue-700 dark:text-blue-300 mb-1">
               🔧 Used tool: {tc.tool}
             </div>
-            {tc.result && Array.isArray(tc.result) && tc.result.length > 0 && (
+            {Array.isArray(tc.result) && tc.result.length > 0 && (
               <div className="space-y-1">
                 {tc.result.map((post: any, j: number) => (
                   <div key={j} className="flex items-start gap-1">
@@ -98,6 +101,8 @@ export function ChatPanel({ context }: ChatPanelProps) {
               variant="outline"
               size="sm"
               onClick={clearMessages}
+              disabled={isLoading}
+              aria-label="Clear conversation"
               data-testid="button-clear-chat"
             >
               <Trash2 className="h-4 w-4" />
@@ -193,6 +198,7 @@ export function ChatPanel({ context }: ChatPanelProps) {
             disabled={isLoading}
             className="min-h-[100px] max-h-[200px] resize-none"
             rows={4}
+            maxLength={6000}
             data-testid="input-chat-message"
           />
           <Button

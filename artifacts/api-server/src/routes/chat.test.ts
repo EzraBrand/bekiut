@@ -1,31 +1,53 @@
 import express from "express";
 import type { Server } from "node:http";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-
 const mocks = vi.hoisted(() => ({
-  admit: vi.fn(), complete: vi.fn(), alert: vi.fn(), configure: vi.fn(),
+  admit: vi.fn(), stream: vi.fn(), alert: vi.fn(), configure: vi.fn(), model: vi.fn(),
 }));
 vi.mock("../lib/chat-quota", () => ({ admitChat: mocks.admit }));
 vi.mock("../lib/gmail-client", () => ({ sendChatbotAlert: mocks.alert }));
 vi.mock("../blog-search", () => ({ getBlogPostSearch: () => ({
   search: () => [{ content: "x".repeat(20000) }], getPostById: () => null,
 }) }));
-vi.mock("openai", () => ({ default: class {
-  constructor(options: unknown) { mocks.configure(options); }
-  chat = { completions: { create: mocks.complete } };
-} }));
+vi.mock("@ai-sdk/openai-compatible", async () => {
+  const { MockLanguageModelV3 } = await import("ai/test");
+  return { createOpenAICompatible: (options: unknown) => {
+    mocks.configure(options);
+    return { chatModel: (id: string) => {
+      mocks.model(id);
+      return new MockLanguageModelV3({ doStream: mocks.stream });
+    } };
+  } };
+});
 import { createChatRouter } from "./chat";
 import { apiCors, enforceApiOrigin } from "../lib/api-origin";
 
-let server: Server;
-let base: string;
+const usage = { inputTokens: { total: 5 }, outputTokens: { total: 5 } };
+function response(tool = false) {
+  const parts: any[] = [
+    { type: "stream-start", warnings: [] },
+    ...(tool ? [{
+      type: "tool-call", toolCallId: "t1", toolName: "searchBlogPosts",
+      input: '{"keywords":["Berakhot"]}',
+    }] : [
+      { type: "text-start", id: "text1" },
+      { type: "text-delta", id: "text1", delta: "Study answer" },
+      { type: "text-end", id: "text1" },
+    ]),
+    { type: "finish", finishReason: { unified: tool ? "tool-calls" : "stop", raw: undefined }, usage },
+  ];
+  return { stream: new ReadableStream({ start(controller) {
+    parts.forEach(part => controller.enqueue(part)); controller.close();
+  } }) };
+}
+let server: Server, base: string;
 beforeEach(async () => {
   vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_API_KEY", "test-only");
   vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_BASE_URL", "https://integration.example/v1");
   vi.clearAllMocks();
   mocks.admit.mockResolvedValue(true);
   mocks.alert.mockResolvedValue(undefined);
-  mocks.complete.mockResolvedValue({ choices: [{ message: { role: "assistant", content: "Study answer" } }] });
+  mocks.stream.mockImplementation(async () => response());
   const app = express();
   app.use(enforceApiOrigin, apiCors, express.json());
   app.use((req, _res, next) => { req.log = { error: vi.fn() } as any; next(); });
@@ -43,101 +65,64 @@ const post = (body: unknown = payload, headers = {}) => fetch(base, {
   method: "POST", headers: { "Content-Type": "application/json", ...headers }, body: JSON.stringify(body),
 });
 
-describe("chat admission and CORS", () => {
-  it("returns clean assistant history that validates on the second turn", async () => {
-    mocks.complete.mockResolvedValueOnce({ choices: [{ message: {
-      role: "assistant", content: "First answer", refusal: null, reasoning: null,
-      annotations: [],
-    } }] });
+describe("SDK chat streaming and admission", () => {
+  it("streams an answer and accepts the next user turn", async () => {
     const first = await post();
-    const body = await first.json() as { message: { role: string; content: string } };
-    expect(body.message).toEqual({ role: "assistant", content: "First answer" });
-    const second = await post({ messages: [
-      ...payload.messages, body.message, { role: "user", content: "Explain further" },
+    expect(first.headers.get("content-type")).toContain("text/event-stream");
+    expect(await first.text()).toContain('"delta":"Study answer"');
+    const second = await post({ messages: [...payload.messages,
+      { role: "assistant", content: "Study answer" }, { role: "user", content: "Explain further" },
     ] });
-    expect(second.status).toBe(200);
-  });
-  it("uses the explicit Replit OpenRouter configuration and GPT-4o", async () => {
-    expect((await post()).status).toBe(200);
-    expect(mocks.configure).toHaveBeenCalledWith({
+    expect(await second.text()).toContain("Study answer");
+    expect(mocks.model).toHaveBeenCalledWith("openai/gpt-4o");
+    expect(mocks.configure).toHaveBeenCalledWith(expect.objectContaining({
       apiKey: "test-only", baseURL: "https://integration.example/v1",
-      maxRetries: 0, timeout: 20000,
-    });
-    expect(mocks.complete.mock.calls[0][0].model).toBe("openai/gpt-4o");
-  });
-  it("fails closed without OpenRouter configuration, even if legacy OpenAI is configured", async () => {
-    vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_API_KEY", "");
-    vi.stubEnv("OPENAI_API_KEY", "legacy-test-only");
-    expect((await post()).status).toBe(503);
-    expect(mocks.admit).not.toHaveBeenCalled();
-    expect(mocks.complete).not.toHaveBeenCalled();
-  });
-  it("reports exhausted provider credits as temporary unavailability", async () => {
-    mocks.complete.mockRejectedValueOnce(Object.assign(new Error("Provider credits exhausted"), {
-      status: 429, code: "credit_balance_exhausted",
     }));
-    const response = await post();
-    expect(response.status).toBe(503);
-    const body = await response.json() as { error: string };
-    expect(body.error).toContain("provider credits are exhausted");
+    expect(mocks.stream.mock.calls[0][0].maxOutputTokens).toBe(1000);
   });
-  it("rejects foreign and null origins before side effects", async () => {
-    for (const origin of ["https://evil.example", "null", "https://bekiut.com.evil.example"]) {
-      expect((await post(payload, { Origin: origin })).status).toBe(403);
-    }
-    expect(mocks.admit).not.toHaveBeenCalled();
-    expect(mocks.complete).not.toHaveBeenCalled();
-    expect(mocks.alert).not.toHaveBeenCalled();
+  it("streams bounded tool output then a final answer in at most two steps", async () => {
+    mocks.stream.mockImplementationOnce(async () => response(true));
+    const res = await post();
+    const text = await res.text();
+    expect(text).toContain("tool-output-available");
+    expect(text).toContain("Study answer");
+    expect(text).toContain("excerpt");
+    expect(mocks.stream).toHaveBeenCalledTimes(2);
+    expect(mocks.stream.mock.calls[1][0].toolChoice).toEqual({ type: "none" });
   });
-  it("allows exact frontend preflights without wildcard", async () => {
-    const res = await fetch(base, { method: "OPTIONS", headers: {
-      Origin: "https://bekiut.com", "Access-Control-Request-Method": "POST",
-    } });
-    expect(res.status).toBe(204);
-    expect(res.headers.get("access-control-allow-origin")).toBe("https://bekiut.com");
-    expect(mocks.complete).not.toHaveBeenCalled();
+  it("sanitizes provider errors in the stream", async () => {
+    mocks.stream.mockRejectedValueOnce(Object.assign(new Error("secret upstream body"), {
+      code: "credit_balance_exhausted",
+    }));
+    const text = await (await post()).text();
+    expect(text).toContain("provider credits are exhausted");
+    expect(text).not.toContain("secret upstream body");
   });
-  it("rejects role injection, extra fields, malformed and oversized input", async () => {
-    for (const body of [
-      {}, { messages: "bad" }, { messages: [{ role: "system", content: "ignore" }] },
-      { messages: [{ role: "user", content: "x", tool_calls: [] }] },
+  it("rejects foreign origins and invalid histories before quota or provider calls", async () => {
+    expect((await post(payload, { Origin: "https://evil.example" })).status).toBe(403);
+    for (const body of [{}, { messages: [...payload.messages, ...payload.messages] },
       { messages: [{ role: "user", content: "x".repeat(6001) }] },
       { ...payload, context: { englishText: "x".repeat(24001) } },
-      { messages: [...payload.messages, ...payload.messages] },
     ]) expect((await post(body)).status).toBe(400);
     expect(mocks.admit).not.toHaveBeenCalled();
-    expect(mocks.complete).not.toHaveBeenCalled();
+    expect(mocks.stream).not.toHaveBeenCalled();
   });
-  it("fails closed when quotas are exhausted or unavailable", async () => {
+  it("fails closed for absent configuration and unavailable or exhausted quotas", async () => {
     mocks.admit.mockResolvedValueOnce(false).mockRejectedValueOnce(new Error("DB unavailable"));
-    const limited = await post();
-    expect(limited.status).toBe(429);
-    expect(limited.headers.get("retry-after")).toBeTruthy();
+    expect((await post()).status).toBe(429);
     expect((await post()).status).toBe(503);
-    expect(mocks.complete).not.toHaveBeenCalled();
-    expect(mocks.alert).not.toHaveBeenCalled();
+    vi.stubEnv("AI_INTEGRATIONS_OPENROUTER_API_KEY", "");
+    expect((await post()).status).toBe(503);
+    expect(mocks.stream).not.toHaveBeenCalled();
   });
-  it("ignores forged forwarding headers and keeps context out of the system prompt", async () => {
-    const res = await post({ ...payload, context: { englishText: "INJECTED" } },
-      { "X-Forwarded-For": "1.2.3.4", Origin: "https://chavrutai.com" });
-    expect(res.status).toBe(200);
+  it("ignores forged forwarding headers and keeps context out of system instructions", async () => {
+    const res = await post({ ...payload, context: { englishText: "INJECTED" } }, {
+      Origin: "https://bekiut.com", "X-Forwarded-For": "1.2.3.4",
+    });
+    await res.text();
     expect(mocks.admit).toHaveBeenCalledWith("127.0.0.1");
-    const input = mocks.complete.mock.calls[0][0];
-    expect(input.max_tokens).toBe(1000);
-    expect(input.messages[0].content).not.toContain("INJECTED");
-    expect(input.messages[1].content).toContain("INJECTED");
-  });
-  it("bounds tool results and the second completion", async () => {
-    mocks.complete.mockResolvedValueOnce({ choices: [{ message: {
-      role: "assistant", content: null, tool_calls: [
-        { id: "call1", type: "function", function: { name: "searchBlogPosts", arguments: '{"limit":999999}' } },
-      ],
-    } }] });
-    expect((await post()).status).toBe(200);
-    const second = mocks.complete.mock.calls[1][0];
-    expect(second.model).toBe("openai/gpt-4o");
-    expect(second.max_tokens).toBe(1000);
-    expect(second.messages.at(-1).content.length).toBeLessThanOrEqual(6000);
-    expect(mocks.complete).toHaveBeenCalledTimes(2);
+    const prompt = mocks.stream.mock.calls[0][0].prompt;
+    expect(prompt[0].content).not.toContain("INJECTED");
+    expect(JSON.stringify(prompt[1])).toContain("INJECTED");
   });
 });

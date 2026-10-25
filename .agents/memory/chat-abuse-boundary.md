@@ -36,3 +36,13 @@ OpenRouter integration. A live chat response confirmed it worked.
 **How to apply:** Preserve explicit integration routing when changing models or
 refactoring chat. Missing integration configuration should fail clearly rather
 than silently changing the billing provider.
+
+Keep SDK UI history separate from validated model-facing text history.
+
+**Why:** Provider-specific response fields previously caused second-turn
+validation failures. The AI SDK migration intentionally keeps tool results
+server-generated and strips client-side tool metadata at the request boundary.
+
+**How to apply:** Exercise actual SDK message streams and a second turn in
+regression tests; retain strict admission and text validation rather than
+accepting arbitrary client tool results to accommodate a framework.
