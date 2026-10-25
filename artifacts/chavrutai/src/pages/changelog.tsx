@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Additional Mappings (October 25)</h3>
+            <p>Added expansions for Mikk., Mshp., Nöld., Lidd., Tos’f. Y. Tob, Ki Tsetsé, and deriv., and converted “St. John’s bread” to “carob”. The existing “part. pass.” expansion remains “passive participle”.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">AI Study Assistant: Streaming Chat (October 25)</h3>
             <p>The assistant now streams answers as they arrive, using the Vercel AI SDK with GPT-4o through Replit OpenRouter. Follow-up conversations use normalized text history, and failed requests restore your question for retrying. Passage context, blog-search tools, and existing usage limits remain in place.</p>
           </div>

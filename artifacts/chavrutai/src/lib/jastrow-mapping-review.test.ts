@@ -2,6 +2,19 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+it("expands the Miketz, bibliography, and carob mapping additions", () => {
+  for (const [key, value] of Object.entries({
+    "Mikk.": "Miketz", "Mshp.": "Mishpatim", "Nöld.": "Nöldeke",
+    "St. John’s bread": "carob", "Lidd.": "Liddell",
+    "Tos’f. Y. Tob": "Tosefot Yom Tov", "Ki Tsetsé": "Ki Teitzei",
+    "deriv.": "derivative", "part. pass.": "passive participle",
+  })) {
+    expect(expandAbbreviations(key, data.mappings)).toBe(`<span class="dict-expanded">${value}</span>`);
+  }
+  expect(expandAbbreviations("Nöld. Mand. Gr.", data.mappings))
+    .toBe(`<span class="dict-expanded">Nöldeke, 'Mandäische Grammatik' (1875)</span>`);
+});
+
 it("expands Pirkei d'Rabbi Eliezer and the latest accented and grammatical forms", () => {
   for (const [key, value] of Object.entries({
     "Pirké́ d’R. El.": "Pirkei d'Rabbi Eliezer",
