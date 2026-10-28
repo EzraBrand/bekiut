@@ -336,3 +336,17 @@ mtime_ms = 1793168987017
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/2b47e2c1-6865-4c3c-ba34-92fc614c0a66/091671a9-c59a-4a84-ab3a-1e8b08d43f4f"
 storage_version_token = "1793169070472964"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "qOsTWTGznSBb4aTvuOdnd"
+uri = "file://generated-artifacts/jastrow-missing-mappings-audit.csv"
+type = "table"
+title = "Jastrow abbreviation audit — CSV"
+description = "12,197 candidate rows, two examples from distinct entries where available, Bekiut links, and manual review notes for the top 35 candidates."
+logical_id = "434a46db-b1ba-401b-a2b2-1ca7f51376ee"
+content_hash = "sha256:433d099ecbd02ce7740762138b923263c3c6fe1cbfb8c66f50ef58befdb1982b"
+size = 5274324
+mtime_ms = 1793169622429
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/434a46db-b1ba-401b-a2b2-1ca7f51376ee/c4f8bd41-ae0b-4b07-a5b4-8fc15f2cc40f"
+storage_version_token = "1793169772975334"
+content_type = "text/csv"
