@@ -4,6 +4,14 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Pi", "Pi'el"],
+    ["Tan. d’be El.", "Tanna Devei Eliyahu"],
+    ["Oth.", "Other"], ["Bub.", "Buber"],
+    ["Isp. n.", "Ispe'el noun"], ["denomin.", "denominative"],
+    ["var.", "variant"], ["dialect.", "dialectal"],
+    ["sec.", "second/secondary"], ["Prob.", "Probably"],
+    ["Mishn.", "Mishnah"], ["Babyl.", "Babylonian"],
+    ["Targ. J.", "Targum Jonathan"], ["R. Joh.", "Rabbi Yohanan"],
     ["ch. V", "chapter 5"],
     ["du.", "dual"], ["Plin. Hist. Nat.", "Pliny, 'Natural History'"],
     ["V)", "5)"], ["Zyt.", "Zhitomir"], ["V;", "5;"], ["Haʿom.", "Ha'omer"],
@@ -13,6 +21,16 @@ describe("Jastrow additions and source apostrophes", () => {
   ])("expands %s", (source, target) => {
     expect(expandAbbreviations(source, data.mappings, { jastrowApostrophes: true }))
       .toBe(`<span class="dict-expanded">${target}</span>`);
+    expect(expandAbbreviations(source, data.mappings, { jastrowApostrophes: true, display: "original" }))
+      .toContain(`data-bdb-expansion="${encodeURIComponent(target)}"`);
+  });
+
+  it("keeps longer compounds ahead of newly added component mappings", () => {
+    expect(expandAbbreviations("sec. r.", data.mappings))
+      .toBe('<span class="dict-expanded">secondary root</span>');
+    expect(expandAbbreviations("ed. Bub.", data.mappings))
+      .toBe('<span class="dict-expanded">ed. Buber</span>');
+    expect(expandAbbreviations("Pine", data.mappings)).toBe("Pine");
   });
 
   it("does not consume ch. V at the start of longer Roman numerals", () => {
