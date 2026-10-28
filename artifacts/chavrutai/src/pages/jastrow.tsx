@@ -41,7 +41,7 @@ export default function Jastrow() {
   }, [expandInline]);
   const abbreviationRevision = useMemo(() => ({ results, expandInline, extraSplits }), [results, expandInline, extraSplits]);
   const renderAbbreviations = (text: string) => expandAbbreviations(
-    text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original" },
+    text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original", jastrowApostrophes: true },
   );
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);

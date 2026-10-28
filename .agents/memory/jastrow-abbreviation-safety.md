@@ -11,6 +11,17 @@ Reconcile candidates against Jastrow’s own digitized abbreviation list, but do
 
 Jastrow expansion targets should not introduce trailing colons.
 
+For Jastrow transliteration, distinguish schwa apostrophes from possessives,
+contractions, and vowel-separated forms such as `Ta'anit`. Preserve explicit
+full-term mappings before normalizing unmatched source transliteration.
+
+**Why:** The user requested readable `e` in forms such as `m’litsah`, rather than
+an abbreviation expansion of the initial `m`; blanket apostrophe replacement
+would also damage English prose and intentional mapping targets.
+
+**How to apply:** Check representative corpus text and both inline/tooltip modes
+when adjusting apostrophe handling; never rewrite link attributes or mapping targets.
+
 Edition-reference expansions should consistently use `ed. ` followed by the
 expanded name, except `ed. pr.`, which retains `editio princeps` at the user's request.
 

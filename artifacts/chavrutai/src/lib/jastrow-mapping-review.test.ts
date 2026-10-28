@@ -2,6 +2,37 @@ import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
 
+describe("Jastrow additions and source apostrophes", () => {
+  it.each([
+    ["du.", "dual"], ["Plin. Hist. Nat.", "Pliny, 'Natural History'"],
+    ["V)", "5)"], ["Zyt.", "Zhitomir"], ["V;", "5;"], ["Haʿom.", "Ha'omer"],
+    ["Amal.", "Amalek"], ["Mill.", "Milluim"], ["Sam. Pent.", "Samaritan Pentateuch"],
+    ["dial.", "dialectal"], ["R. H. G.", "Rav Hai Gaon"], ["accus.", "accusative"],
+    ["Nithpol.", "Nithpolel"],
+  ])("expands %s", (source, target) => {
+    expect(expandAbbreviations(source, data.mappings, { jastrowApostrophes: true }))
+      .toBe(`<span class="dict-expanded">${target}</span>`);
+  });
+
+  it.each(["inline", "original"] as const)("protects actual mem-entry transliterations in %s mode", display => {
+    // M01564, M00015, M00023, M00132, M00154 in the downloaded source.
+    for (const [source, target] of [
+      ["m’litsah", "melitsah"], ["m’or", "meor"], ["v’taher", "vetaher"],
+      ["v’omer", "veomer"], ["M’goseth", "Megoseth"], ["M’gizah", "Megizah"],
+    ]) {
+      expect(expandAbbreviations(`<i>${source}</i>`, data.mappings,
+        { jastrowApostrophes: true, display })).toBe(`<i>${target}</i>`);
+    }
+    const protectedText = "one’s fool’s teacher’s don't he's Ta'anit";
+    expect(expandAbbreviations(protectedText, {}, { jastrowApostrophes: true, display }))
+      .toBe(protectedText);
+    expect(expandAbbreviations('S’ah', data.mappings, { jastrowApostrophes: true }))
+      .toContain(">Se'ah</span>");
+    expect(expandAbbreviations('<a href="/m’or">m’or</a>', {}, { jastrowApostrophes: true }))
+      .toBe('<a href="/m’or">meor</a>');
+  });
+});
+
 it("keeps spacing and compound matches without space-prefixed keys", () => {
   expect(Object.keys(data.mappings).filter(key => key !== key.trimStart())).toEqual([]);
   for (const [source, target] of [["h.", "Hebrew"], ["sing.", "singular"], ["w.", "word"], ["w. fr.", "word from"]]) {

@@ -673,7 +673,7 @@ function originalBdbMatch(source: string, expansion: string, insideLink: boolean
 export function expandAbbreviations(
   text: string,
   mappings: Record<string, string>,
-  options: { bdbNumericContext?: boolean; bdbDisplay?: 'original' | 'inline'; display?: 'original' | 'inline' } = {},
+  options: { jastrowApostrophes?: boolean; bdbNumericContext?: boolean; bdbDisplay?: 'original' | 'inline'; display?: 'original' | 'inline' } = {},
 ) {
   // BDB can split a single grammatical label across bold tags, e.g. זֵק³:
   // <strong>n.</strong>[<strong>m.</strong>]. Keep bold formatting while
@@ -688,6 +688,15 @@ export function expandAbbreviations(
     },
   );
   const compiled = compiledAbbreviations(mappings);
+  // Normalize only unmatched source text, never mapping targets or HTML attributes.
+  // Preserve English possessives/contractions and vowel–apostrophe transliterations
+  // (e.g. Ta'anit); Jastrow's consonant–apostrophe notation represents schwa.
+  const normalizeSource = (source: string) => !options.jastrowApostrophes ? source :
+    source.replace(/[A-Za-z\u00c0-\u024f\u1e00-\u1eff]+(?:['’][A-Za-z\u00c0-\u024f\u1e00-\u1eff]+)+/g, word => {
+      if (/['’](?:s|t|re|ve|ll|d|m)$/i.test(word)) return word;
+      return word.replace(/([bcdfghjklmnpqrstvwxyzḥḤšŠṣṢṭṬ]['’])(?=[A-Za-z\u00c0-\u024f\u1e00-\u1eff])/gi,
+        match => match.slice(0, -1) + 'e');
+    });
 
   // Split into alternating text segments (even indices) and HTML tag segments
   // (odd indices). This isolates abbreviation matching from HTML markup so
@@ -756,6 +765,8 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        if (options.jastrowApostrophes &&
+            /^['’]/.test(segment.slice(offset + match[0].length))) continue;
         // A lone I remains a pronoun/numeral label unless this exact comma
         // form introduces a numeric page locator (Jastrow: "I, 27a").
         if (abbreviation === 'I,' && expansion === '1,') {
@@ -827,14 +838,14 @@ export function expandAbbreviations(
     for (const candidate of candidates) {
       if (candidate.start < cursor) continue;
       output.push(
-        segment.slice(cursor, candidate.start),
+        normalizeSource(segment.slice(cursor, candidate.start)),
         (options.display ?? options.bdbDisplay) === 'original'
           ? originalBdbMatch(segment.slice(candidate.start, candidate.end), candidate.expansion, linkDepth > 0)
           : `<span class="dict-expanded">${candidate.expansion}</span>`,
       );
       cursor = candidate.end;
     }
-    output.push(segment.slice(cursor));
+    output.push(normalizeSource(segment.slice(cursor)));
     parts[i] = output.join('');
   }
 
