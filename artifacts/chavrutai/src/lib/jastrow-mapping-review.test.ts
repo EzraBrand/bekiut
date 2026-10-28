@@ -4,6 +4,14 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Yishm.", "Yishmael"],
+    ["Samar.", "Samaritan"],
+    ["En Yaăk.", "Ein Yaakov"],
+    ["Palm. inscript.", "Palmyrene inscription"],
+    ["Zeitschr. der Deutsch. Morgenl. Ges.", "Zeitschrift der Deutschen Morgenländischen Gesellschaft"],
+    ["Zeitschr.", "Zeitschrift"],
+    ["Mar Zut.", "Mar Zutra"],
+    ["Denomin.", "Denominative"],
     ["Lisb.", "Lisbon"],
     ["Neub.", "Neubauer"],
     ["Fr.", "Frankel"],
