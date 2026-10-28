@@ -15,6 +15,38 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it.each([
+    ['to fasten the <i>m</i>. at the door', 'M00730'],
+    ['he who forbids <i>m</i>. forbids also nolad', 'M00596'],
+    ['taken out in a <i>h</i>.', 'E00459'],
+    ['a dough made of <i>c</i>.', 'K01276'],
+    ['tore his <i>s</i>. off his head', 'O00078'],
+    ['the <i>V</i>. used to finish the reading', 'F00108'],
+    ['<i>m</i>. is good to eat after fasting', 'M00540'],
+  ])("preserves source shorthand: %s (%s)", (source) => {
+    const normalized = normalizeJastrowAbbreviationMarkup(source, mappings.mappings);
+    for (const display of ["inline", "original"] as const) {
+      expect(expandAbbreviations(normalized, mappings.mappings,
+        { display, jastrowApostrophes: true })).toBe(normalized);
+    }
+  });
+
+  it.each([
+    ['<i>m.</i> (v. דּוּר I) district', 'masculine'],
+    ['רָאוּי; <i>f.</i> רְאוּיָה', 'feminine'],
+    ['Gen. R. <i>s.</i> 74', 'section'],
+    ['offal of meat, <i>v.</i> אֱלָל', 'see'],
+    ['(<i>h.</i>)', 'Hebrew'],
+    ['(<i>c.</i>)', 'Aramaic'],
+  ])("retains clear grammar/citation usage: %s", (source, expansion) => {
+    for (const display of ["inline", "original"] as const) {
+      const output = expandAbbreviations(source, mappings.mappings,
+        { display, jastrowApostrophes: true });
+      expect(output).toContain(display === "inline"
+        ? `>${expansion}</span>` : `data-bdb-expansion="${encodeURIComponent(expansion)}"`);
+    }
+  });
+
   it("preserves the headword shorthand in M01564 rather than expanding it as gender", () => {
     const source = 'and why is it called <i>m</i>.? Because it saves those engaged in it';
     const normalized = normalizeJastrowAbbreviationMarkup(source, mappings.mappings);

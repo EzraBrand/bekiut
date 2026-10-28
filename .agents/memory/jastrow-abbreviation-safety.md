@@ -9,6 +9,16 @@ Reconcile candidates against Jastrow’s own digitized abbreviation list, but do
 
 **How to apply:** For each new batch, classify authoritative-list gaps and conflicts, scan real definitions for frequency and context, prefer longer contextual keys, retain intentional modernized expansions, and add formatter tests using representative source snippets.
 
+Ambiguous isolated italic single letters in Jastrow prose should remain literal
+unless grammar or citation context establishes their meaning.
+
+**Why:** Corpus review found initials standing for the entry word across multiple
+letters, not just `m.`; treating every italic initial as an abbreviation creates
+misleading translations. The user approved conservative context-aware protection.
+
+**How to apply:** Preserve clear morphology and numbered citations, but prefer
+unexpanded shorthand to a speculative expansion; check both inline and tooltip modes.
+
 Jastrow expansion targets should not introduce trailing colons.
 
 For Jastrow transliteration, distinguish schwa apostrophes from possessives,

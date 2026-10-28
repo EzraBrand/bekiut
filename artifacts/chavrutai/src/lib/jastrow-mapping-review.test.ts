@@ -4,6 +4,7 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["ch. V", "chapter 5"],
     ["du.", "dual"], ["Plin. Hist. Nat.", "Pliny, 'Natural History'"],
     ["V)", "5)"], ["Zyt.", "Zhitomir"], ["V;", "5;"], ["Haʿom.", "Ha'omer"],
     ["Amal.", "Amalek"], ["Mill.", "Milluim"], ["Sam. Pent.", "Samaritan Pentateuch"],
@@ -12,6 +13,12 @@ describe("Jastrow additions and source apostrophes", () => {
   ])("expands %s", (source, target) => {
     expect(expandAbbreviations(source, data.mappings, { jastrowApostrophes: true }))
       .toBe(`<span class="dict-expanded">${target}</span>`);
+  });
+
+  it("does not consume ch. V at the start of longer Roman numerals", () => {
+    const output = expandAbbreviations("ch. VI", data.mappings, { jastrowApostrophes: true });
+    expect(output).not.toContain(">chapter 5</span>");
+    expect(output).toContain(">chapter</span>");
   });
 
   it.each(["inline", "original"] as const)("protects actual mem-entry transliterations in %s mode", display => {

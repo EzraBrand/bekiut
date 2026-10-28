@@ -4,6 +4,7 @@ import { ALL_BIBLE_BOOKS } from "@workspace/shared-data/bible-books";
 import { getMishnahTalmudLocation } from "@shared/mishnah-map";
 import { annotateAllTransliterations } from "@shared/transliteration";
 import { SITE_URL } from "@/lib/utils";
+import { preserveJastrowInitial } from "./jastrow-single-letter";
 
 // Re-export for backwards-compatibility with existing imports.
 // New code should import from `@shared/hebrew-alphabet` directly.
@@ -765,13 +766,15 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
-        // In Jastrow prose "called <i>m</i>.?" abbreviates the word being
-        // discussed, not its grammatical gender (M01564). Inspect visible
-        // context across emphasis tags; keep ordinary italic morphology intact.
-        if (options.jastrowApostrophes && (abbreviation === 'm' || abbreviation === 'm.')) {
+        if (options.jastrowApostrophes && /^[A-Za-z]\.?$/.test(abbreviation)) {
           const before = (parts.slice(0, i).join('') + segment.slice(0, offset))
             .replace(/<\/?[a-zA-Z][^>]*>/g, '');
-          if (/\bcalled\s*$/i.test(before)) continue;
+          const after = (segment.slice(offset + match[0].length) + parts.slice(i + 1).join(''))
+            .replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          const isolatedItalic = /^<(?:i|em)\b/i.test(prevTag) &&
+            /^[A-Za-z]\.?\s*$/.test(segment.trim()) &&
+            /^<\/(?:i|em)>/i.test(parts[i + 1] ?? '');
+          if (preserveJastrowInitial(abbreviation, before, after, isolatedItalic)) continue;
         }
         if (options.jastrowApostrophes &&
             /^['’]/.test(segment.slice(offset + match[0].length))) continue;
