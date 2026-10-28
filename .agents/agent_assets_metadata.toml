@@ -322,3 +322,17 @@ mtime_ms = 1792863814384
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b1103927-8dfb-4cc3-9b9c-b35b39a6e4d4/a6c4cb95-645e-4397-901a-79e66f762fa2"
 storage_version_token = "1792863869889277"
 content_type = "text/csv"
+
+[[outputs]]
+id = "YNE3kDm5hORkEAg03Xy3L"
+uri = "file://docs/jastrow-missing-mappings-audit.md"
+type = "text"
+title = "Jastrow abbreviation audit — raw results"
+description = "Full corpus scan with occurrence counts and source examples. Unfiltered candidates, not a reviewed list of missing mappings."
+logical_id = "2b47e2c1-6865-4c3c-ba34-92fc614c0a66"
+content_hash = "sha256:4090298c333bf5544d03ac373910bf51e223ab995b3a825ab660f66ef958f8a4"
+size = 2580064
+mtime_ms = 1793168987017
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/2b47e2c1-6865-4c3c-ba34-92fc614c0a66/091671a9-c59a-4a84-ab3a-1e8b08d43f4f"
+storage_version_token = "1793169070472964"
+content_type = "text/markdown"
