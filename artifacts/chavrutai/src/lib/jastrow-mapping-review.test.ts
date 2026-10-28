@@ -4,6 +4,12 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Maas Sh.", "Maaser Sheni"],
+    ["plur.", "plural"],
+    ["imper.", "imperative"],
+    ["cit.", "cited"],
+    ["ed. Friedm.", "ed. Friedmann"],
+    ["Shub.", "Shuvah"],
     ["Pi", "Pi'el"],
     ["Tan. d’be El.", "Tanna Devei Eliyahu"],
     ["Oth.", "Other"], ["Bub.", "Buber"],

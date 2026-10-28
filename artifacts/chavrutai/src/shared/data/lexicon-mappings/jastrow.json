@@ -19,6 +19,12 @@
     ]
   },
   "mappings": {
+    "Maas Sh.": "Maaser Sheni",
+    "plur.": "plural",
+    "imper.": "imperative",
+    "cit.": "cited",
+    "ed. Friedm.": "ed. Friedmann",
+    "Shub.": "Shuvah",
     "Pi": "Pi'el",
     "Tan. d’be El.": "Tanna Devei Eliyahu",
     "Oth.": "Other",
