@@ -355,14 +355,14 @@ content_type = "text/csv"
 id = "E9NRsrgmQVGK6uFfAA-_9"
 uri = "file://scripts/jastrow-abbreviation-check-blogpost.md"
 type = "text"
-title = "Revised blog draft: Checking Jastrow’s abbreviations"
-description = "Updated for the English dictionary filter, 3,328 remaining candidates, 846 mapping keys, and verified example counts. Includes limitations and technical appendix."
+title = "Blog draft: Checking Jastrow’s abbreviations"
+description = "Latest revised Markdown draft, with the main post and technical/data appendices."
 logical_id = "23e38d4e-6dee-45af-a41f-627aa2a4f682"
 content_hash = "sha256:389a3d6517f336aa64a8cca4c4962c884cae378e4daed65403fd4b30461133ee"
 size = 11278
 mtime_ms = 1793172671461
-storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/23e38d4e-6dee-45af-a41f-627aa2a4f682/77443140-b0bf-4e0a-9c3a-3cbe4c6339eb"
-storage_version_token = "1793172689925478"
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/23e38d4e-6dee-45af-a41f-627aa2a4f682/588f01ec-850d-44fe-87a2-ed023ceb9886"
+storage_version_token = "1793174883412644"
 content_type = "text/markdown"
 
 [[outputs]]

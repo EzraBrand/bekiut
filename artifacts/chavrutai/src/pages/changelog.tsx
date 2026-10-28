@@ -38,6 +38,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Jastrow: Expanded Abbreviations and References (October 28)</h3>
+            <p>Added grammatical, scholarly, edition, and place-name expansions, including “Ithp.” → “Ithpe'el,” “Boraitha” → “Baraita,” “Neub.” → “Neubauer,” and “Mar Zut.” → “Mar Zutra.” Added fuller book and journal references, including Delitzsch’s Prolegomena and Zeitschrift der Deutschen Morgenländischen Gesellschaft. Verified inline and tooltip expansions, with longer references taking priority over their shorter components.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Homepage: Weekly Parsha and Study Tools (October 25)</h3>
             <p>Added the weekly Torah portion beneath Daf Yomi, using Sefaria’s Israel calendar. The widget displays the portion name and chapter/verse range and links to the opening verse in the Bible reader.</p>
             <p>Moved the Jastrow and BDB dictionaries into the prominent quick-access row. Renamed “Study Tools” to “Talmud Study Tools” and reordered its links: Talmud Term Index, Mishnah Map, Biblical Index, Sugya Viewer, Places — Biblical &amp; Talmudic Map, Famous Pages, and J.N. Epstein’s Introductions.</p>
