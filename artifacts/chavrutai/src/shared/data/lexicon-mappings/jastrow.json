@@ -19,6 +19,15 @@
     ]
   },
   "mappings": {
+    "Lisb.": "Lisbon",
+    "Neub.": "Neubauer",
+    "Fr.": "Frankel",
+    "Darkhé": "Darkhei",
+    "prepos.": "preposition",
+    "Dithpe.": "Dithpe'el",
+    "Dispe.": "Dispe'el",
+    "Aram. Fremdw.": "aramäischen Fremdwörter",
+    "Frf.": "Frankfurt",
     "Reallex.": "Reallexikon",
     "contradist.": "contradistinction",
     "Boraitha": "Baraita",

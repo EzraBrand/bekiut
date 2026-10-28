@@ -4,6 +4,17 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Lisb.", "Lisbon"],
+    ["Neub.", "Neubauer"],
+    ["Fr.", "Frankel"],
+    ["Darkhé", "Darkhei"],
+    ["prepos.", "preposition"],
+    ["Dithpe.", "Dithpe'el"],
+    ["Dispe.", "Dispe'el"],
+    ["Aram. Fremdw.", "aramäischen Fremdwörter"],
+    ["Frf.", "Frankfurt"],
+    ["Fr. Darkhé Mish.", "Frankel, 'Darkhei Mishnah'"],
+    ["Fr. M’bo", "Frankel, Introduction to the Jerusalem Talmud"],
     ["Reallex.", "Reallexikon"],
     ["contradist.", "contradistinction"],
     ["Boraitha", "Baraita"],
@@ -242,8 +253,8 @@ it("expands tense, Frankel, Hanina, and wording additions", () => {
   }
 });
 
-it("leaves standalone Fr. unchanged and expands the specific Frankel reference", () => {
-  expect(expandAbbreviations("Fr.", data.mappings)).toBe("Fr.");
+it("expands standalone Fr. as Frankel while preserving the specific reference", () => {
+  expect(expandAbbreviations("Fr.", data.mappings)).toBe('<span class="dict-expanded">Frankel</span>');
   expect(expandAbbreviations("Fr. Darkhé Mish.", data.mappings))
     .toBe("<span class=\"dict-expanded\">Frankel, 'Darkhei Mishnah'</span>");
 });
