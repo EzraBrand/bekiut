@@ -55,3 +55,4 @@ docs/reviews/
 # Unpublished Places feature draft and generated companion data
 /scripts/ancient-places-blogpost.md
 /scripts/ancient-places-results.csv
+/generated-artifacts/

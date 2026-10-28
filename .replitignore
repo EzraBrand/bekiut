@@ -26,6 +26,7 @@ artifacts/bekiut-demo/exports/
 /artifacts/mockup-sandbox/
 /.canvas/
 /scripts/.cache/
+/generated-artifacts/
 
 # Keep node_modules, scripts, patches, talmud-data, public assets and build
 # outputs: production builds and/or running services depend on them.
