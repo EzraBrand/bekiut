@@ -1,6 +1,6 @@
 # Checking Jastrow’s abbreviations against the full dictionary
 
-I scanned 32,512 entries in a downloaded copy of Marcus Jastrow’s dictionary to find abbreviations missing from the expansion table in [Bekiut’s Jastrow reader](https://bekiut.com/jastrow). The scan covered 68,169 text fields, including definitions, nested senses, grammatical labels, and language notes. By the latest pass, the reader’s table contained 837 mapping keys.
+I scanned 32,512 entries in a downloaded copy of Marcus Jastrow’s dictionary to find abbreviations missing from the expansion table in [Bekiut’s Jastrow reader](https://bekiut.com/jastrow). The scan covered 68,169 text fields, including definitions, nested senses, grammatical labels, and language notes. By the latest pass, the reader’s table contained 846 mapping keys.
 
 The purpose was practical. Jastrow’s compressed English, grammatical terminology, and abbreviated references can make an otherwise accessible entry difficult to follow. Bekiut lets readers expand these forms inline or retain the original abbreviations and inspect their meanings in popovers. Both presentations depend on identifying what a shortened form means in its particular occurrence.
 
@@ -14,7 +14,11 @@ The existing expansion table supplied a starting set of known forms. Before coll
 
 I then broadened the search to include capitalized forms, abbreviations before Hebrew text or numbers, and sequences of abbreviated words. Bibliographic references frequently occur in those settings. A lowercase-only search would miss useful candidates such as “Eduy.” before a chapter reference.
 
-The output is a CSV containing occurrence counts, the number of entries containing each candidate, and two examples from different entries where available. Each example has a link to its entry in Bekiut, including the stable entry identifier. I sorted the latest version by total occurrences and added review notes to the highest-ranked results.
+The output is a CSV containing occurrence counts, the number of entries containing each candidate, and two examples from different entries where available. Each example has a link to its entry in Bekiut, including the stable entry identifier. I sorted the latest version by total occurrences and placed proposed expansions, review notes, and examples before the numerical columns.
+
+To reduce ordinary-word results such as “praise.” and “priest.,” I added a filter using the open-source [English Words list](https://github.com/dwyl/english-words), containing 370,105 entries. The revised run produced 3,328 candidates, compared with 40,897 in the preceding run. Additional mapping updates also contributed to that reduction. Compound candidates containing a dictionary word are filtered too.
+
+This filter has a cost: it also excludes genuine abbreviations whose spelling matches a dictionary word. “Contract.” can abbreviate “contraction,” but the word list recognizes “contract.” The export therefore favors a shorter review list at the expense of some coverage.
 
 ## What the review found
 
@@ -23,17 +27,15 @@ Several frequent residual forms have straightforward proposed expansions:
 | Candidate | Residual occurrences | Proposed expansion |
 |---|---:|---|
 | `i.e.` | 1,168 | that is |
-| `v. supra.` | 435 | see above |
 | `Eduy.` | 112 | Eduyot |
 | `Ezek.` | 92 | Ezekiel |
-| `Git.` | 66 | Gittin |
-| `ibid.` | 61 | in the same place |
+| `e. g.` | 36 | for example |
 
 These are counts in the downloaded text after the audit’s existing-mapping checks. They are not counts of independently verified display errors. Some candidates overlap: a multi-word expression and one of its components can both appear in the results.
 
-An earlier review led to additions including “denomin.” for “denominative,” “dialect.” for “dialectal,” and “Babyl.” for “Babylonian.” Other additions addressed capitalization or longer references: “Oth.” became “Other,” and “Tan. d’be El.” became “Tanna Devei Eliyahu.” The six rows above remain suggestions from the subsequent pass.
+The review led to additions including “denomin.” for “denominative,” “dialect.” for “dialectal,” and “Babyl.” for “Babylonian.” Other additions addressed longer references: “Tan. d’be El.” became “Tanna Devei Eliyahu,” and “ed. Friedm.” became “ed. Friedmann.” The latest batch added “Euseb.,” “Onom.,” and “homilet.” The four rows above remain suggestions; the spaced “e. g.” is a variant of the already-mapped “e.g.”
 
-Reading the examples also exposed problems in the detector. Initially, “i.e.” was split into two single-letter candidates. I changed the detector to retain the full expression. Multi-word detection introduced a different problem: it could join the end of an English sentence to the next citation, producing a candidate such as “him. Ib.” I added an explicit filter for reviewed sentence-ending words. Other false positives remain visible with review labels.
+Reading the examples also exposed problems in the detector. Initially, “i.e.” was split into two single-letter candidates. I changed the detector to retain the full expression. Multi-word detection could join the end of an English sentence to the next citation, producing “him. Ib.” The dictionary filter removes such combinations when it recognizes an ordinary word. Other false positives still require review.
 
 ## When a letter stands for the entry word
 
@@ -61,7 +63,9 @@ The audit is written in Python in `scripts/audit-jastrow-missing-mappings.py`. I
 
 The mapping source is `artifacts/chavrutai/src/shared/data/lexicon-mappings/jastrow.json`. A longest-first regular expression approximates known mapping coverage. This approximation does not reproduce every context-dependent rule in the browser formatter.
 
-The detector collects dotted tokens, including internally dotted expressions such as `i.e.`, and sequences of two to five dotted words. A few connectors, including `d’be`, are permitted within compound candidates. Standalone single-letter forms are excluded. A reviewed stoplist filters common sentence-ending words.
+The detector collects dotted tokens, including internally dotted expressions such as `i.e.`, and sequences of two to five dotted words. A few connectors, including `d’be`, are permitted within compound candidates. Standalone single-letter forms are excluded. A reviewed stoplist and an English dictionary filter remove ordinary-word candidates.
+
+The dictionary is the public-domain/Unlicense `words_alpha.txt` file from [this pinned revision](https://github.com/dwyl/english-words/tree/20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c). The script downloads it once and caches it locally. Matching ignores case and trailing periods. A compound is excluded if any component longer than one character matches a dictionary entry. Single-letter components remain eligible inside compounds. Internal dots are retained, so `i.e.` is not reduced to `ie`.
 
 For single-token candidates, overlap with an existing mapping suppresses the candidate. For multi-word candidates, partial coverage is permitted: an unmapped expression may contain already-mapped components. Completely covered expressions are excluded. Consequently, compound detection can still group adjacent, independent abbreviations. Those groups require review.
 
@@ -71,10 +75,10 @@ The CSV includes frequency, distinct-entry count, lowercase-following count, pos
 
 1. **Fragments of existing mappings.** Longest-first coverage avoids repeatedly proposing components of recognized phrases.
 2. **Internally dotted expressions.** Treating `i.e.` as one candidate prevents misleading single-letter results.
-3. **Adjacent sentences and citations.** The reviewed stoplist removes examples such as `him. Ib.`; it does not eliminate every ordinary-word false positive.
+3. **Adjacent sentences and citations.** Dictionary filtering removes many combinations such as `him. Ib.`, but also excludes valid abbreviations that spell dictionary words. It does not resolve every false positive.
 4. **Examples from the same entry.** The export selects different entry identifiers for its two example columns. If only one entry contains a candidate, the second remains empty.
 5. **Ambiguous expansions.** Review annotations distinguish suggestions, context-dependent forms, and false positives. The audit does not modify the mapping dictionary.
-6. **Reproducibility.** The source revision is linked above. Mapping updates change residual counts, so the table should be regenerated against the intended mapping version.
+6. **Reproducibility.** Both the corpus and word-list revisions are linked above. Mapping updates and filter changes affect residual counts, so the table should be regenerated against the intended versions. The companion CSV was checked against the latest export.
 
 The file uses UTF-8 with a byte-order mark for spreadsheet compatibility. Potential spreadsheet-formula prefixes are escaped. Entry links encode both the headword and stable identifier.
 
@@ -88,5 +92,7 @@ The existing dictionary is useful as a set of known positive examples, but no he
 | `Fr.` | Different scholars; unrelated to lowercase `fr.` | Expand verified full references |
 | `R. J.` | Personal-name shorthand | Preserve until identified |
 | `d’R. El. ch.` | Partial title plus chapter label | Review the complete title |
-| `contract.` | Abbreviation in one setting, ordinary verb in another | Avoid a global replacement |
-| `fire.`, `wine.`, `world.` | Ordinary sentence-ending words | Mark as false positives |
+| `contract.` | Abbreviation in one setting, ordinary verb in another | Excluded by dictionary filtering; retain as a known coverage limitation |
+| `fire.`, `wine.`, `world.` | Ordinary sentence-ending words | Excluded by dictionary filtering |
+
+This appendix retains lessons from earlier passes; not every form listed survives the current dictionary filter.

@@ -19,6 +19,9 @@
     ]
   },
   "mappings": {
+    "Euseb.": "Eusebius",
+    "Onom.": "Onomasticon",
+    "homilet.": "homiletical",
     "Maas Sh.": "Maaser Sheni",
     "plur.": "plural",
     "imper.": "imperative",

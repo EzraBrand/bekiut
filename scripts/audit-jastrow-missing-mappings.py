@@ -3,8 +3,9 @@
 Run: python3 scripts/audit-jastrow-missing-mappings.py
 
 Outputs UTF-8/BOM CSV with two distinct-entry examples and production links.
-An explicit reviewed stoplist removes common sentence-ending words; remaining
-unreviewed sentence endings are retained for recall.
+An English dictionary filter removes word matches, including words embedded in
+compound candidates. This intentionally trades recall for precision: genuine
+abbreviations spelling English words (e.g. contract.) are also excluded.
 Known-key masking approximates the reader; counts are source occurrences,
 not confirmed rendering failures. Variant matches are clues, NOT validated
 expansions (e.g. Fr. must not inherit fr. -> from).
@@ -17,11 +18,38 @@ import pathlib
 import re
 import unicodedata
 from urllib.parse import urlencode, quote
+from urllib.request import urlopen
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MAPPINGS = ROOT / "artifacts/chavrutai/src/shared/data/lexicon-mappings/jastrow.json"
 OUTPUT = ROOT / "generated-artifacts/jastrow-missing-mappings-audit.csv"
 mapping = json.loads(MAPPINGS.read_text())["mappings"]
+# Public-domain/Unlicense word list, pinned for reproducible results.
+# https://github.com/dwyl/english-words (LICENSE.md in the same revision).
+WORD_REVISION = "20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c"
+WORD_URL = f"https://raw.githubusercontent.com/dwyl/english-words/{WORD_REVISION}/words_alpha.txt"
+WORD_PATH = ROOT / "scripts/.cache" / f"english-words-{WORD_REVISION}.txt"
+if not WORD_PATH.exists():
+    with urlopen(WORD_URL, timeout=60) as response:
+        word_data = response.read().decode("utf-8")
+    if len(word_data.splitlines()) < 300000:
+        raise ValueError("English dictionary download is unexpectedly small")
+    WORD_PATH.parent.mkdir(parents=True, exist_ok=True)
+    WORD_PATH.write_text(word_data)
+english_words = set(WORD_PATH.read_text().lower().splitlines())
+assert {"praise", "priest", "contract"} <= english_words
+
+
+def english_word_in_candidate(key):
+    # Preserve single-letter components of genuine compound abbreviations.
+    # Keep internal punctuation (i.e.) rather than turning it into an English word.
+    return any(len(word := part.rstrip(".").casefold()) > 1 and word in english_words
+               for part in key.split())
+
+
+assert english_word_in_candidate("praise.")
+assert english_word_in_candidate("priest. Ib.")
+assert not english_word_in_candidate("i.e.")
 # Approximate the reader's longest-first Unicode boundaries. This is candidate
 # discovery, not a substitute for testing its actual HTML/context-aware formatter.
 patterns = []
@@ -98,6 +126,8 @@ for filename in ("part1.jsonl", "part2.jsonl"):
             for match in known.finditer(text):
                 covered[match.start():match.end()] = b"\1" * (match.end() - match.start())
             for start, end, key in candidate_spans(text):
+                if english_word_in_candidate(key):
+                    continue
                 # Whole known phrases disappear. An unknown compound remains
                 # even when some of its components already have mappings.
                 word_positions = [j for j in range(start, end) if not text[j].isspace()]
@@ -120,10 +150,12 @@ variants = collections.defaultdict(list)
 for key, expansion in mapping.items():
     variants[normalized(key)].append(f"{key} → {expansion}")
 
-columns = ["token", "occurrences", "entry_count", "lowercase_following_hits",
-           "existing_mapping_variant", "review_status", "suggested_expansion", "review_note"]
-for number in (1, 2):
-    columns += [f"example_{number}", f"headword_{number}", f"rid_{number}", f"entry_url_{number}"]
+columns = [
+    "token", "suggested_expansion", "review_note", "example_1", "entry_url_1",
+    "review_status", "example_2", "entry_url_2", "existing_mapping_variant",
+    "occurrences", "entry_count", "lowercase_following_hits", "headword_1",
+    "rid_1", "headword_2", "rid_2",
+]
 
 review_path = ROOT / "scripts/jastrow-audit-review.json"
 reviews = json.loads(review_path.read_text()) if review_path.exists() else {}
@@ -159,5 +191,6 @@ pathlib.Path("/tmp/jastrow-missing-mappings.json").write_text(json.dumps({
 }, ensure_ascii=False))
 print(f"Wrote {OUTPUT.relative_to(ROOT)}")
 print(f"{len(seen)} entries; {fields} text fields; {len(counts)} residual tokens; {len(mapping)} mapping keys.")
+print(f"English dictionary: {len(english_words)} words; {WORD_URL} (public domain/Unlicense).")
 for key in sorted(counts, key=lambda k: (-counts[k], k))[:35]:
     print(key, counts[key], "priority", priority[key], examples[key][0])
