@@ -15,6 +15,19 @@ beforeAll(() => {
 afterAll(() => vi.unstubAllGlobals());
 
 describe("Jastrow source fidelity", () => {
+  it("preserves the headword shorthand in M01564 rather than expanding it as gender", () => {
+    const source = 'and why is it called <i>m</i>.? Because it saves those engaged in it';
+    const normalized = normalizeJastrowAbbreviationMarkup(source, mappings.mappings);
+    for (const display of ["inline", "original"] as const) {
+      const output = expandAbbreviations(normalized, mappings.mappings,
+        { display, jastrowApostrophes: true });
+      expect(output).toBe('and why is it called <i>m.</i>? Because it saves those engaged in it');
+      expect(output).not.toContain('masculine');
+    }
+    expect(expandAbbreviations('<i>m.</i> noun', mappings.mappings,
+      { jastrowApostrophes: true })).toContain('>masculine</span>');
+  });
+
   it("displays the complete comma-separated headword without changing lookup identity", () => {
     expect(jastrowDisplayHeadword({ headword: "תִּ", alt_headwords: ["כְבּוֹסֶת"] })).toBe("תִּ, כְבּוֹסֶת");
     expect(jastrowDisplayHeadword({ headword: "חָ", alt_headwords: ["רַ", "ת"] })).toBe("חָ, רַ, ת");

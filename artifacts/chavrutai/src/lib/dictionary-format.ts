@@ -765,6 +765,14 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        // In Jastrow prose "called <i>m</i>.?" abbreviates the word being
+        // discussed, not its grammatical gender (M01564). Inspect visible
+        // context across emphasis tags; keep ordinary italic morphology intact.
+        if (options.jastrowApostrophes && (abbreviation === 'm' || abbreviation === 'm.')) {
+          const before = (parts.slice(0, i).join('') + segment.slice(0, offset))
+            .replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          if (/\bcalled\s*$/i.test(before)) continue;
+        }
         if (options.jastrowApostrophes &&
             /^['’]/.test(segment.slice(offset + match[0].length))) continue;
         // A lone I remains a pronoun/numeral label unless this exact comma
