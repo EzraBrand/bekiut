@@ -4,6 +4,13 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Reallex.", "Reallexikon"],
+    ["contradist.", "contradistinction"],
+    ["Boraitha", "Baraita"],
+    ["Hildesh.", "Hildesheimer"],
+    ["Imperat.", "Imperative"],
+    ["Brockelm.", "Brockelmann"],
+    ["Friedr. Del. Proleg.", "Friedrich Delitzsch, 'Prolegomena eines neuen Hebräisch-Aramäischen Wörterbuchs'"],
     ["Vattom.", "Va-tomer"],
     ["ed. Buxt.", "ed. Buxtorf"],
     ["ed. Lsb.", "ed. Lisbon"],
