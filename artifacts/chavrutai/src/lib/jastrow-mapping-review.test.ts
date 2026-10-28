@@ -4,6 +4,19 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Vattom.", "Va-tomer"],
+    ["ed. Buxt.", "ed. Buxtorf"],
+    ["ed. Lsb.", "ed. Lisbon"],
+    ["Ithp.", "Ithpe'el"],
+    ["Rabb. in D. S.", "Rabbinovicz in 'Dikdukei Soferim'"],
+    ["Löw Aram. Pfl.", "Löw, 'Aramäische Pflanzennamen'"],
+    ["ed. Rahm.", "ed. Rahmer"],
+    ["Eth. Korb.", "Et Korbani"],
+    ["Beth. Nath.", "Beth Nathan"],
+    ["anorg.", "inorganic"],
+    ["refer. to", "referring to"],
+    ["acc.", "accusative"],
+    ["hebr.", "Hebrew"],
     ["Euseb.", "Eusebius"],
     ["Onom.", "Onomasticon"],
     ["homilet.", "homiletical"],
@@ -443,7 +456,8 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    for (const key of ["acc.", "Rabb.", "Ant.", "defect."]) {
+    // acc. is now explicitly requested as accusative and tested above.
+    for (const key of ["Rabb.", "Ant.", "defect."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });
