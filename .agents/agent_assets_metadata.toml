@@ -341,12 +341,40 @@ content_type = "text/markdown"
 id = "qOsTWTGznSBb4aTvuOdnd"
 uri = "file://generated-artifacts/jastrow-missing-mappings-audit.csv"
 type = "table"
-title = "Jastrow abbreviation audit — CSV"
-description = "12,197 candidate rows, two examples from distinct entries where available, Bekiut links, and manual review notes for the top 35 candidates."
+title = "Revised Jastrow abbreviation audit"
+description = "Sorted by total occurrences; excludes standalone single letters; includes multi-word candidates, two linked examples where available, and review annotations."
 logical_id = "434a46db-b1ba-401b-a2b2-1ca7f51376ee"
-content_hash = "sha256:433d099ecbd02ce7740762138b923263c3c6fe1cbfb8c66f50ef58befdb1982b"
-size = 5274324
-mtime_ms = 1793169622429
-storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/434a46db-b1ba-401b-a2b2-1ca7f51376ee/c4f8bd41-ae0b-4b07-a5b4-8fc15f2cc40f"
-storage_version_token = "1793169772975334"
+content_hash = "sha256:3acd09d26948e0fde96f5a6ef702140efac325c49a74124696991ab484a8b202"
+size = 15123374
+mtime_ms = 1793171311229
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/434a46db-b1ba-401b-a2b2-1ca7f51376ee/cc521766-5e4a-4e33-bedf-677f9874ce51"
+storage_version_token = "1793171331177537"
+content_type = "text/csv"
+
+[[outputs]]
+id = "E9NRsrgmQVGK6uFfAA-_9"
+uri = "file://scripts/jastrow-abbreviation-check-blogpost.md"
+type = "text"
+title = "Blog draft: Checking Jastrow’s abbreviations"
+description = "First-person draft following the writing skill: 860-word main body, technical appendix, and reviewed examples."
+logical_id = "23e38d4e-6dee-45af-a41f-627aa2a4f682"
+content_hash = "sha256:ced3cc522dd8b115d67b03d69cd18682b829b16a6885c331eaa523a96c1dbb98"
+size = 9708
+mtime_ms = 1793171178509
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/23e38d4e-6dee-45af-a41f-627aa2a4f682/aca016b7-ef4c-450b-851f-128284a0df19"
+storage_version_token = "1793171329570550"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "yLIpDSHE6Gw73RbltUeeR"
+uri = "file://scripts/jastrow-abbreviation-check-results.csv"
+type = "table"
+title = "Blog companion: six suggested expansions"
+description = "Small CSV of the six candidates discussed in the draft, with verified residual counts."
+logical_id = "73f8b0db-4497-4277-b874-eb776e3e1a27"
+content_hash = "sha256:8817a6b6c42f3fcd045a502a354f467e06e9a3edabe9b5b26edd3d1e471c327d"
+size = 241
+mtime_ms = 1793171179097
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/73f8b0db-4497-4277-b874-eb776e3e1a27/0551dd8e-b865-42bc-a06f-ef8d50fb2e5d"
+storage_version_token = "1793171332874605"
 content_type = "text/csv"

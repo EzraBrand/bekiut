@@ -3,7 +3,8 @@
 Run: python3 scripts/audit-jastrow-missing-mappings.py
 
 Outputs UTF-8/BOM CSV with two distinct-entry examples and production links.
-Unreviewed sentence-ending words are deliberately retained for recall.
+An explicit reviewed stoplist removes common sentence-ending words; remaining
+unreviewed sentence endings are retained for recall.
 Known-key masking approximates the reader; counts are source occurrences,
 not confirmed rendering failures. Variant matches are clues, NOT validated
 expansions (e.g. Fr. must not inherit fr. -> from).
@@ -30,6 +31,38 @@ for key in sorted(mapping, key=len, reverse=True):
     patterns.append(left + re.escape(key) + right)
 known = re.compile("|".join(patterns))
 token = re.compile(r"(?<!\w)([A-Za-zÀ-ž’'-]+(?:\.[A-Za-zÀ-ž’'-]+)*\.)")
+compound = re.compile(
+    r"(?<!\w)([A-Za-zÀ-ž’'-]+\.(?:\s+(?:(?:d[’']be|de|und)\s+)?[A-Za-zÀ-ž’'-]+\.){1,4})"
+)
+# Explicitly reviewed full English words, not a broad spelling-dictionary filter:
+# the latter would also hide ambiguous forms such as "contract.".
+sentence_words = set("""
+same it him top them up off end out man of self down time me place day
+Amora water to death her other ground woman away days one two three
+there here this that these those on in for with from and but or
+""".split())
+
+
+def candidate_spans(text):
+    """Keep single letters inside compound candidates, never on their own."""
+    found = {}
+    for pattern in (compound, token):
+        for match in pattern.finditer(text):
+            key = re.sub(r"\s+", " ", match[1])
+            if re.fullmatch(r"[^\W\d_]\.", key, re.UNICODE):
+                continue
+            if any(part.rstrip(".") in sentence_words for part in key.split()):
+                continue
+            found[(match.start(), match.end())] = key
+    return [(start, end, key) for (start, end), key in sorted(found.items())]
+
+
+# Detector checks independent of the currently installed mappings.
+assert (0, 7, "R. Joh.") in candidate_spans("R. Joh.")
+assert (0, 8, "Targ. J.") in candidate_spans("Targ. J.")
+assert candidate_spans("e. a.") == [(0, 5, "e. a.")]
+assert candidate_spans("e.") == []
+assert candidate_spans("him. Ib.") == [(5, 8, "Ib.")]
 counts = collections.Counter()
 priority = collections.Counter()
 entries = collections.defaultdict(set)
@@ -64,16 +97,19 @@ for filename in ("part1.jsonl", "part2.jsonl"):
             covered = bytearray(len(text))
             for match in known.finditer(text):
                 covered[match.start():match.end()] = b"\1" * (match.end() - match.start())
-            for match in token.finditer(text):
-                key = match[1]
-                if key in mapping or any(covered[match.start():match.end()]):
+            for start, end, key in candidate_spans(text):
+                # Whole known phrases disappear. An unknown compound remains
+                # even when some of its components already have mappings.
+                word_positions = [j for j in range(start, end) if not text[j].isspace()]
+                already_covered = all(covered[j] for j in word_positions)
+                if key in mapping or already_covered or (" " not in key and any(covered[start:end])):
                     continue
                 counts[key] += 1
                 entries[key].add(rid)
-                if key[-2].islower() and re.match(r"\s*[a-z]", text[match.end():]):
+                if key[-2].islower() and re.match(r"\s*[a-z]", text[end:]):
                     priority[key] += 1
                 if len(examples[key]) < 3 and rid not in {e[0] for e in examples[key]}:
-                    snippet = text[max(0, match.start()-65):match.end()+100]
+                    snippet = text[max(0, start-65):end+100]
                     examples[key].append((rid, record["headword"], snippet))
 
 def normalized(key):
@@ -103,7 +139,7 @@ OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 with OUTPUT.open("w", encoding="utf-8-sig", newline="") as stream:
     writer = csv.DictWriter(stream, fieldnames=columns)
     writer.writeheader()
-    for key in sorted(counts, key=lambda k: (-priority[k], -counts[k], k)):
+    for key in sorted(counts, key=lambda k: (-counts[k], k)):
         status, expansion, note = reviews.get(key, ["unreviewed", "", ""])
         row = dict(token=key, occurrences=counts[key], entry_count=len(entries[key]),
                    lowercase_following_hits=priority[key],
@@ -123,5 +159,5 @@ pathlib.Path("/tmp/jastrow-missing-mappings.json").write_text(json.dumps({
 }, ensure_ascii=False))
 print(f"Wrote {OUTPUT.relative_to(ROOT)}")
 print(f"{len(seen)} entries; {fields} text fields; {len(counts)} residual tokens; {len(mapping)} mapping keys.")
-for key in sorted(counts, key=lambda k: (-priority[k], -counts[k]))[:35]:
+for key in sorted(counts, key=lambda k: (-counts[k], k))[:35]:
     print(key, counts[key], "priority", priority[key], examples[key][0])
