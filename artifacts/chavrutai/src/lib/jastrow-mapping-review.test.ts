@@ -4,6 +4,18 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Eduy.", "Eduyot"],
+    ["Géogr.", "'Géographie du Talmud'"],
+    ["Hal. Gedol.", "Halachot Gedolot"],
+    ["Haom.", "Ha'omer"],
+    ["Hesych.", "Hesychius"],
+    ["Ishtaf.", "Ishtaf'el"],
+    ["Jerem.", "Jeremiah"],
+    ["Lekh.", "Lekh Lekha"],
+    ["Massor.", "Massorah"],
+    ["Nebucadn.", "Nebuchadnezzar"],
+    ["Nœld.", "Nöldeke"],
+    ["Mand. Gr.", "Mandäische Grammatik"],
     ["pronom.", "pronominal"],
     ["referr.", "referring"],
     ["Stud. Bibl.", "Studia Biblica"],
