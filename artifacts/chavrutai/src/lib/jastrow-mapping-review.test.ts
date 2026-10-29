@@ -4,6 +4,32 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Midr. Haggad.", "Midrash Aggadah"],
+    ["Löw Pfl.", "Löw, 'Aramäische Pflanzennamen'"],
+    ["R. S. b. L.", "Rabbi Shimon ben Lakish"],
+    ["Friedm.", "Friedmann"],
+    ["Ittof.", "Ittofal"],
+    ["Joh.", "Yoḥanan"],
+    ["José", "Yosei"],
+    ["Zuckerm. Jüd. Masse", "Zuckermann, 'Das jüdische Mass-system'"],
+    ["Rapap. Er. Mill.", "Rapoport, 'Erekh Millin'"],
+    ["Jüd. Angel.", "jüdische Angelologie"],
+    ["Lemb.", "Lemberg"],
+    ["Oxf.", "Oxford"],
+    ["R. S. b. G.", "Rabban Shimon ben Gamliel"],
+    ["Sm. Class. Dict.", "Smith, 'Classical Dictionary'"],
+    ["Sheilt.", "Sheiltot"],
+    ["Tossaf.", "Tossafot"],
+    ["Vayakh.", "Vayakhel"],
+    ["translat.", "translation"],
+    ["Berl. Beitr. z. Geogr.", "Berliner, 'Beiträge zur Geographie'"],
+    ["Rabb.", "Rabbinowicz"],
+    ["Ahasver.", "Ahasuerus"],
+    ["Milm.", "Milman"],
+    ["Amer.", "American"],
+    ["Zeitschr. f. Assyriol.", "Zeitschrift für Assyriologie"],
+    ["l. c.", "in the place cited"],
+    ["Sam.", "Samuel/Samaritan"],
     ["Yishm.", "Yishmael"],
     ["Samar.", "Samaritan"],
     ["En Yaăk.", "Ein Yaakov"],
@@ -482,8 +508,8 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    // acc. is now explicitly requested as accusative and tested above.
-    for (const key of ["Rabb.", "Ant.", "defect."]) {
+    // acc. and Rabb. now have explicitly requested expansions, tested above.
+    for (const key of ["Ant.", "defect."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });
