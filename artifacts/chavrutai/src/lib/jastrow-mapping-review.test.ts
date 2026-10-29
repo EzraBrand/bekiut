@@ -4,6 +4,20 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Ant.", "Antiquities"],
+    ["B. J.", "Jewish War"],
+    ["Bresh.", "Bereshit"],
+    ["Crac.", "Cracow"],
+    ["Nap.", "Naples"],
+    ["Mat. Keh.", "Matnot Kehunah"],
+    ["Joseph. B. J.", "Josephus, 'Jewish War'"],
+    ["M. M.", "Manuscript Munich"],
+    ["Monatsschr.", "Monatsschrift"],
+    ["Yoḥ.", "Yoḥanan"],
+    ["Niss.", "Nissim"],
+    ["Proph.", "Prophets"],
+    ["Hagiogr.", "Hagiographa"],
+    ["Mat. K.", "Matnot Kehunah"],
     ["Midr. Haggad.", "Midrash Aggadah"],
     ["Löw Pfl.", "Löw, 'Aramäische Pflanzennamen'"],
     ["R. S. b. L.", "Rabbi Shimon ben Lakish"],
@@ -508,8 +522,8 @@ describe("Jastrow corpus-reviewed additions", () => {
 
   it("does not import misleading or ambiguous BDB meanings", () => {
     const mappings = data.mappings as Record<string, string>;
-    // acc. and Rabb. now have explicitly requested expansions, tested above.
-    for (const key of ["Ant.", "defect."]) {
+    // acc., Rabb., and Ant. have explicitly requested expansions, tested above.
+    for (const key of ["defect."]) {
       expect(mappings[key]).toBeUndefined();
     }
   });
