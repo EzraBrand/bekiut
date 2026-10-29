@@ -4,6 +4,15 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["pronom.", "pronominal"],
+    ["referr.", "referring"],
+    ["Stud. Bibl.", "Studia Biblica"],
+    ["Liber Chron.", "Liber Chronicorum (Chronicles)"],
+    ["B. h.", "Biblical Hebrew"],
+    ["Nr.", "Number"],
+    ["D. C.", "Du Cange"],
+    ["D. S.", "Dikdukei Soferim"],
+    ["Dehrenb.", "Derenbourg"],
     ["Chaldaic", "Aramaic"],
     ["Taf.", "Taf'el"],
     ["Tol’d.", "Toledot"],
