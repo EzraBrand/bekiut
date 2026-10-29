@@ -4,6 +4,17 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Chaldaic", "Aramaic"],
+    ["Taf.", "Taf'el"],
+    ["Tol’d.", "Toledot"],
+    ["Tetsav", "Tzav"],
+    ["Behaʿăl.", "Behaalotecha"],
+    ["Vatt.", "Va-tomer"],
+    ["demonstr.", "demonstrative"],
+    ["diminut.", "diminutive"],
+    ["disting.", "distinguished"],
+    ["Bech.", "Bechorot"],
+    ["enlarg.", "enlargement"],
     ["Ant.", "Antiquities"],
     ["B. J.", "Jewish War"],
     ["Bresh.", "Bereshit"],
