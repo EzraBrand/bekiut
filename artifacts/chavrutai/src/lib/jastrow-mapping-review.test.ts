@@ -4,6 +4,14 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["the Lord’s", "God's"],
+    ["Fried. Del.", "Friedrich Delitzsch"],
+    ["Assyr. Stud.", "Assyrische Studien"],
+    ["Palest.", "Eretz Yisrael"],
+    ["pref.", "prefix"],
+    ["Ab. d’R. Nath.", "Avot d’Rabbi Natan"],
+    ["whence", "from which"],
+    ["Deriv.", "Derivative/Derivation"],
     ["Plin.", "Pliny"],
     ["Plin. H. N.", "Pliny, 'Natural History'"],
     ["Ptol.", "Ptolemy"],
@@ -176,7 +184,7 @@ describe("Jastrow additions and source apostrophes", () => {
     ["Isp. n.", "Ispe'el noun"], ["denomin.", "denominative"],
     ["var.", "variant"], ["dialect.", "dialectal"],
     ["sec.", "second/secondary"], ["Prob.", "Probably"],
-    ["Mishn.", "Mishnah"], ["Babyl.", "Babylonian"],
+    ["Mishn.", "Mishnah"], ["Babyl.", "Babylonia(n)"],
     ["Targ. J.", "Targum Jonathan"], ["R. Joh.", "Rabbi Yohanan"],
     ["ch. V", "chapter 5"],
     ["du.", "dual"], ["Plin. Hist. Nat.", "Pliny, 'Natural History'"],

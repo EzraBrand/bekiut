@@ -500,7 +500,7 @@ describe("Jastrow abbreviation expansion", () => {
     ["Arab.", "Arabic"],
     ["Engl.", "English"],
     ["interch.", "interchanged/interchangeable"],
-    ["Deriv.", "Derivative"],
+    ["Deriv.", "Derivative/Derivation"],
     ["Transf.", "Transferred sense"],
     ["archit.", "architecture"],
     ["incorr.", "incorrect"],
