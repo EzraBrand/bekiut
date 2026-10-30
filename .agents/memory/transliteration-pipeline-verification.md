@@ -14,3 +14,9 @@ Preserve the distinct precomposed `Ḥull.` and decomposed `Ḥull.` Jastrow map
 **Why:** The user confirmed that adding the decomposed form caught the abbreviation in גִּלְדָּא and explicitly declined standardizing the two expansions.
 
 **How to apply:** Check Unicode code points when reviewing apparent duplicate keys; do not remove a variant without verifying that matching still covers its actual source spelling.
+
+Jastrow abbreviation regressions must enable the reader's apostrophe-protection option, not just run the default formatter.
+
+**Why:** Default-mode tests passed for quoted `&c.` while the real reader suppressed it: apostrophe protection mistook a closing quotation mark for a word continuation.
+
+**How to apply:** Exercise both display modes and paragraph-splitting settings through the presentation pipeline, including closing quotes and actual transliterated-word continuations.

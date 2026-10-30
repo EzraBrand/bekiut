@@ -777,7 +777,9 @@ export function expandAbbreviations(
           if (preserveJastrowInitial(abbreviation, before, after, isolatedItalic)) continue;
         }
         if (options.jastrowApostrophes &&
-            /^['’]/.test(segment.slice(offset + match[0].length))) continue;
+            // Only a continuing word needs apostrophe protection. A closing
+            // quotation mark (e.g. &c.’, in M02097/M02308) is punctuation.
+            /^['’][\p{L}\p{M}]/u.test(segment.slice(offset + match[0].length))) continue;
         // A lone I remains a pronoun/numeral label unless this exact comma
         // form introduces a numeric page locator (Jastrow: "I, 27a").
         if (abbreviation === 'I,' && expansion === '1,') {

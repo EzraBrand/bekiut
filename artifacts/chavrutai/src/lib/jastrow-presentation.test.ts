@@ -134,6 +134,27 @@ describe("Jastrow source fidelity", () => {
     expect(new DOMParser().parseFromString(original, "text/html").querySelector("button")?.textContent).toBe("&c.");
     expect(original).not.toContain("&amp;amp;");
   });
+  it.each([
+    ["M02097", "‘whatsoever it be &c.’, this is again a generalization"],
+    ["M02308", "‘he shall pour out (the remainder) at the bottom &c.’, but"],
+    ["straight-quote", "'whatsoever it be &c.', this is again a generalization"],
+  ])("expands quoted &c. in the complete Jastrow pipeline: %s", (rid, source) => {
+    for (const extraSplits of [false, true]) {
+      const structured = structureJastrowDefinition(source, rid, extraSplits);
+      const normalized = normalizeJastrowAbbreviationMarkup(structured.html, mappings.mappings);
+      for (const display of ["inline", "original"] as const) {
+        const output = expandAbbreviations(normalized, mappings.mappings,
+          { jastrowApostrophes: true, display });
+        const doc = new DOMParser().parseFromString(output, "text/html");
+        if (display === "inline") {
+          expect(doc.body.textContent).toBe(source.replace("&c.", "etc."));
+        } else {
+          expect(doc.body.textContent).toBe(source);
+          expect(doc.querySelector("button")?.getAttribute("data-bdb-expansion")).toBe("etc.");
+        }
+      }
+    }
+  });
   it("unwraps duplicate nested links without losing words or destinations", () => {
     const html = '<a href="/Jastrow,_שלם.1"> <a dir="rtl" href="/Jastrow,_שלם.1">שָׁלַם</a>)</a>';
     const result = normalizeJastrowLinks(html);
