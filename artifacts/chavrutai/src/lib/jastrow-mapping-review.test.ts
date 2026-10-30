@@ -4,6 +4,26 @@ import { expandAbbreviations } from "./dictionary-format";
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Comm.", "Commentaries"],
+    ["Hebr. Gr.", "Hebrew Grammar"],
+    ["thine,", "yours,"],
+    ["apocop.", "apocopation"],
+    ["ed. Zuckerm.", "ed. Zuckermandel"],
+    ["Contr.", "Contraction"],
+    ["Thou", "You"],
+    ["&c.", "etc."],
+    ["Levys. Zool. d. Talm.", "Lewysohn, 'Zoologie des Talmuds'"],
+    ["Terum.", "Terumah"],
+    ["poet.", "poetic"],
+    ["Metsor.", "Metsora"],
+    ["pr. nouns.", "proper nouns"],
+    ["X", "10"],
+    ["imperf.", "imperfect"],
+    ["prepuce", "foreskin"],
+    ["edd.", "editions"],
+    ["mss.", "manuscripts"],
+    ["Meb. Y.", "Mevo Yerushalmi"],
+    ["Phœn.", "Phoenician"],
     ["Eduy.", "Eduyot"],
     ["Géogr.", "'Géographie du Talmud'"],
     ["Hal. Gedol.", "Halachot Gedolot"],
@@ -522,8 +542,8 @@ describe("Jastrow corpus-reviewed additions", () => {
     });
   });
 
-  it("does not map single-letter numerals or numerals beyond 49", () => {
-    for (const source of ["i", "v", "x", "l", "I", "V", "X", "L", "i.", "l.", "li", "LI"]) {
+  it("preserves other single-letter numerals and numerals beyond 49", () => {
+    for (const source of ["i", "v", "x", "l", "I", "V", "L", "i.", "l.", "li", "LI"]) {
       expect(expandAbbreviations(source, data.mappings)).toBe(source);
     }
     // Existing reference abbreviation, not a numeral.
