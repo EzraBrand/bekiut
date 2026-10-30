@@ -22,6 +22,8 @@ import {
 } from "@/lib/dictionary-format";
 import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexicon-index";
 import { jastrowOrigin, jastrowDisplayHeadword, structureJastrowDefinition, normalizeJastrowAbbreviationMarkup } from "@/lib/jastrow-presentation";
+import { sanitizeJastrowHtml } from "@/lib/jastrow-html-sanitizer";
+import { LatestRequest } from "@/lib/latest-request";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,17 +55,19 @@ export default function Jastrow() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const initialLoadRef = useRef(false);
   const entryUrlRef = useRef(window.location.pathname + window.location.search);
+  const latestRequest = useRef(new LatestRequest());
+  useEffect(() => () => latestRequest.current.invalidate(), []);
   // Suggestions are opt-in through typing, not through URL/index updates.
   // Keep suppression active until an actual edit, including late index loads.
   const suppressSuggestionsRef = useRef(true);
   const lexiconIndex = useLexiconIndex("jastrow");
   const preparedEntries = useMemo(() => results.map((entry, index) => {
     const { origin, definitions } = jastrowOrigin(entry);
-    const render = (html: string) => annotateTransliterationsInHtml(
+    const render = (html: string) => sanitizeJastrowHtml(annotateTransliterationsInHtml(
       convertSefariaLinksToInternal(convertJastrowInternalLinks(
         renderAbbreviations(normalizeJastrowAbbreviationMarkup(convertSuperscriptLetters(html), jastrowMappings.mappings)),
       )),
-    );
+    ));
     const id = `jastrow-${entry.rid || index}`;
     const senses = definitions.map((definition, senseIndex) => {
       const structured = structureJastrowDefinition(definition, `${id}-sense-${senseIndex}`, extraSplits);
@@ -133,6 +137,7 @@ export default function Jastrow() {
   const handleSearch = useCallback(async (query?: string | unknown, rid?: string) => {
     const q = typeof query === 'string' ? query : searchQuery;
     if (!q.trim()) return;
+    const request = latestRequest.current.begin();
     suppressSuggestionsRef.current = true;
     setSuggestions([]);
     setShowSuggestions(false);
@@ -144,9 +149,10 @@ export default function Jastrow() {
     const differentEntry = currentParams.get("q") !== q.trim() || (currentParams.get("rid") || undefined) !== rid;
     updateURLParams({ q: q.trim(), rid }, differentEntry);
     try {
-      const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}`);
+      const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}`, { signal: request.signal });
       if (!response.ok) throw new Error(`Search failed: ${response.status}`);
       const entries = await response.json();
+      if (!request.isCurrent()) return;
       const validEntries = Array.isArray(entries) ? entries.filter((entry: DictionaryEntry) =>
         entry && entry.headword && entry.content && Array.isArray(entry.content.senses)
       ) : [];
@@ -160,10 +166,12 @@ export default function Jastrow() {
         has_results: validEntries.length > 0,
       });
     } catch (error) {
+      if (!request.isCurrent()) return;
       console.error('Frontend: Search error:', error);
       setResults([]);
+    } finally {
+      if (request.isCurrent()) setIsLoading(false);
     }
-    setIsLoading(false);
   }, [searchQuery, updateURLParams]);
 
   // Initial-load + popstate handler. Re-runs the search when the URL's `q`
@@ -179,11 +187,16 @@ export default function Jastrow() {
         setSearchQuery(q);
         handleSearch(q, params.get('rid') || undefined);
       } else if (letter) {
+        latestRequest.current.invalidate();
         window.location.replace(`/jastrow/headwords/${encodeURIComponent(letter)}`);
       } else {
         // Bare /jastrow (e.g. user popped back past all searches) — clear stale
         // state so the UI matches the URL.
         suppressSuggestionsRef.current = true;
+        latestRequest.current.invalidate();
+        pendingEntryScroll.current = false;
+        setIsLoading(false);
+        setShowBrowse(true);
         setSearchQuery("");
         setLastSearchedQuery("");
         setResults([]);

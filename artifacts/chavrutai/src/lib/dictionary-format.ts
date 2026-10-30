@@ -413,6 +413,12 @@ export function annotateTransliterationsInHtml(html: string): string {
   if (typeof window === 'undefined' || typeof DOMParser === 'undefined') {
     return html;
   }
+  // Nothing to transliterate in the vast majority of short Jastrow senses.
+  // Hebrew itself is not annotated; a positive check is only a hint and
+  // still defers to the text-node walker for accurate boundaries.
+  if (!/[\u0370-\u03ff\u1f00-\u1fff\u0700-\u074f\u0750-\u077f\u0600-\u06ff\u0800-\u082f\u1200-\u137f]/u.test(html)) {
+    return html;
+  }
   try {
     const doc = new DOMParser().parseFromString(`<div id="__translit_root__">${html}</div>`, 'text/html');
     const root = doc.getElementById('__translit_root__');
@@ -756,6 +762,7 @@ export function expandAbbreviations(
     // directly inside a <strong> open tag.
     const prevTag = i > 0 ? parts[i - 1] : '';
     const insideStrong = /^<strong\b[^>]*>$/.test(prevTag);
+    let surroundingText: { before: string; after: string } | undefined;
 
     for (const { abbreviation, expansion, pattern } of compiled) {
       if (abbreviation === 'c.' && insideStrong) continue;
@@ -767,10 +774,12 @@ export function expandAbbreviations(
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
         if (options.jastrowApostrophes && /^[A-Za-z]\.?$/.test(abbreviation)) {
-          const before = (parts.slice(0, i).join('') + segment.slice(0, offset))
-            .replace(/<\/?[a-zA-Z][^>]*>/g, '');
-          const after = (segment.slice(offset + match[0].length) + parts.slice(i + 1).join(''))
-            .replace(/<\/?[a-zA-Z][^>]*>/g, '');
+          surroundingText ??= {
+            before: parts.slice(0, i).join('').replace(/<\/?[a-zA-Z][^>]*>/g, ''),
+            after: parts.slice(i + 1).join('').replace(/<\/?[a-zA-Z][^>]*>/g, ''),
+          };
+          const before = surroundingText.before + segment.slice(0, offset);
+          const after = segment.slice(offset + match[0].length) + surroundingText.after;
           const isolatedItalic = /^<(?:i|em)\b/i.test(prevTag) &&
             /^[A-Za-z]\.?\s*$/.test(segment.trim()) &&
             /^<\/(?:i|em)>/i.test(parts[i + 1] ?? '');

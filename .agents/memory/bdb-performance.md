@@ -14,3 +14,9 @@ Do not add BDB result caching until search can distinguish successful complete r
 **Why:** Caching an apparent empty success can prolong a transient Sefaria outage. Network caching was intentionally excluded from the main-thread performance fix for this reason.
 
 **How to apply:** First define failure propagation, then implement bounded TTL and in-flight deduplication without persisting failures as misses.
+
+For Jastrow, cache only nonempty successful lookup results; do not turn empty responses into durable misses.
+
+**Why:** The upstream search layer can return an empty list after a failed lookup, so caching that response could conceal a transient outage. Repeated successful entry lookups benefit from a short TTL and concurrent-request deduplication.
+
+**How to apply:** If adding more caching or longer TTLs, first make upstream errors explicit rather than treating them as negative search results.

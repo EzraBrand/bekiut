@@ -24,6 +24,7 @@
 - [Reader note typography](reader-note-typography.md) — shared readable note sizes across Bavli, Yerushalmi, and Rambam; avoid compounding relative text-size reductions.
 - [Scrolling table headings](scrolling-table-headers.md) — native sticky outside horizontal overflow; scroll-driven header translation looked fine in screenshots but jumped during scrolling.
 - [BDB performance constraints](bdb-performance.md) — immutable mapping identity; search caching must distinguish upstream failures from genuine empty results.
+- [Jastrow HTML trust boundary](jastrow-html-trust-boundary.md) — sanitize final rendered HTML; happy-dom does not faithfully exercise DOMPurify, so test the explicit allowlist too.
 - [Transliteration verification](transliteration-pipeline-verification.md) — raw-string tests can miss upstream HTML boundaries; verify the affected rendered entry.
 - [BDB source metadata](bdb-source-metadata.md) — search can move headword subscripts into separate metadata; compare words and v3 text responses.
 - [Dictionary popover scope](bdb-experiment-scope.md) — abbreviation popovers approved for BDB and Jastrow; other readers remain outside scope.

@@ -50,13 +50,18 @@ export function restoreJastrowEtCetera(html: string): string {
 
 // Source emphasis sometimes excludes the final period: <i>fem</i>.
 // Move it inside only for known abbreviation keys; leave ordinary prose alone.
+const abbreviationStemsCache = new WeakMap<Record<string, string>, string[]>();
 export function normalizeJastrowAbbreviationMarkup(html: string, mappings: Record<string, string>): string {
+  if (!html.includes(">.") || !html.includes("</")) return restoreJastrowEtCetera(html);
+  let stems = abbreviationStemsCache.get(mappings);
+  if (!stems) {
+    stems = Object.keys(mappings).filter(key => key.endsWith(".")).map(key => key.slice(0, -1));
+    abbreviationStemsCache.set(mappings, stems);
+  }
   return restoreJastrowEtCetera(html).replace(
     /<(i|em|b|strong)(\s[^>]*)?>([^<>]+)<\/\1>\./gi,
     (original, tag: string, attributes: string | undefined, text: string) =>
-      Object.keys(mappings).some(key => {
-        if (!key.endsWith(".")) return false;
-        const stem = key.slice(0, -1);
+      stems.some(stem => {
         if (!stem || !text.endsWith(stem)) return false;
         const prefix = text.slice(0, -stem.length);
         return !prefix || !/[\p{L}\p{N}\p{M}]$/u.test(prefix);
