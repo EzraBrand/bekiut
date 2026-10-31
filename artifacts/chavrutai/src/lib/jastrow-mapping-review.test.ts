@@ -37,6 +37,12 @@ describe("Jastrow word-internal Roman numerals", () => {
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Day of Atonem.", "Yom Kippur"],
+    ["Bahod.", "Baḥodesh"],
+    ["Beitr. z. Gesch. d. hebr. u. aram. Studien", "Beiträge zur Geschichte der hebräischen und aramäischen Studien"],
+    ["Regensb.", "Regensburg"],
+    ["Ar. Haḳḳ.", "Arukh HaKatzar"],
+    ["Ulekaḥ.", "Ulekaḥtem"],
     ["Const.", "Constantinople"],
     ["emphat.", "emphaticum (paragogic)"],
     ["figur.", "figurative"],
