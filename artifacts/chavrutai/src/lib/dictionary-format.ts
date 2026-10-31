@@ -773,6 +773,16 @@ export function expandAbbreviations(
 
       for (const match of segment.matchAll(pattern)) {
         const offset = match.index!;
+        if (options.jastrowApostrophes && (offset === 0 || /['’]/.test(segment[offset - 1]))) {
+          // A preceding apostrophe can connect this token to a transliterated
+          // word, e.g. Park’vi: vi is not the Roman numeral 6. Inspect adjacent
+          // text nodes too, since italics may split a word.
+          surroundingText ??= {
+            before: parts.slice(0, i).join('').replace(/<\/?[a-zA-Z][^>]*>/g, ''),
+            after: parts.slice(i + 1).join('').replace(/<\/?[a-zA-Z][^>]*>/g, ''),
+          };
+          if (/[\p{L}\p{M}]['’]$/u.test(surroundingText.before + segment.slice(0, offset))) continue;
+        }
         if (options.jastrowApostrophes && /^[A-Za-z]\.?$/.test(abbreviation)) {
           surroundingText ??= {
             before: parts.slice(0, i).join('').replace(/<\/?[a-zA-Z][^>]*>/g, ''),

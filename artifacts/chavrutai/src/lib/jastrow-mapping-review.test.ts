@@ -1,9 +1,69 @@
 import { describe, expect, it } from "vitest";
 import data from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations } from "./dictionary-format";
+import { normalizeJastrowAbbreviationMarkup, structureJastrowDefinition } from "./jastrow-presentation";
+
+describe("Jastrow word-internal Roman numerals", () => {
+  it.each(["inline", "original"] as const)(
+    "preserves Q01851's Park’vi through presentation in %s mode", display => {
+      const raw = "Kiepert Atl. d. Alt. Welt 1860, p. 4) <i>Park’vi</i>, name of a country in Northern Ariana.";
+      for (const extraSplits of [false, true]) {
+        const structured = structureJastrowDefinition(raw, "jastrow-Q01851-sense-0", extraSplits);
+        const html = expandAbbreviations(
+          normalizeJastrowAbbreviationMarkup(structured.html, data.mappings),
+          data.mappings, { jastrowApostrophes: true, display },
+        );
+        expect(html).toContain("<i>Parkevi</i>");
+        expect(html).not.toContain('data-bdb-source="vi"');
+        expect(html).not.toContain(">6</span>");
+        expect(html).toContain(display === "inline" ? ">Atlas der alten Welt</span>" :
+          `data-bdb-expansion="${encodeURIComponent("Atlas der alten Welt")}"`);
+      }
+    },
+  );
+
+  it.each(["Park’<i>vi</i>,", "Park'<b>vi</b>,"])(
+    "also protects word suffixes across markup: %s", source => {
+      const html = expandAbbreviations(source, data.mappings, { jastrowApostrophes: true });
+      expect(html).toBe(source);
+    },
+  );
+
+  it("still converts quoted standalone numerals", () => {
+    expect(expandAbbreviations("‘vi’", data.mappings, { jastrowApostrophes: true }))
+      .toBe('‘<span class="dict-expanded">6</span>’');
+  });
+});
 
 describe("Jastrow additions and source apostrophes", () => {
   it.each([
+    ["Const.", "Constantinople"],
+    ["emphat.", "emphaticum (paragogic)"],
+    ["figur.", "figurative"],
+    ["membrum genitale", "penis"],
+    ["gramm.", "grammatical"],
+    ["Pl. majest.", "pluralis majestatis (majestic plural)"],
+    ["plur. majest.", "pluralis majestatis (majestic plural)"],
+    ["prepuces", "foreskins"],
+    ["membra", "penises"],
+    ["popul.", "popular"],
+    ["Buxt.", "Buxtorf"],
+    ["synon.", "synonymous"],
+    ["urin", "urine"],
+    ["Berl. Beitr. Geogr.", "Berliner, 'Beiträge zur Geographie'"],
+    ["Berl. Geogr.", "Berliner, 'Beiträge zur Geographie'"],
+    ["Friedr.", "Friedrich"],
+    ["Rabb. R. S.", "Rabbinowicz, 'Dikdukei Sofrim'"],
+    ["Æthiop.", "Ethiopic/Ethiopia"],
+    ["Rev. des Ét.", "Revue des études"],
+    ["Revue des Ét.", "Revue des études"],
+    ["Koh. Angelol.", "Kohut, 'Angelologie'"],
+    ["Aniy.", "Aniya"],
+    ["Apocop.", "Apocopated"],
+    ["Aram. Pfl.", "'Aramäische Pflanzennamen'"],
+    ["Assyr. Wœrterb.", "Assyrisches Wörterbuch"],
+    ["Bact.", "Bactrian (Avestan)"],
+    ["Atl. d. Alt. Welt", "Atlas der alten Welt"],
     ["the Lord’s", "God's"],
     ["Fried. Del.", "Friedrich Delitzsch"],
     ["Assyr. Stud.", "Assyrische Studien"],
@@ -352,7 +412,7 @@ it("expands the Chovah, historical references, wording, and contextual V additio
     luncheon: "meal",
     "Gesch. d. Jud.": "Geschichte der Juden",
     "Gr.": "Greek",
-    "Aeth.": "Ethiopic (Ge'ez)",
+    "Aeth.": "Ethiopic/Ethiopia",
     "‘Ăbadim": "Avadim",
     "ed. Lehm.": "ed. Lehmann",
     "Hashsh'mini": "Ha-shemini",
