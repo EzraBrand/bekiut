@@ -31,8 +31,32 @@ production performance benchmark.
 
 ## Changes made in this review
 
+### Follow-up implementation
+
+- Full workspace typecheck now passes. The apparent consumer errors were caused
+  by stale Zod 3 declarations after upgrading to Zod 4. A forced shared-library
+  rebuild fixed them without weakening application types.
+- BDB now aborts superseded searches and guards success, failure, and loading
+  updates by request generation. Bare-page navigation and unmount also invalidate
+  pending requests.
+- BDB now sanitizes final transformed HTML using the shared dictionary allowlist,
+  with explicit support for its paragraphs, semicolon segments, and Unicode Greek
+  outline anchors. Tests cover both abbreviation displays and split settings.
+- The app shell now dynamically imports chapter helpers only for the Talmud
+  preload. Readers still synchronously import their required chapter metadata.
+- Fresh production Vite builds measured the initial entry at **975,818 bytes /
+  216,454 gzip** before and **548,800 bytes / 178,515 gzip** after: **43.8% raw /
+  17.5% gzip reduction**. Gzip was measured locally, not as a production transfer.
+  The initial entry no longer contains the Mishnah mapping JSON.
+- Remaining notable bundle contributors include React DOM, PostHog, and
+  tailwind-merge. PostHog's module contributes about 216 KB before minification;
+  deferring analytics requires care around consent and initial event delivery.
+- Visually checked a real BDB אָב entry with citation links, morphology,
+  occurrence count, and abbreviation controls intact.
+
 - Added the standard root `LICENSE` file with MIT terms and
   `Copyright (c) 2026 Ezra Brand`, consistent with existing package metadata.
 - Added a README license link and clarified that third-party material keeps its
   own licensing terms.
-- Left application behavior unchanged pending selection of follow-up work.
+- The original review left behavior unchanged; the follow-up changes above
+  implement the subsequently selected work.

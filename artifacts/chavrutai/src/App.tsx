@@ -8,7 +8,6 @@ import { PreferencesProvider } from "@/context/preferences-context";
 import { PageLoading } from "@/components/page-loading";
 import { initAnalytics, isOptedOut } from "@/lib/analytics";
 import { useAnalytics } from "@/hooks/use-analytics";
-import { preloadChapterData } from "@/lib/chapter-data";
 import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
 import { getBookBySlug } from "@workspace/shared-data/bible-books";
 
@@ -188,7 +187,9 @@ function App() {
     const pathMatch = window.location.pathname.match(/^\/talmud\/([^/]+)/);
     if (pathMatch) {
       const tractateFromUrl = decodeURIComponent(pathMatch[1]);
-      preloadChapterData(tractateFromUrl).catch(() => {});
+      import("@/lib/chapter-data")
+        .then(({ preloadChapterData }) => preloadChapterData(tractateFromUrl))
+        .catch(() => {});
     }
   }, []);
 

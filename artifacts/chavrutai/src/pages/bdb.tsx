@@ -2,6 +2,8 @@ import { memo, useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { BdbAbbreviationPanel } from "@/components/bdb-abbreviation-panel";
+import { sanitizeBdbHtml } from "@/lib/jastrow-html-sanitizer";
+import { LatestRequest } from "@/lib/latest-request";
 import { Button } from "@/components/ui/button";
 import { PageShell, PageHeader } from "@/components/layout/page-shell";
 import { useSEO } from "@/hooks/use-seo";
@@ -109,6 +111,8 @@ export default function Bdb() {
   const [outlineExpanded, setOutlineExpanded] = useState<Record<string, boolean>>({});
   const searchInputRef = useRef<HTMLInputElement>(null);
   const initialLoadRef = useRef(false);
+  const latestRequest = useRef(new LatestRequest());
+  useEffect(() => () => latestRequest.current.invalidate(), []);
   const suppressSuggestionsRef = useRef(false);
   const outlineTriggerRef = useRef<HTMLButtonElement | null>(null);
   const outlineCloseRef = useRef<HTMLButtonElement | null>(null);
@@ -155,15 +159,17 @@ export default function Bdb() {
   const handleSearch = useCallback(async (query?: string | unknown) => {
     const q = typeof query === 'string' ? query : searchQuery;
     if (!q.trim()) return;
+    const request = latestRequest.current.begin();
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
     setOpenOutlineEntry(null);
     setActiveAnchorId(null);
     updateURLParams({ q: q.trim() });
     try {
-      const response = await fetch(`/api/bdb/search?query=${encodeURIComponent(q)}`);
+      const response = await fetch(`/api/bdb/search?query=${encodeURIComponent(q)}`, { signal: request.signal });
       if (!response.ok) throw new Error(`Search failed: ${response.status}`);
       const entries = await response.json();
+      if (!request.isCurrent()) return;
       const validEntries = Array.isArray(entries) ? entries.filter((entry: DictionaryEntry) =>
         entry && entry.headword && entry.content && Array.isArray(entry.content.senses)
       ) : [];
@@ -174,10 +180,12 @@ export default function Bdb() {
         has_results: validEntries.length > 0,
       });
     } catch (error) {
+      if (!request.isCurrent()) return;
       console.error('BDB: Search error:', error);
       setResults([]);
+    } finally {
+      if (request.isCurrent()) setIsLoading(false);
     }
-    setIsLoading(false);
   }, [searchQuery, updateURLParams]);
 
   // Initial-load + popstate handler. Re-runs the search when the URL's `q`
@@ -198,8 +206,11 @@ export default function Bdb() {
         });
         handleSearch(q);
       } else if (letter) {
+        latestRequest.current.invalidate();
         window.location.replace(`/bdb/headwords/${encodeURIComponent(letter)}`);
       } else {
+        latestRequest.current.invalidate();
+        setIsLoading(false);
         // Bare /bdb (e.g. user popped back past all searches) — clear stale state
         // so the UI matches the URL.
         setSearchQuery("");
@@ -527,7 +538,7 @@ export default function Bdb() {
     if (isFirstSense) {
       prepared = prependBdbCircaMarker(prepared);
     }
-    return annotateTransliterationsInHtml(
+    return sanitizeBdbHtml(annotateTransliterationsInHtml(
       convertSefariaLinksToInternal(
         convertJastrowInternalLinks(
           convertBdbInternalLinks(
@@ -546,7 +557,7 @@ export default function Bdb() {
           )
         )
       )
-    );
+    ));
   };
 
   // Prepare the entire result set once per response/split mode. In particular,

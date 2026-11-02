@@ -3,7 +3,10 @@ import { Window } from "happy-dom";
 import mappings from "@/shared/data/lexicon-mappings/jastrow.json";
 import { expandAbbreviations, convertJastrowInternalLinks, annotateTransliterationsInHtml } from "./dictionary-format";
 import { normalizeJastrowAbbreviationMarkup, structureJastrowDefinition } from "./jastrow-presentation";
-import { sanitizeJastrowHtml } from "./jastrow-html-sanitizer";
+import { sanitizeJastrowHtml, sanitizeBdbHtml } from "./jastrow-html-sanitizer";
+import bdbMappings from "@/shared/data/lexicon-mappings/bdb.json";
+import { splitIntoParagraphsBdb, convertSupTagsToParens, convertBdbInternalLinks, convertSefariaLinksToInternal } from "./dictionary-format";
+import { wrapBdbGreekMarkers } from "./bdb-greek-markers";
 
 beforeAll(() => {
   const window = new Window();
@@ -14,6 +17,40 @@ beforeAll(() => {
   vi.stubGlobal("Element", window.Element);
 });
 afterAll(() => vi.unstubAllGlobals());
+
+describe("BDB final-HTML sanitizer", () => {
+  it.each([true, false])("preserves paragraphs, citations, Greek anchors and abbreviation metadata (inline=%s)", inline => {
+    const raw = '<strong>1.</strong> <i>father</i> α. <a href="https://www.sefaria.org/Genesis.1.1">Gn 1:1</a>; <a href="/BDB,_אָב">אָב</a> — cf. <sup>2</sup>';
+    for (const split of [false, true]) {
+      const html = sanitizeBdbHtml(annotateTransliterationsInHtml(
+        convertSefariaLinksToInternal(convertBdbInternalLinks(expandAbbreviations(
+          splitIntoParagraphsBdb(convertSupTagsToParens(wrapBdbGreekMarkers(raw, "sense-A1-0")), split),
+          bdbMappings.mappings, { bdbNumericContext: true, bdbDisplay: inline ? "inline" : "original" },
+        ))),
+      ));
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      expect(doc.querySelector(".bdb-paragraph")).not.toBeNull();
+      expect(doc.querySelector("#sense-A1-0-greek-α-0")).not.toBeNull();
+      expect(doc.querySelector("a[href^='/bible/']")).not.toBeNull();
+      expect(doc.querySelector("a[href^='/bdb?']")).not.toBeNull();
+      expect(doc.querySelector("i")?.textContent).toBe("father");
+      if (!inline) expect(doc.querySelector("[data-bdb-expansion]")).not.toBeNull();
+      if (split) expect(doc.querySelector(".bdb-semicolon-segment")).not.toBeNull();
+    }
+  });
+
+  it("removes executable markup, unsafe links and foreign attributes", () => {
+    const html = sanitizeBdbHtml(`<p class="bdb-paragraph" onclick="bad()">safe</p>
+      <script>alert(1)</script><svg onload="bad()"></svg><iframe src="https://example.com"></iframe>
+      <a href="javascript:bad()">bad</a><a href="/\\evil.example">bad</a>
+      <span id="location" style="color:red" onmouseover="bad()">text</span>
+      <a href="https://www.sefaria.org/Genesis.1.1">source</a>`);
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    expect(doc.querySelector("script, svg, iframe, [onclick], [onmouseover], [style], #location")).toBeNull();
+    expect(doc.querySelectorAll("a[href]")).toHaveLength(1);
+    expect(doc.querySelector("p")?.textContent).toBe("safe");
+  });
+});
 
 describe("Jastrow final-HTML sanitizer", () => {
   it("removes dangerous markup, attributes, and URL schemes", () => {
