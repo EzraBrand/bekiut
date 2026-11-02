@@ -24,6 +24,8 @@ import { useLexiconIndex, searchHeadwords, findFuzzyMatches } from "@/lib/lexico
 import { jastrowOrigin, jastrowDisplayHeadword, structureJastrowDefinition, normalizeJastrowAbbreviationMarkup } from "@/lib/jastrow-presentation";
 import { sanitizeJastrowHtml } from "@/lib/jastrow-html-sanitizer";
 import { LatestRequest } from "@/lib/latest-request";
+import { classifyDictionaryResponse, type DictionarySearchFailure } from "@/lib/dictionary-search";
+import { DisplayOptions, DictionarySearchNotice } from "@/components/dictionary/dictionary-ui";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -46,6 +48,8 @@ export default function Jastrow() {
     text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original", jastrowApostrophes: true },
   );
   const [isLoading, setIsLoading] = useState(false);
+  const [failure, setFailure] = useState<DictionarySearchFailure | null>(null);
+  const [lastRid, setLastRid] = useState<string | undefined>(undefined);
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -145,17 +149,21 @@ export default function Jastrow() {
     pendingEntryScroll.current = true;
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
+    setFailure(null);
+    setLastRid(rid);
     const currentParams = new URLSearchParams(window.location.search);
     const differentEntry = currentParams.get("q") !== q.trim() || (currentParams.get("rid") || undefined) !== rid;
     updateURLParams({ q: q.trim(), rid }, differentEntry);
     try {
       const response = await fetch(`/api/jastrow/search?query=${encodeURIComponent(q)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}`, { signal: request.signal });
-      if (!response.ok) throw new Error(`Search failed: ${response.status}`);
-      const entries = await response.json();
+      const outcome = await classifyDictionaryResponse(response);
       if (!request.isCurrent()) return;
-      const validEntries = Array.isArray(entries) ? entries.filter((entry: DictionaryEntry) =>
-        entry && entry.headword && entry.content && Array.isArray(entry.content.senses)
-      ) : [];
+      if (outcome.kind !== "ok") {
+        setResults([]);
+        setFailure(outcome);
+        return;
+      }
+      const validEntries = outcome.entries;
       setResults(validEntries);
       if (validEntries.length === 1 && validEntries[0].rid) {
         updateURLParams({ q: validEntries[0].headword, rid: validEntries[0].rid });
@@ -169,6 +177,7 @@ export default function Jastrow() {
       if (!request.isCurrent()) return;
       console.error('Frontend: Search error:', error);
       setResults([]);
+      setFailure({ kind: "error", message: "The search could not reach the server. Check your connection." });
     } finally {
       if (request.isCurrent()) setIsLoading(false);
     }
@@ -200,6 +209,7 @@ export default function Jastrow() {
         setSearchQuery("");
         setLastSearchedQuery("");
         setResults([]);
+        setFailure(null);
         setSuggestions([]);
         setShowSuggestions(false);
       }
@@ -278,9 +288,9 @@ export default function Jastrow() {
   }, [searchQuery, lexiconIndex]);
 
   const didYouMean = useMemo(() => {
-    if (!lexiconIndex || results.length > 0 || !lastSearchedQuery || isLoading) return [];
+    if (!lexiconIndex || results.length > 0 || !lastSearchedQuery || isLoading || failure) return [];
     return findFuzzyMatches(lexiconIndex, lastSearchedQuery, 5);
-  }, [lexiconIndex, results, lastSearchedQuery, isLoading]);
+  }, [lexiconIndex, results, lastSearchedQuery, isLoading, failure]);
 
   const handleSuggestionClick = (suggestion: AutosuggestSuggestion) => {
     suppressSuggestionsRef.current = true;
@@ -498,26 +508,30 @@ export default function Jastrow() {
           <DictionaryAbbreviationPanel revision={abbreviationRevision} />
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 className="font-georgia text-xl">Dictionary Entries</h2>
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" />
-              Expand abbreviations inline
-            </label>
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={extraSplits} onChange={e => setExtraSplits(e.target.checked)} className="accent-primary" />
-              Additional splits at dashes and citations
-            </label>
+            <DisplayOptions hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
+              <label className="flex items-center gap-2 text-sm">
+                <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" data-testid="checkbox-expand-inline" />
+                Expand abbreviations inline
+              </label>
+              <label className="flex items-center gap-2 text-sm">
+                <input type="checkbox" checked={extraSplits} onChange={e => setExtraSplits(e.target.checked)} className="accent-primary" data-testid="checkbox-extra-splits" />
+                Additional splits at dashes and citations
+              </label>
+            </DisplayOptions>
           </div>
-          <p className="mb-4 text-sm text-muted-foreground">
-            {expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}
-          </p>
 
           {isLoading ? (
             <div className="flex justify-center items-center py-8">
               <span className="text-muted-foreground">Loading entries...</span>
             </div>
           ) : results.length === 0 ? (
-            <div className="p-8 text-center">
-                <p className="text-muted-foreground">No entries found. Try a different search term or browse by letter.</p>
+            <DictionarySearchNotice
+              dictionary="jastrow"
+              query={lastSearchedQuery}
+              failure={failure}
+              linkedEntryMissing={!!lastRid}
+              onRetry={() => handleSearch(lastSearchedQuery, lastRid)}
+            >
                 {didYouMean.length > 0 && (
                   <div className="mt-6 max-w-md mx-auto">
                     <p className="text-sm text-muted-foreground mb-2">Did you mean:</p>
@@ -537,7 +551,7 @@ export default function Jastrow() {
                     </div>
                   </div>
                 )}
-            </div>
+            </DictionarySearchNotice>
           ) : (
             <div className="space-y-4">
               {preparedEntries.map(({ entry, id, origin, morphology, senses, outline }, index) => {

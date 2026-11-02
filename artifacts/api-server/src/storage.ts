@@ -6,6 +6,7 @@ import { AsyncTtlLruCache } from "./lib/async-ttl-lru-cache";
 import { restoreBdbOccurrences } from "./lib/bdb-occurrences";
 import { bdbCitationLabel } from "./lib/bdb-citation-label";
 import { bdbLookupForm, hasBdbHomograph, selectBdbHomograph } from "./lib/bdb-homograph";
+import { cleanDictionaryQuery, unpointedDictionaryQuery, DictionaryUnavailableError } from "./lib/dictionary-recovery";
 
 // Reduce a Hebrew form to its bare consonant "skeleton" so user queries (typed
 // without vowels/maqaf) can be matched against voweled supplemental headwords:
@@ -317,6 +318,7 @@ export class SefariaAPI {
   });
 
   private async searchEntriesForLexicon(query: string, lexiconName: string): Promise<DictionaryEntry[]> {
+    query = cleanDictionaryQuery(query);
     if (lexiconName === 'Jastrow Dictionary' && hasJastrowHomograph(query)) {
       const entries = await this.searchLexiconCore(jastrowLookupForm(query), lexiconName);
       return selectJastrowHomograph(query, entries);
@@ -325,7 +327,11 @@ export class SefariaAPI {
       const entries = await this.searchLexiconCore(bdbLookupForm(query), lexiconName);
       return selectBdbHomograph(query, entries);
     }
-    const results = await this.searchLexiconCore(query, lexiconName);
+    let results = await this.searchLexiconCore(query, lexiconName);
+    const unpointed = unpointedDictionaryQuery(query);
+    if (!results.length && unpointed !== query) {
+      results = await this.searchLexiconCore(unpointed, lexiconName);
+    }
     if (lexiconName === 'BDB Dictionary') {
       return this.mergeBdbSupplementalParticles(query, results);
     }
@@ -420,6 +426,7 @@ export class SefariaAPI {
 
       // First, try direct word lookup for exact matches
       const directResponse = await fetch(`${this.baseURL}/words/${encodeURIComponent(query)}`);
+      if (!directResponse.ok && directResponse.status !== 404) throw new DictionaryUnavailableError();
       let allEntries: DictionaryEntry[] = [];
 
       if (directResponse.ok) {
@@ -448,12 +455,13 @@ export class SefariaAPI {
       let completionResponse = await fetch(
         `${this.baseURL}/words/completion/${encodeURIComponent(query)}/${encodeURIComponent(lexiconName)}`
       );
+      if (!completionResponse.ok && completionResponse.status !== 404) throw new DictionaryUnavailableError();
       let completionData: any = null;
       if (completionResponse.ok) {
         try {
           completionData = await completionResponse.json();
         } catch {
-          completionData = null;
+          throw new DictionaryUnavailableError();
         }
       }
       if (!Array.isArray(completionData) || completionData.length === 0) {
@@ -471,12 +479,13 @@ export class SefariaAPI {
         console.log(`[${lexiconName}] Scoped completion empty, falling back to unscoped completion`);
         const unscoped = await fetch(`${this.baseURL}/words/completion/${encodeURIComponent(query)}`);
         if (!unscoped.ok) {
-          return [];
+          if (unscoped.status === 404) return [];
+          throw new DictionaryUnavailableError();
         }
         try {
           completionData = await unscoped.json();
         } catch {
-          return [];
+          throw new DictionaryUnavailableError();
         }
       }
       if (!Array.isArray(completionData) || completionData.length === 0) {
@@ -488,7 +497,10 @@ export class SefariaAPI {
         const headword = suggestion[1] || suggestion[0];
         try {
           const response = await fetch(`${this.baseURL}/words/${encodeURIComponent(headword)}`);
-          if (!response.ok) return [];
+          if (!response.ok) {
+            if (response.status === 404) return [];
+            throw new DictionaryUnavailableError();
+          }
           const data = await response.json();
           if (!Array.isArray(data)) return [];
           return data
@@ -501,7 +513,7 @@ export class SefariaAPI {
             .map(this.mapEntry);
         } catch (error) {
           console.log(`[${lexiconName}] Error searching for suggestion:`, headword, error);
-          return [];
+          throw new DictionaryUnavailableError();
         }
       });
 
@@ -514,7 +526,7 @@ export class SefariaAPI {
 
     } catch (error) {
       console.error(`[${lexiconName}] Search API error:`, error);
-      return [];
+      throw new DictionaryUnavailableError();
     }
   }
 

@@ -5,6 +5,8 @@ import { useGetWeeklyParsha } from "@workspace/api-client-react";
 import { getTractateSlug } from "@workspace/shared-data/tractates";
 import { useSEO, generateSEOData } from "@/hooks/use-seo";
 import { Footer } from "@/components/footer";
+import { DictionariesNav } from "@/components/layout/dictionaries-nav";
+import { dictionaryQueryHref, type DictionaryId } from "@/lib/dictionary-search";
 
 /*
  * Bekiut homepage — "ParchmentScholar" design.
@@ -93,6 +95,8 @@ function parseDafYomiRef(ref: string): { tractate: string; folio: string } | nul
 export default function Home() {
   useSEO(generateSEOData.homePage());
   const [query, setQuery] = useState("");
+  const [mode, setMode] = useState<"texts" | "lookup">("texts");
+  const [dictionary, setDictionary] = useState<DictionaryId>("jastrow");
   const [, navigate] = useLocation();
 
   const { data: dafYomi } = useQuery<DafYomiData>({ queryKey: ["/api/daf-yomi"] });
@@ -104,7 +108,10 @@ export default function Home() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
+    if (!query.trim()) return;
+    if (mode === "lookup") {
+      navigate(dictionaryQueryHref(dictionary, query));
+    } else {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
@@ -133,8 +140,9 @@ export default function Home() {
           <nav className="flex items-center gap-4 sm:gap-6 text-sm text-muted-foreground">
             <a href="#library" className="hover:text-foreground" data-testid="nav-link-library">Library</a>
             <Link href="/search" className="hover:text-foreground" data-testid="nav-link-search">Search</Link>
+            <DictionariesNav />
             <a href="#tools" className="hover:text-foreground" data-testid="nav-link-tools">Tools</a>
-            <Link href="/about" className="hover:text-foreground" data-testid="nav-link-about">About Bekiut</Link>
+            <Link href="/about" className="hover:text-foreground hidden sm:inline" data-testid="nav-link-about">About Bekiut</Link>
           </nav>
         </div>
       </header>
@@ -160,6 +168,32 @@ export default function Home() {
           <p className="text-muted-foreground mb-8">
             The Talmud, Tanakh, Mishnah, and more — with bilingual Hebrew-English text
           </p>
+          <div className="flex justify-center gap-1 mb-3 text-sm" role="radiogroup" aria-label="Search mode">
+            {([["texts", "Search texts"], ["lookup", "Look up a word"]] as const).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                role="radio"
+                aria-checked={mode === value}
+                onClick={() => setMode(value)}
+                className={`px-3 py-1 rounded border ${mode === value ? "border-primary text-primary bg-secondary/60" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+                data-testid={`button-mode-${value}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          {mode === "lookup" && (
+            <fieldset className="flex flex-wrap justify-center gap-x-5 gap-y-1 mb-3 text-sm text-muted-foreground" data-testid="lookup-dictionary-choice">
+              <legend className="sr-only">Dictionary</legend>
+              {([["jastrow", "Jastrow — rabbinic Hebrew and Aramaic"], ["bdb", "BDB — biblical Hebrew"]] as const).map(([value, label]) => (
+                <label key={value} className="flex items-center gap-1.5 cursor-pointer">
+                  <input type="radio" name="lookup-dictionary" value={value} checked={dictionary === value} onChange={() => setDictionary(value)} className="accent-primary" data-testid={`radio-dictionary-${value}`} />
+                  {label}
+                </label>
+              ))}
+            </fieldset>
+          )}
           <form
             onSubmit={handleSearch}
             className="flex max-w-xl mx-auto"
@@ -169,7 +203,9 @@ export default function Home() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search the Talmud, Tanakh, and more…"
+              placeholder={mode === "lookup" ? "Enter a Hebrew or Aramaic word…" : "Search the Talmud, Tanakh, and more…"}
+              dir="auto"
+              aria-label={mode === "lookup" ? "Word to look up" : "Search texts"}
               className="flex-1 border border-input rounded-l px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground bg-background focus:outline-none focus:border-ring"
               data-testid="hero-search-input"
             />
@@ -178,7 +214,7 @@ export default function Home() {
               className="px-5 py-2.5 text-sm font-medium rounded-r bg-primary text-primary-foreground"
               data-testid="hero-search-button"
             >
-              Search
+              {mode === "lookup" ? "Look up" : "Search"}
             </button>
           </form>
         </section>

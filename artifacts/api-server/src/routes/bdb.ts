@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { storage } from "../storage";
 import { searchRequestSchema } from "@workspace/db";
+import { DictionaryUnavailableError } from "../lib/dictionary-recovery";
 
 export function createBdbRouter() {
   const router = Router();
@@ -14,6 +15,9 @@ export function createBdbRouter() {
       const entries = await storage.searchBdbEntries(result.data);
       res.json(entries);
     } catch (error) {
+      if (error instanceof DictionaryUnavailableError) {
+        res.status(503).json({ code: "DICTIONARY_UNAVAILABLE", message: error.message }); return;
+      }
       console.error("BDB search error:", error);
       res.status(500).json({ message: "Failed to search BDB entries" });
     }

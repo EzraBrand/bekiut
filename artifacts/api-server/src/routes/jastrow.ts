@@ -2,6 +2,7 @@ import { Router } from "express";
 import { storage } from "../storage";
 import { searchRequestSchema } from "@workspace/db";
 import { AsyncTtlLruCache } from "../lib/async-ttl-lru-cache";
+import { DictionaryUnavailableError } from "../lib/dictionary-recovery";
 
 export function createJastrowRouter() {
   const router = Router();
@@ -38,6 +39,9 @@ export function createJastrowRouter() {
       }
       res.json(rid ? entries.filter(entry => entry.rid === rid) : entries);
     } catch (error) {
+      if (error instanceof DictionaryUnavailableError) {
+        res.status(503).json({ code: "DICTIONARY_UNAVAILABLE", message: error.message }); return;
+      }
       console.error("Jastrow search error:", error);
       res.status(500).json({ message: "Failed to search dictionary entries" });
     }

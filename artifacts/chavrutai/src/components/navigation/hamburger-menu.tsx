@@ -102,6 +102,18 @@ export function HamburgerMenu({ onLocationChange }: HamburgerMenuProps) {
             </Link>
           </div>
           
+          <div className="mt-4 border-t border-border pt-4">
+            <h3 className="px-4 mb-1 text-sm font-semibold">Dictionaries</h3>
+            <Link href="/jastrow" onClick={() => setOpen(false)}
+              className="block px-4 py-2 text-sm hover:bg-secondary">
+              Jastrow — rabbinic Hebrew and Aramaic
+            </Link>
+            <Link href="/bdb" onClick={() => setOpen(false)}
+              className="block px-4 py-2 text-sm hover:bg-secondary">
+              BDB — biblical Hebrew
+            </Link>
+          </div>
+
           {/* Bottom Section */}
           <div className="border-t border-border pt-4 mt-4 space-y-4">
             {/* Preferences Section */}

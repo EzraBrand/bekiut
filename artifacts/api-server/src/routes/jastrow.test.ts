@@ -1,14 +1,24 @@
 import express from "express";
 import { afterAll, beforeAll, beforeEach, expect, it, vi } from "vitest";
 import { createJastrowRouter } from "./jastrow";
+import { createBdbRouter } from "./bdb";
+import { DictionaryUnavailableError } from "../lib/dictionary-recovery";
 
 const searchEntries = vi.hoisted(() => vi.fn());
-vi.mock("../storage", () => ({ storage: { searchEntries } }));
+vi.mock("../storage", () => ({ storage: { searchEntries, searchBdbEntries: searchEntries } }));
 
 const app = express();
 app.use(createJastrowRouter());
+app.use(createBdbRouter());
 let server: ReturnType<typeof app.listen>;
 let base: string;
+
+it.each(["jastrow", "bdb"])("returns retryable 503 for %s outages, not empty success", async dictionary => {
+  searchEntries.mockRejectedValueOnce(new DictionaryUnavailableError());
+  const response = await fetch(`${base}/api/${dictionary}/search?query=outage-${dictionary}`);
+  expect(response.status).toBe(503);
+  expect(await response.json()).toMatchObject({ code: "DICTIONARY_UNAVAILABLE" });
+});
 
 beforeAll(async () => {
   server = await new Promise<ReturnType<typeof app.listen>>(resolve => {

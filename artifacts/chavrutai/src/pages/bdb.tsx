@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { BdbAbbreviationPanel } from "@/components/bdb-abbreviation-panel";
 import { sanitizeBdbHtml } from "@/lib/jastrow-html-sanitizer";
 import { LatestRequest } from "@/lib/latest-request";
+import { classifyDictionaryResponse, type DictionarySearchFailure } from "@/lib/dictionary-search";
+import { DisplayOptions, DictionarySearchNotice } from "@/components/dictionary/dictionary-ui";
 import { Button } from "@/components/ui/button";
 import { PageShell, PageHeader } from "@/components/layout/page-shell";
 import { useSEO } from "@/hooks/use-seo";
@@ -96,6 +98,11 @@ export default function Bdb() {
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<DictionaryEntry[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [failure, setFailure] = useState<DictionarySearchFailure | null>(null);
+  const [showBrowse, setShowBrowse] = useState(() => !new URLSearchParams(window.location.search).get("q"));
+  const pendingEntryScroll = useRef(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const entryUrlRef = useRef(window.location.pathname + window.location.search);
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -147,13 +154,14 @@ export default function Bdb() {
     },
   });
 
-  const updateURLParams = useCallback((params: { q?: string }) => {
+  const updateURLParams = useCallback((params: { q?: string }, clearHash = false) => {
     const url = new URL(window.location.href);
     url.searchParams.delete('q');
     url.searchParams.delete('letter');
     if (params.q) url.searchParams.set('q', params.q);
-    const newPath = url.pathname + url.search;
-    window.history.replaceState(null, '', newPath);
+    if (clearHash) url.hash = "";
+    entryUrlRef.current = url.pathname + url.search;
+    window.history.replaceState(null, '', entryUrlRef.current + url.hash);
   }, []);
 
   const handleSearch = useCallback(async (query?: string | unknown) => {
@@ -162,17 +170,23 @@ export default function Bdb() {
     const request = latestRequest.current.begin();
     setIsLoading(true);
     setLastSearchedQuery(q.trim());
+    setFailure(null);
+    setShowBrowse(false);
+    pendingEntryScroll.current = true;
     setOpenOutlineEntry(null);
     setActiveAnchorId(null);
-    updateURLParams({ q: q.trim() });
+    const differentEntry = new URLSearchParams(window.location.search).get("q") !== q.trim();
+    updateURLParams({ q: q.trim() }, differentEntry);
     try {
       const response = await fetch(`/api/bdb/search?query=${encodeURIComponent(q)}`, { signal: request.signal });
-      if (!response.ok) throw new Error(`Search failed: ${response.status}`);
-      const entries = await response.json();
+      const outcome = await classifyDictionaryResponse(response);
       if (!request.isCurrent()) return;
-      const validEntries = Array.isArray(entries) ? entries.filter((entry: DictionaryEntry) =>
-        entry && entry.headword && entry.content && Array.isArray(entry.content.senses)
-      ) : [];
+      if (outcome.kind !== "ok") {
+        setResults([]);
+        setFailure(outcome);
+        return;
+      }
+      const validEntries = outcome.entries;
       setResults(validEntries);
       trackPublishingEvent('dictionary_search_completed', {
         dictionary: 'bdb',
@@ -183,6 +197,7 @@ export default function Bdb() {
       if (!request.isCurrent()) return;
       console.error('BDB: Search error:', error);
       setResults([]);
+      setFailure({ kind: "error", message: "The search could not reach the server. Check your connection." });
     } finally {
       if (request.isCurrent()) setIsLoading(false);
     }
@@ -193,6 +208,7 @@ export default function Bdb() {
   // URLs redirect to the headword index page (which superseded inline browse).
   useEffect(() => {
     const runFromUrl = () => {
+      entryUrlRef.current = window.location.pathname + window.location.search;
       const params = new URLSearchParams(window.location.search);
       const q = params.get('q');
       const letter = params.get('letter');
@@ -210,7 +226,10 @@ export default function Bdb() {
         window.location.replace(`/bdb/headwords/${encodeURIComponent(letter)}`);
       } else {
         latestRequest.current.invalidate();
+        pendingEntryScroll.current = false;
         setIsLoading(false);
+        setShowBrowse(true);
+        setFailure(null);
         // Bare /bdb (e.g. user popped back past all searches) — clear stale state
         // so the UI matches the URL.
         setSearchQuery("");
@@ -226,7 +245,11 @@ export default function Bdb() {
       runFromUrl();
     }
 
-    const onPopState = () => runFromUrl();
+    const onPopState = () => {
+      // Fragment-only history changes use native anchor navigation, not search.
+      if (entryUrlRef.current === window.location.pathname + window.location.search) return;
+      runFromUrl();
+    };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
@@ -257,7 +280,6 @@ export default function Bdb() {
           return q;
         });
         handleSearch(q);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
     document.addEventListener('click', handler);
@@ -312,9 +334,9 @@ export default function Bdb() {
   }, [activeAnchorId]);
 
   const didYouMean = useMemo(() => {
-    if (!lexiconIndex || results.length > 0 || !lastSearchedQuery || isLoading) return [];
+    if (!lexiconIndex || results.length > 0 || !lastSearchedQuery || isLoading || failure) return [];
     return findFuzzyMatches(lexiconIndex, lastSearchedQuery, 5);
-  }, [lexiconIndex, results, lastSearchedQuery, isLoading]);
+  }, [lexiconIndex, results, lastSearchedQuery, isLoading, failure]);
 
   const handleSuggestionClick = (suggestion: AutosuggestSuggestion) => {
     suppressSuggestionsRef.current = true;
@@ -570,6 +592,20 @@ export default function Bdb() {
     [results, splitBySemicolon, expandInline],
   );
 
+  // Entry navigation lands at the first entry once results render (matches Jastrow).
+  useEffect(() => {
+    if (isLoading || !preparedEntries.length) return;
+    const frame = requestAnimationFrame(() => {
+      if (pendingEntryScroll.current) {
+        pendingEntryScroll.current = false;
+        let anchor: HTMLElement | null = null;
+        try { anchor = document.getElementById(decodeURIComponent(window.location.hash.slice(1))); } catch { /* Invalid fragment: use entry start. */ }
+        (anchor ?? resultsRef.current)?.scrollIntoView({ block: "start" });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [preparedEntries, isLoading]);
+
   return (
     <PageShell mainClassName="max-w-4xl">
         <BdbAbbreviationPanel revision={preparedEntries} />
@@ -739,6 +775,10 @@ export default function Bdb() {
 
         <div className="mb-8 border-t border-border pt-8">
           <h2 className="font-georgia text-xl text-foreground mb-4">Browse by Letter</h2>
+          <button type="button" className="text-sm mb-3" aria-expanded={showBrowse} aria-controls="bdb-browse-grid" onClick={() => setShowBrowse(value => !value)} data-testid="button-browse-toggle">
+            {showBrowse ? "▾" : "▸"} Browse by letter
+          </button>
+          <div id="bdb-browse-grid" hidden={!showBrowse}>
           <div className="grid grid-cols-8 sm:grid-cols-12 gap-2">
             {HEBREW_ALPHABET.map((letter) => {
               const count = lexiconIndex?.perLetterCounts[letter];
@@ -759,14 +799,25 @@ export default function Bdb() {
               );
             })}
           </div>
+          </div>
         </div>
 
         {(isLoading || lastSearchedQuery) && (
-        <div className="border-t border-border pt-8">
+        <div ref={resultsRef} className="border-t border-border pt-8 scroll-mt-20">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 className="font-georgia text-xl text-foreground">Dictionary Entries</h2>
+            <button type="button" className="text-sm text-primary hover:underline"
+              data-testid="button-back-to-dictionary-search"
+              onClick={() => {
+                setShowBrowse(true);
+                searchInputRef.current?.scrollIntoView({ block: "center" });
+                searchInputRef.current?.focus({ preventScroll: true });
+              }}>
+              Search / browse
+            </button>
+            <DisplayOptions hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
             <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer">
-              <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" />
+              <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" data-testid="checkbox-expand-inline" />
               Expand abbreviations inline
             </label>
             <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer select-none">
@@ -778,18 +829,20 @@ export default function Bdb() {
               />
               Split by semicolons
             </label>
+            </DisplayOptions>
           </div>
-          <p className="mb-4 text-sm text-muted-foreground">
-            {expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}
-          </p>
 
           {isLoading ? (
             <div className="flex justify-center items-center py-8">
               <span className="text-muted-foreground">Loading entries...</span>
             </div>
           ) : results.length === 0 ? (
-            <div className="border border-border rounded p-8 text-center">
-              <p className="text-muted-foreground">No entries found. Try a different search term or browse by letter.</p>
+            <DictionarySearchNotice
+              dictionary="bdb"
+              query={lastSearchedQuery}
+              failure={failure}
+              onRetry={() => handleSearch(lastSearchedQuery)}
+            >
               {didYouMean.length > 0 && (
                 <div className="mt-6 max-w-md mx-auto">
                   <p className="text-sm text-muted-foreground mb-2">Did you mean:</p>
@@ -809,7 +862,7 @@ export default function Bdb() {
                   </div>
                 </div>
               )}
-            </div>
+            </DictionarySearchNotice>
           ) : (
             <div className="space-y-4">
               {preparedEntries.map(({ entry, entryKey, outline, collapsedOutline, hiddenCount, senses }, index) => {

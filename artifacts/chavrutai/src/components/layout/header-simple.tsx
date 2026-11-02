@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import type { ReactNode } from "react";
+import { DictionariesNav } from "@/components/layout/dictionaries-nav";
 
 /*
  * Shared site header — ParchmentScholar design (see DESIGN.md).
@@ -38,6 +39,7 @@ export function HeaderSimple({ maxWidth = "max-w-content", rightExtra, progress 
         <nav className="flex items-center gap-4 sm:gap-6 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground" data-testid="nav-link-library">Library</Link>
           <Link href="/search" className="hover:text-foreground" data-testid="nav-link-search">Search</Link>
+          <DictionariesNav />
           <Link href="/about" className="hover:text-foreground hidden sm:inline" data-testid="nav-link-about">About Bekiut</Link>
           {rightExtra}
         </nav>
