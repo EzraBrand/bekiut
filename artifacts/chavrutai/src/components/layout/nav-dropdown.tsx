@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuGroup, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import "./nav-dropdown.css";
 
-export interface NavItem { title: string; href: string; description?: string; }
+export interface NavItem { title: string; href: string; description?: string; group: string; }
 
 /** Mouse hover is an enhancement; Radix retains touch/click and keyboard behavior. */
 export function NavDropdown({ label, id, items }: { label: string; id: string; items: readonly NavItem[] }) {
   const [open, setOpen] = useState(false);
   const hover = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const groups = [...new Set(items.map(item => item.group))];
   const cancelClose = () => clearTimeout(timer.current);
   useEffect(() => () => clearTimeout(timer.current), []);
   const closeLater = () => {
@@ -21,7 +23,7 @@ export function NavDropdown({ label, id, items }: { label: string; id: string; i
       setOpen(value);
     }}>
       <DropdownMenuTrigger asChild>
-        <button type="button" className="font-medium text-foreground hover:text-primary whitespace-nowrap"
+        <button type="button" className="grouped-nav-trigger"
           data-testid={`nav-button-${id}`}
           onPointerEnter={event => {
             cancelClose();
@@ -38,23 +40,35 @@ export function NavDropdown({ label, id, items }: { label: string; id: string; i
             cancelClose();
           }}
           onKeyDown={() => { hover.current = false; cancelClose(); }}>
-          {label} <span aria-hidden="true" className="text-xs">▾</span>
+          {label}<svg className="grouped-nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3 3.5-3" stroke="currentColor" strokeWidth="1.3" /></svg>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" collisionPadding={12} sideOffset={8}
-        className="w-72 max-w-[calc(100vw-24px)] bg-card text-left"
+      <DropdownMenuContent align="end" collisionPadding={12} sideOffset={11}
+        className={`grouped-nav-panel ${id === "dictionaries" ? "grouped-nav-dictionaries" : ""}`}
+        aria-label={label}
         onPointerEnter={cancelClose} onPointerLeave={closeLater}
         onKeyDown={() => { hover.current = false; cancelClose(); }}
         onCloseAutoFocus={event => { if (hover.current) event.preventDefault(); }}>
-        {items.map(item => (
-          <DropdownMenuItem asChild key={item.href}>
-            <Link href={item.href} className="block px-3 py-2 hover:bg-secondary"
-              data-testid={`nav-link-${item.href.slice(1)}`}>
-              <span className="text-foreground">{item.title}</span>
-              {item.description && <span className="block text-xs text-muted-foreground">{item.description}</span>}
-            </Link>
-          </DropdownMenuItem>
-        ))}
+        <div className="grouped-nav-heading"><h2>{label}</h2></div>
+        <div className="grouped-nav-columns">
+          {groups.map((group, index) => (
+            <DropdownMenuGroup className="grouped-nav-column" key={group} aria-labelledby={`${id}-group-${index}`}>
+              <DropdownMenuLabel className="grouped-nav-section" id={`${id}-group-${index}`}>{group}</DropdownMenuLabel>
+              {items.filter(item => item.group === group).map(item => (
+                <DropdownMenuItem asChild key={item.href}>
+                  <Link href={item.href} className="grouped-nav-item"
+                    data-testid={`nav-link-${item.href.slice(1)}`}>
+                    <span className="grouped-nav-copy">
+                      <span className="grouped-nav-title">{item.title}</span>
+                      {item.description && <span className="grouped-nav-description">{item.description}</span>}
+                    </span>
+                    <span className="grouped-nav-arrow" aria-hidden="true">›</span>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuGroup>
+          ))}
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );
