@@ -378,3 +378,17 @@ mtime_ms = 1793172671353
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/73f8b0db-4497-4277-b874-eb776e3e1a27/de4c7d6d-2af5-47c7-aa56-27061fed7bf1"
 storage_version_token = "1793172692755167"
 content_type = "text/csv"
+
+[[outputs]]
+id = "gzNIEEU2qGA25ynTC2S5m"
+uri = "file://.local/outputs/dictionary-empty-rates.chart.html"
+type = "text"
+title = "Dictionary lookups returning no entries"
+description = "Recorded empty-result rates in the last seven days. Empty results can include upstream failures, not just missing words."
+logical_id = "54ca4dba-dfa7-40a3-82cb-6505e7fa96c6"
+content_hash = "sha256:8107bfb07a21c1636db348a011a94f4604e2709ef25023e2fb743a4b24e3ee3c"
+size = 2679
+mtime_ms = 1793598191094
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/54ca4dba-dfa7-40a3-82cb-6505e7fa96c6/3872e0ea-5eb1-4b21-91f6-bb33e557e1a0"
+storage_version_token = "1793598192841874"
+content_type = "text/html;profile=replit-chart"
