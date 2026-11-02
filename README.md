@@ -6,6 +6,13 @@
 
 A web application for studying classical Jewish texts, featuring bilingual Hebrew-English access to the Babylonian Talmud, Jerusalem Talmud, Mishnah, Mishneh Torah, and Tanakh, alongside integrated reference tools, dictionaries, and an AI study assistant.
 
+## License
+
+The original application code is available under the [MIT License](LICENSE).
+Third-party dependencies, source texts, translations, datasets, and media retain
+their respective licenses and attribution requirements; the MIT license does
+not relicense those materials.
+
 ## Overview
 
 Bekiut is a full-featured digital platform providing bilingual (Hebrew/English) access to the major corpora of classical Jewish literature. Originally launched as a Babylonian Talmud reader, the platform has grown into a multi-text library covering five primary works, with an expanding suite of study tools, reference dictionaries, and cross-text navigation features. Built with modern web technologies, it combines traditional scholarship with contemporary user experience design.
