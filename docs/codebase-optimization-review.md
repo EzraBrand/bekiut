@@ -51,6 +51,10 @@ production performance benchmark.
 - Remaining notable bundle contributors include React DOM, PostHog, and
   tailwind-merge. PostHog's module contributes about 216 KB before minification;
   deferring analytics requires care around consent and initial event delivery.
+  **Subsequent owner decision:** PostHog is now removed rather than deferred.
+  Native Replit events and opt-out controls remain. The initial entry now measures
+  **336,302 bytes / 107,604 gzip**, and no output chunk includes PostHog modules.
+  This is a further 39% raw / 40% gzip reduction from the chapter-import fix.
 - Visually checked a real BDB אָב entry with citation links, morphology,
   occurrence count, and abbreviation controls intact.
 

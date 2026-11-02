@@ -13,9 +13,9 @@ export function trackPublishingEvent(
   data?: PublishingAnalyticsData,
 ): void {
   if (typeof window === "undefined") return;
-  if (window.localStorage.getItem("analytics_opt_out") === "true") return;
-
   try {
+    if (window.localStorage.getItem("analytics_opt_out") === "true"
+      || window.localStorage.getItem("umami.disabled") === "1") return;
     window.umami?.track(name, data);
   } catch {
     // Analytics must never interrupt reading or navigation.

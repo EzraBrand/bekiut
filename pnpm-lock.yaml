@@ -256,7 +256,7 @@ importers:
         version: 3.1.0
       vitest:
         specifier: 'catalog:'
-        version: 4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
+        version: 4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(vite@7.3.7(@types/node@25.9.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
 
   artifacts/chavrutai:
     dependencies:
@@ -281,9 +281,6 @@ importers:
       leaflet:
         specifier: ^1.9.4
         version: 1.9.4
-      posthog-js:
-        specifier: ^1.393.5
-        version: 1.393.5
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@19.2.17)(react@19.1.2)
@@ -500,7 +497,7 @@ importers:
         version: 7.3.7(@types/node@25.9.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vitest:
         specifier: 'catalog:'
-        version: 4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
+        version: 4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(vite@7.3.7(@types/node@25.9.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
       wouter:
         specifier: ^3.3.5
         version: 3.10.0(react@19.1.2)
@@ -1044,12 +1041,6 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
-
-  '@posthog/core@1.37.3':
-    resolution: {integrity: sha512-Dvw4CTlRVH4K5ag/B8YIHgG4E27w43MCUsXpn1iKQHIggIMN3Shq9whG4Omm3OvXPF+VikBTmpyMKUjckPxw+g==}
-
-  '@posthog/types@1.391.1':
-    resolution: {integrity: sha512-ASwd7Nf4pViqdYRYaNRyPYRVKWa1CcHUAUWR0XeQJLGdNnsWACBwe0sSieb/cHnKsRXjRwO/23KIY83lm/Ccpw==}
 
   '@radix-ui/number@1.1.2':
     resolution: {integrity: sha512-ceTwaxc4I5IOi97DgCotl3pqiyRGvffcc0oOsE2dQYaJOFIDsDt4VWG6xEbg1QePv9QWausCEIppud/tJ1wNig==}
@@ -2188,9 +2179,6 @@ packages:
     resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
     engines: {node: '>= 0.6'}
 
-  core-js@3.49.0:
-    resolution: {integrity: sha512-es1U2+YTtzpwkxVLwAFdSpaIMyQaq0PBgm3YD1W3Qpsn1NAmO3KSgZfu+oGSWVu6NvLHoHCV/aYcsE5wiB7ALg==}
-
   cors@2.8.6:
     resolution: {integrity: sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==}
     engines: {node: '>= 0.10'}
@@ -2575,9 +2563,6 @@ packages:
   fetch-blob@3.2.0:
     resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
     engines: {node: ^12.20 || >= 14.13}
-
-  fflate@0.4.9:
-    resolution: {integrity: sha512-zdxgIEddhfsyCaWpJ2SdXEP8ZMrKJ6+5jl4OupODcywU0IhRk6gdXuVGcPICyfx2H97hVK7xmJtRLPjkxAX8Vw==}
 
   figures@6.1.0:
     resolution: {integrity: sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==}
@@ -3392,12 +3377,6 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  posthog-js@1.393.5:
-    resolution: {integrity: sha512-gYIULHldc2MDmeXE75ykRJYlZ7Q75jAYAzxr0vjD3wnfW1CZoQxV6YydaPRcDyWllJfO4UJPSQJfk9s1UIMa9A==}
-
-  preact@10.29.3:
-    resolution: {integrity: sha512-D9NL1GAnJZhc3RndVs4gDdxEeU9TcHgywMrhhOsnpdlvFjdbx0gAsLUnH6JEhlJH5giL7Tx5biWPUSEXE/HPzw==}
-
   prettier@3.8.4:
     resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
@@ -3426,9 +3405,6 @@ packages:
   qs@6.16.1:
     resolution: {integrity: sha512-5Px6J7rfHBAGUhNQ3es4YzcOdBBw0SDcVtThJml4RdnKw4tKs2epA0kPZ+K8X+WiHktT93RHVcQ/3ym5aTCgtg==}
     engines: {node: '>=0.6'}
-
-  query-selector-shadow-dom@1.0.1:
-    resolution: {integrity: sha512-lT5yCqEBgfoMYpf3F2xQRK7zEr1rhIIZuceDK6+xRkJQ4NMbHTwXqk4NkwDwQMNqXgG9r9fyHnzwNVs6zV5KRw==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -4000,6 +3976,7 @@ packages:
       '@vitest/ui': 4.1.12
       happy-dom: '*'
       jsdom: '*'
+      vite: ^6.0.0 || ^7.0.0 || ^8.0.0
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -4027,9 +4004,6 @@ packages:
   web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
-
-  web-vitals@5.3.0:
-    resolution: {integrity: sha512-q6LWsLatGYZp5VGBIOvbTj6JBV2nOmC8KvWztXBmwJcfFAzhwKwbOxhUH306XY3CcaZDUlSmSuNPBsCn0bFu+g==}
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -4557,12 +4531,6 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
-
-  '@posthog/core@1.37.3':
-    dependencies:
-      '@posthog/types': 1.391.1
-
-  '@posthog/types@1.391.1': {}
 
   '@radix-ui/number@1.1.2': {}
 
@@ -5768,8 +5736,6 @@ snapshots:
 
   cookie@0.7.2: {}
 
-  core-js@3.49.0: {}
-
   cors@2.8.6:
     dependencies:
       object-assign: 4.1.1
@@ -6053,8 +6019,6 @@ snapshots:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.3.3
-
-  fflate@0.4.9: {}
 
   figures@6.1.0:
     dependencies:
@@ -7098,19 +7062,6 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  posthog-js@1.393.5:
-    dependencies:
-      '@posthog/core': 1.37.3
-      '@posthog/types': 1.391.1
-      core-js: 3.49.0
-      dompurify: 3.4.17
-      fflate: 0.4.9
-      preact: 10.29.3
-      query-selector-shadow-dom: 1.0.1
-      web-vitals: 5.3.0
-
-  preact@10.29.3: {}
-
   prettier@3.8.4: {}
 
   pretty-ms@9.3.1:
@@ -7141,8 +7092,6 @@ snapshots:
     dependencies:
       es-define-property: 1.0.1
       side-channel: 1.1.1
-
-  query-selector-shadow-dom@1.0.1: {}
 
   queue-microtask@1.2.3: {}
 
@@ -7767,7 +7716,7 @@ snapshots:
       tsx: 4.23.15
       yaml: 2.9.1
 
-  vitest@4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1):
+  vitest@4.1.12(@types/node@25.9.4)(happy-dom@21.0.4)(vite@7.3.7(@types/node@25.9.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)):
     dependencies:
       '@vitest/expect': 4.1.12
       '@vitest/mocker': 4.1.12(vite@7.3.7(@types/node@25.9.4)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
@@ -7793,21 +7742,9 @@ snapshots:
       '@types/node': 25.9.4
       happy-dom: 21.0.4
     transitivePeerDependencies:
-      - jiti
-      - less
-      - lightningcss
       - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - terser
-      - tsx
-      - yaml
 
   web-streams-polyfill@3.3.3: {}
-
-  web-vitals@5.3.0: {}
 
   whatwg-mimetype@3.0.0: {}
 

@@ -32,7 +32,7 @@ export default function Privacy() {
       {/* Page title */}
       <PageHeader title="Privacy Policy">
         <p className="text-sm text-muted-foreground">
-          <strong>Last updated:</strong> September 2, 2026
+          <strong>Last updated:</strong> November 2, 2026
         </p>
       </PageHeader>
 
@@ -56,7 +56,7 @@ export default function Privacy() {
 
           <h3 className="text-lg font-medium text-foreground mb-3">Information Collected Automatically</h3>
           <ul className="list-disc list-inside space-y-2 mb-4 text-muted-foreground ml-4">
-            <li><strong>Usage Analytics:</strong> We use Replit Publishing Analytics and PostHog to understand aggregate usage, including pages visited and interactions with study tools.</li>
+            <li><strong>Usage Analytics:</strong> We use Replit Publishing Analytics to understand aggregate usage, including pages visited and interactions with study tools.</li>
             <li><strong>Technical Information:</strong> We may collect standard web server logs including IP addresses, browser types, device information, and referring websites.</li>
             <li><strong>Study Preferences:</strong> Your text size preferences, font selections, and display settings are stored locally on your device to enhance your study experience.</li>
           </ul>
@@ -81,7 +81,7 @@ export default function Privacy() {
             We do not sell, trade, or rent your personal information to third parties. We may share information in the following limited circumstances:
           </p>
           <ul className="list-disc list-inside space-y-2 mb-4 text-muted-foreground ml-4">
-            <li><strong>Service Providers:</strong> Replit Publishing Analytics and PostHog process usage analytics on our behalf, subject to their respective privacy policies.</li>
+            <li><strong>Service Providers:</strong> Replit Publishing Analytics processes usage analytics on our behalf, subject to its privacy policy.</li>
             <li><strong>Legal Requirements:</strong> We may disclose information if required by law or to protect our rights, safety, or the rights of others.</li>
             <li><strong>Text Content:</strong> Talmud text content is sourced from Sefaria.org's public API. We do not share user data with Sefaria.</li>
           </ul>
@@ -131,7 +131,7 @@ export default function Privacy() {
             Our platform integrates with the following third-party services:
           </p>
           <ul className="list-disc list-inside space-y-2 mb-4 text-muted-foreground ml-4">
-            <li><strong>Analytics Providers:</strong> Replit Publishing Analytics and PostHog help us understand aggregate usage and improve the site.</li>
+            <li><strong>Analytics Provider:</strong> Replit Publishing Analytics helps us understand aggregate usage and improve the site.</li>
             <li><strong>Sefaria API:</strong> For Talmud text content. See Sefaria's privacy policy at https://www.sefaria.org/privacy-policy</li>
           </ul>
       </PageSection>

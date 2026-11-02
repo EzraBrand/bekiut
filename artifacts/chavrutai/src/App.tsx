@@ -6,7 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { PreferencesProvider } from "@/context/preferences-context";
 import { PageLoading } from "@/components/page-loading";
-import { initAnalytics, isOptedOut } from "@/lib/analytics";
 import { useAnalytics } from "@/hooks/use-analytics";
 import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
 import { getBookBySlug } from "@workspace/shared-data/bible-books";
@@ -178,12 +177,6 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    if (!import.meta.env.VITE_POSTHOG_API_KEY) {
-      console.warn('Missing required PostHog key: VITE_POSTHOG_API_KEY');
-    } else if (!isOptedOut()) {
-      initAnalytics();
-    }
-    
     const pathMatch = window.location.pathname.match(/^\/talmud\/([^/]+)/);
     if (pathMatch) {
       const tractateFromUrl = decodeURIComponent(pathMatch[1]);

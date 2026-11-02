@@ -173,7 +173,7 @@ From my [Talmud & Tech](https://www.ezrabrand.com/) blog, where I write about bu
 - **Frontend:** React 18, TypeScript, Vite, Tailwind CSS + shadcn/ui, TanStack Query, Wouter
 - **Backend:** Express.js, TypeScript, Drizzle ORM + PostgreSQL (Neon serverless)
 - **AI:** Vercel AI SDK + Claude via OpenRouter (`@openrouter/ai-sdk-provider`)
-- **Analytics:** PostHog
+- **Analytics:** Replit Publishing Analytics
 - **External APIs:** Sefaria (texts and dictionaries), talmud-nlp-indexer (term highlighting gazetteers)
 
 ## Project Structure
