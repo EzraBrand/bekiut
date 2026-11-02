@@ -35,12 +35,12 @@ development previews only; it remains excluded by `.replitignore` and has no
 production service. The demo and research guides remain archived. Existing
 canvas experiments are preserved, not refreshed as part of this work.
 
-### Later: clean up old canvas content
+### Canvas cleanup completed (November 2, 2026)
 
-- Review the old, cluttered and broken design frames.
-- Archive useful references before removing obsolete canvas frames.
-- Preserve the new navigation comparisons and the live application frames.
-- Canvas cleanup does not authorize deleting application source or stored media.
+Removed all 25 removable canvas items, including old experiments, annotations,
+and the navigation comparisons, at the user's request after integrating the
+approved navigation. Six built-in artifact frames remain; the canvas API does
+not support deleting those. All source files and stored media are preserved.
 
 ### Restoration procedure
 
