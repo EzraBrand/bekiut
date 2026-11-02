@@ -10,6 +10,9 @@ it("leaves To unchanged in both abbreviation display modes", () => {
 });
 
 const additions = {
+  "dativ. ethic.": "dativus ethicus (ethical dative)",
+  "gat": "got",
+  "betook": "took",
   "dat. commodi": "dativus commodi",
   "dat. comm.": "dativus commodi",
   "dat. incommodi": "dativus incommodi",

@@ -302,6 +302,7 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "Elamite",
   ],
   Grammar: [
+    "dativus ethicus (ethical dative)",
     "1st-person",
     "Hif'il",
     "dativus commodi",
@@ -572,6 +573,8 @@ const expansionsByCategory: Record<BdbCategory, readonly string[]> = {
     "pronouns",
   ],
   Vocabulary: [
+    "got",
+    "took",
     "young women",
     "pagan",
     "connected",

@@ -34,6 +34,14 @@ export default function Changelog() {
       {/* Changelog Content */}
       <div>
 
+        <div className="py-8 border-t border-border">
+          <SectionHeading className="mb-4">November 2026</SectionHeading>
+          <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Vocabulary (November 2)</h3>
+            <p>Added “dativ. ethic.” → “dativus ethicus (ethical dative),” “gat” → “got,” and “betook” → “took.”</p>
+          </div>
+        </div>
+
         {/* October 2026 */}
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">October 2026</SectionHeading>
