@@ -28,6 +28,22 @@ The post-merge script no longer automatically restores demo media.
 
 ## Restoring
 
+### Active design work (November 2, 2026)
+
+The user requested new navigation mockups. The sandbox is now enabled for
+development previews only; it remains excluded by `.replitignore` and has no
+production service. The demo and research guides remain archived. Existing
+canvas experiments are preserved, not refreshed as part of this work.
+
+### Later: clean up old canvas content
+
+- Review the old, cluttered and broken design frames.
+- Archive useful references before removing obsolete canvas frames.
+- Preserve the new navigation comparisons and the live application frames.
+- Canvas cleanup does not authorize deleting application source or stored media.
+
+### Restoration procedure
+
 1. Remove their exclusions from `pnpm-workspace.yaml` and `.replitignore`.
    For the guide, also remove the `jewish-research-guide` publishing exclusion.
 2. Restore their service definitions from the pre-archive checkpoint using the

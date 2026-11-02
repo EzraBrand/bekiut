@@ -5,6 +5,9 @@ description: Owner's decision to retire demo, guide preview, and design experime
 
 Keep the demo video, standalone research guide, research-guide preview and design sandbox archived rather
 than reactivating them during routine dependency or deployment maintenance.
+Exception: on November 2, 2026 the user requested renewed navigation design work,
+authorizing sandbox development previews. Keep it excluded from publication;
+this does not revive the old experiments, demo, or guides.
 Preserve their source and stored video media. The standalone guide is included
 in the requested local archive. Keep the live GitHub Pages guide online and
 leave its remote repository and publishing settings unchanged.
