@@ -117,8 +117,7 @@ export function Grouped() {
             ref={panel} aria-label={open} onPointerEnter={cancelClose} onPointerLeave={closeLater}
             onKeyDown={() => { hovered.current = false; cancelClose(); }}>
             <div className="bg-panel-heading">
-              <h2>{open === "Tools" ? "Tools for your study" : "Find the right meaning"}</h2>
-              <p>{open === "Tools" ? "Find a reference. Follow a passage. Explore further." : "Two dictionaries, each with a distinct scope."}</p>
+              <h2>{open}</h2>
             </div>
             <div className="bg-columns">
               {open === "Tools" ? <>
