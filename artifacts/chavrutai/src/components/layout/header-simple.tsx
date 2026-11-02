@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import type { ReactNode } from "react";
 import { DictionariesNav } from "@/components/layout/dictionaries-nav";
+import { ToolsNav } from "@/components/layout/tools-nav";
 
 /*
  * Shared site header — ParchmentScholar design (see DESIGN.md).
@@ -19,7 +20,7 @@ export interface HeaderSimpleProps {
 export function HeaderSimple({ maxWidth = "max-w-content", rightExtra, progress }: HeaderSimpleProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
-      <div className={`${maxWidth} mx-auto px-6 py-4 flex items-center justify-between`}>
+      <div className={`${maxWidth} mx-auto px-6 py-4 flex flex-wrap gap-3 items-center justify-between`}>
         <Link
           href="/"
           className="flex items-center gap-2"
@@ -40,6 +41,7 @@ export function HeaderSimple({ maxWidth = "max-w-content", rightExtra, progress 
           <Link href="/" className="hover:text-foreground" data-testid="nav-link-library">Library</Link>
           <Link href="/search" className="hover:text-foreground" data-testid="nav-link-search">Search</Link>
           <DictionariesNav />
+          <ToolsNav />
           <Link href="/about" className="hover:text-foreground hidden sm:inline" data-testid="nav-link-about">About Bekiut</Link>
           {rightExtra}
         </nav>

@@ -6,6 +6,7 @@ import { getTractateSlug } from "@workspace/shared-data/tractates";
 import { useSEO, generateSEOData } from "@/hooks/use-seo";
 import { Footer } from "@/components/footer";
 import { DictionariesNav } from "@/components/layout/dictionaries-nav";
+import { ToolsNav } from "@/components/layout/tools-nav";
 import { dictionaryQueryHref, type DictionaryId } from "@/lib/dictionary-search";
 
 /*
@@ -141,7 +142,7 @@ export default function Home() {
             <a href="#library" className="hover:text-foreground" data-testid="nav-link-library">Library</a>
             <Link href="/search" className="hover:text-foreground" data-testid="nav-link-search">Search</Link>
             <DictionariesNav />
-            <a href="#tools" className="hover:text-foreground" data-testid="nav-link-tools">Tools</a>
+            <ToolsNav />
             <Link href="/about" className="hover:text-foreground hidden sm:inline" data-testid="nav-link-about">About Bekiut</Link>
           </nav>
         </div>
