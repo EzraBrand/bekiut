@@ -1024,7 +1024,7 @@
     "Talm. Y.": "Jerusalem Talmud",
     "corresp.": "corresponding",
     "prefix.": "prefix",
-    "reduplic.": "reduplicated",
+    "reduplic.": "reduplication",
     "Hithpalp.": "Hithpalpel",
     "Pers.": "Persian",
     "Arab.": "Arabic",
@@ -1053,6 +1053,7 @@
     "wds.": "words",
     "quot.": "quoted",
     "Lag.": "Lagarde",
-    "transl.": "translation"
+    "transl.": "translation",
+    "Lit. Centralblatt": "Literarisches Centralblatt"
   }
 }
