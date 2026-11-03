@@ -406,3 +406,17 @@ mtime_ms = 1793686829034
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5e243eda-044e-461f-8373-bbec443aba1d/1b634b58-acae-4584-a686-5b0ac4051d82"
 storage_version_token = "1793711852612089"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "n__kJ5v1AQjt_yx4cOCe4"
+uri = "file://generated-artifacts/sefaria-names/sefaria-work-and-parsha-names.csv"
+type = "table"
+title = "Sefaria work and parsha names — CSV"
+description = "Fresh API export: 6,610 catalog work records and 54 parshas, with English/Hebrew names, categories, parsha aliases and verse ranges, source URLs, and retrieval timestamps. Work aliases are not supplied by the catalog endpoint."
+logical_id = "b2e54fd1-28e3-472c-b658-37e5c68b0342"
+content_hash = "sha256:05e8a2217d523ef75c82cf844059ae1357c0d4467bb7221b64b6da444f450527"
+size = 1501070
+mtime_ms = 1793711910385
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b2e54fd1-28e3-472c-b658-37e5c68b0342/33ba7571-7cbb-4992-88fe-36eede34f413"
+storage_version_token = "1793711921437798"
+content_type = "text/csv"
