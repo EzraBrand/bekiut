@@ -449,15 +449,15 @@ describe("BDB abbreviation expansion", () => {
 
 describe("Jastrow abbreviation expansion", () => {
   it.each([
-    ["Ab.", "Avot (Mishnah)"],
-    ["Ab. d’R. N.", "Avot d'Rabbi Natan"],
+    ["Ab.", "Pirkei Avot"],
+    ["Ab. d’R. N.", "Avot DeRabbi Natan"],
     ["abbrev.", "abbreviated/abbreviation"],
     ["add.", "additamenta (supplement)"],
     ["adj.", "adjective"],
     ["art.", "article"],
     ["Beitr.", "Beiträge zur Sprach- und Alterthumsforschung"],
     ["B’ḥuck.", "Bechukotai"],
-    ["B’resh.", "Bereishit"],
+    ["B’resh.", "Bereshit"],
     ["B’shall.", "Beshalach"],
     ["ed.", "edition(s)"],
     ["fr.", "from"],
@@ -477,7 +477,7 @@ describe("Jastrow abbreviation expansion", () => {
     ["prov.", "proverb"],
     ["q. v.", "which see"],
     ["R. S.", "Rabbenu Shimshon"],
-    ["S’maḥ.", "Semahot"],
+    ["S’maḥ.", "Tractate Semachot"],
     ["Tosef. ed. Zuck.", "Tosefta, Zuckermandel edition"],
     ["trnsp.", "transposed or transposition"],
     ["vers.", "version"],

@@ -51,3 +51,9 @@ including incoming external links. The grid can be reopened manually.
 
 **Why:** The user wants immediate access to definitions rather than the browsing
 controls when following an entry link.
+
+Prefer Sefaria canonical names for tractate, parsha, and midrash expansions.
+
+**Why:** The user approved aligning these names with Sefaria after the consistency review, rather than retaining mixed transliteration styles.
+
+**How to apply:** Preserve source spelling variants as matching keys; standardize their display targets. Do not invent a specific work or recension for an ambiguous abbreviation.
