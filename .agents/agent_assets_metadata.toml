@@ -392,3 +392,17 @@ mtime_ms = 1793598191094
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/54ca4dba-dfa7-40a3-82cb-6505e7fa96c6/3872e0ea-5eb1-4b21-91f6-bb33e557e1a0"
 storage_version_token = "1793598192841874"
 content_type = "text/html;profile=replit-chart"
+
+[[outputs]]
+id = "aHWqnzrpSmcToiALqpITp"
+uri = "file://docs/jastrow-mapping-consistency-review.md"
+type = "text"
+title = "Original Jastrow–Sefaria mapping review"
+description = "Original comparison report: existing mappings, Sefaria titles, suggested corrections, and source API links, before the changes were applied."
+logical_id = "5e243eda-044e-461f-8373-bbec443aba1d"
+content_hash = "sha256:a9045e6b7073d0674c593b658efbdba532ea09cbb432492024e831dead4be4d1"
+size = 11929
+mtime_ms = 1793686829034
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5e243eda-044e-461f-8373-bbec443aba1d/1b634b58-acae-4584-a686-5b0ac4051d82"
+storage_version_token = "1793711852612089"
+content_type = "text/markdown"
