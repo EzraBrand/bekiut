@@ -26,23 +26,14 @@ import { sanitizeJastrowHtml } from "@/lib/jastrow-html-sanitizer";
 import { LatestRequest } from "@/lib/latest-request";
 import { classifyDictionaryResponse, type DictionarySearchFailure } from "@/lib/dictionary-search";
 import { DisplayOptions, DictionarySearchNotice } from "@/components/dictionary/dictionary-ui";
+import { useReaderPreference } from "@/hooks/use-reader-preference";
 
 export default function Jastrow() {
   const [searchQuery, setSearchQuery] = useState("");
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<DictionaryEntry[]>([]);
-  const [extraSplits, setExtraSplits] = useState(() => {
-    try { return sessionStorage.getItem("jastrow-extra-splits") === "true"; } catch { return false; }
-  });
-  useEffect(() => {
-    try { sessionStorage.setItem("jastrow-extra-splits", String(extraSplits)); } catch { /* Storage may be disabled. */ }
-  }, [extraSplits]);
-  const [expandInline, setExpandInline] = useState(() => {
-    try { return sessionStorage.getItem("jastrow-expand-inline") === "true"; } catch { return false; }
-  });
-  useEffect(() => {
-    try { sessionStorage.setItem("jastrow-expand-inline", String(expandInline)); } catch { /* Storage may be disabled. */ }
-  }, [expandInline]);
+  const [extraSplits, setExtraSplits] = useReaderPreference("jastrow-extra-splits", false);
+  const [expandInline, setExpandInline] = useReaderPreference("jastrow-expand-inline", false);
   const abbreviationRevision = useMemo(() => ({ results, expandInline, extraSplits }), [results, expandInline, extraSplits]);
   const renderAbbreviations = (text: string) => expandAbbreviations(
     text, jastrowMappings.mappings, { display: expandInline ? "inline" : "original", jastrowApostrophes: true },
@@ -508,7 +499,7 @@ export default function Jastrow() {
           <DictionaryAbbreviationPanel revision={abbreviationRevision} />
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 className="font-georgia text-xl">Dictionary Entries</h2>
-            <DisplayOptions hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
+            <DisplayOptions dictionary="jastrow" hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
               <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" data-testid="checkbox-expand-inline" />
                 Expand abbreviations inline

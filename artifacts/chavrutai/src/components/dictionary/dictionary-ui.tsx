@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
+import { useReaderPreference } from "@/hooks/use-reader-preference";
 import { Link } from "wouter";
 import { DICTIONARY_LABELS, dictionaryQueryHref, otherDictionary, type DictionaryId, type DictionarySearchFailure } from "@/lib/dictionary-search";
 
 /** Compact disclosure holding reader display settings. */
-export function DisplayOptions({ children, hint }: { children: ReactNode; hint?: ReactNode }) {
+export function DisplayOptions({ dictionary, children, hint }: { dictionary: DictionaryId; children: ReactNode; hint?: ReactNode }) {
+  const [open, setOpen] = useReaderPreference(`${dictionary}-display-options-open`, true);
   return (
-    <details className="group text-sm" data-testid="display-options">
+    <details open={open} onToggle={event => setOpen(event.currentTarget.open)} className="group text-sm" data-testid="display-options">
       <summary className="cursor-pointer list-none text-muted-foreground hover:text-foreground select-none" data-testid="button-display-options">
         <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90 mr-1">▸</span>
         Display options

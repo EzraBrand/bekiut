@@ -6,6 +6,7 @@ import { sanitizeBdbHtml } from "@/lib/jastrow-html-sanitizer";
 import { LatestRequest } from "@/lib/latest-request";
 import { classifyDictionaryResponse, type DictionarySearchFailure } from "@/lib/dictionary-search";
 import { DisplayOptions, DictionarySearchNotice } from "@/components/dictionary/dictionary-ui";
+import { useReaderPreference } from "@/hooks/use-reader-preference";
 import { Button } from "@/components/ui/button";
 import { PageShell, PageHeader } from "@/components/layout/page-shell";
 import { useSEO } from "@/hooks/use-seo";
@@ -106,13 +107,8 @@ export default function Bdb() {
   const [suggestions, setSuggestions] = useState<AutosuggestSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
-  const [splitBySemicolon, setSplitBySemicolon] = useState(false);
-  const [expandInline, setExpandInline] = useState(() => {
-    try { return sessionStorage.getItem("bdb-expand-inline") === "true"; } catch { return false; }
-  });
-  useEffect(() => {
-    try { sessionStorage.setItem("bdb-expand-inline", String(expandInline)); } catch { /* Storage may be disabled. */ }
-  }, [expandInline]);
+  const [splitBySemicolon, setSplitBySemicolon] = useReaderPreference("bdb-split-by-semicolon", false);
+  const [expandInline, setExpandInline] = useReaderPreference("bdb-expand-inline", false);
   const [openOutlineEntry, setOpenOutlineEntry] = useState<string | null>(null);
   const [activeAnchorId, setActiveAnchorId] = useState<string | null>(null);
   const [outlineExpanded, setOutlineExpanded] = useState<Record<string, boolean>>({});
@@ -815,7 +811,7 @@ export default function Bdb() {
               }}>
               Search / browse
             </button>
-            <DisplayOptions hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
+            <DisplayOptions dictionary="bdb" hint={expandInline ? "Abbreviations are expanded in the text." : "Hover or focus an underlined abbreviation to read its meaning; click or tap to keep it open. Reference links still navigate."}>
             <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer">
               <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" data-testid="checkbox-expand-inline" />
               Expand abbreviations inline
