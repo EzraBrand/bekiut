@@ -24,8 +24,7 @@
  *   handled selectively by time_ordinals / ordinals_basic in term-replacements
  * - Fractional words (half, quarter, -thirds…) — not in the cardinal map;
  *   handled by ordinals_fractional in term-replacements (which runs first)
- * - Mixed numbers (three and a half) — "half" is not a cardinal word so the
- *   parser only sees "three", leaving "and a half" intact for the lookup table
+ * - Mixed numbers are handled by parseMixedNumbers BEFORE term replacement.
  *
  * ## INTEGRATION
  * Called from replaceTerms() AFTER the combined term-replacement pattern so
@@ -174,6 +173,48 @@ export function formatCardinal(n: number): string {
 // as a numeric quantity that benefits from digit form. Both were absent from
 // the former static lookup table for the same reason.
 const STANDALONE_EXCLUSIONS = new Set(['one', 'two']);
+
+const FRACTION_DENOMINATORS: Record<string, number> = {
+  half: 2, halves: 2, third: 3, thirds: 3, quarter: 4, quarters: 4,
+  fourth: 4, fourths: 4, fifth: 5, fifths: 5, sixth: 6, sixths: 6,
+  seventh: 7, sevenths: 7, eighth: 8, eighths: 8, ninth: 9, ninths: 9,
+  tenth: 10, tenths: 10,
+};
+const FRACTION_GLYPHS: Record<string, string> = {
+  '1/2': '½', '1/3': '⅓', '2/3': '⅔', '1/4': '¼', '3/4': '¾',
+  '1/5': '⅕', '2/5': '⅖', '3/5': '⅗', '4/5': '⅘',
+  '1/6': '⅙', '5/6': '⅚', '1/7': '⅐', '1/8': '⅛',
+  '3/8': '⅜', '5/8': '⅝', '7/8': '⅞', '1/9': '⅑', '1/10': '⅒',
+};
+const MIXED_SEPARATOR = '[\\s\\-\\u2010\\u2011]+';
+const MIXED_WHOLE = `(?:(?:a|an)${MIXED_SEPARATOR}(?=(?:${[...VALID_A_TARGETS].join('|')})\\b))?` +
+  `(?:${CARDINAL_ALT})(?:${MIXED_SEPARATOR}(?:and${MIXED_SEPARATOR})?(?:${CARDINAL_ALT}))*`;
+const MIXED_NUMBER_PATTERN = new RegExp(
+  `\\b(${MIXED_WHOLE}|\\d+(?:,\\d{3})*)` +
+  `${MIXED_SEPARATOR}and${MIXED_SEPARATOR}(a|an|one|two|three|four|five|six|seven|eight|nine)` +
+  `${MIXED_SEPARATOR}(${Object.keys(FRACTION_DENOMINATORS).sort((a, b) => b.length - a.length).join('|')})\\b`,
+  'gi',
+);
+
+/**
+ * Consume the entire mixed number BEFORE term replacement can turn only its
+ * tail into digits. Reuses cardinal parsing for arbitrary whole-number parts.
+ * HTML attributes are deliberately excluded; inline tags remain untouched.
+ */
+export function parseMixedNumbers(text: string): string {
+  return text.split(/(<[^>]*>)/g).map(part => {
+    if (part.startsWith('<')) return part;
+    return part.replace(MIXED_NUMBER_PATTERN, (match, whole: string, numerator: string, denominator: string) => {
+      const n = /^(a|an)$/i.test(numerator) ? 1 : UNIT_MAP[numerator.toLowerCase()];
+      const d = FRACTION_DENOMINATORS[denominator.toLowerCase()];
+      if (!n || n >= d) return match;
+      const value = /^\d/.test(whole) ? Number(whole.replace(/,/g, '')) : tryParseCardinal(whole.replace(/[\u2010\u2011]/g, '-'));
+      if (value === null || !Number.isSafeInteger(value)) return match;
+      const fraction = FRACTION_GLYPHS[`${n}/${d}`] ?? ` ${n}/${d}`;
+      return formatCardinal(value) + fraction;
+    });
+  }).join('');
+}
 
 /**
  * Replace all English cardinal number-word sequences in `text` with their

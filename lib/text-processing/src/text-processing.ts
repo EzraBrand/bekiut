@@ -140,7 +140,7 @@ const ORPHAN_QUOTE_END_PATTERN = /(?<![,.\?!;''\u2018\u2019""\u201C\u201D])\n[""
 
 import termReplacementsConfig from './data/term-replacements.json';
 import { loadTermReplacements, buildCombinedPattern, TermReplacementsConfigSchema } from './term-replacements-schema';
-import { parseNumbers } from './number-parser';
+import { parseNumbers, parseMixedNumbers } from './number-parser';
 
 // Validate config at module load
 const validatedConfig = TermReplacementsConfigSchema.parse(termReplacementsConfig);
@@ -380,6 +380,8 @@ export function replaceTerms(text: string): string {
   // e.g., "<b>sky</b>-<b>blue wool</b>" prevents matching "sky-blue"
   // This collapses "</b>-<b>" into just "-" so "sky-blue" becomes matchable
   processedText = processedText.replace(/<\/b>-<b>/g, '-');
+  // Consume full mixed quantities before shorter fractional lookup rules.
+  processedText = parseMixedNumbers(processedText);
 
   // STEP 0c: Normalize newlines inside <a> tags to spaces.
   // Sefaria sometimes inserts \n inside anchor tags for Bible citations:
