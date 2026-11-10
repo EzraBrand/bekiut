@@ -38,3 +38,4 @@
 - [Dependency remediation scope](dependency-remediation-scope.md) — keep the local braces fix until upstream patches it; avoid a CSS framework migration or misleading scanner suppression.
 - [Dependency major upgrades](dependency-major-upgrades.md) — rebuild shared TypeScript declarations before diagnosing downstream errors after a schema-library major upgrade.
 - [Mixed fraction order](mixed-fraction-order.md) — consume complete mixed quantities before shorter fraction mappings can corrupt compound numbers.
+- [Upstream deadlines](upstream-request-deadlines.md) — bound body downloads as well as headers; optional continuation content must not delay primary reading.
