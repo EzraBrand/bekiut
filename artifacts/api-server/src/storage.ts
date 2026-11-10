@@ -1,3 +1,4 @@
+import { fetchSefaria as fetch } from "./lib/sefaria-fetch";
 import { type User, type InsertUser, type Text, type InsertText, type Bookmark, type InsertBookmark, type DictionaryEntry, type SearchRequest } from "@workspace/db";
 import { hasJastrowHomograph, jastrowLookupForm, selectJastrowHomograph } from "./lib/jastrow-homograph";
 import { randomUUID } from "crypto";

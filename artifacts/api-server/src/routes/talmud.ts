@@ -5,6 +5,7 @@ import { normalizeSefariaTractateName, isValidTractate } from "@workspace/shared
 import { processHebrewTextCore as processHebrewText, processEnglishText } from "@workspace/text-processing";
 import { AsyncTtlLruCache } from "../lib/async-ttl-lru-cache";
 import type { Text } from "@workspace/db";
+import { fetchSefaria as fetch, SefariaTimeoutError } from "../lib/sefaria-fetch";
 
 const sefariaAPIBaseURL = "https://www.sefaria.org/api";
 const talmudTextLoads = new AsyncTtlLruCache<Text>(500, 6 * 60 * 60 * 1000);
@@ -78,18 +79,17 @@ export function createTalmudRouter(): Router {
             try {
               const nextFolio = side === 'a' ? folio : folio + 1;
               const nextSide = side === 'a' ? 'b' : 'a';
-              const nextSefariaRef = `${normalizedTractate}.${nextFolio}${nextSide}`;
-              const nextResponse = await fetch(`${sefariaAPIBaseURL}/texts/${nextSefariaRef}?lang=bi&commentary=0`);
-              
-              if (nextResponse.ok) {
-                const nextSefariaData: any = await nextResponse.json();
-                const nextHebrewSections = Array.isArray(nextSefariaData.he) ? nextSefariaData.he : [nextSefariaData.he || ''];
-                const nextEnglishSections = Array.isArray(nextSefariaData.text) ? nextSefariaData.text : [nextSefariaData.text || ''];
+              // Continuation previews are optional: never block this page on
+              // another upstream request. Use text already in local storage.
+              const nextText = await storage.getText(work, tractate, chapter, nextFolio, nextSide);
+              if (nextText) {
+                const nextHebrewSections = nextText.hebrewSections || [];
+                const nextEnglishSections = nextText.englishSections || [];
                 
                 if (nextHebrewSections[0] || nextEnglishSections[0]) {
                   nextPageFirstSection = {
-                    hebrew: processHebrewText(nextHebrewSections[0] || ''),
-                    english: processEnglishText(nextEnglishSections[0] || '')
+                    hebrew: nextHebrewSections[0] || '',
+                    english: nextEnglishSections[0] || ''
                   };
                 }
               }
@@ -120,7 +120,9 @@ export function createTalmudRouter(): Router {
           text = await load.value;
         } catch (sefariaError) {
           console.error('Error fetching from Sefaria:', sefariaError);
-          if (sefariaError instanceof SefariaTextResponseError) {
+          if (sefariaError instanceof SefariaTimeoutError) {
+            res.status(504).json({ error: sefariaError.message, message: sefariaError.message });
+          } else if (sefariaError instanceof SefariaTextResponseError) {
             res.status(sefariaError.status).json({ error: "Failed to fetch text from Sefaria" });
           } else {
             res.status(502).json({ error: "Failed to fetch text from Sefaria" });

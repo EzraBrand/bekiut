@@ -42,9 +42,9 @@ async function getToken() {
   return data.access_token;
 }
 
-async function api(path, opts = {}) {
+async function api(path, opts = {}, base = "https://www.googleapis.com/webmasters/v3") {
   const token = await getToken();
-  const res = await fetch(`https://www.googleapis.com/webmasters/v3${path}`, {
+  const res = await fetch(`${base}${path}`, {
     ...opts,
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", ...(opts.headers || {}) },
   });
@@ -60,15 +60,20 @@ if (cmd === "sites") {
   console.log(JSON.stringify(await api("/sites"), null, 2));
 } else if (cmd === "sitemaps") {
   console.log(JSON.stringify(await api(`/sites/${site}/sitemaps`), null, 2));
-} else if (cmd === "analytics") {
+} else if (cmd === "inspect") {
+  console.log(JSON.stringify(await api("/v1/urlInspection/index:inspect", {
+    method: "POST",
+    body: JSON.stringify({ inspectionUrl: daysArg || "https://bekiut.com/", siteUrl: siteArg || "sc-domain:bekiut.com" }),
+  }, "https://searchconsole.googleapis.com"), null, 2));
+} else if (["analytics", "totals", "pages", "daily"].includes(cmd)) {
   const days = Number(daysArg || 28);
   const end = new Date().toISOString().slice(0, 10);
   const start = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
   const body = JSON.stringify({
     startDate: start,
     endDate: end,
-    dimensions: ["query"],
-    rowLimit: 25,
+    dimensions: cmd === "totals" ? [] : [cmd === "pages" ? "page" : cmd === "daily" ? "date" : "query"],
+    rowLimit: cmd === "daily" ? 1000 : 25,
   });
   console.log(JSON.stringify(await api(`/sites/${site}/searchAnalytics/query`, { method: "POST", body }), null, 2));
 } else {

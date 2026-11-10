@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { z } from "zod/v4";
 import { AsyncTtlLruCache } from "../lib/async-ttl-lru-cache";
+import { fetchSefaria as fetch, SefariaTimeoutError } from "../lib/sefaria-fetch";
 
 interface BibleTextResult {
   work: "Bible";
@@ -93,6 +94,10 @@ export function createBibleRouter(): Router {
       res.locals.cacheOutcome = load.outcome;
       res.json(await load.value);
     } catch (error) {
+      if (error instanceof SefariaTimeoutError) {
+        res.status(504).json({ error: error.message, message: error.message });
+        return;
+      }
       if (error instanceof SefariaResponseError) {
         console.error(error.message);
         res.status(error.status).json({ error: `Failed to fetch ${error.language} Bible text from Sefaria` });
