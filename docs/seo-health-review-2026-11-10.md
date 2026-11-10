@@ -67,7 +67,7 @@ The sitemap API's `indexed: 0` field is not a reliable indexed-page census: the 
 
 ## Recommended order
 
-1. Check **Settings → Change of address** on the old domain in Search Console. Confirm whether a move to Bekiut was submitted; API queries here cannot establish that. Owners should verify both properties and the migration prerequisites before submitting.
+1. **Confirmed by the owner:** ChavrutAI's Search Console displays “This site is currently moving to bekiut.com.” The Change of Address is already active; do not resubmit or cancel it as a speculative fix. Its start date was not established.
 2. Fix the concrete indexability/sitemap issues above; retain permanent redirects and update high-value external links to Bekiut where practical.
 3. Resubmit the Bekiut sitemap and request indexing for a small representative set after fixes. This is not a guarantee of indexing.
 4. Compare both domains weekly and re-inspect the same representative URLs.

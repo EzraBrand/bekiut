@@ -40,3 +40,11 @@ failure caching would also prolong missing crawler enrichment after recovery.
 **How to apply:** Keep the cache bounded and expiring, expose hit/miss/coalesced
 outcomes through web request telemetry, and update the SEO-relevant query
 allowlist whenever a route gains query-dependent metadata.
+
+## Domain move
+
+On November 10, 2026, the owner confirmed that ChavrutAI's Search Console says “This site is currently moving to bekiut.com.”
+
+**Why:** The Change of Address has already been submitted; missing migration submission must not be assumed to explain old-domain search attribution.
+
+**How to apply:** Preserve the move and redirects. Check updated canonical/indexing evidence before suggesting changes; the migration's start date is not known.
