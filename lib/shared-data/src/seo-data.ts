@@ -316,7 +316,7 @@ export function getBibleBookSEO(
     description: `Read all chapters of ${bookTitle} with parallel Hebrew-English text and the Koren Jerusalem Bible translation. Free online Bible study on Bekiut.`,
     ogTitle: `${bookTitle} - Hebrew & English Bible`,
     ogDescription: `Read ${bookTitle} with parallel Hebrew-English text and the Koren Jerusalem Bible translation on Bekiut.`,
-    canonical: `${baseUrl}/bible/${bookSlug}`,
+    canonical: `${baseUrl}/bible/${book?.slug ?? bookSlug}`,
     robots: "index, follow",
   };
 }
@@ -333,7 +333,7 @@ export function getBibleChapterSEO(
     description: `Read ${bookTitle} Chapter ${chapter} with parallel Hebrew-English text and the Koren Jerusalem Bible translation. Free online Bible study on Bekiut.`,
     ogTitle: `${bookTitle} ${chapter} - Hebrew & English Bible`,
     ogDescription: `Read ${bookTitle} Chapter ${chapter} with parallel Hebrew-English text and the Koren Jerusalem Bible translation on Bekiut.`,
-    canonical: `${baseUrl}/bible/${bookSlug}/${chapter}`,
+    canonical: `${baseUrl}/bible/${book?.slug ?? bookSlug}/${chapter}`,
     robots: "index, follow",
   };
 }

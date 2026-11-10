@@ -1,7 +1,10 @@
 import express from "express";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import { SITEMAP_CHILD_PATHS } from "@workspace/shared-data/sitemap-routes";
 import { registerSitemapRoutes } from "./sitemaps";
+import { ALL_BIBLE_BOOKS } from "@workspace/shared-data/bible-books";
+import { getPageSEO } from "@workspace/shared-data/seo-data";
+import { CANONICAL_BASE_URL } from "@workspace/shared-data/brand";
 
 let baseUrl = "";
 let server: ReturnType<ReturnType<typeof express>["listen"]>;
@@ -23,6 +26,40 @@ afterAll(async () => {
 });
 
 describe("production-style sitemap routing", () => {
+  it("uses the canonical production origin for every sitemap location", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    try {
+      for (const path of ["/sitemap.xml", ...SITEMAP_CHILD_PATHS]) {
+        const xml = await (await fetch(`${baseUrl}/api${path}`)).text();
+        const locations = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+        expect(locations.length, path).toBeGreaterThan(0);
+        expect(locations.every(url => url.startsWith(`${CANONICAL_BASE_URL}/`)), path).toBe(true);
+      }
+    } finally {
+      vi.unstubAllEnvs();
+    }
+  });
+
+  it("uses exactly the reader's canonical Bible books and chapters", async () => {
+    const xml = await (await fetch(`${baseUrl}/sitemap-bible.xml`)).text();
+    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+    const expected = [`${baseUrl}/bible`, ...ALL_BIBLE_BOOKS.flatMap(book => [
+      `${baseUrl}/bible/${book.slug}`,
+      ...Array.from({ length: book.chapters }, (_, i) => `${baseUrl}/bible/${book.slug}/${i + 1}`),
+    ])];
+    expect(urls).toEqual(expected);
+    for (const url of urls) {
+      expect(getPageSEO(new URL(url).pathname, new URLSearchParams(), baseUrl).canonical).toBe(url);
+    }
+  });
+
+  it("does not advertise request-time modification dates", async () => {
+    for (const path of ["/sitemap.xml", ...SITEMAP_CHILD_PATHS]) {
+      const xml = await (await fetch(`${baseUrl}${path}`)).text();
+      expect(xml, path).not.toContain("<lastmod>");
+    }
+  });
+
   it("includes the public Places page at both sitemap endpoints", async () => {
     for (const prefix of ["", "/api"]) {
       const response = await fetch(`${baseUrl}${prefix}/sitemap-main.xml`);

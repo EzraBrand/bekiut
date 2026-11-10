@@ -2,14 +2,14 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { SefariaAPI } from "../storage";
 import { cleanDictionaryQuery, DictionaryUnavailableError } from "./dictionary-recovery";
 afterEach(() => vi.unstubAllGlobals());
-const response = (data: unknown, status = 200) => ({ ok: status === 200, status, json: async () => data });
+const response = (data: unknown, status = 200) => Response.json(data, { status });
 const entry = (headword: string, lexicon: string) => ({
   headword, parent_lexicon: lexicon, rid: "sample", content: { senses: [{ definition: "test" }] },
 });
 
 describe("dictionary recovery", () => {
   it("removes editorial stars for lookup but retains the displayed headword", async () => {
-    const fetch = vi.fn().mockResolvedValue(response([entry("*גִּישׁ", "Jastrow Dictionary")]));
+    const fetch = vi.fn().mockImplementation(async () => response([entry("*גִּישׁ", "Jastrow Dictionary")]));
     vi.stubGlobal("fetch", fetch);
     const found = await new SefariaAPI().searchEntries({ query: "*גִּישׁ" });
     expect(decodeURIComponent(fetch.mock.calls[0][0])).toContain("/words/גִּישׁ");
@@ -24,18 +24,18 @@ describe("dictionary recovery", () => {
     expect(fetch).toHaveBeenCalledTimes(3);
   });
   it("retains homograph identity after removing editorial stars", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response([
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => response([
       entry("*אָב I", "Jastrow Dictionary"), entry("*אָב II", "Jastrow Dictionary"),
     ])));
     const result = await new SefariaAPI().searchEntries({ query: "*אָב I" });
     expect(result.map(row => row.headword)).toEqual(["*אָב I"]);
   });
   it("returns genuine empty results", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response([])));
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => response([])));
     expect(await new SefariaAPI().searchBdbEntries({ query: "zzz" })).toEqual([]);
   });
   it.each([429, 500, 503])("does not disguise upstream HTTP %s as no match", async status => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response({}, status)));
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => response({}, status)));
     await expect(new SefariaAPI().searchEntries({ query: "אב" })).rejects.toBeInstanceOf(DictionaryUnavailableError);
   });
   it("does not disguise network failures as no match", async () => {

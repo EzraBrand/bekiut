@@ -8,7 +8,6 @@ export function generateMainSitemap(req: Request, res: Response) {
     ? CANONICAL_BASE_URL 
     : req.protocol + '://' + req.get('host');
   
-  const currentDate = new Date().toISOString().split('T')[0];
   
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -17,139 +16,116 @@ export function generateMainSitemap(req: Request, res: Response) {
     <loc>${baseUrl}/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/talmud</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/suggested-pages</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/about</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/blog-posts</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/biblical-index</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/jastrow</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/bdb</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/term-index</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/talmud/term-replacements</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/outline/sanhedrin/10</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/mishnah</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/yerushalmi</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/rambam</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/mishnah-map</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/places</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/search</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/sugya-viewer</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/sitemap</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/external-links</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/contact</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/privacy</loc>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
   <url>
     <loc>${baseUrl}/changelog</loc>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>${currentDate}</lastmod>
   </url>
 
   <!-- Tractate contents pages -->`;

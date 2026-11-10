@@ -19,13 +19,11 @@ describe("BDB citation fidelity", () => {
   });
 
   it("preserves qualifiers and a discrepant source label through nested API senses", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
-      ok: true, json: async () => [{
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => Response.json([{
         headword: "אָב²", rid: "BDB00019", occurrences: "1191", parent_lexicon: "BDB Dictionary",
         content: { senses: [{ definition: '<a data-ref="Jeremiah 35:6" href="/Jeremiah.35.6">Je 35:6 f</a>',
           senses: [{ definition: '<a href="/Psalms.140.9" data-ref="Psalms 140:9">149:9</a>' }] }] },
-      }],
-    }));
+      }])));
     const [entry] = await new SefariaAPI().searchBdbEntries({ query: "אב" });
     expect(entry.content.senses[0].definition).toContain("Jeremiah 35:6 f</a>");
     expect(entry.content.senses[0].definition).toContain("<sub>1191</sub>");
@@ -47,9 +45,9 @@ describe("BDB exact homograph lookup", () => {
     expect(selectBdbHomograph("הלל", entries)).toBe(entries);
   });
   it("normalizes upstream lookup then retains the requested entry and stable ID", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true, json: async () => entries.map(e => ({ ...e, parent_lexicon: "BDB Dictionary", content: { senses: [{ definition: "test" }] } })),
-    });
+    const fetchMock = vi.fn().mockImplementation(async () => Response.json(
+      entries.map(e => ({ ...e, parent_lexicon: "BDB Dictionary", content: { senses: [{ definition: "test" }] } })),
+    ));
     vi.stubGlobal("fetch", fetchMock);
     const result = await new SefariaAPI().searchBdbEntries({ query: "הָלַל²" });
     expect(decodeURIComponent(fetchMock.mock.calls[0][0])).toMatch(/\/words\/הלל$/);

@@ -7,14 +7,12 @@ export function generateMishnahSitemap(req: Request, res: Response) {
     ? CANONICAL_BASE_URL 
     : req.protocol + '://' + req.get('host');
   
-  const currentDate = new Date().toISOString().split('T')[0];
 
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Mishnah Main Page -->
   <url>
     <loc>${baseUrl}/mishnah</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -22,7 +20,6 @@ export function generateMishnahSitemap(req: Request, res: Response) {
   <!-- Mishnah-Talmud Mapping -->
   <url>
     <loc>${baseUrl}/mishnah-map</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`;
@@ -50,7 +47,6 @@ export function generateMishnahSitemap(req: Request, res: Response) {
       sitemap += `
   <url>
     <loc>${baseUrl}/mishnah/${slug}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`;
@@ -60,7 +56,6 @@ export function generateMishnahSitemap(req: Request, res: Response) {
         sitemap += `
   <url>
     <loc>${baseUrl}/mishnah/${slug}/${chapter}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>`;

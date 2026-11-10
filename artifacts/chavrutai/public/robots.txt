@@ -1,38 +1,11 @@
 User-agent: *
 Allow: /
-Allow: /talmud/
-Allow: /bible/
-Allow: /yerushalmi/
-Allow: /rambam/
-Allow: /about
-Allow: /suggested-pages
-Allow: /biblical-index
-Allow: /blog-posts
-Allow: /jastrow
-Allow: /bdb
-
-# Disallow deprecated URL patterns (redirect to canonical /talmud/ format)
-Disallow: /tractate/
-Disallow: /contents/
-
-# Disallow API endpoints
+# Legacy URLs must remain crawlable so bots can discover their 301 redirects.
+# One group keeps these rules consistent for Googlebot, Bingbot and other bots.
 Disallow: /api/
 
 # Crawl delay to respect Sefaria API limits and server resources
 Crawl-delay: 2
 
-# Rate limits for major crawlers
-User-agent: Googlebot
-Crawl-delay: 1
-
-User-agent: Bingbot
-Crawl-delay: 2
-
 # Sitemap
 Sitemap: https://bekiut.com/sitemap.xml
-
-# SEO Strategy:
-# - /tractate/ URLs are deprecated and 301 redirect to /talmud/
-# - All canonical URLs use /talmud/ format
-# - Bible pages use /bible/ format
-# - This ensures Google consolidates indexing to canonical URLs only

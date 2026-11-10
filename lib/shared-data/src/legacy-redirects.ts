@@ -1,4 +1,5 @@
 import { getTractateSlug, isValidTractate } from "./tractates";
+import { getBookBySlug } from "./bible-books";
 
 // ── Legacy path redirects ────────────────────────────────────────────────────
 // Single source of truth for the historical URL scheme, shared by:
@@ -26,6 +27,18 @@ export function resolveLegacyRedirect(rawPathname: string): string | null {
 
   if (pathname === "/contents") return "/talmud";
   if (pathname === "/dictionary") return "/jastrow";
+
+  // Old sitemap slugs used lowercase and hyphens; readers use title case
+  // and underscores. Only redirect real books and in-range chapters.
+  const bible = pathname.match(/^\/bible\/([^/]+)(?:\/(\d+))?$/);
+  if (bible) {
+    const book = getBookBySlug(bible[1]);
+    const chapter = bible[2] === undefined ? undefined : Number(bible[2]);
+    if (book && (chapter === undefined || (chapter >= 1 && chapter <= book.chapters))) {
+      const target = `/bible/${book.slug}${chapter === undefined ? "" : `/${chapter}`}`;
+      if (target !== rawPathname) return target;
+    }
+  }
 
   const contentsTractate = pathname.match(/^\/contents\/([^/]+)$/i);
   if (contentsTractate) {

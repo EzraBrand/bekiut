@@ -8,11 +8,10 @@ export function generateSitemapIndex(req: Request, res: Response) {
     ? CANONICAL_BASE_URL 
     : req.protocol + '://' + req.get('host');
   
-  const currentDate = new Date().toISOString().split('T')[0];
+  // No lastmod: request time is not a content modification date.
   
   const children = SITEMAP_CHILD_PATHS.map((path) => `  <sitemap>
     <loc>${baseUrl}${path}</loc>
-    <lastmod>${currentDate}</lastmod>
   </sitemap>`).join('\n');
 
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>

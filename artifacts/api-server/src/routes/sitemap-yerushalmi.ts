@@ -11,14 +11,12 @@ export function generateYerushalmiSitemap(req: Request, res: Response) {
     ? CANONICAL_BASE_URL
     : req.protocol + '://' + req.get('host');
 
-  const currentDate = new Date().toISOString().split('T')[0];
 
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Jerusalem Talmud Main Page -->
   <url>
     <loc>${baseUrl}/yerushalmi</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`;
@@ -45,7 +43,6 @@ export function generateYerushalmiSitemap(req: Request, res: Response) {
       sitemap += `
   <url>
     <loc>${baseUrl}/yerushalmi/${slug}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`;
@@ -59,7 +56,6 @@ export function generateYerushalmiSitemap(req: Request, res: Response) {
           sitemap += `
   <url>
     <loc>${baseUrl}/yerushalmi/${slug}/${chapter}.${halakhah}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>`;

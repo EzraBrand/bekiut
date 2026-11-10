@@ -24,11 +24,11 @@ describe("Jastrow homographs", () => {
     expect(selectJastrowHomograph("אב II", [...entries, entries[1]])).toHaveLength(1);
   });
   it("normalizes upstream lookup and preserves morphology through the real API mapper", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => entries.map(e => ({
+    const fetchMock = vi.fn().mockImplementation(async () => Response.json(entries.map(e => ({
       ...e, parent_lexicon: "Jastrow Dictionary",
       alt_headwords: ["כְבּוֹסֶת"],
       content: { morphology: "pr. n. f.", senses: [{ definition: "definition" }] },
-    })) });
+    }))));
     vi.stubGlobal("fetch", fetchMock);
     const result = await new SefariaAPI().searchEntries({ query: "אָב II ²" });
     expect(fetchMock.mock.calls[0][0]).toContain(encodeURIComponent("אב"));
