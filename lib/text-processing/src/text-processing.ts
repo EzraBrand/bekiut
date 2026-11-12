@@ -418,7 +418,14 @@ export function replaceTerms(text: string): string {
   // Combined regex matches all terms; callback looks up replacement in Map
   // This handles fractions, time-ordinals, and other special idioms FIRST,
   // so that the number parser in STEP 3 does not interfere with them.
-  processedText = processedText.replace(COMBINED_TERM_PATTERN, (match) => {
+  processedText = processedText.replace(COMBINED_TERM_PATTERN, (match, _group, offset: number, source: string) => {
+    // Dan is also a person/place name. A sentence-ending period does not
+    // make it an abbreviation for Daniel (e.g. Bekhorot 55a:17).
+    // Allow inline markup between the book abbreviation and its locator.
+    if (match.toLowerCase() === 'dan.' &&
+        !/^(?:\s|<\/?[^>]+>)*\d+\s*:\s*\d+/.test(source.slice(offset + match.length))) {
+      return match;
+    }
     return TERM_LOOKUP_MAP.get(match.toLowerCase()) || match;
   });
   // Run this after phrase replacements so "the Lord," becomes "YHWH,"

@@ -33,6 +33,21 @@ const RAMBAM_2_4_SOURCE =
   'Among the paths of repentance is for the penitent to<br>a) constantly call out before God, crying and entreating;<br>b) to perform charity according to his potential;<br>c) to separate himself far from the object of his sin;<br>d) to change his name, as if to say "I am a different person and not the same one who sinned;"<br>e) to change his behavior in its entirety to the good and the path of righteousness; and f) to travel in exile from his home. Exile atones for sin because it causes a person to be submissive, humble, and meek of spirit.';
 
 describe('English Text Processing', () => {
+  it('preserves sentence-final Dan in Bekhorot 55a:17', () => {
+    const source = '<b>Because it descends [<i>yored</i>] from</b> the city of <b>Dan. Rabbi Abba said to Rav Ashi: You learned</b> that the Jordan River emerges from the territory of Dan';
+    const result = processEnglishText(source);
+    expect(result).toContain('Dan.');
+    expect(result).not.toContain('Daniel');
+    expect(replaceTerms('The tribe of Dan.')).toBe('The tribe of Dan.');
+  });
+
+  it('still expands Dan. when followed by a Bible citation', () => {
+    expect(replaceTerms('Dan. 7:9')).toBe('Daniel 7:9');
+    expect(replaceTerms('<i>Dan</i>. 7:9')).toBe('Daniel 7:9');
+    expect(replaceTerms('<b>Dan.</b> 7:9')).toBe('<b>Daniel</b> 7:9');
+    expect(replaceTerms('Daniel and Dan')).toBe('Daniel and Dan');
+  });
+
   it('preserves Simon without converting it to Shimon', () => {
     for (const source of ['Simon', '<b>Simon</b>', "R' Simon", 'Rav Simon']) {
       expect(processEnglishText(source)).toBe(source);
