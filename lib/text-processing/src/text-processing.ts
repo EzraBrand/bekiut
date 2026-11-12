@@ -419,6 +419,11 @@ export function replaceTerms(text: string): string {
   // This handles fractions, time-ordinals, and other special idioms FIRST,
   // so that the number parser in STEP 3 does not interfere with them.
   processedText = processedText.replace(COMBINED_TERM_PATTERN, (match, _group, offset: number, source: string) => {
+    // Sanhedrin 74a:20 refers to a local official, not God.
+    if (match.toLowerCase() === 'the lord' &&
+        /^ of my place\b/i.test(source.slice(offset + match.length))) {
+      return match;
+    }
     // Dan is also a person/place name. A sentence-ending period does not
     // make it an abbreviation for Daniel (e.g. Bekhorot 55a:17).
     // Allow inline markup between the book abbreviation and its locator.

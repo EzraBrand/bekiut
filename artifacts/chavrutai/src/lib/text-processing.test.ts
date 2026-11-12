@@ -33,6 +33,14 @@ const RAMBAM_2_4_SOURCE =
   'Among the paths of repentance is for the penitent to<br>a) constantly call out before God, crying and entreating;<br>b) to perform charity according to his potential;<br>c) to separate himself far from the object of his sin;<br>d) to change his name, as if to say "I am a different person and not the same one who sinned;"<br>e) to change his behavior in its entirety to the good and the path of righteousness; and f) to travel in exile from his home. Exile atones for sin because it causes a person to be submissive, humble, and meek of spirit.';
 
 describe('English Text Processing', () => {
+  it('preserves The lord of my place in Sanhedrin 74a:20', () => {
+    const source = '<b>a certain person came before Rabba and said to him: The lord of my place,</b> a local official, <b>said to me: Go kill so-and-so</b>';
+    expect(processEnglishText(source)).toContain('The lord of my place,');
+    expect(processEnglishText(source)).not.toContain('YHWH');
+    expect(replaceTerms('the lord of my place')).toBe('the lord of my place');
+    expect(replaceTerms('the Lord said')).toBe('YHWH said');
+  });
+
   it('preserves sentence-final Dan in Bekhorot 55a:17', () => {
     const source = '<b>Because it descends [<i>yored</i>] from</b> the city of <b>Dan. Rabbi Abba said to Rav Ashi: You learned</b> that the Jordan River emerges from the territory of Dan';
     const result = processEnglishText(source);
