@@ -29,6 +29,8 @@ Bekiut (as ChavrutAI) and my Talmud NLP Indexer are featured in **Daniel Rosehil
 
 Bekiut (as ChavrutAI) is featured in **Derekh Learning’s** guides to [Sefaria alternatives](https://www.derekhlearning.com/blog/alternatives-to-sefaria), [AI Torah apps](https://www.derekhlearning.com/blog/best-ai-torah-apps-2026), and [Jewish learning apps](https://www.derekhlearning.com/blog/best-jewish-learning-apps-2026), highlighting its clause-by-clause Talmud reading interface.
 
+Bekiut is included in [abeperl’s Awesome Stars — Torah Library](https://abeperl.github.io/awesome-stars/categories/torah-library/?search=ezra), a collection of starred GitHub projects.
+
 ### See also
 
 - My [2026 Guide to Online Resources for Scholarly Jewish Study and Research](https://ezrabrand.github.io/jewish-online-resources/).
