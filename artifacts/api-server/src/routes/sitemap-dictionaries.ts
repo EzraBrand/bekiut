@@ -12,10 +12,10 @@ export function generateDictionariesSitemap(req: Request, res: Response) {
       ? CANONICAL_BASE_URL
       : `${req.protocol}://${req.get("host")}`;
 
-  const paths = ["jastrow", "bdb"].flatMap((dictionary) => [
+  const paths = ["jastrow", "bdb", "ben-yehuda"].flatMap((dictionary) => [
     `/${dictionary}`,
     `/${dictionary}/headwords`,
-    `/${dictionary}/abbreviations`,
+    ...(dictionary === "ben-yehuda" ? [] : [`/${dictionary}/abbreviations`]),
     ...HEBREW_LETTERS.map(
       (letter) => `/${dictionary}/headwords/${encodeURIComponent(letter)}`,
     ),

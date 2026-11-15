@@ -48,6 +48,11 @@ export function generateMainSitemap(req: Request, res: Response) {
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>${baseUrl}/ben-yehuda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/bdb</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

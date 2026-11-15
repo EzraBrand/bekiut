@@ -1,6 +1,6 @@
 import type { DictionaryEntry } from "@/lib/dictionary-format";
 
-export type DictionaryId = "jastrow" | "bdb";
+export type DictionaryId = "jastrow" | "bdb" | "ben-yehuda";
 
 export type DictionarySearchFailure =
   | { kind: "unavailable"; message: string }
@@ -13,6 +13,7 @@ export type DictionarySearchOutcome =
 export const DICTIONARY_LABELS: Record<DictionaryId, { name: string; scope: string; path: string }> = {
   jastrow: { name: "Jastrow", scope: "rabbinic Hebrew and Aramaic", path: "/jastrow" },
   bdb: { name: "BDB", scope: "biblical Hebrew", path: "/bdb" },
+  "ben-yehuda": { name: "Ben-Yehuda", scope: "historical Hebrew dictionary", path: "/ben-yehuda" },
 };
 
 export function otherDictionary(id: DictionaryId): DictionaryId {

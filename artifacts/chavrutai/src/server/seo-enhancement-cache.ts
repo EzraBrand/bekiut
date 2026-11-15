@@ -9,6 +9,7 @@ const SEO_QUERY_PARAMS: Record<string, readonly string[]> = {
   "/search": ["q", "type"],
   "/jastrow": ["letter", "q"],
   "/bdb": ["letter", "q"],
+  "/ben-yehuda": ["q", "rid"],
 };
 
 export function normalizeSeoEnhancementKey(pathAndQuery: string): string {

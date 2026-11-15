@@ -1,0 +1,27 @@
+/* Scoped styles for the Ben-Yehuda reader's entry HTML and native footnotes. */
+.ben-yehuda-content, .ben-yehuda-content span[dir="rtl"] {
+  font-family: 'Assistant', sans-serif; font-weight: inherit;
+}
+.dictionary-content.ben-yehuda-content { font-size: 1rem; }
+.dictionary-content.ben-yehuda-content.text-lg { font-size: 1.125rem; }
+.ben-yehuda-content span[dir="rtl"] { font-size: inherit; }
+.ben-yehuda-content [dir="ltr"] { unicode-bidi: isolate; }
+.ben-yehuda-content .by-source-paragraph { margin-bottom: 1em; }
+.ben-yehuda-content .by-paragraph + .by-paragraph { margin-top: 1em; }
+.ben-yehuda-content .by-dash-paragraph + .by-dash-paragraph { margin-top: 1em; }
+.ben-yehuda-content { overflow-wrap: anywhere; }
+.ben-yehuda-content img { display: inline-block; max-width: 100%; object-fit: contain; }
+.ben-yehuda-content .by-footnote { display: inline; }
+.ben-yehuda-content .by-footnote summary {
+  display: inline-block; cursor: pointer; vertical-align: super;
+  font-size: .8em; line-height: 1.5; min-width: 1.75rem; padding: .15rem .35rem;
+  border: 1px solid var(--border); border-radius: .25rem;
+  color: var(--primary); text-align: center;
+}
+.ben-yehuda-content .by-footnote summary:focus-visible { outline: 2px solid currentColor; }
+.ben-yehuda-content .by-footnote-body {
+  display: block; padding: .6rem .8rem; margin: .35rem 0;
+  background: var(--muted); border-inline-start: 2px solid var(--border);
+  font-size: 1rem; line-height: 1.8; font-style: normal;
+}
+.ben-yehuda-content .by-footnote:not([open]) > .by-footnote-body { display: none; }

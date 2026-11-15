@@ -112,6 +112,10 @@ export function HamburgerMenu({ onLocationChange }: HamburgerMenuProps) {
               className="block px-4 py-2 text-sm hover:bg-secondary">
               BDB — biblical Hebrew
             </Link>
+            <Link href="/ben-yehuda" onClick={() => setOpen(false)}
+              className="block px-4 py-2 text-sm hover:bg-secondary">
+              Ben-Yehuda — Hebrew of all periods
+            </Link>
           </div>
 
           {/* Bottom Section */}

@@ -5,6 +5,12 @@ import {
 } from "./seo-enhancement-cache";
 
 describe("normalizeSeoEnhancementKey", () => {
+  it("keeps Ben-Yehuda headwords and stable identities isolated", () => {
+    expect(normalizeSeoEnhancementKey("/ben-yehuda?q=abc&rid=BY-00009&utm_source=x"))
+      .toBe("/ben-yehuda?q=abc&rid=BY-00009");
+    expect(normalizeSeoEnhancementKey("/ben-yehuda?q=abc&rid=BY-00007"))
+      .not.toBe(normalizeSeoEnhancementKey("/ben-yehuda?q=abc&rid=BY-00009"));
+  });
   it("normalizes path spelling and removes irrelevant query parameters", () => {
     expect(
       normalizeSeoEnhancementKey("/talmud//Berakhot/2a/?utm_source=bot"),

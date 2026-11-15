@@ -4,5 +4,6 @@ export function DictionariesNav() {
   return <NavDropdown label="Dictionaries" id="dictionaries" items={[
     { title: "Jastrow", href: "/jastrow", description: "Rabbinic Hebrew and Aramaic", group: "Rabbinic texts" },
     { title: "BDB", href: "/bdb", description: "Biblical Hebrew", group: "Biblical texts" },
+    { title: "Ben-Yehuda", href: "/ben-yehuda", description: "Hebrew of all periods (in Hebrew)", group: "Historical Hebrew" },
   ]} />;
 }

@@ -9,6 +9,32 @@ import * as zod from 'zod';
 
 
 /**
+ * @summary Search the historical Hebrew dictionary
+ */
+export const searchBenYehudaQueryQueryMax = 200;
+
+export const searchBenYehudaQueryRidRegExp = new RegExp('^BY-\\d{1,10}$');
+
+
+export const SearchBenYehudaQueryParams = zod.object({
+  "query": zod.coerce.string().min(1).max(searchBenYehudaQueryQueryMax),
+  "rid": zod.coerce.string().regex(searchBenYehudaQueryRidRegExp).optional()
+})
+
+export const SearchBenYehudaResponseItem = zod.object({
+  "headword": zod.string(),
+  "rid": zod.string().optional(),
+  "parent_lexicon": zod.enum(['Ben Yehuda Dictionary']),
+  "prev_hw": zod.string().optional(),
+  "next_hw": zod.string().optional(),
+  "content": zod.object({
+  "definition": zod.array(zod.string())
+})
+})
+export const SearchBenYehudaResponse = zod.array(SearchBenYehudaResponseItem)
+
+
+/**
  * @summary Weekly Torah portion from Sefaria's Israel calendar
  */
 export const GetWeeklyParshaResponse = zod.object({

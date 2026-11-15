@@ -16,6 +16,10 @@ const api = createServer((req, res) => {
   res.end(JSON.stringify({
     complete: true,
     bodyContent: '<div id="crawler-content">Places enhancement fixture</div>',
+    structuredData: {
+      "@context": "https://schema.org", "@type": "WebPage",
+      name: new URL(new URL(req.url!, "http://api.local").searchParams.get("path") || "/", "http://web.local").searchParams.get("q") || "Places",
+    },
   }));
 });
 
@@ -80,6 +84,21 @@ it("serves public Places to browsers and enhanced indexable Places to crawlers",
     }
   }
   expect(enhancementRequests.some(url => url.includes("path=%2Fplaces"))).toBe(true);
+});
+
+it("keeps Ben-Yehuda query text inert in production crawler JSON-LD", async () => {
+  const query = '</script><script id="injected">alert(1)</script><!--';
+  const response = await fetch(`${baseUrl}/ben-yehuda?q=${encodeURIComponent(query)}`, {
+    headers: { "user-agent": "Googlebot" },
+  });
+  expect(response.status).toBe(200);
+  const html = await response.text();
+  expect(html).not.toContain('<script id="injected">');
+  expect(html).not.toContain(query);
+  const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+  expect(json).toBeDefined();
+  expect(JSON.parse(json!).name).toBe(query);
+  expect(json).toContain("\\u003c/script\\u003e");
 });
 
 it("redirects Bible aliases and legacy URLs for browsers and crawlers, preserving queries", async () => {

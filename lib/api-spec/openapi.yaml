@@ -11,6 +11,31 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /ben-yehuda/search:
+    get:
+      operationId: searchBenYehuda
+      summary: Search the historical Hebrew dictionary
+      parameters:
+        - in: query
+          name: query
+          required: true
+          schema: { type: string, minLength: 1, maxLength: 200 }
+        - in: query
+          name: rid
+          schema: { type: string, pattern: '^BY-\d{1,10}$' }
+      responses:
+        "200":
+          description: Matching entries, or an empty array for a missing entry
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BenYehudaEntry"
+        "400":
+          description: Invalid query or identifier
+        "503":
+          description: Upstream unavailable, distinct from a missing entry
   /chat:
     post:
       operationId: streamStudyChat
@@ -85,6 +110,22 @@ paths:
                 $ref: "#/components/schemas/HealthStatus"
 components:
   schemas:
+    BenYehudaEntry:
+      type: object
+      required: [headword, parent_lexicon, content]
+      properties:
+        headword: { type: string }
+        rid: { type: string }
+        parent_lexicon: { type: string, enum: ["Ben Yehuda Dictionary"] }
+        prev_hw: { type: string }
+        next_hw: { type: string }
+        content:
+          type: object
+          required: [definition]
+          properties:
+            definition:
+              type: array
+              items: { type: string }
     HealthStatus:
       type: object
       properties:

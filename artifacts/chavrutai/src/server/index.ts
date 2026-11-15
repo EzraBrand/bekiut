@@ -5,6 +5,7 @@ import path from "node:path";
 import { createHmac } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { getPageSEO } from "@workspace/shared-data/seo-data";
+import { injectJsonLd } from "@workspace/shared-data/json-ld";
 import { isKnownAppPath, getNotFoundSEO } from "@workspace/shared-data/route-validation";
 import { resolveLegacyRedirect } from "@workspace/shared-data/legacy-redirects";
 import { getTalmudPathCanonicalization } from "@workspace/shared-data/talmud-canonical";
@@ -153,17 +154,7 @@ function injectMeta(template: string, seoData: SeoMeta): string {
 }
 
 function injectStructuredData(template: string, structuredData: object): string {
-  const json = JSON.stringify(structuredData, null, 2);
-  if (template.includes("application/ld+json")) {
-    return template.replace(
-      /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-      `<script type="application/ld+json">\n${json}\n  </script>`,
-    );
-  }
-  return template.replace(
-    "</head>",
-    `  <script type="application/ld+json">\n${json}\n  </script>\n  </head>`,
-  );
+  return injectJsonLd(template, structuredData);
 }
 
 interface SeoEnhancement {

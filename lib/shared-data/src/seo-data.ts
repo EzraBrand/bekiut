@@ -495,10 +495,27 @@ export function getBDBSEO(
   return { ...STATIC_MAP["/bdb"], canonical: `${baseUrl}/bdb` };
 }
 
+export function getBenYehudaSEO(query: string, baseUrl: string, rid?: string): SEOResult {
+  const title = query ? `${query} - Ben-Yehuda Dictionary` : "Ben-Yehuda Historical Hebrew Dictionary";
+  const description = query
+    ? `Read the Hebrew definition of ${query} in Eliezer Ben-Yehuda's historical dictionary, with source paragraphs and footnotes on Bekiut.`
+    : "Search Eliezer Ben-Yehuda's historical Hebrew dictionary. Browse 22 Hebrew letters and read pointed Hebrew definitions, source citations, and footnotes.";
+  return {
+    title: `${title} | Bekiut`, description, ogTitle: title, ogDescription: description,
+    canonical: `${baseUrl}/ben-yehuda${query ? `?q=${encodeURIComponent(query)}${rid ? `&rid=${encodeURIComponent(rid)}` : ""}` : ""}`,
+    robots: "index, follow",
+  };
+}
+
 const LEXICON_SEO_META: Record<
-  "jastrow" | "bdb",
+  "jastrow" | "bdb" | "ben-yehuda",
   { shortName: string; longName: string; blurb: string }
 > = {
+  "ben-yehuda": {
+    shortName: "Ben-Yehuda Dictionary",
+    longName: "Ben-Yehuda Historical Hebrew Dictionary",
+    blurb: "historical Hebrew dictionary with pointed definitions, source paragraphs, and footnotes",
+  },
   jastrow: {
     shortName: "Jastrow Dictionary",
     longName: "Jastrow Dictionary of Talmudic Hebrew & Aramaic",
@@ -514,7 +531,7 @@ const LEXICON_SEO_META: Record<
 };
 
 export function getHeadwordsSEO(
-  lexicon: "jastrow" | "bdb",
+  lexicon: "jastrow" | "bdb" | "ben-yehuda",
   baseUrl: string,
 ): SEOResult {
   const meta = LEXICON_SEO_META[lexicon];
@@ -529,7 +546,7 @@ export function getHeadwordsSEO(
 }
 
 export function getHeadwordsLetterSEO(
-  lexicon: "jastrow" | "bdb",
+  lexicon: "jastrow" | "bdb" | "ben-yehuda",
   letter: string,
   baseUrl: string,
 ): SEOResult {
@@ -621,6 +638,9 @@ export function getPageSEO(
       baseUrl,
     );
   }
+  if (pathname === "/ben-yehuda") {
+    return getBenYehudaSEO(searchParams.get("q") || "", baseUrl, searchParams.get("rid") || undefined);
+  }
   if (pathname === "/bdb") {
     return getBDBSEO(
       searchParams.get("letter") || "",
@@ -635,19 +655,19 @@ export function getPageSEO(
 
   // Headword browser letter page: /jastrow/headwords/:letter, /bdb/headwords/:letter
   const headwordsLetterMatch = pathname.match(
-    /^\/(jastrow|bdb)\/headwords\/([^/]+)$/,
+    /^\/(jastrow|bdb|ben-yehuda)\/headwords\/([^/]+)$/,
   );
   if (headwordsLetterMatch)
     return getHeadwordsLetterSEO(
-      headwordsLetterMatch[1] as "jastrow" | "bdb",
+      headwordsLetterMatch[1] as "jastrow" | "bdb" | "ben-yehuda",
       decodeURIComponent(headwordsLetterMatch[2]),
       baseUrl,
     );
 
   // Headword browser index: /jastrow/headwords, /bdb/headwords
-  const headwordsMatch = pathname.match(/^\/(jastrow|bdb)\/headwords$/);
+  const headwordsMatch = pathname.match(/^\/(jastrow|bdb|ben-yehuda)\/headwords$/);
   if (headwordsMatch)
-    return getHeadwordsSEO(headwordsMatch[1] as "jastrow" | "bdb", baseUrl);
+    return getHeadwordsSEO(headwordsMatch[1] as "jastrow" | "bdb" | "ben-yehuda", baseUrl);
 
   // Biblical index book: /biblical-index/book/:name
   const biblicalIndexBookMatch = pathname.match(

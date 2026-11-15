@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { AutosuggestSuggestion } from "./dictionary-format";
 
-export type LexiconKey = "bdb" | "jastrow";
+export type LexiconKey = "bdb" | "jastrow" | "ben-yehuda";
 
 export interface LexiconIndex {
   lexicon: LexiconKey;
@@ -32,7 +32,9 @@ export function loadLexiconIndex(lexicon: LexiconKey): Promise<LexiconIndex> {
   if (!cache[lexicon]) {
     cache[lexicon] = (async () => {
       const mod =
-        lexicon === "bdb"
+        lexicon === "ben-yehuda"
+          ? await import("@workspace/shared-data/data/lexicon-headwords/ben-yehuda.json")
+          : lexicon === "bdb"
           ? await import("@shared/data/lexicon-headwords/bdb.json")
           : await import("@shared/data/lexicon-headwords/jastrow.json");
       const data: any = (mod as any).default ?? mod;

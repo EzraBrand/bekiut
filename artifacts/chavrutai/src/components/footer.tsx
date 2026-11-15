@@ -150,6 +150,13 @@ export function Footer() {
               >
                 BDB Hebrew Bible Dictionary
               </Link>
+              <Link
+                href="/ben-yehuda"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                data-testid="footer-link-ben-yehuda"
+              >
+                Ben-Yehuda Hebrew Dictionary
+              </Link>
               <Link 
                 href="/term-index"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"

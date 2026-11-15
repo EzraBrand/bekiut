@@ -434,3 +434,31 @@ mtime_ms = 1794763357508
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/296487e3-3b79-42e1-ac08-180799c7ac14/53656d9e-a35b-449c-beef-52db739a6a37"
 storage_version_token = "1794763385190765"
 content_type = "text/csv"
+
+[[outputs]]
+id = "B8BZWaUvLGTL5HFEK6euX"
+uri = "file://scripts/ben-yehuda-reader-blogpost.md"
+type = "text"
+title = "Ben-Yehuda reader — blog post draft"
+description = "Approximately 900-word main article, technical appendix, and representative-entry table."
+logical_id = "5114bf29-01e2-4058-afbe-5eef27153ab8"
+content_hash = "sha256:f3d6a332bc4b53580578de6cdb3f14a4c037e1d91b0cd7fd143d3a95496dc8bc"
+size = 9902
+mtime_ms = 1794765329408
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5114bf29-01e2-4058-afbe-5eef27153ab8/3bfda152-5919-42b4-bfe9-f50e2e383906"
+storage_version_token = "1794765401951019"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "8oKRwcY4nxb2KNwCPzqR0"
+uri = "file://scripts/ben-yehuda-reader-results.csv"
+type = "table"
+title = "Ben-Yehuda representative entries"
+description = "Companion table for the blog draft."
+logical_id = "5b84b229-1147-4572-a037-3e8ea1e0de41"
+content_hash = "sha256:2b3350401cbea98daf8de24dc6e9255c5460fc9be21f8da03721df55ae9656c7"
+size = 330
+mtime_ms = 1794765329900
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5b84b229-1147-4572-a037-3e8ea1e0de41/00d4312e-83d8-409b-9c6c-4d2ea984ef4b"
+storage_version_token = "1794765403218506"
+content_type = "text/csv"

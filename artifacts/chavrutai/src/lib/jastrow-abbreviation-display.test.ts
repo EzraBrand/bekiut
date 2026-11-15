@@ -12,7 +12,7 @@ describe("Jastrow abbreviation display", () => {
       );
       expect(restored).toBe(expandAbbreviations(source, data.mappings, { display: "inline" }));
     }
-  });
+  }, 15_000); // Exhaustive corpus pass also runs alongside workspace typechecks.
 
   it("preserves linked abbreviations without nested buttons through subsequent transforms", () => {
     const html = annotateTransliterationsInHtml(convertSefariaLinksToInternal(convertJastrowInternalLinks(

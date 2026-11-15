@@ -28,6 +28,7 @@ const Changelog = lazy(() => import("@/pages/changelog"));
 const Contact = lazy(() => import("@/pages/contact"));
 const Privacy = lazy(() => import("@/pages/privacy"));
 const Jastrow = lazy(() => import("@/pages/jastrow"));
+const BenYehuda = lazy(() => import("@/pages/ben-yehuda"));
 const Bdb = lazy(() => import("@/pages/bdb"));
 const BdbAbbreviations = lazy(() => import("@/pages/bdb-abbreviations"));
 const BdbPrefixTest = lazy(() => import("@/pages/bdb-prefix-test"));
@@ -143,6 +144,13 @@ function Router() {
       </Route>
       <Route path="/bdb/headwords">
         {() => <LexiconHeadwords lexiconKey="bdb" />}
+      </Route>
+      <Route path="/ben-yehuda" component={BenYehuda} />
+      <Route path="/ben-yehuda/headwords/:letter">
+        {(params) => <LexiconHeadwords lexiconKey="ben-yehuda" letter={params.letter} />}
+      </Route>
+      <Route path="/ben-yehuda/headwords">
+        {() => <LexiconHeadwords lexiconKey="ben-yehuda" />}
       </Route>
       <Route path="/dictionary">
         {() => <Redirect to={`/jastrow${window.location.search}`} />}

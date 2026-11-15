@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useReaderPreference } from "@/hooks/use-reader-preference";
 import { Link } from "wouter";
-import { DICTIONARY_LABELS, dictionaryQueryHref, otherDictionary, type DictionaryId, type DictionarySearchFailure } from "@/lib/dictionary-search";
+import { DICTIONARY_LABELS, dictionaryQueryHref, type DictionaryId, type DictionarySearchFailure } from "@/lib/dictionary-search";
 
 /** Compact disclosure holding reader display settings. */
 export function DisplayOptions({ dictionary, children, hint }: { dictionary: DictionaryId; children: ReactNode; hint?: ReactNode }) {
@@ -21,17 +21,18 @@ export function DisplayOptions({ dictionary, children, hint }: { dictionary: Dic
 }
 
 function OtherDictionaryLink({ current, query }: { current: DictionaryId; query: string }) {
-  const other = otherDictionary(current);
-  const meta = DICTIONARY_LABELS[other];
-  return (
-    <p className="mt-4 text-sm text-muted-foreground">
+  return (Object.keys(DICTIONARY_LABELS) as DictionaryId[]).filter(id => id !== current).map(other => {
+    const meta = DICTIONARY_LABELS[other];
+    return (
+    <p key={other} className="mt-4 text-sm text-muted-foreground">
       Try{" "}
       <Link href={dictionaryQueryHref(other, query)} className="text-primary hover:underline" data-testid={`link-try-${other}`}>
         {meta.name} — {meta.scope}
       </Link>
       {query.trim() && <> for <span className="font-hebrew" dir="rtl">{query.trim()}</span></>}
     </p>
-  );
+    );
+  });
 }
 
 export function DictionarySearchNotice({

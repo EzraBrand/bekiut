@@ -37,6 +37,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">November 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Ben-Yehuda Dictionary reader</h3>
+            <p>Added a reader for Eliezer Ben-Yehuda's Hebrew dictionary (digitized by Project Ben-Yehuda, served live by Sefaria), with pointed and unpointed suggestions, a browsable headword index, previous and next entry navigation, and collapsible notes.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Vocabulary (November 2)</h3>
             <p>Added “dativ. ethic.” → “dativus ethicus (ethical dative),” “gat” → “got,” and “betook” → “took.”</p>
           </div>

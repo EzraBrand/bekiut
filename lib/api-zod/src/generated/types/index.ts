@@ -6,5 +6,9 @@
  * OpenAPI spec version: 0.1.0
  */
 
+export * from './benYehudaEntry';
+export * from './benYehudaEntryContent';
+export * from './benYehudaEntryParentLexicon';
 export * from './getWeeklyParsha200';
 export * from './healthStatus';
+export * from './searchBenYehudaParams';

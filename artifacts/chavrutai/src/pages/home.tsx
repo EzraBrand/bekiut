@@ -187,7 +187,7 @@ export default function Home() {
           {mode === "lookup" && (
             <fieldset className="flex flex-wrap justify-center gap-x-5 gap-y-1 mb-3 text-sm text-muted-foreground" data-testid="lookup-dictionary-choice">
               <legend className="sr-only">Dictionary</legend>
-              {([["jastrow", "Jastrow — rabbinic Hebrew and Aramaic"], ["bdb", "BDB — biblical Hebrew"]] as const).map(([value, label]) => (
+              {([["jastrow", "Jastrow — rabbinic Hebrew and Aramaic"], ["bdb", "BDB — biblical Hebrew"], ["ben-yehuda", "Ben-Yehuda — Hebrew of all periods"]] as const).map(([value, label]) => (
                 <label key={value} className="flex items-center gap-1.5 cursor-pointer">
                   <input type="radio" name="lookup-dictionary" value={value} checked={dictionary === value} onChange={() => setDictionary(value)} className="accent-primary" data-testid={`radio-dictionary-${value}`} />
                   {label}

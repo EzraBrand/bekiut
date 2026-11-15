@@ -1,4 +1,5 @@
 - [Ben-Yehuda sources](ben-yehuda-source.md) — bulk headwords via scoped completion with a positive limit; source HTML needs its own sanitizer policy.
+- [Ben-Yehuda reading conventions](ben-yehuda-reader-preferences.md) — user requires bounded entry width, RTL navigation, and default-on em-dash splitting.
 - [Archived side projects](archived-projects.md) — demo, guide preview and design sandbox are retired; preserve source/media without auto-restoring or publishing.
 - [Analytics provider](analytics-provider.md) — PostHog retired by owner request; retain native Replit analytics and browser opt-out.
 - [Search pagination](search-pagination.md) — group passages before offsets; Sefaria supports ref.keyword collapse, but cardinality totals are estimates.

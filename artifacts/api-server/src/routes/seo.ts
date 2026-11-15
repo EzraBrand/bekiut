@@ -20,6 +20,9 @@ import { getPageSEO } from "@workspace/shared-data/seo-data";
 import { isKnownAppPath, getNotFoundSEO } from "@workspace/shared-data/route-validation";
 import { getCanonicalTalmudPath } from "@workspace/shared-data/talmud-canonical";
 import { getMappingResourceStructuredData } from "@workspace/shared-data/mapping-resources";
+import { searchBenYehuda } from "../lib/ben-yehuda";
+import { benYehudaHref } from "@workspace/shared-data/ben-yehuda";
+import { injectJsonLd } from "@workspace/shared-data/json-ld";
 
 function escapeHtmlAttr(str: string): string {
   return str
@@ -39,6 +42,16 @@ const CHAVRUTAI_SAME_AS = [
 function generateServerSideStructuredData(url: string, baseUrl: string): object | null {
   url = getCanonicalTalmudPath(url) ?? url;
   const origin = baseUrl;
+  if (url.split("?")[0].startsWith("/ben-yehuda")) {
+    const parsed = new URL(url, origin);
+    const seo = getPageSEO(parsed.pathname, parsed.searchParams, origin);
+    return {
+      "@context": "https://schema.org", "@type": "WebPage",
+      name: seo.title, description: seo.description, url: seo.canonical,
+      inLanguage: "he",
+      about: { "@type": "Book", name: "Ben Yehuda Dictionary", author: { "@type": "Person", name: "Eliezer Ben-Yehuda" } },
+    };
+  }
   const mappingResource = getMappingResourceStructuredData(url, origin);
   if (mappingResource) return mappingResource;
 
@@ -645,6 +658,7 @@ async function loadBiblicalIndexBooks(): Promise<Array<{ filename: string; displ
 async function generateCrawlerBodyContent(
   urlPath: string,
   seoData: { title: string; description: string },
+  searchParams = new URLSearchParams(),
 ): Promise<{ bodyContent: string; complete: boolean; shareDescription: string | null }> {
   urlPath = getCanonicalTalmudPath(urlPath) ?? urlPath;
   const baseUrl = process.env.NODE_ENV === 'production' ? CANONICAL_BASE_URL : 'http://localhost:5000';
@@ -985,6 +999,27 @@ async function generateCrawlerBodyContent(
       }
     }
     nav += `</nav>`;
+  } else if (urlPath === '/ben-yehuda' || urlPath.startsWith('/ben-yehuda/headwords')) {
+    heading = "Ben-Yehuda Historical Hebrew Dictionary";
+    breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/ben-yehuda">Ben-Yehuda</a></nav>`;
+    body = `<p>Historical Hebrew dictionary by Eliezer Ben-Yehuda. Digitized by Project Ben-Yehuda, served by Sefaria. Browse a snapshot of 21,999 headwords across 22 letters.</p>`;
+    nav = buildHebrewLetterNav('/ben-yehuda/headwords', 'Browse headwords by first letter');
+    const query = searchParams.get("q");
+    if (urlPath === '/ben-yehuda' && query) {
+      const rid = searchParams.get("rid") || undefined;
+      const entries = await searchBenYehuda(query, rid).catch(() => { complete = false; return null; });
+      heading = `${query} — Ben-Yehuda Dictionary`;
+      // Escape source content, never inject upstream markup into crawler HTML.
+      body += entries === null ? `<p>Dictionary temporarily unavailable. Please retry.</p>` : entries.map(entry => `<section dir="rtl" lang="he"><h2>${escapeHtml(entry.headword)}</h2>${
+        entry.content.definition.map(paragraph => `<p>${escapeHtml(paragraph.replace(/<[^>]*>/g, ""))}</p>`).join("")
+      }</section>`).join("") || `<p>No matching entry. Try another headword or browse by letter.</p>`;
+    } else if (urlPath.startsWith('/ben-yehuda/headwords/')) {
+      const letter = decodeURIComponent(urlPath.split('/')[3]);
+      const index = (await import('@workspace/shared-data/data/lexicon-headwords/ben-yehuda.json')).default;
+      heading = `Ben-Yehuda Headwords — Letter ${letter}`;
+      body += `<ul dir="rtl">${index.headwords.filter(word => word.startsWith(letter)).map(word =>
+        `<li><a href="${escapeHtmlAttr(benYehudaHref(word))}">${escapeHtml(word)}</a></li>`).join("")}</ul>`;
+    }
   } else if (urlPath === '/jastrow' || urlPath === '/bdb') {
     const key = urlPath.slice(1) as 'jastrow' | 'bdb';
     const meta = LEXICON_CRAWLER_META[key];
@@ -1224,20 +1259,12 @@ async function servePageWithMeta(req: express.Request, res: express.Response, ne
     // crawlers — degrade to the shell with correct core meta instead.
     try {
       const baseUrl = process.env.NODE_ENV === 'production' ? CANONICAL_BASE_URL : 'http://localhost:5000';
-      const structuredData = generateServerSideStructuredData(req.path, baseUrl);
+      const structuredData = generateServerSideStructuredData(req.path.startsWith("/ben-yehuda") ? req.originalUrl : req.path, baseUrl);
       if (structuredData) {
-        const jsonLdScript = `  <script type="application/ld+json">\n${JSON.stringify(structuredData, null, 2)}\n  </script>\n  </head>`;
-        if (template.includes('application/ld+json')) {
-          template = template.replace(
-            /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-            `<script type="application/ld+json">\n${JSON.stringify(structuredData, null, 2)}\n  </script>`
-          );
-        } else {
-          template = template.replace('</head>', jsonLdScript);
-        }
+        template = injectJsonLd(template, structuredData);
       }
 
-      const { bodyContent: crawlerContent, shareDescription } = await generateCrawlerBodyContent(req.path, seoData);
+      const { bodyContent: crawlerContent, shareDescription } = await generateCrawlerBodyContent(req.path, seoData, new URL(req.originalUrl, baseUrl).searchParams);
       if (shareDescription) {
         template = injectCoreMeta(template, { ...seoData, ogDescription: shareDescription });
       }
@@ -1319,8 +1346,8 @@ export async function renderSeoEnhancement(
   const canonicalPath = getCanonicalTalmudPath(urlObj.pathname) ?? urlObj.pathname;
   const normalizedUrl = `${canonicalPath}${urlObj.search}`;
   const seoData = generateServerSideMetaTags(normalizedUrl);
-  const structuredData = generateServerSideStructuredData(canonicalPath, baseUrl);
-  const { bodyContent, complete, shareDescription } = await generateCrawlerBodyContent(canonicalPath, seoData);
+  const structuredData = generateServerSideStructuredData(canonicalPath.startsWith("/ben-yehuda") ? normalizedUrl : canonicalPath, baseUrl);
+  const { bodyContent, complete, shareDescription } = await generateCrawlerBodyContent(canonicalPath, seoData, urlObj.searchParams);
   return { structuredData, bodyContent, complete, shareDescription };
 }
 

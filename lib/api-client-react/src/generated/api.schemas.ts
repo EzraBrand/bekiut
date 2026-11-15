@@ -5,9 +5,41 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+export type BenYehudaEntryParentLexicon = typeof BenYehudaEntryParentLexicon[keyof typeof BenYehudaEntryParentLexicon];
+
+
+export const BenYehudaEntryParentLexicon = {
+  Ben_Yehuda_Dictionary: 'Ben Yehuda Dictionary',
+} as const;
+
+export type BenYehudaEntryContent = {
+  definition: string[];
+};
+
+export interface BenYehudaEntry {
+  headword: string;
+  rid?: string;
+  parent_lexicon: BenYehudaEntryParentLexicon;
+  prev_hw?: string;
+  next_hw?: string;
+  content: BenYehudaEntryContent;
+}
+
 export interface HealthStatus {
   status: string;
 }
+
+export type SearchBenYehudaParams = {
+/**
+ * @minLength 1
+ * @maxLength 200
+ */
+query: string;
+/**
+ * @pattern ^BY-\d{1,10}$
+ */
+rid?: string;
+};
 
 export type GetWeeklyParsha200 = {
   titleEn: string;

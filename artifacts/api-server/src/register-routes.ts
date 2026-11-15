@@ -21,6 +21,7 @@ import { createRambamRouter } from "./routes/rambam";
 import { createBibleRouter } from "./routes/bible";
 import { createJastrowRouter } from "./routes/jastrow";
 import { createBdbRouter } from "./routes/bdb";
+import { createBenYehudaRouter } from "./routes/ben-yehuda";
 import { createChatRouter } from "./routes/chat";
 import { createSearchRouter } from "./routes/search";
 import { createFeedRouter } from "./routes/feed";
@@ -106,6 +107,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/jastrow/headwords/:letter', servePageWithMeta);
   app.get('/talmud/term-replacements', servePageWithMeta);
   app.get('/bdb', servePageWithMeta);
+  app.get('/ben-yehuda', servePageWithMeta);
+  app.get('/ben-yehuda/headwords', servePageWithMeta);
+  app.get('/ben-yehuda/headwords/:letter', servePageWithMeta);
   app.get('/bdb/abbreviations', servePageWithMeta);
   app.get('/bdb/headwords', servePageWithMeta);
   app.get('/bdb/headwords/:letter', servePageWithMeta);
@@ -142,6 +146,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use(createBibleRouter());
   app.use(createJastrowRouter());
   app.use(createBdbRouter());
+  app.use(createBenYehudaRouter());
   app.use(createChatRouter());
   app.use(createSearchRouter());
   app.use(createFeedRouter());

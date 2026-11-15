@@ -145,6 +145,9 @@ export default function Sitemap() {
             <Link href="/jastrow" className="block border border-border rounded bg-background p-2 text-primary dark:text-[#5b9fc5] hover:bg-secondary">
               Jastrow Dictionary
             </Link>
+            <Link href="/ben-yehuda" className="block border border-border rounded bg-background p-2 text-primary dark:text-[#5b9fc5] hover:bg-secondary">
+              Ben-Yehuda — Historical Hebrew Dictionary
+            </Link>
             <Link href="/bdb" className="block border border-border rounded bg-background p-2 text-primary dark:text-[#5b9fc5] hover:bg-secondary">
               BDB Hebrew Bible Dictionary
             </Link>

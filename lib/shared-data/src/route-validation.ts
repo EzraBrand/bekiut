@@ -37,6 +37,8 @@ const STATIC_PATHS = new Set<string>([
   "/jastrow/abbreviations",
   "/jastrow/headwords",
   "/bdb",
+  "/ben-yehuda",
+  "/ben-yehuda/headwords",
   "/bdb-prefix-test",
   "/bdb/abbreviations",
   "/bdb/headwords",
@@ -176,6 +178,7 @@ export function isKnownAppPath(rawPathname: string): boolean {
 
   // Dictionary headword browsers: letter params are not validated locally.
   if (/^\/(?:jastrow|bdb)\/headwords\/[^/]+$/.test(pathname)) return true;
+  if (/^\/ben-yehuda\/headwords\/[אבגדהוזחטיכלמנסעפצקרשת]$/.test(pathname)) return true;
 
   // Biblical index book pages: names are display-format; validated client-side.
   if (/^\/biblical-index\/book\/[^/]+$/.test(pathname)) return true;

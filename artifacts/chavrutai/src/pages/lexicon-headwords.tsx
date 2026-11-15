@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, Redirect } from "wouter";
 import { useSEO } from "@/hooks/use-seo";
+import { getHeadwordsSEO, getHeadwordsLetterSEO } from "@workspace/shared-data/seo-data";
 import { HEBREW_ALPHABET, isHebrewLetter } from "@shared/hebrew-alphabet";
 import { PageShell, SectionHeading } from "@/components/layout";
 import { sortJastrowHeadwords } from "@/lib/lexicon-headword-sort";
@@ -35,6 +36,14 @@ const LEXICON_META: Record<LexiconKey, LexiconMeta> = {
     longName: "Jastrow Talmud Dictionary",
     byline:
       "Marcus Jastrow — A Dictionary of the Targumim, the Talmud Babli and Yerushalmi, and the Midrashic Literature (1903)",
+  },
+  "ben-yehuda": {
+    key: "ben-yehuda",
+    routePrefix: "/ben-yehuda",
+    shortName: "Ben-Yehuda",
+    longName: "Ben-Yehuda Hebrew Dictionary",
+    byline:
+      "Eliezer Ben-Yehuda — A Complete Dictionary of Ancient and Modern Hebrew, digitized by Project Ben-Yehuda and served by Sefaria",
   },
 };
 
@@ -120,6 +129,9 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
     ogDescription: seoDescription,
     canonical,
     robots: "index, follow",
+    ...(lexiconKey === "ben-yehuda" ? activeLetter
+      ? getHeadwordsLetterSEO(lexiconKey, activeLetter, window.location.origin)
+      : getHeadwordsSEO(lexiconKey, window.location.origin) : {}),
   });
 
   if (invalidLetter) {
@@ -156,7 +168,9 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
           <p className="text-sm text-muted-foreground">
             {activeLetter
               ? `${letterHeadwords.length.toLocaleString()} entries starting with ${activeLetter}. Click any headword to look it up.`
-              : `Complete A-to-Z directory of all ${totalCount.toLocaleString()} ${meta.shortName} entries. Pick a letter to browse.`}
+              : lexiconKey === "ben-yehuda"
+                ? `Snapshot of ${totalCount.toLocaleString()} headwords from Sefaria autocomplete. Pick a letter to browse; corpus completeness is not independently verified.`
+                : `Complete A-to-Z directory of all ${totalCount.toLocaleString()} ${meta.shortName} entries. Pick a letter to browse.`}
           </p>
           {!activeLetter && (
             <p className="text-xs text-muted-foreground mt-2">{meta.byline}</p>
@@ -164,7 +178,7 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
         </div>
 
         <div className="border-t border-border pt-6 mb-8">
-          <div className="grid grid-cols-8 sm:grid-cols-11 gap-2">
+          <div dir={lexiconKey === "ben-yehuda" ? "rtl" : undefined} className="grid grid-cols-8 sm:grid-cols-11 gap-2">
             {HEBREW_ALPHABET.map((L) => {
               const count = index?.perLetterCounts[L];
               const isActive = L === activeLetter;
@@ -257,6 +271,7 @@ export default function LexiconHeadwords({ lexiconKey, letter }: Props) {
               Every headword in this index links directly into the {meta.shortName} reader.
               Headwords are sourced from Sefaria's lexicon API and refreshed periodically;
               counts shown above each letter reflect the most recent snapshot.
+              {lexiconKey === "ben-yehuda" && " The Ben-Yehuda index is a 21,999-headword autocomplete snapshot and is not guaranteed to list every entry; search the reader for words not shown here."}
             </p>
           </div>
         )}
