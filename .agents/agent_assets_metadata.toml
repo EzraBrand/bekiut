@@ -420,3 +420,17 @@ mtime_ms = 1793711910385
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b2e54fd1-28e3-472c-b658-37e5c68b0342/33ba7571-7cbb-4992-88fe-36eede34f413"
 storage_version_token = "1793711921437798"
 content_type = "text/csv"
+
+[[outputs]]
+id = "mHk2xiJuqfCxpNmKCoMyb"
+uri = "file://generated-artifacts/ben-yehuda/headwords.csv"
+type = "table"
+title = "Ben-Yehuda headwords — 21,999 entries"
+description = "All 22 letters from Sefaria’s scoped completion API, with pointed headwords, normalized forms, references, and Sefaria links."
+logical_id = "296487e3-3b79-42e1-ac08-180799c7ac14"
+content_hash = "sha256:b49757ba5d8f55e0a39a756cb5612a90f96c730d2954d71896845d38813445df"
+size = 3620445
+mtime_ms = 1794763357508
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/296487e3-3b79-42e1-ac08-180799c7ac14/53656d9e-a35b-449c-beef-52db739a6a37"
+storage_version_token = "1794763385190765"
+content_type = "text/csv"
