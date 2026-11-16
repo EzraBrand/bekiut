@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { adaptBenYehudaWords, searchBenYehuda, selectBenYehudaEntries } from "./ben-yehuda";
+import { adaptBenYehudaWords, searchBenYehuda, selectBenYehudaEntries, linkedBenYehudaDefinition } from "./ben-yehuda";
 import { fetchSefaria } from "./sefaria-fetch";
 import { benYehudaHeadwordFromRef } from "@workspace/shared-data/ben-yehuda";
 import snapshot from "@workspace/shared-data/data/lexicon-headwords/ben-yehuda.json";
@@ -14,6 +14,24 @@ const raw = (headword: string, rid: string, definition = ["<p>הגדרה</p>"]) 
 beforeEach(() => vi.mocked(fetchSefaria).mockReset());
 
 describe("Ben-Yehuda source adapter and exact identity", () => {
+  it("enriches citations without changing identity, and caches the linked response", async () => {
+    const entry = adaptBenYehudaWords([raw("linked-test", "BY-test")])[0];
+    const definition = ['<p><a href="Genesis.1.1">בראשית א א</a></p>'];
+    vi.mocked(fetchSefaria).mockResolvedValueOnce(new Response(JSON.stringify({
+      versions: [{ language: "he", versionTitle: "Ben Yehuda Dictionary", text: definition }],
+    })));
+    expect(await linkedBenYehudaDefinition(entry)).toEqual({ ...entry, content: { definition } });
+    await linkedBenYehudaDefinition(entry);
+    expect(fetchSefaria).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(fetchSefaria).mock.calls[0][0]).toContain("return_format=wrap_all_entities");
+  });
+  it("retains complete source paragraphs on a partial linked response", async () => {
+    const entry = adaptBenYehudaWords([raw("partial-test", "BY-partial", ["one", "two"])])[0];
+    vi.mocked(fetchSefaria).mockResolvedValueOnce(new Response(JSON.stringify({
+      versions: [{ language: "he", versionTitle: "Ben Yehuda Dictionary", text: ["one"] }],
+    })));
+    expect(await linkedBenYehudaDefinition(entry)).toEqual(entry);
+  });
   it("keeps all 23 paragraphs, source markup, real IDs and neighbors", () => {
     const paragraphs = Array.from({ length: 23 }, (_, i) => `<p dir="rtl">ה ${i}<sup>1</sup></p>`);
     const entries = adaptBenYehudaWords([raw("ה", "BY-03821", paragraphs), { parent_lexicon: "Jastrow Dictionary" }]);

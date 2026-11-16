@@ -462,3 +462,45 @@ mtime_ms = 1794765329900
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/5b84b229-1147-4572-a037-3e8ea1e0de41/00d4312e-83d8-409b-9c6c-4d2ea984ef4b"
 storage_version_token = "1794765403218506"
 content_type = "text/csv"
+
+[[outputs]]
+id = "_tK0mssZtlVeX84G93tq-"
+uri = "file://docs/ben-yehuda-abbreviation-analysis.md"
+type = "text"
+title = "Ben-Yehuda abbreviation analysis"
+description = "Findings, reviewed examples, citation behavior, and batch-export investigation."
+logical_id = "7212b192-556f-483c-a3c3-2c6b5ea7bedf"
+content_hash = "sha256:3702383ca57d3ca04c3abd7f1bca9fa889af767adf5eb28a9117dec5ab67525a"
+size = 9244
+mtime_ms = 1794817389563
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/7212b192-556f-483c-a3c3-2c6b5ea7bedf/df239b27-af0a-477c-a118-d43294659cdc"
+storage_version_token = "1794817473655758"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "LGvqGOTm8W92tbZsE2o8o"
+uri = "file://generated-artifacts/ben-yehuda-analysis/abbreviation-candidates.csv"
+type = "table"
+title = "Ben-Yehuda abbreviation candidates"
+description = "1,193 candidates from 187 sampled entries; 40 reviewed, with examples and entry links. Not full-corpus frequencies."
+logical_id = "1eead3e1-027f-41d0-9d31-7b3cc761b47d"
+content_hash = "sha256:84ad91a868d6872f53ec70cb2caa6052b8d134a7fc53c39b7dc97f82c02a6caa"
+size = 680787
+mtime_ms = 1794817279385
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/1eead3e1-027f-41d0-9d31-7b3cc761b47d/690fc758-3deb-48c5-a99e-a2e12fcc873b"
+storage_version_token = "1794817475036787"
+content_type = "text/csv"
+
+[[outputs]]
+id = "VQrfgPjAYH0TbFmoojb2_"
+uri = "file://generated-artifacts/ben-yehuda-analysis/books-used.csv"
+type = "table"
+title = "Ben-Yehuda — complete List of Books Used"
+description = "All 1,302 source paragraphs, with links to Sefaria."
+logical_id = "b7fa8ba9-7b0f-4884-94d2-8d4829d37892"
+content_hash = "sha256:dd44c804dcdfcac497d881ca2006799feece0df766047f3bec66d0e0f2b45244"
+size = 225180
+mtime_ms = 1794817272961
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b7fa8ba9-7b0f-4884-94d2-8d4829d37892/86853381-eae2-4ad5-8ee1-22d7995f404a"
+storage_version_token = "1794817476509354"
+content_type = "text/csv"

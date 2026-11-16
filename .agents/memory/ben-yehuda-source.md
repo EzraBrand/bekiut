@@ -14,3 +14,14 @@ Do not pass Ben-Yehuda HTML through the existing Jastrow sanitizer unchanged.
 **Why:** The source uses paragraph wrappers, footnotes, mixed-direction spans, and embedded images. The Jastrow allowlist drops unsupported elements with their entire contents, which can erase whole definitions rather than merely remove formatting.
 
 **How to apply:** Give the new reader a tested source-specific rendering/sanitization policy; share generic controls and request handling, not English abbreviation transforms.
+
+Word-lookup definitions do not contain all reader citation links. Use the v3
+reader's `return_format=wrap_all_entities`, not `wrap_all_entities=1`, when
+comparing against Sefaria's visible reader.
+
+**Why:** The same אָב I entry had 3 raw anchors but 63 reader-formatted anchors;
+ה still had only 2 in either response. Missing links can therefore mean either
+the wrong API representation or unresolved source citations, not sanitization.
+
+**How to apply:** Preserve identity from word records, bound/cache citation
+enrichment, and never invent destinations for remaining `by-source` labels.

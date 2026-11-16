@@ -1,4 +1,5 @@
 import { benYehudaHeadwordFromRef, benYehudaHref } from "@workspace/shared-data/ben-yehuda";
+import { convertSefariaLinksToInternal } from "./dictionary-format";
 
 const TAGS = new Set(["A", "P", "DIV", "SPAN", "STRONG", "B", "EM", "I", "SUP", "SUB", "BR", "IMG", "SMALL"]);
 const CLASSES = new Set(["by-source", "footnote", "footnote-marker", "refLink"]);
@@ -10,7 +11,7 @@ function safeLink(value: string): string | null {
   // Source relative citations belong to Sefaria, not to the local app.
   try {
     const url = new URL(value, "https://www.sefaria.org/");
-    return /^https?:$/.test(url.protocol) ? url.href : null;
+    return /^https?:$/.test(url.protocol) ? convertSefariaLinksToInternal(url.href) : null;
   } catch { return null; }
 }
 
@@ -28,7 +29,7 @@ function cleanTree(root: Element) {
         else element.removeAttribute(name);
       } else if (
         (name === "dir" && /^(rtl|ltr|auto)$/.test(value)) ||
-        (name === "class" && value.split(/\s+/).every(token => CLASSES.has(token))) ||
+        (name === "class" && value.trim().split(/\s+/).every(token => CLASSES.has(token))) ||
         (name === "alt" && element.tagName === "IMG") ||
         (["height", "width"].includes(name) && element.tagName === "IMG" && /^\d{1,4}$/.test(value)) ||
         // Only source PNG payloads, never SVG/data HTML or arbitrary remote images.

@@ -47,6 +47,16 @@ describe("Ben-Yehuda dedicated HTML policy", () => {
     expect(doc.querySelectorAll("a")[1].getAttribute("href")).toBe("https://www.sefaria.org/Unknown_Work.3");
     expect(doc.querySelectorAll("a")).toHaveLength(2);
   });
+  it("retains reader API citation labels and routes supported citations locally", () => {
+    const doc = parse(prepareBenYehudaHtml([
+      `<p>אב <a class="refLink " href="Numbers.30.17" data-ref="Numbers 30:17">במד' ל יז</a>
+      <a href="/Berakhot.2a.3">ברכות</a> <a href="Unknown_Work.3">מקור אחר</a></p>`,
+    ], "linked", false));
+    expect(doc.querySelectorAll("a")[0].getAttribute("href")).toBe("/bible/Numbers/30#17");
+    expect(doc.querySelectorAll("a")[0].textContent).toBe("במד' ל יז");
+    expect(doc.querySelectorAll("a")[1].getAttribute("href")).toBe("/talmud/Berakhot/2a#3");
+    expect(doc.querySelectorAll("a")[2].getAttribute("href")).toBe("https://www.sefaria.org/Unknown_Work.3");
+  });
   it("rejects active content, unsafe URLs, SVG/data HTML and clobbering attributes", () => {
     const doc = parse(prepareBenYehudaHtml([
       `<p onclick="bad()">safe<script>bad()</script><svg onload="bad()"><text>bad</text></svg>

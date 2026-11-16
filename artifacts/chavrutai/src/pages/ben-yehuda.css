@@ -11,7 +11,8 @@
 .ben-yehuda-content .by-dash-paragraph + .by-dash-paragraph { margin-top: 1em; }
 .ben-yehuda-content { overflow-wrap: anywhere; }
 .ben-yehuda-content img { display: inline-block; max-width: 100%; object-fit: contain; }
-.ben-yehuda-content .by-footnote { display: inline; }
+.ben-yehuda-content .by-footnote { display: inline-block; vertical-align: baseline; }
+.ben-yehuda-content .by-footnote[open] { display: inline; }
 .ben-yehuda-content .by-footnote summary {
   display: inline-block; cursor: pointer; vertical-align: super;
   font-size: .8em; line-height: 1.5; min-width: 1.75rem; padding: .15rem .35rem;
