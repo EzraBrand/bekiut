@@ -3,7 +3,7 @@
  * Contexts are intentionally separate. Ambiguous מ"ר, ע"כ, personal initials,
  * divine names, and quoted וכו' are not global replacements.
  */
-type Rule = { source: string; expansion: string; context: "prose" | "citation" | "grammar"; book?: string };
+type Rule = { source: string; expansion: string; context: "prose" | "citation" | "grammar"; book?: string; takesForm?: boolean };
 export const BEN_YEHUDA_ABBREVIATIONS: readonly Rule[] = [
   { source: "במשמ'", expansion: "במשמעות", context: "prose" },
   { source: "ובמשמ'", expansion: "ובמשמעות", context: "prose" },
@@ -11,6 +11,7 @@ export const BEN_YEHUDA_ABBREVIATIONS: readonly Rule[] = [
   { source: "ועי'", expansion: "ועיין", context: "prose" },
   { source: 'ר"ל', expansion: "רוצה לומר", context: "prose" },
   { source: 'וכמו"כ', expansion: "וכמו כן", context: "prose" },
+  { source: 'כמו"כ', expansion: "כמו כן", context: "prose" },
   { source: "בערב'", expansion: "בערבית", context: "prose" },
   { source: "בארמ'", expansion: "בארמית", context: "prose" },
   { source: "בעבר'", expansion: "בעברית", context: "prose" },
@@ -24,6 +25,8 @@ export const BEN_YEHUDA_ABBREVIATIONS: readonly Rule[] = [
   { source: "בסור'", expansion: "בסורית", context: "prose" },
   { source: 'ש"ז', expansion: "שם זכר", context: "grammar" },
   { source: 'ש"נ', expansion: "שם נקבה", context: "grammar" },
+  { source: "סמי'", expansion: "סמיכות", context: "grammar", takesForm: true },
+  { source: "בכנ'", expansion: "בכינוי", context: "grammar", takesForm: true },
   { source: "בראש'", expansion: "בראשית", context: "citation", book: "Genesis" },
   { source: "ישע'", expansion: "ישעיהו", context: "citation", book: "Isaiah" },
   { source: "תהל'", expansion: "תהלים", context: "citation", book: "Psalms" },
@@ -59,6 +62,10 @@ export const BEN_YEHUDA_ABBREVIATIONS: readonly Rule[] = [
   { source: "מנח'", expansion: "מנחות", context: "citation" },
   { source: "תשו'", expansion: "תשובות", context: "citation" },
   { source: "מהד'", expansion: "מהדורת", context: "citation" },
+  { source: 'ר"א קליר', expansion: "רבי אלעזר הקליר", context: "citation" },
+  { source: "עוקצ'", expansion: "עוקצים", context: "citation" },
+  { source: 'רמב"ע', expansion: "רבי משה אבן עזרא", context: "citation" },
+  { source: 'אגר\' יל"ג', expansion: "אגרות יהודה ליב גורדון", context: "citation" },
 ];
 
 const canonical = (text: string) => text.replace(/[׳’]/g, "'").replace(/״/g, '"');
@@ -106,8 +113,14 @@ export function annotateBenYehudaAbbreviations(root: Element, inline: boolean): 
         // Only the leading grammatical introduction, before a definition dash
         // or sentence/colon. Notes and citation labels are not grammar.
         const prefix = introBefore + before;
+        const after = text.slice(match.index! + match[0].length);
+        // Construct-state and suffixed-form labels precede the inflected word,
+        // unlike gender labels, which are followed by punctuation.
+        const validFollowing = rule.takesForm
+          ? /^\s+[\u05d0-\u05ea]/u.test(after)
+          : /^\s*[,;—–]/.test(after);
         if (!inIntro || introductionEnded || /[—–:.]/.test(prefix) || prefix.length > 500 ||
-            !/(?:^|[,;])\s*$/.test(prefix) || !/^\s*[,;—–]/.test(text.slice(match.index! + match[0].length))) continue;
+            !/(?:^|[,;])\s*$/.test(prefix) || !validFollowing) continue;
       } else if (citation || anchor) {
         // Do not modify cross-reference headwords or turn a citation into prose.
         continue;

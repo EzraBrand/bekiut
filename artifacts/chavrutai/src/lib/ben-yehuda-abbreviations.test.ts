@@ -14,6 +14,30 @@ const expansions = (doc: Document) => Array.from(doc.querySelectorAll("[data-bdb
   .map(node => decodeURIComponent(node.getAttribute("data-bdb-expansion")!));
 
 describe("reviewed Ben-Yehuda abbreviation contexts", () => {
+  it("recognizes construct and suffixed forms in the אֵב introduction, ignoring preceding notes", () => {
+    const source = `<p><big><strong dir="rtl">אֵב</strong></big>
+      <sup class="footnote-marker">1</sup><i class="footnote">משק' לֵב. <span class="by-source">בראש' ד ג</span></i>,
+      ש"ז, מ"ר אִבִּים, בכנ' אִבּוֹ, סמי' אִבֵּי, — א) צמח. כמו"כ דבר, וכמו"כ אחר.
+      בכנ' אִבּוֹ, סמי' אִבֵּי</p>`;
+    const doc = render(source, true);
+    expect(expansions(doc)).toEqual(["בראשית", "שם זכר", "בכינוי", "סמיכות", "כמו כן", "וכמו כן"]);
+    expect(doc.body.textContent).toContain("בכינוי אִבּוֹ, סמיכות אִבֵּי");
+    expect(doc.body.textContent).toContain("בכנ' אִבּוֹ, סמי' אִבֵּי");
+    expect(benYehudaCopyText(doc.body.innerHTML)).toContain("בכינוי אִבּוֹ");
+    expect(render(source).body.textContent).toContain("בכנ' אִבּוֹ");
+  });
+  it("expands named authors and works only as complete citation labels", () => {
+    const source = `<p><span class="by-source">רמב״ע תרשיש, א קפא</span>
+      <span class="by-source">ר"א קליר, גשם</span>
+      <span class="by-source"><a href="Mishnah_Oktzin.3.7">עוקצ׳ ג ז</a></span>
+      <span class="by-source">אגר' יל"ג א</span>
+      ר"א קליר רמב"ע <span class="by-source">ר"א אחר יל"ג</span></p>`;
+    expect(expansions(render(source, true))).toEqual([
+      "רבי משה אבן עזרא", "רבי אלעזר הקליר", "עוקצים", "אגרות יהודה ליב גורדון",
+    ]);
+    expect(render(source, true).body.textContent).toContain('ר"א קליר רמב"ע');
+    expect(render(source).querySelector("a button")).toBeNull();
+  });
   it("expands additional attested prose and citation forms without broadening their contexts", () => {
     const doc = render(`<p>עפ״י דעתו, אח"כ ג"כ בסור'
       <span class="by-source">יחזק' כה יב</span>
