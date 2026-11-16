@@ -1,5 +1,7 @@
 /* Scoped styles for the Ben-Yehuda reader's entry HTML and native footnotes. */
-.ben-yehuda-content, .ben-yehuda-content span[dir="rtl"] {
+/* Outrank the shared dictionary styles injected later in the document. */
+.dictionary-content.ben-yehuda-content,
+.dictionary-content.ben-yehuda-content span[dir="rtl"] {
   font-family: var(--by-font, 'Assistant', sans-serif); font-weight: inherit;
 }
 .dictionary-content.ben-yehuda-content { font-size: var(--by-size, 1rem); }

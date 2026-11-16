@@ -41,7 +41,7 @@ export default function BenYehudaAbbreviations() {
           <a href="https://www.sefaria.org/Ben_Yehuda_Dictionary,_Prolegomena,_List_of_Books_Used"
             target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
             List of Books Used
-          </a>{" "}— a bibliography, rather than an abbreviation key.
+          </a>.
         </p>
       </PageHeader>
       <MappingResourceLinks currentPath="/ben-yehuda/abbreviations" />

@@ -14,6 +14,15 @@ const expansions = (doc: Document) => Array.from(doc.querySelectorAll("[data-bdb
   .map(node => decodeURIComponent(node.getAttribute("data-bdb-expansion")!));
 
 describe("reviewed Ben-Yehuda abbreviation contexts", () => {
+  it("expands additional attested prose and citation forms without broadening their contexts", () => {
+    const doc = render(`<p>עפ״י דעתו, אח"כ ג"כ בסור'
+      <span class="by-source">יחזק' כה יב</span>
+      <span class="by-source">תוספת' סוט' ט א</span>
+      <span class="by-source">מהד' אפשטיין</span>
+      תוספת' לא מקור</p>`, true);
+    expect(expansions(doc)).toEqual(["על פי", "אחר כך", "גם כן", "בסורית", "יחזקאל", "תוספתא", "סוטה", "מהדורת"]);
+    expect(doc.body.textContent).toContain("תוספת' לא מקור");
+  });
   it("preserves original forms in tooltip mode and expands only on opt-in", () => {
     const source = "<p>עי׳ בזה, ועי’ גם. במשמ' דבר, ובמשמ׳ אחר. בארמ׳ ובעבר׳</p>";
     const original = render(source);

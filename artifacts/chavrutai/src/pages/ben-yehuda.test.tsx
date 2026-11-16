@@ -26,7 +26,7 @@ it("opens exact entries, collapses browse, persists independent options, follows
   window.HTMLElement.prototype.scrollIntoView = vi.fn();
   const entryBody = JSON.stringify([{
     headword: "ה", rid: "BY-03821", parent_lexicon: "Ben Yehuda Dictionary",
-    content: { definition: ['<p>אות, עי׳ כאן<sup class="footnote-marker">1</sup><i class="footnote">הערה</i></p>'] },
+    content: { definition: ['<p>אות, <span dir="rtl">עברית</span> עי׳ כאן<sup class="footnote-marker">1</sup><i class="footnote">הערה</i></p>'] },
     next_hw: "הֵא I",
   }]);
   const fetcher = vi.fn().mockImplementation(async () => new Response(entryBody));
@@ -74,6 +74,9 @@ it("opens exact entries, collapses browse, persists independent options, follows
     });
     expect(localStorage.getItem("ben-yehuda-hebrew-font")).toBe("frank-ruehl");
     expect(entries().style.getPropertyValue("--by-font")).toContain("Frank Ruhl Libre");
+    const definition = window.document.querySelector('[data-testid="ben-yehuda-definition"]')!;
+    expect(window.getComputedStyle(definition).fontFamily).toContain("Frank Ruhl Libre");
+    expect(window.getComputedStyle(definition.querySelector('span[dir="rtl"]')!).fontFamily).toContain("Frank Ruhl Libre");
     expect(readerCss).toContain("var(--by-font");
     const expand = host.querySelector('[data-testid="checkbox-expand-inline"]') as HTMLInputElement;
     expect(expand.checked).toBe(false);
