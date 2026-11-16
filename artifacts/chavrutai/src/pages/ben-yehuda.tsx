@@ -7,6 +7,8 @@ import { HEBREW_ALPHABET } from "@shared/hebrew-alphabet";
 import { dictionaryStyles } from "@/lib/dictionary-format";
 import { DisplayOptions, DictionarySearchNotice } from "@/components/dictionary/dictionary-ui";
 import { useBenYehudaReader } from "@/hooks/use-ben-yehuda-reader";
+import { DictionaryAbbreviationPanel } from "@/components/bdb-abbreviation-panel";
+import { BY_FONTS, BY_SIZES, type BenYehudaFont } from "@/hooks/use-ben-yehuda-typography";
 import "./ben-yehuda.css";
 
 export default function BenYehuda() {
@@ -34,8 +36,9 @@ export default function BenYehuda() {
     splitDashes,
     setSplitDashes,
     setInlineNotes,
-    largerText,
-    setLargerText,
+    typography,
+    expandInline,
+    setExpandInline,
     results,
     failure,
     lastRid,
@@ -85,7 +88,6 @@ export default function BenYehuda() {
               </li>
             </ul>
             <p className="text-xs text-muted-foreground">
-              Project Ben-Yehuda describes the dictionary as public domain.{" "}
               <a href="https://benyehuda.org/page/english" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Source and digitization</a>
               {" · "}
               <a href="https://www.sefaria.org/Ben_Yehuda_Dictionary,_Prolegomena" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Prolegomena on Sefaria</a>
@@ -155,11 +157,21 @@ export default function BenYehuda() {
       </section>
 
       <section className="py-8 border-t border-border">
-        <h2 className="font-georgia text-xl mb-4">Browse by Letter</h2>
-        <button type="button" className="text-sm mb-3" aria-expanded={showBrowse} aria-controls="ben-yehuda-browse-grid" onClick={() => setShowBrowse(value => !value)}>
-          {showBrowse ? "▾" : "▸"} Browse by letter
-        </button>
-        <div id="ben-yehuda-browse-grid" hidden={!showBrowse}>
+        <h2 className="font-georgia text-xl">
+          <button
+            type="button"
+            className="by-disclosure group inline-flex items-center gap-2 rounded-sm text-left"
+            aria-expanded={showBrowse}
+            aria-controls="ben-yehuda-browse-grid"
+            onClick={() => setShowBrowse(value => !value)}
+            data-testid="button-browse-toggle"
+          >
+            <span aria-hidden="true" className={`text-sm text-muted-foreground transition-transform duration-200 ${showBrowse ? "rotate-90" : ""}`}>▸</span>
+            Browse by Letter
+          </button>
+        </h2>
+        {!showBrowse && <p className="mt-1 text-sm text-muted-foreground">Open the headword index for any of the 22 letters.</p>}
+        <div id="ben-yehuda-browse-grid" hidden={!showBrowse} className="mt-4">
           <div dir="rtl" className="grid grid-cols-8 sm:grid-cols-12 gap-2">
             {HEBREW_ALPHABET.map((letter) => {
               const count = lexiconIndex?.perLetterCounts[letter];
@@ -168,7 +180,7 @@ export default function BenYehuda() {
                   key={letter}
                   href={`/ben-yehuda/headwords/${encodeURIComponent(letter)}`}
                   data-testid={`button-letter-${letter}`}
-                  className="h-12 inline-flex flex-col items-center justify-center gap-0 rounded border border-border text-lg font-hebrew transition-colors hover:bg-secondary"
+                  className="by-letter h-12 inline-flex flex-col items-center justify-center gap-0 rounded border border-border text-lg font-hebrew"
                 >
                   <span className="leading-none">{letter}</span>
                   {count !== undefined && (
@@ -183,21 +195,75 @@ export default function BenYehuda() {
 
       {(isLoading || lastSearchedQuery) && (
         <section ref={resultsRef} className="w-full max-w-4xl mx-auto py-8 border-t border-border scroll-mt-20">
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <DictionaryAbbreviationPanel revision={preparedEntries} />
+          <div className="mb-5 flex flex-col gap-3">
             <h2 className="font-georgia text-xl">Dictionary Entries</h2>
-            <DisplayOptions dictionary="ben-yehuda" hint={inlineNotes ? "Notes are shown in the text." : "Click a note marker to open it."}>
-              <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={splitDashes} onChange={e => setSplitDashes(e.target.checked)} className="accent-primary" data-testid="checkbox-split-dashes" />
-                Split paragraphs at dashes
-              </label>
-              <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={largerText} onChange={e => setLargerText(e.target.checked)} className="accent-primary" data-testid="checkbox-larger-text" />
-                Larger Hebrew text
-              </label>
-              <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={inlineNotes} onChange={e => setInlineNotes(e.target.checked)} className="accent-primary" data-testid="checkbox-inline-notes" />
-                Show notes inline
-              </label>
+            <DisplayOptions
+              dictionary="ben-yehuda"
+              hint={<>
+                {inlineNotes ? "Notes are shown in the text." : "Select a note marker to open it."}{" "}
+                Dotted abbreviations explain themselves on hover or focus; tap to pin. Links still navigate.
+              </>}
+            >
+              <div className="by-options">
+                <fieldset className="by-option-group">
+                  <legend>Text size</legend>
+                  <div className="by-segmented" role="radiogroup" aria-label="Text size">
+                    {BY_SIZES.map((option, index) => (
+                      <button
+                        key={option.id}
+                        type="button"
+                        role="radio"
+                        aria-checked={typography.size === option.id}
+                        tabIndex={typography.size === option.id ? 0 : -1}
+                        aria-label={option.name}
+                        title={option.name}
+                        onClick={() => typography.setSize(option.id)}
+                        onKeyDown={event => {
+                          const step = ["ArrowRight", "ArrowDown"].includes(event.key) ? 1 :
+                            ["ArrowLeft", "ArrowUp"].includes(event.key) ? -1 : 0;
+                          if (!step && event.key !== "Home" && event.key !== "End") return;
+                          event.preventDefault();
+                          const next = event.key === "Home" ? 0 : event.key === "End" ? BY_SIZES.length - 1 :
+                            (index + step + BY_SIZES.length) % BY_SIZES.length;
+                          typography.setSize(BY_SIZES[next].id);
+                          (event.currentTarget.parentElement?.children[next] as HTMLElement)?.focus();
+                        }}
+                        data-testid={`button-text-size-${option.id}`}
+                        style={{ fontSize: `calc(${option.rem} * 0.8)` }}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                </fieldset>
+                <label className="by-option-group">
+                  <span className="by-legend">Hebrew font</span>
+                  <select
+                    value={typography.font}
+                    onChange={e => typography.setFont(e.target.value as BenYehudaFont)}
+                    className="by-select"
+                    data-testid="select-hebrew-font"
+                  >
+                    {BY_FONTS.map(f => <option key={f.id} value={f.id}>{f.label}</option>)}
+                  </select>
+                </label>
+                <div className="by-option-group by-checks">
+                  <span className="by-legend">Layout</span>
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" checked={splitDashes} onChange={e => setSplitDashes(e.target.checked)} className="accent-primary" data-testid="checkbox-split-dashes" />
+                    Split paragraphs at dashes
+                  </label>
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" checked={inlineNotes} onChange={e => setInlineNotes(e.target.checked)} className="accent-primary" data-testid="checkbox-inline-notes" />
+                    Show notes inline
+                  </label>
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" checked={expandInline} onChange={e => setExpandInline(e.target.checked)} className="accent-primary" data-testid="checkbox-expand-inline" />
+                    Expand abbreviations inline
+                  </label>
+                </div>
+              </div>
             </DisplayOptions>
           </div>
 
@@ -234,16 +300,16 @@ export default function BenYehuda() {
               )}
             </DictionarySearchNotice>
           ) : (
-            <div className="space-y-4" ref={entriesRef}>
+            <div className="space-y-4" ref={entriesRef} data-by-size={typography.size} style={{ ["--by-font" as string]: typography.fontStack, ["--by-size" as string]: typography.sizeRem }}>
               {preparedEntries.map(({ entry, id, html }, index) => (
-                <div id={id} key={entry.rid || index} className="pb-4 border-b border-border last:border-b-0 scroll-mt-24" data-testid={`entry-${entry.rid || index}`}>
+                <div id={id} key={entry.rid || index} className="by-entry pb-4 border-b border-border last:border-b-0 scroll-mt-24" data-testid={`entry-${entry.rid || index}`}>
                   <div className="flex flex-col sm:flex-row-reverse items-start gap-4" dir="ltr">
-                    <h3 className="text-lg font-bold font-hebrew min-w-fit self-end sm:self-auto" dir="rtl">
+                    <h3 className="by-headword font-bold min-w-fit self-end sm:self-auto" dir="rtl" data-testid="text-headword">
                       <a
                         href={`https://www.sefaria.org/Ben_Yehuda_Dictionary,_${encodeURIComponent(entry.headword)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:underline"
+                        className="text-primary hover:underline underline-offset-4 rounded-sm"
                         title="View this entry on Sefaria"
                       >
                         {entry.headword}
@@ -252,7 +318,7 @@ export default function BenYehuda() {
                     <div
                       dir="rtl"
                       lang="he"
-                      className={`text-foreground flex-1 min-w-0 w-full max-w-none dictionary-content font-hebrew ben-yehuda-content leading-loose ${largerText ? "text-lg" : "text-base"}`}
+                      className={`text-foreground flex-1 min-w-0 w-full max-w-none dictionary-content font-hebrew ben-yehuda-content leading-loose`}
                       data-testid="ben-yehuda-definition"
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
@@ -260,12 +326,12 @@ export default function BenYehuda() {
                   {(entry.prev_hw || entry.next_hw) && (
                     <nav dir="rtl" className="mt-3 flex justify-between gap-3 text-sm" aria-label={`Neighbors of ${entry.headword}`}>
                       {entry.prev_hw ? (
-                        <a href={benYehudaHref(entry.prev_hw)} data-nav="prev" className="text-primary hover:underline" data-testid="link-prev-entry">
+                        <a href={benYehudaHref(entry.prev_hw)} data-nav="prev" className="by-neighbor text-primary" data-testid="link-prev-entry">
                           → הקודם: <bdi className="font-hebrew">{entry.prev_hw}</bdi>
                         </a>
                       ) : <span />}
                       {entry.next_hw && (
-                        <a href={benYehudaHref(entry.next_hw)} data-nav="next" className="text-primary hover:underline" data-testid="link-next-entry">
+                        <a href={benYehudaHref(entry.next_hw)} data-nav="next" className="by-neighbor text-primary" data-testid="link-next-entry">
                           הבא: <bdi className="font-hebrew">{entry.next_hw}</bdi> ←
                         </a>
                       )}

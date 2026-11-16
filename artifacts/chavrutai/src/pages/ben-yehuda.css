@@ -1,9 +1,9 @@
 /* Scoped styles for the Ben-Yehuda reader's entry HTML and native footnotes. */
 .ben-yehuda-content, .ben-yehuda-content span[dir="rtl"] {
-  font-family: 'Assistant', sans-serif; font-weight: inherit;
+  font-family: var(--by-font, 'Assistant', sans-serif); font-weight: inherit;
 }
-.dictionary-content.ben-yehuda-content { font-size: 1rem; }
-.dictionary-content.ben-yehuda-content.text-lg { font-size: 1.125rem; }
+.dictionary-content.ben-yehuda-content { font-size: var(--by-size, 1rem); }
+.by-headword { font-family: var(--by-font, 'Assistant', sans-serif); font-size: calc(var(--by-size, 1rem) * 1.25); line-height: 1.4; }
 .ben-yehuda-content span[dir="rtl"] { font-size: inherit; }
 .ben-yehuda-content [dir="ltr"] { unicode-bidi: isolate; }
 .ben-yehuda-content .by-source-paragraph { margin-bottom: 1em; }
@@ -23,6 +23,35 @@
 .ben-yehuda-content .by-footnote-body {
   display: block; padding: .6rem .8rem; margin: .35rem 0;
   background: var(--muted); border-inline-start: 2px solid var(--border);
-  font-size: 1rem; line-height: 1.8; font-style: normal;
+  font-size: .95em; line-height: 1.8; font-style: normal; font-family: inherit;
 }
 .ben-yehuda-content .by-footnote:not([open]) > .by-footnote-body { display: none; }
+
+/* Reader chrome: browse, options, entries. */
+.by-disclosure:focus-visible, .by-letter:focus-visible, .by-neighbor:focus-visible,
+.by-segmented button:focus-visible, .by-select:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.by-disclosure:hover { color: var(--primary); }
+.by-letter { transition: background-color .15s ease, border-color .15s ease, transform .15s ease; }
+.by-letter:hover { background: var(--secondary); border-color: var(--primary); transform: translateY(-1px); }
+.by-options { display: grid; gap: .9rem 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .by-options { grid-template-columns: auto minmax(10rem, 14rem) 1fr; align-items: start; } }
+.by-option-group { display: flex; flex-direction: column; gap: .4rem; border: 0; padding: 0; margin: 0; min-width: 0; }
+.by-option-group legend, .by-legend { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); padding: 0; margin-bottom: .4rem; }
+.by-option-group legend + * { margin-top: 0; }
+.by-segmented { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--background); }
+.by-segmented button { min-width: 2.4rem; height: 2.1rem; padding: 0 .55rem; line-height: 1; color: var(--muted-foreground); transition: background-color .15s ease, color .15s ease; }
+.by-segmented button + button { border-inline-start: 1px solid var(--border); }
+.by-segmented button:hover { background: var(--secondary); color: var(--foreground); }
+.by-segmented button[aria-checked="true"] { background: var(--primary); color: var(--primary-foreground); }
+.by-select { height: 2.1rem; width: 100%; padding: 0 .5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--background); color: var(--foreground); font-size: .875rem; transition: border-color .15s ease; }
+.by-select:hover { border-color: var(--primary); }
+.by-checks { gap: .35rem; }
+.by-neighbor { text-underline-offset: 4px; border-radius: 2px; transition: opacity .15s ease; }
+.by-neighbor:hover { text-decoration: underline; opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .by-letter, .by-letter:hover { transition: none; transform: none; } }
+
+/* Inline abbreviation expansions: keep the reader's Hebrew font and RTL flow. */
+.ben-yehuda-content .dict-expanded.by-expanded {
+  font-family: var(--by-font, 'Assistant', sans-serif); font-size: inherit; font-weight: inherit;
+  direction: rtl; unicode-bidi: isolate; letter-spacing: normal;
+}

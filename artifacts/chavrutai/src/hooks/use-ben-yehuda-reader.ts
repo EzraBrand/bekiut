@@ -9,6 +9,7 @@ import { prepareBenYehudaHtml, benYehudaCopyText } from "@/lib/ben-yehuda-html";
 import { LatestRequest } from "@/lib/latest-request";
 import { classifyDictionaryResponse, type DictionarySearchFailure } from "@/lib/dictionary-search";
 import { useReaderPreference } from "@/hooks/use-reader-preference";
+import { useBenYehudaTypography } from "@/hooks/use-ben-yehuda-typography";
 
 function validBenYehudaEntries(body: unknown): BenYehudaEntry[] {
   if (!Array.isArray(body)) return [];
@@ -23,9 +24,10 @@ export function useBenYehudaReader() {
   const [searchQuery, setSearchQuery] = useState("");
   const [lastSearchedQuery, setLastSearchedQuery] = useState("");
   const [results, setResults] = useState<BenYehudaEntry[]>([]);
-  const [largerText, setLargerText] = useReaderPreference("ben-yehuda-larger-text", false);
+  const typography = useBenYehudaTypography();
   const [inlineNotes, setInlineNotes] = useReaderPreference("ben-yehuda-inline-notes", false);
   const [splitDashes, setSplitDashes] = useReaderPreference("ben-yehuda-split-dashes", true);
+  const [expandInline, setExpandInline] = useReaderPreference("ben-yehuda-expand-inline", false);
   const [isLoading, setIsLoading] = useState(false);
   const [failure, setFailure] = useState<DictionarySearchFailure | null>(null);
   const [lastRid, setLastRid] = useState<string | undefined>(undefined);
@@ -47,8 +49,8 @@ export function useBenYehudaReader() {
 
   const preparedEntries = useMemo(() => results.map((entry, index) => {
     const id = `ben-yehuda-${entry.rid || index}`;
-    return { entry, id, html: prepareBenYehudaHtml(entry.content.definition, id, splitDashes) };
-  }), [results, splitDashes]);
+    return { entry, id, html: prepareBenYehudaHtml(entry.content.definition, id, splitDashes, expandInline) };
+  }), [results, splitDashes, expandInline]);
 
   // Inline notes simply open every native footnote disclosure.
   useEffect(() => {
@@ -313,9 +315,10 @@ export function useBenYehudaReader() {
     inlineNotes,
     splitDashes,
     setSplitDashes,
+    expandInline,
+    setExpandInline,
     setInlineNotes,
-    largerText,
-    setLargerText,
+    typography,
     results,
     failure,
     lastRid,

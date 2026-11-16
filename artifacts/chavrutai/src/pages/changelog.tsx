@@ -40,6 +40,7 @@ export default function Changelog() {
             <h3 className="font-medium text-foreground mb-2">Ben-Yehuda Dictionary reader</h3>
             <p>Added a reader for Eliezer Ben-Yehuda's Hebrew dictionary (digitized by Project Ben-Yehuda, served live by Sefaria), with pointed and unpointed suggestions, a browsable headword index, previous and next entry navigation, and collapsible notes.</p>
             <p className="mt-2">Restored Sefaria’s linked citations, with supported references opening in Bekiut, and fixed unwanted line breaks around closed footnote numbers.</p>
+            <p className="mt-2">Added context-aware Hebrew abbreviation explanations with optional inline expansion, reorganized the entry display controls, and added five text sizes and seven font choices. Reader preferences are saved between visits.</p>
           </div>
           <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">BDB: Grammar and Vocabulary (November 2)</h3>

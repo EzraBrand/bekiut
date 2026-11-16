@@ -15,7 +15,7 @@ afterAll(() => vi.unstubAllGlobals());
 
 it("opens exact entries, collapses browse, persists independent options, follows neighbors and reports failures", async () => {
   const window = new Window({ url: "https://example.org/ben-yehuda?q=ה&rid=BY-03821" });
-  for (const key of ["document", "navigator", "HTMLElement", "Node", "Event", "MouseEvent", "DOMParser", "localStorage", "sessionStorage"]) {
+  for (const key of ["document", "navigator", "HTMLElement", "Node", "Event", "MouseEvent", "DOMParser", "Element", "PointerEvent", "FocusEvent", "KeyboardEvent", "localStorage", "sessionStorage"]) {
     vi.stubGlobal(key, (window as any)[key]);
   }
   vi.stubGlobal("window", window);
@@ -24,11 +24,12 @@ it("opens exact entries, collapses browse, persists independent options, follows
   vi.stubGlobal("requestAnimationFrame", (fn: FrameRequestCallback) => setTimeout(fn, 0));
   vi.stubGlobal("cancelAnimationFrame", clearTimeout);
   window.HTMLElement.prototype.scrollIntoView = vi.fn();
-  const fetcher = vi.fn().mockResolvedValue(new Response(JSON.stringify([{
+  const entryBody = JSON.stringify([{
     headword: "ה", rid: "BY-03821", parent_lexicon: "Ben Yehuda Dictionary",
-    content: { definition: ['<p>אות<sup class="footnote-marker">1</sup><i class="footnote">הערה</i></p>'] },
+    content: { definition: ['<p>אות, עי׳ כאן<sup class="footnote-marker">1</sup><i class="footnote">הערה</i></p>'] },
     next_hw: "הֵא I",
-  }])));
+  }]);
+  const fetcher = vi.fn().mockImplementation(async () => new Response(entryBody));
   vi.stubGlobal("fetch", fetcher);
   const { createRoot } = await import("react-dom/client");
   const { default: Page } = await import("./ben-yehuda");
@@ -37,7 +38,8 @@ it("opens exact entries, collapses browse, persists independent options, follows
   const style = document.createElement("style");
   style.textContent = readerCss;
   document.head.appendChild(style);
-  const root = createRoot(host);
+  localStorage.setItem("ben-yehuda-larger-text", "true");
+  let root = createRoot(host);
   const settle = async () => act(async () => { await new Promise(resolve => setTimeout(resolve, 120)); });
   try {
     await act(async () => root.render(<Page />));
@@ -47,17 +49,55 @@ it("opens exact entries, collapses browse, persists independent options, follows
     expect((host.querySelector('[data-testid="display-options"]') as HTMLDetailsElement).open).toBe(true);
     expect(host.querySelector('[data-testid="suggestion-0"]')).toBeNull();
     expect(host.querySelector(".by-footnote summary")).not.toBeNull();
-    const definition = window.document.querySelector('[data-testid="ben-yehuda-definition"]')!;
-    const initialSize = window.getComputedStyle(definition).fontSize;
-    await act(async () => (host.querySelector('[data-testid="checkbox-larger-text"]') as HTMLElement).click());
-    const enlargedDefinition = window.document.querySelector('[data-testid="ben-yehuda-definition"]')!;
-    expect(enlargedDefinition.classList.contains("text-lg")).toBe(true);
-    const largerSize = window.getComputedStyle(enlargedDefinition).fontSize;
-    expect(largerSize).not.toBe(initialSize);
-    expect(["1.125rem", "18px"]).toContain(largerSize);
-    expect(localStorage.getItem("ben-yehuda-larger-text")).toBe("true");
-    await act(async () => (host.querySelector('[data-testid="checkbox-larger-text"]') as HTMLElement).click());
-    expect(window.getComputedStyle(window.document.querySelector('[data-testid="ben-yehuda-definition"]')!).fontSize).toBe(initialSize);
+    const abbreviation = host.querySelector("button.bdb-abbreviation") as HTMLElement;
+    await act(async () => abbreviation.focus());
+    expect(document.querySelector('[role="tooltip"]')?.textContent).toContain("עיין");
+    await act(async () => abbreviation.click());
+    expect(document.querySelector('[role="dialog"]')?.textContent).toContain("עיין");
+    await act(async () => document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true })));
+    expect(document.querySelector("#bdb-abbreviation-explanation")).toBeNull();
+    const entries = () => host.querySelector('[data-testid="ben-yehuda-definition"]')!.closest("[data-by-size]") as HTMLElement;
+    expect(localStorage.getItem("ben-yehuda-larger-text")).toBeNull();
+    expect(localStorage.getItem("ben-yehuda-text-size")).toBe("large");
+    expect(entries().dataset.bySize).toBe("large");
+    expect((host.querySelector('[data-testid="button-text-size-large"]') as HTMLElement).getAttribute("aria-checked")).toBe("true");
+    await act(async () => (host.querySelector('[data-testid="button-text-size-large"]') as HTMLElement)
+      .dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })));
+    expect(entries().style.getPropertyValue("--by-size")).toBe("1.3125rem");
+    expect(localStorage.getItem("ben-yehuda-text-size")).toBe("extra-large");
+    const fontSelect = host.querySelector('[data-testid="select-hebrew-font"]') as HTMLSelectElement;
+    expect(fontSelect.value).toBe("assistant");
+    expect(fontSelect.options.length).toBe(7);
+    await act(async () => {
+      fontSelect.value = "frank-ruehl";
+      fontSelect.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    expect(localStorage.getItem("ben-yehuda-hebrew-font")).toBe("frank-ruehl");
+    expect(entries().style.getPropertyValue("--by-font")).toContain("Frank Ruhl Libre");
+    expect(readerCss).toContain("var(--by-font");
+    const expand = host.querySelector('[data-testid="checkbox-expand-inline"]') as HTMLInputElement;
+    expect(expand.checked).toBe(false);
+    await act(async () => expand.click());
+    expect(localStorage.getItem("ben-yehuda-expand-inline")).toBe("true");
+    expect(host.textContent).not.toContain("describes the dictionary as public domain");
+    expect(host.querySelectorAll("h2").length).toBeGreaterThan(0);
+    expect([...host.querySelectorAll("h2, button")].filter(el => /browse by letter/i.test(el.textContent || "") && el.tagName === "H2").length).toBe(1);
+    // Remount: preferences survive a reload.
+    await act(async () => root.unmount());
+    root = createRoot(host);
+    await act(async () => root.render(<Page />));
+    await settle();
+    expect(entries().dataset.bySize).toBe("extra-large");
+    expect((host.querySelector('[data-testid="select-hebrew-font"]') as HTMLSelectElement).value).toBe("frank-ruehl");
+    expect((host.querySelector('[data-testid="checkbox-expand-inline"]') as HTMLInputElement).checked).toBe(true);
+    localStorage.setItem("ben-yehuda-text-size", "huge");
+    localStorage.setItem("ben-yehuda-hebrew-font", "comic");
+    await act(async () => root.unmount());
+    root = createRoot(host);
+    await act(async () => root.render(<Page />));
+    await settle();
+    expect(localStorage.getItem("ben-yehuda-text-size")).toBe("medium");
+    expect(localStorage.getItem("ben-yehuda-hebrew-font")).toBe("assistant");
     expect((host.querySelector('[data-testid="checkbox-split-dashes"]') as HTMLInputElement).checked).toBe(true);
     await act(async () => (host.querySelector('[data-testid="checkbox-split-dashes"]') as HTMLElement).click());
     expect(localStorage.getItem("ben-yehuda-split-dashes")).toBe("false");

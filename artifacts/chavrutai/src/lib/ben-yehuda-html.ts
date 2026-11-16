@@ -1,7 +1,8 @@
 import { benYehudaHeadwordFromRef, benYehudaHref } from "@workspace/shared-data/ben-yehuda";
 import { convertSefariaLinksToInternal } from "./dictionary-format";
+import { annotateBenYehudaAbbreviations } from "./ben-yehuda-abbreviations";
 
-const TAGS = new Set(["A", "P", "DIV", "SPAN", "STRONG", "B", "EM", "I", "SUP", "SUB", "BR", "IMG", "SMALL"]);
+const TAGS = new Set(["A", "P", "DIV", "SPAN", "STRONG", "B", "EM", "I", "SUP", "SUB", "BR", "IMG", "SMALL", "Q", "BLOCKQUOTE"]);
 const CLASSES = new Set(["by-source", "footnote", "footnote-marker", "refLink"]);
 
 function safeLink(value: string): string | null {
@@ -44,7 +45,7 @@ function cleanTree(root: Element) {
 }
 
 /** Source HTML is sanitized before trusted, accessible footnote controls are built. */
-export function prepareBenYehudaHtml(paragraphs: string[], entryId: string, splitDashes = true): string {
+export function prepareBenYehudaHtml(paragraphs: string[], entryId: string, splitDashes = true, expandInline = false): string {
   if (typeof DOMParser === "undefined") return "";
   const doc = new DOMParser().parseFromString("", "text/html");
   const root = doc.createElement("div");
@@ -82,6 +83,7 @@ export function prepareBenYehudaHtml(paragraphs: string[], entryId: string, spli
     marker?.remove();
     note.replaceWith(details);
   }
+  annotateBenYehudaAbbreviations(root, expandInline);
   if (splitDashes) {
     const blocks = Array.from(root.querySelectorAll(".by-paragraph, .by-source-paragraph"))
       .filter(block => !block.querySelector(".by-paragraph"));
@@ -128,6 +130,7 @@ export function prepareBenYehudaHtml(paragraphs: string[], entryId: string, spli
 /** Deterministic paragraph boundaries; textContent alone concatenates paragraphs. */
 export function benYehudaCopyText(html: string): string {
   const doc = new DOMParser().parseFromString(html, "text/html");
+  doc.querySelectorAll("details:not([open]) > .by-footnote-body").forEach(node => node.remove());
   doc.querySelectorAll("br").forEach(node => node.replaceWith("\n"));
   doc.querySelectorAll("summary").forEach(node => node.replaceWith(`[${node.textContent}] `));
   doc.querySelectorAll("p, .by-paragraph, .by-source-paragraph, .by-dash-paragraph, .by-footnote-body").forEach(node => node.append("\n\n"));

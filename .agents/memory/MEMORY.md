@@ -30,7 +30,7 @@
 - [Jastrow HTML trust boundary](jastrow-html-trust-boundary.md) — sanitize final rendered HTML; happy-dom does not faithfully exercise DOMPurify, so test the explicit allowlist too.
 - [Transliteration verification](transliteration-pipeline-verification.md) — raw-string tests can miss upstream HTML boundaries; verify the affected rendered entry.
 - [BDB source metadata](bdb-source-metadata.md) — search can move headword subscripts into separate metadata; compare words and v3 text responses.
-- [Dictionary popover scope](bdb-experiment-scope.md) — abbreviation popovers approved for BDB and Jastrow; other readers remain outside scope.
+- [Dictionary popover scope](bdb-experiment-scope.md) — approved for BDB, Jastrow, and a reviewed context-aware Hebrew layer in Ben-Yehuda.
 - [DOM test dependency resolution](dom-test-resolution.md) — artifact-local DOM packages may need direct test imports when Vitest resolves environments from the workspace root.
 - [Basemap provider terms](basemap-provider-terms.md) — old keyless CARTO recipes are stale; English localization can still retain non-Latin fallback labels.
 - [Places references](places-references.md) — consult and link Hebrew Wikipedia for historical sites; distinguish ancient settlements from modern towns.
