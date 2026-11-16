@@ -172,6 +172,13 @@ const STATIC_MAP: Record<string, SEOEntry> = {
       "A searchable guide to abbreviations expanded in the Bekiut Jastrow Dictionary reader.",
     robots: "index, follow",
   },
+  "/ben-yehuda/abbreviations": {
+    title: "Ben-Yehuda Dictionary Abbreviations & Meanings | Bekiut",
+    description: "Search the reviewed Hebrew abbreviation mappings used in Bekiut’s Ben-Yehuda Dictionary reader, with meanings and grammatical, citation, and prose contexts.",
+    ogTitle: "Ben-Yehuda Dictionary Abbreviations & Meanings",
+    ogDescription: "A searchable reference for Hebrew abbreviations and their context-sensitive expansions in the Ben-Yehuda reader.",
+    robots: "index, follow",
+  },
   "/talmud/term-replacements": {
     title: "Talmud English Terms & Modern Replacements | Bekiut",
     description:

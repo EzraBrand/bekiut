@@ -15,7 +15,7 @@ export function generateDictionariesSitemap(req: Request, res: Response) {
   const paths = ["jastrow", "bdb", "ben-yehuda"].flatMap((dictionary) => [
     `/${dictionary}`,
     `/${dictionary}/headwords`,
-    ...(dictionary === "ben-yehuda" ? [] : [`/${dictionary}/abbreviations`]),
+    `/${dictionary}/abbreviations`,
     ...HEBREW_LETTERS.map(
       (letter) => `/${dictionary}/headwords/${encodeURIComponent(letter)}`,
     ),

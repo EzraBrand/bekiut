@@ -999,11 +999,17 @@ async function generateCrawlerBodyContent(
       }
     }
     nav += `</nav>`;
+  } else if (urlPath === '/ben-yehuda/abbreviations') {
+    heading = "Ben-Yehuda Abbreviations";
+    breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/ben-yehuda">Ben-Yehuda</a> &rsaquo; Abbreviations</nav>`;
+    body = `<p>${escapeHtml(seoData.description)}</p><p>Mappings distinguish explanatory prose, source citations, and opening grammatical labels. Ambiguous forms and divine-name spellings remain unchanged.</p>`;
+    nav = `<nav><a href="/ben-yehuda">Ben-Yehuda Dictionary Reader</a> · <a href="/jastrow/abbreviations">Jastrow Abbreviations</a> · <a href="/bdb/abbreviations">BDB Abbreviations</a></nav>`;
   } else if (urlPath === '/ben-yehuda' || urlPath.startsWith('/ben-yehuda/headwords')) {
     heading = "Ben-Yehuda Historical Hebrew Dictionary";
     breadcrumbs = `<nav aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/ben-yehuda">Ben-Yehuda</a></nav>`;
     body = `<p>Historical Hebrew dictionary by Eliezer Ben-Yehuda. Digitized by Project Ben-Yehuda, served by Sefaria. Browse a snapshot of 21,999 headwords across 22 letters.</p>`;
     nav = buildHebrewLetterNav('/ben-yehuda/headwords', 'Browse headwords by first letter');
+    nav += `<p><a href="/ben-yehuda/abbreviations">Ben-Yehuda Abbreviations</a></p>`;
     const query = searchParams.get("q");
     if (urlPath === '/ben-yehuda' && query) {
       const rid = searchParams.get("rid") || undefined;

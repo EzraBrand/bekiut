@@ -102,5 +102,6 @@ describe("production-style sitemap routing", () => {
     expect(mainXml).toContain("/talmud/term-replacements</loc>");
     expect(dictionariesXml).toContain("/jastrow/abbreviations</loc>");
     expect(dictionariesXml).toContain("/bdb/abbreviations</loc>");
+    expect(dictionariesXml).toContain("/ben-yehuda/abbreviations</loc>");
   });
 });

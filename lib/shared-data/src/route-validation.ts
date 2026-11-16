@@ -38,6 +38,7 @@ const STATIC_PATHS = new Set<string>([
   "/jastrow/headwords",
   "/bdb",
   "/ben-yehuda",
+  "/ben-yehuda/abbreviations",
   "/ben-yehuda/headwords",
   "/bdb-prefix-test",
   "/bdb/abbreviations",

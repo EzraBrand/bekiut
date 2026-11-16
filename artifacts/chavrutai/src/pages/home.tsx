@@ -301,6 +301,14 @@ export default function Home() {
               >
                 Open Jastrow ›
               </Link>
+              <div className="mt-6 pt-5 border-t border-border">
+                <h3 className="font-georgia text-lg mb-2">Ben-Yehuda Dictionary</h3>
+                <p className="text-sm text-muted-foreground mb-3">Hebrew of all periods, with definitions in Hebrew.</p>
+                <Link href="/ben-yehuda" className="text-sm hover:underline text-primary dark:text-[#5b9fc5]"
+                  data-testid="link-tool-ben-yehuda">
+                  Open Ben-Yehuda ›
+                </Link>
+              </div>
             </div>
             <div className="md:pl-8 py-4 md:py-0 border-t border-border md:border-t-0">
               <h3 className="font-georgia text-lg mb-2">BDB Bible Dictionary</h3>

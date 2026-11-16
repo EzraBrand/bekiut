@@ -108,6 +108,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/talmud/term-replacements', servePageWithMeta);
   app.get('/bdb', servePageWithMeta);
   app.get('/ben-yehuda', servePageWithMeta);
+  app.get('/ben-yehuda/abbreviations', servePageWithMeta);
   app.get('/ben-yehuda/headwords', servePageWithMeta);
   app.get('/ben-yehuda/headwords/:letter', servePageWithMeta);
   app.get('/bdb/abbreviations', servePageWithMeta);

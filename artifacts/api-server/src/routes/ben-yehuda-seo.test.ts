@@ -3,6 +3,7 @@ import { afterAll, beforeAll, expect, it, vi } from "vitest";
 import type { Server } from "node:http";
 import { servePageWithMeta, renderSeoEnhancement } from "./seo";
 import { injectJsonLd } from "@workspace/shared-data/json-ld";
+import { isKnownAppPath } from "@workspace/shared-data/route-validation";
 
 vi.mock("../lib/ben-yehuda", () => ({ searchBenYehuda: vi.fn().mockResolvedValue([]) }));
 let server: Server;
@@ -10,6 +11,7 @@ let baseUrl: string;
 beforeAll(async () => {
   const app = express();
   app.get("/ben-yehuda", servePageWithMeta);
+  app.get("/ben-yehuda/abbreviations", servePageWithMeta);
   await new Promise<void>((resolve, reject) => {
     server = app.listen(0, "127.0.0.1", error => error ? reject(error) : resolve());
   });
@@ -18,6 +20,16 @@ beforeAll(async () => {
   baseUrl = `http://127.0.0.1:${address.port}`;
 });
 afterAll(async () => { await new Promise<void>(resolve => server.close(() => resolve())); });
+
+it("serves the public abbreviation table with its own crawler title and known route", async () => {
+  expect(isKnownAppPath("/ben-yehuda/abbreviations")).toBe(true);
+  const response = await fetch(`${baseUrl}/ben-yehuda/abbreviations`, { headers: { "user-agent": "Googlebot" } });
+  expect(response.status).toBe(200);
+  const html = await response.text();
+  expect(html).toContain("Ben-Yehuda Dictionary Abbreviations");
+  expect(html).toContain("opening grammatical labels");
+  expect(html).toContain('href="/ben-yehuda"');
+});
 
 it("keeps script-closing Ben-Yehuda crawler queries inert in real HTML responses", async () => {
   const query = '</script><script id="injected">alert(1)</script><!--';

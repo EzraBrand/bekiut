@@ -29,6 +29,7 @@ const Contact = lazy(() => import("@/pages/contact"));
 const Privacy = lazy(() => import("@/pages/privacy"));
 const Jastrow = lazy(() => import("@/pages/jastrow"));
 const BenYehuda = lazy(() => import("@/pages/ben-yehuda"));
+const BenYehudaAbbreviations = lazy(() => import("@/pages/ben-yehuda-abbreviations"));
 const Bdb = lazy(() => import("@/pages/bdb"));
 const BdbAbbreviations = lazy(() => import("@/pages/bdb-abbreviations"));
 const BdbPrefixTest = lazy(() => import("@/pages/bdb-prefix-test"));
@@ -129,6 +130,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/jastrow" component={Jastrow} />
       <Route path="/jastrow/abbreviations" component={JastrowAbbreviations} />
+      <Route path="/ben-yehuda/abbreviations" component={BenYehudaAbbreviations} />
       <Route path="/talmud/term-replacements" component={TalmudTermReplacements} />
       <Route path="/jastrow/headwords/:letter">
         {(params) => <LexiconHeadwords lexiconKey="jastrow" letter={params.letter} />}

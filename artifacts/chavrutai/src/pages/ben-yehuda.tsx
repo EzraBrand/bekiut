@@ -88,6 +88,10 @@ export default function BenYehuda() {
               </li>
             </ul>
             <p className="text-xs text-muted-foreground">
+              <Link href="/ben-yehuda/abbreviations" className="text-primary hover:underline" data-testid="link-abbreviations">
+                Browse the abbreviation mappings →
+              </Link>
+              {" · "}
               <a href="https://benyehuda.org/page/english" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Source and digitization</a>
               {" · "}
               <a href="https://www.sefaria.org/Ben_Yehuda_Dictionary,_Prolegomena" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Prolegomena on Sefaria</a>

@@ -3,6 +3,7 @@ import { Link } from "wouter";
 const RESOURCES = [
   { href: "/bdb/abbreviations", label: "BDB abbreviations" },
   { href: "/jastrow/abbreviations", label: "Jastrow abbreviations" },
+  { href: "/ben-yehuda/abbreviations", label: "Ben-Yehuda abbreviations" },
   { href: "/talmud/term-replacements", label: "Talmud term replacements" },
 ];
 
