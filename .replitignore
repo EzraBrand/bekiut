@@ -26,6 +26,7 @@ artifacts/bekiut-demo/exports/
 /artifacts/mockup-sandbox/
 /.canvas/
 /scripts/.cache/
+/scripts/hebrew-selection-lookup-blogpost.md
 /generated-artifacts/
 
 # Keep node_modules, scripts, patches, talmud-data, public assets and build

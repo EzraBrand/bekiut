@@ -504,3 +504,73 @@ mtime_ms = 1794817272961
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/b7fa8ba9-7b0f-4884-94d2-8d4829d37892/86853381-eae2-4ad5-8ee1-22d7995f404a"
 storage_version_token = "1794817476509354"
 content_type = "text/csv"
+
+[[outputs]]
+id = "Lr0EZUZXRBJElqCwrFB15"
+uri = "file://scripts/hebrew-selection-lookup-blogpost.md"
+type = "text"
+title = "Hebrew selection lookup — blog post draft"
+description = "Approximately two pages of main text, a technical appendix, and four screenshot placeholders with suggested captions."
+logical_id = "7d919ae7-0a85-47c8-9291-841d3c3c28dd"
+content_hash = "sha256:268f6bf84c1300096796254e9dfc36d65656cd639c62e18f6e19e1e799e6d46b"
+size = 11646
+mtime_ms = 1794992115204
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/7d919ae7-0a85-47c8-9291-841d3c3c28dd/f79b097b-f50d-4337-bc31-c28c7ac961d7"
+storage_version_token = "1794992131179561"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "_D3XCqdkcXKabX9csIboQ"
+uri = "file://screenshots/hebrew-lookup-tablet-reader.jpg"
+type = "image"
+title = "Tablet reader overview"
+description = "820 × 1180 tablet-sized capture of Bekhorot 61a for the blog post."
+logical_id = "78f3e510-a249-431e-8ba8-26cdfcac91d6"
+content_hash = "sha256:3f5639d596d8919091a2952d81a74ec5898270b91c0a40a082c2bf7ee22e6ea7"
+size = 91323
+mtime_ms = 1794992035610
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/78f3e510-a249-431e-8ba8-26cdfcac91d6/52adf819-191a-4278-85d1-0bae225630de"
+storage_version_token = "1794992132494010"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "US06XoTgyHjDkQIvj-bOv"
+uri = "file://screenshots/hebrew-lookup-tablet-english-wiktionary.jpg"
+type = "image"
+title = "English Wiktionary preview"
+description = "820 × 1180 tablet-sized capture of Bekhorot 61a for the blog post."
+logical_id = "056d29d6-6f4b-4a49-bc3f-1bfa30e62360"
+content_hash = "sha256:3615786aff57da4371e1f1d51ca6ada584b54ba3ec0d68fe070ec55e0a8cce7f"
+size = 142217
+mtime_ms = 1794992078456
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/056d29d6-6f4b-4a49-bc3f-1bfa30e62360/adbdefb6-2f13-4831-849f-6d5fee27a55f"
+storage_version_token = "1794992133781263"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "3-xvCfGgrPh2emHfx5bzf"
+uri = "file://screenshots/hebrew-lookup-tablet-hebrew-wiktionary.jpg"
+type = "image"
+title = "Hebrew Wiktionary preview"
+description = "820 × 1180 tablet-sized capture of Bekhorot 61a for the blog post."
+logical_id = "68bf40fa-5d89-4e1c-8b10-3d3840a6ef49"
+content_hash = "sha256:9b8c4c50e32b873b51a3d0abeafb8efe0392bc52005a369f3e7d0197e107ecd6"
+size = 144389
+mtime_ms = 1794992079556
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/68bf40fa-5d89-4e1c-8b10-3d3840a6ef49/a390e844-c8f5-4213-8d44-a9f5a46a3130"
+storage_version_token = "1794992135075969"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "oFpoqkeeWFn3FdzTM_6Ox"
+uri = "file://screenshots/hebrew-lookup-tablet-phrase.jpg"
+type = "image"
+title = "Contextual phrase lookup"
+description = "820 × 1180 tablet-sized capture of Bekhorot 61a for the blog post."
+logical_id = "06bd9d72-7b9a-41c8-a7e4-797f8e727536"
+content_hash = "sha256:ad060956176e34846b094ddc148a643eba7447cf7aab920d54e1af198ee1478d"
+size = 139735
+mtime_ms = 1794992080136
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:d45a8400-c767-4411-ae94-e845d0995313/06bd9d72-7b9a-41c8-a7e4-797f8e727536/aa5a8df0-c62f-4c2b-847c-6bbd00abb1f3"
+storage_version_token = "1794992136390470"
+content_type = "image/jpeg"

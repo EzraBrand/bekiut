@@ -16,12 +16,14 @@ interface SectionedBilingualDisplayProps {
   text: TalmudText;
   onSectionVisible?: (sectionNumber: number) => void;
   onSectionInteraction?: () => void;
+  enableHebrewLookup?: boolean;
 }
 
 export function SectionedBilingualDisplay({
   text,
   onSectionVisible,
   onSectionInteraction,
+  enableHebrewLookup = false,
 }: SectionedBilingualDisplayProps) {
   const { preferences } = usePreferences();
   const { data: gazetteerData, isLoading: isGazetteerLoading, error: gazetteerError } = useGazetteerData(preferences.highlighting.enabled);
@@ -663,7 +665,8 @@ export function SectionedBilingualDisplay({
                 {/* Hebrew Section (Second on Mobile, Right Side on Desktop) */}
                 <div className="text-column space-y-3 lg:order-2">
                   {section.hebrewLines.length > 0 && (
-                    <div className={`hebrew-text text-foreground ${getHebrewFontClass()}`}>
+                    <div className={`hebrew-text text-foreground ${getHebrewFontClass()}`}
+                      data-hebrew-lookup-ref={enableHebrewLookup ? `${text.tractate} ${text.folio}${text.side}` : undefined}>
                       {section.hebrewLines.map((lineHtml, lineIndex) => (
                         <p 
                           key={lineIndex} 

@@ -5,6 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Home, ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionedBilingualDisplay } from "@/components/text/sectioned-bilingual-display";
+import { HebrewSelectionLookup } from "@/components/text/hebrew-selection-lookup";
 import { PageNavigation } from "@/components/navigation/page-navigation";
 import { HamburgerMenu } from "@/components/navigation/hamburger-menu";
 import { CenteredBreadcrumbNav } from "@/components/navigation/centered-breadcrumb-nav";
@@ -46,6 +47,7 @@ export default function TractateView() {
 
   const [currentSection, setCurrentSection] = useState<number>(1);
   const lastTrackedTextRef = useRef("");
+  const passageRoot = useRef<HTMLDivElement>(null);
   const engagedTextRef = useRef("");
   
   // Prefetch adjacent pages for faster navigation
@@ -263,7 +265,8 @@ export default function TractateView() {
 
         {/* Text Content */}
         {text && !isLoading && (
-          <div className="space-y-6">
+          <div className="space-y-6" ref={passageRoot} tabIndex={-1}>
+            <HebrewSelectionLookup key={`${text.tractate}-${text.folio}${text.side}`} root={passageRoot} />
             {/* Section numeral links */}
             {(() => {
               const totalSections = Math.max(
@@ -290,6 +293,7 @@ export default function TractateView() {
               ) : null;
             })()}
             <SectionedBilingualDisplay 
+              enableHebrewLookup
               text={text} 
               onSectionVisible={handleSectionVisible}
               onSectionInteraction={() => trackReaderEngaged('section_interaction')}

@@ -37,6 +37,10 @@ export default function Changelog() {
         <div className="py-8 border-t border-border">
           <SectionHeading className="mb-4">November 2026</SectionHeading>
           <div className="text-muted-foreground mb-4">
+            <h3 className="font-medium text-foreground mb-2">Hebrew selection lookup in the Bavli reader</h3>
+            <p>Select a Hebrew word for on-demand Jastrow, Ben-Yehuda, BDB, English Wiktionary, or Hebrew Wiktionary snippets. Wiktionary previews use its public APIs, with source attribution and full-entry and search links. Select a phrase to ask Google AI with the passage reference, with ordinary Google Search as a fallback. Lookups start only when clicked; dictionary previews keep your reading position.</p>
+          </div>
+          <div className="text-muted-foreground mb-4">
             <h3 className="font-medium text-foreground mb-2">Ben-Yehuda Dictionary reader</h3>
             <p>Added a reader for Eliezer Ben-Yehuda's Hebrew dictionary (digitized by Project Ben-Yehuda, served live by Sefaria), with pointed and unpointed suggestions, a browsable headword index, previous and next entry navigation, and collapsible notes.</p>
             <p className="mt-2">Restored Sefaria’s linked citations, with supported references opening in Bekiut, and fixed unwanted line breaks around closed footnote numbers.</p>
