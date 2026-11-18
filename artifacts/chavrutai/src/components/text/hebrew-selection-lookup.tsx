@@ -5,6 +5,7 @@ import { DICTIONARY_LABELS, type DictionaryId } from "@/lib/dictionary-search";
 import { fetchSelectionDictionary, type DictionaryPreview } from "@/lib/selection-dictionary";
 import { LatestRequest } from "@/lib/latest-request";
 import { fetchWiktionaryPreview, type WiktionaryLanguage } from "@/lib/wiktionary-preview";
+import "./hebrew-selection-lookup.css";
 
 type LookupId = DictionaryId | "wiktionary-en" | "wiktionary-he";
 const labels: Record<LookupId, string> = {
@@ -103,7 +104,7 @@ export function HebrewSelectionLookup({ root }: { root: RefObject<HTMLDivElement
   if (!selection) return null;
   return createPortal(
     <div ref={panel} role="region" aria-label="Hebrew selection lookup" dir="ltr"
-      className="fixed z-[60] bottom-3 left-3 right-3 sm:left-auto sm:w-[28rem] rounded-sm border border-border bg-card text-foreground shadow-lg p-3 text-base max-h-[45dvh] overflow-y-auto"
+      className="hebrew-selection-lookup z-[60] rounded-sm border border-border bg-card text-foreground shadow-lg p-3 text-base"
       onMouseDown={event => { if ((event.target as HTMLElement).closest("button,a")) event.preventDefault(); }}>
       <div className="flex items-start justify-between gap-3 mb-2">
         <div className="min-w-0"><p className="text-xs text-muted-foreground">{selection.reference}</p>

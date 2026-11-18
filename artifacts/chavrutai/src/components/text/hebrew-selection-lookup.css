@@ -1,0 +1,28 @@
+.hebrew-selection-lookup {
+  position: fixed;
+  bottom: .75rem;
+  left: .75rem;
+  right: .75rem;
+  max-height: 45dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 640px) {
+  .hebrew-selection-lookup {
+    left: auto;
+    width: 28rem;
+  }
+}
+
+/* Chrome's contextual-search tray overlays the page without reliably resizing
+   the viewport. Keep touch lookups away from that browser-owned bottom edge.
+   Include coarse pointers so landscape phones do not revert to bottom docking.
+   Preserve native selection/copy rather than clearing it to dismiss the tray. */
+@media (max-width: 639px), (pointer: coarse) {
+  .hebrew-selection-lookup {
+    top: calc(.75rem + env(safe-area-inset-top, 0px));
+    bottom: auto;
+    max-height: min(60dvh, calc(100dvh - 10rem - env(safe-area-inset-top, 0px)));
+  }
+}

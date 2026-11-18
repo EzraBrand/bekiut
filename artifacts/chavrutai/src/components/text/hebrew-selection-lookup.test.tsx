@@ -2,8 +2,45 @@ import React, { act } from "react";
 import { Window } from "happy-dom";
 import { afterEach, expect, it, vi } from "vitest";
 import { HebrewSelectionLookup } from "./hebrew-selection-lookup";
+import { readFileSync } from "node:fs";
+const lookupCss = readFileSync(new URL("./hebrew-selection-lookup.css", import.meta.url), "utf8");
 
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
+
+it("top-docks mobile lookup cards with scrolling and keeps desktop bottom docking", () => {
+  const win = new Window();
+  win.happyDOM.setWindowSize({ width: 393, height: 750 });
+  const style = win.document.createElement("style");
+  // happy-dom mis-evaluates comma-separated media queries as AND. Exercise
+  // the width branch in isolation; browsers apply either branch (OR).
+  expect(lookupCss).toContain("@media (max-width: 639px), (pointer: coarse)");
+  style.textContent = lookupCss.replace(
+    "@media (max-width: 639px), (pointer: coarse)", "@media (max-width: 639px)",
+  );
+  win.document.head.append(style);
+  const card = win.document.createElement("div");
+  card.className = "hebrew-selection-lookup";
+  win.document.body.append(card);
+  const mobile = win.getComputedStyle(card);
+  expect(mobile.bottom).toBe("auto");
+  expect(mobile.top).toContain("safe-area-inset-top");
+  expect(mobile.maxHeight).toContain("160px");
+  expect(mobile.overflowY).toBe("auto");
+  expect(mobile.overscrollBehavior).toBe("contain");
+  // Use a fresh document: happy-dom retains computed media styles on resize.
+  const desktopWindow = new Window();
+  desktopWindow.happyDOM.setWindowSize({ width: 1280, height: 900 });
+  const desktopStyle = desktopWindow.document.createElement("style");
+  desktopStyle.textContent = style.textContent;
+  desktopWindow.document.head.append(desktopStyle);
+  const desktopCard = desktopWindow.document.createElement("div");
+  desktopCard.className = "hebrew-selection-lookup";
+  desktopWindow.document.body.append(desktopCard);
+  const desktop = desktopWindow.getComputedStyle(desktopCard);
+  expect(desktop.bottom).toBe("12px");
+  expect(desktop.maxHeight).toBe("45dvh");
+  expect(desktop.width).toBe("448px");
+});
 
 it("loads only on click, ignores late results, preserves selection and supports keyboard dismissal", async () => {
   const win = new Window({ url: "https://example.com/talmud/Berakhot/2a" });

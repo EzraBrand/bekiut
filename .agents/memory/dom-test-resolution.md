@@ -13,3 +13,9 @@ Load stylesheet text directly from disk for computed-style tests when Vitest CSS
 **Why:** Even a CSS `?raw` import returned an empty string in the frontend test runner, making valid font-size rules appear broken in happy-dom.
 
 **How to apply:** Inject the actual file contents into the test document before measuring styles; do not rely on a CSS import being populated.
+
+Do not treat happy-dom's responsive CSS results as a real browser layout test.
+
+**Why:** Its media matcher can return false for a comma-separated OR query even when one branch matches, and computed media styles can remain cached after resizing.
+
+**How to apply:** Test width branches in fresh documents with explicit window sizes; isolate a media-query branch when necessary and document the limitation. Native Android Chrome selection trays cannot be reproduced by DOM tests.
